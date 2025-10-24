@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2025-10-24T20:40:25.654Z",
+  "generatedAt": "2025-10-24T21:29:15.332Z",
   "albums": [
     {
       "id": "yosemite",
@@ -66,7 +66,7 @@
     },
     {
       "id": "sequoia",
-      "title": "sequoia",
+      "title": "sequoia & kings canyon",
       "sequence": 3,
       "assets": [
         {
@@ -82,7 +82,7 @@
           "url": "/parks/sequoia/2.jpg",
           "caption": "",
           "format": "",
-          "sequence": 1,
+          "sequence": 2,
           "hidden": false
         },
         {
@@ -90,7 +90,7 @@
           "url": "/parks/sequoia/3.jpg",
           "caption": "",
           "format": "",
-          "sequence": 1,
+          "sequence": 3,
           "hidden": false
         }
       ]
@@ -119,6 +119,68 @@
         {
           "id": "zion-3.jpg",
           "url": "/parks/zion/3.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 3,
+          "hidden": false
+        }
+      ]
+    },
+    {
+      "id": "teton",
+      "title": "grand teton & yellowstone",
+      "sequence": 5,
+      "assets": [
+        {
+          "id": "teton-1.jpg",
+          "url": "/parks/teton/1.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        },
+        {
+          "id": "teton-2.jpg",
+          "url": "/parks/teton/2.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 2,
+          "hidden": false
+        },
+        {
+          "id": "teton-3.jpg",
+          "url": "/parks/teton/3.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 3,
+          "hidden": false
+        }
+      ]
+    },
+    {
+      "id": "redwoods",
+      "title": "redwoods",
+      "sequence": 6,
+      "assets": [
+        {
+          "id": "redwoods-1.jpg",
+          "url": "/parks/redwoods/1.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        },
+        {
+          "id": "redwoods-2.jpg",
+          "url": "/parks/redwoods/2.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 2,
+          "hidden": false
+        },
+        {
+          "id": "redwoods-3.jpg",
+          "url": "/parks/redwoods/3.jpg",
           "caption": "",
           "format": "",
           "sequence": 3,

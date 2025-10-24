@@ -5,7 +5,7 @@ export default function Home() {
     <main className="relative min-h-dvh flex items-center justify-center md:block px-4 sm:px-6 py-16">
       <div className="text-center md:text-left md:absolute md:top-[25%] md:left-[25%] md:-translate-x-1/2 md:-translate-y-1/2">
         <h1 className="text-4xl sm:text-5xl md:text-5xl font-medium mb-4">
-          Ryan Gumlia
+          ryan gumlia
         </h1>
 
         <nav className="flex flex-col space-y-3 sm:space-y-2 md:pl-4 text-neutral-500 text-base sm:text-lg">
