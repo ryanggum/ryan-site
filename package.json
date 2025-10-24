@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
 	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
+		"ingest": "tsx scripts/ingest.ts",
+		"dev": "npm run ingest && next dev",
+		"build": "npm run ingest && next build",
 		"start": "next start",
 		"lint": "eslint",
 		"postbuild": "next-sitemap"
@@ -23,6 +24,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.0",
     "tailwindcss": "^4",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   }
 }

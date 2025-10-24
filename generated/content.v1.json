@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "generatedAt": "2025-10-24T20:40:25.654Z",
+  "albums": [
+    {
+      "id": "yosemite",
+      "title": "yosemite",
+      "sequence": 1,
+      "assets": [
+        {
+          "id": "yosemite-1.jpg",
+          "url": "/parks/yosemite/1.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        },
+        {
+          "id": "yosemite-2.jpg",
+          "url": "/parks/yosemite/2.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 2,
+          "hidden": false
+        },
+        {
+          "id": "yosemite-3.jpg",
+          "url": "/parks/yosemite/3.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 3,
+          "hidden": false
+        }
+      ]
+    },
+    {
+      "id": "joshua",
+      "title": "joshua tree",
+      "sequence": 2,
+      "assets": [
+        {
+          "id": "joshua-1.jpg",
+          "url": "/parks/joshua/1.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        },
+        {
+          "id": "joshua-2.jpg",
+          "url": "/parks/joshua/2.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        },
+        {
+          "id": "joshua-3.jpg",
+          "url": "/parks/joshua/3.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        }
+      ]
+    },
+    {
+      "id": "sequoia",
+      "title": "sequoia",
+      "sequence": 3,
+      "assets": [
+        {
+          "id": "sequoia-1.jpg",
+          "url": "/parks/sequoia/1.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        },
+        {
+          "id": "sequoia-2.jpg",
+          "url": "/parks/sequoia/2.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        },
+        {
+          "id": "sequoia-3.jpg",
+          "url": "/parks/sequoia/3.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        }
+      ]
+    },
+    {
+      "id": "zion",
+      "title": "zion",
+      "sequence": 4,
+      "assets": [
+        {
+          "id": "zion-1.jpg",
+          "url": "/parks/zion/1.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 1,
+          "hidden": false
+        },
+        {
+          "id": "zion-2.jpg",
+          "url": "/parks/zion/2.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 2,
+          "hidden": false
+        },
+        {
+          "id": "zion-3.jpg",
+          "url": "/parks/zion/3.jpg",
+          "caption": "",
+          "format": "",
+          "sequence": 3,
+          "hidden": false
+        }
+      ]
+    }
+  ]
+}

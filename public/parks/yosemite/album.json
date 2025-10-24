@@ -1,0 +1,10 @@
+{
+  "id": "yosemite",
+  "title": "yosemite",
+  "sequence": 1,
+  "assets": [
+    { "file": "1.jpg", "sequence": 1, "caption": "", "format": "" },
+    { "file": "2.jpg", "sequence": 2, "caption": "", "format": "" },
+    { "file": "3.jpg", "sequence": 3, "caption": "", "format": "" }
+  ]
+}
