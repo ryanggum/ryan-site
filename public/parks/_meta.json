@@ -1,0 +1,23 @@
+{
+  "order": ["yosemite", "joshua", "sequoia", "zion"],
+
+  "parks": {
+    "yosemite": {
+      "title": "yosemite",
+      "order": ["1.jpg", "2.jpg", "3.jpg"]
+    },
+    "joshua": {
+      "title": "joshua tree",
+      "order": ["1.jpg", "2.jpg", "3.jpg"]
+    },
+    "sequoia": {
+      "title": "sequoia",
+      "order": ["1.jpg", "2.jpg", "3.jpg"]
+    },
+		"zion": {
+      "title": "zion",
+      "order": ["1.jpg", "2.jpg", "3.jpg"]
+    },
+    "OldUnusedFolder": { "hidden": true }
+  }
+}

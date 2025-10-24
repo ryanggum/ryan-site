@@ -1,4 +1,4 @@
-
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -17,9 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ryangumlia.com"),
   title: "Ryan Gumlia",
   description: "Ryan Gumlia",
-  alternates: {
-    canonical: "https://ryangumlia.com",
-  },
+  alternates: { canonical: "https://ryangumlia.com" },
   openGraph: {
     title: "Ryan Gumlia",
     description: "Ryan Gumlia",
@@ -36,9 +34,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
@@ -49,18 +45,18 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Ryan Gumlia",
-              "url": "https://ryangumlia.com",
-              "sameAs": [
+              name: "Ryan Gumlia",
+              url: "https://ryangumlia.com",
+              sameAs: [
                 "https://www.linkedin.com/in/ryangumlia",
                 // "https://github.com/ryangumlia"
-              ]
+              ],
             }),
           }}
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh overscroll-none`}
       >
         {children}
       </body>
