@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ryangumlia.com
+
+# Sitemaps
+Sitemap: https://ryangumlia.com/sitemap.xml
