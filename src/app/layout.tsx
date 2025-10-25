@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryangumlia.com"),
   title: "Ryan Gumlia",
-  description: "Ryan Gumlia",
+  description: "I'm a senior Humanities major at Yale heading into L&C at D. E. Shaw & Co.," +
+	"and I'm broadly interested in law, linguistics, and tech.",
   alternates: { canonical: "https://ryangumlia.com" },
   openGraph: {
     title: "Ryan Gumlia",
@@ -24,11 +25,6 @@ export const metadata: Metadata = {
     url: "https://ryangumlia.com",
     siteName: "Ryan Gumlia",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ryan Gumlia",
-    description: "Ryan Gumlia",
   },
 };
 
