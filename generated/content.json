@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-25T18:42:41.933Z",
+  "generatedAt": "2025-10-25T18:47:44.378Z",
   "albums": [
     {
       "id": "joshua_1",
@@ -18,14 +18,14 @@
           "url": "/parks/joshua_1/2.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 1
+          "sequence": 2
         },
         {
           "id": "joshua_1-3.jpg",
           "url": "/parks/joshua_1/3.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 1
+          "sequence": 3
         }
       ]
     },
@@ -68,13 +68,6 @@
           "caption": "",
           "orientation": "landscape",
           "sequence": 5
-        },
-        {
-          "id": "yosemite-6.jpg",
-          "url": "/parks/yosemite/6.jpg",
-          "caption": "",
-          "orientation": "portrait",
-          "sequence": 6
         },
         {
           "id": "yosemite-7.jpg",
