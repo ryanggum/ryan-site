@@ -11,9 +11,9 @@ import {
 } from "../src/lib/manifest";
 
 const ROOT = process.cwd();
-const PUBLIC_PARKS = path.join(ROOT, "public", "parks");
-const GENERATED_DIR = path.join(ROOT, "generated");
-const MANIFEST_PATH = path.join(GENERATED_DIR, "content.json");
+const PUBLIC_DIR = path.join(ROOT, "public");                 // <-- define this
+const PUBLIC_PARKS = path.join(PUBLIC_DIR, "parks");
+const MANIFEST_PATH = path.join(PUBLIC_DIR, "content.json");  // <-- write to /public
 const LOCALE_OPTS: Intl.CollatorOptions = { numeric: true, sensitivity: "base" };
 
 // --- utils ---
@@ -111,7 +111,7 @@ async function main() {
     albums,
   };
 
-  await fs.mkdir(GENERATED_DIR, { recursive: true });
+  await fs.mkdir(PUBLIC_DIR, { recursive: true });           // <-- ensure /public exists
   const tmp = `${MANIFEST_PATH}.tmp`;
   await fs.writeFile(tmp, JSON.stringify(manifest, null, 2), "utf8");
   await fs.rename(tmp, MANIFEST_PATH);

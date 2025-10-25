@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
 	"scripts": {
-		"ingest": "tsx scripts/ingest.ts",
-		"dev": "npm run ingest && next dev",
-		"build": "npm run ingest && next build",
+		"prebuild": "tsx scripts/ingest.ts", 
+		"dev": "next dev", 
+		"build": "next build",
 		"start": "next start",
 		"lint": "eslint",
 		"postbuild": "next-sitemap"

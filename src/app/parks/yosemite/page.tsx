@@ -1,19 +1,23 @@
 // app/parks/yosemite/page.tsx
+import { headers } from "next/headers";
 import Link from "next/link";
-import { readManifestQuiet } from "@/lib/manifest";
-import DisplayGrid from "../DisplayGrid"; // one folder up ✅
+import DisplayGrid from "../DisplayGrid";
+import type { Manifest } from "@/lib/manifest";
+import { fetchManifestQuiet } from "@/lib/manifest";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function YosemitePage() {
-  const manifest = await readManifestQuiet();
-  const yosemiteAlbum = manifest?.albums?.find((a: any) => a.id === "yosemite");
+  const h = await headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host")!;
+  const proto = h.get("x-forwarded-proto") ?? "https";
 
+  const manifest: Manifest | null = await fetchManifestQuiet(`${proto}://${host}`);
+
+  const yosemiteAlbum = manifest?.albums?.find((a) => a.id === "yosemite");
   const images: string[] =
-    yosemiteAlbum?.assets
-      ?.filter((x: any) => !x.hidden)
-      .map((x: any) => x.url) ?? [];
+    yosemiteAlbum?.assets?.filter((x) => !x.hidden).map((x) => x.url) ?? [];
 
   const hasImages = images.length > 0;
 

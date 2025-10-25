@@ -1,57 +1,32 @@
 // app/parks/page.tsx
 
-import fs from "node:fs/promises";
-import path from "node:path";
+import { headers } from "next/headers";
 import Link from "next/link";
 import DisplayGrid from "./DisplayGrid";
 
-import type {
-  Manifest,
-  ManifestAsset,
-  AlbumJson,
-  AssetMeta,
-} from "@/lib/manifest";
+import type { Manifest } from "@/lib/manifest";
+import { fetchManifestQuiet } from "@/lib/manifest";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const PREVIEW_LIMIT = 3;
 
-type AnyAsset = ManifestAsset | AssetMeta;
-
-// Type guards (local, minimal)
-const hasUrl = (a: AnyAsset): a is ManifestAsset =>
-  a != null && typeof a === "object" && "url" in a;
-const hasFile = (a: AnyAsset): a is AssetMeta =>
-  a != null && typeof a === "object" && "file" in a;
-
 export type Park = { name: string; title: string; images: string[] };
 
 export default async function ParksPage() {
-  const manifestPath = path.join(process.cwd(), "generated", "content.json");
+  const h = await headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host")!;
+  const proto = h.get("x-forwarded-proto") ?? "https";
 
-  let data: Manifest | { albums: AlbumJson[] } | null = null;
-  try {
-    const raw = await fs.readFile(manifestPath, "utf8");
-    data = JSON.parse(raw) as Manifest | { albums: AlbumJson[] };
-  } catch {
-    data = null;
-  }
+  const manifest: Manifest | null = await fetchManifestQuiet(`${proto}://${host}`);
 
   const parks: Park[] =
-    data?.albums?.map((a: Manifest["albums"][number] | AlbumJson) => {
-      const images = (a.assets as AnyAsset[])
-        .filter((x) => !("hidden" in x && x.hidden)) // respect hidden when present
+    manifest?.albums.map((a) => {
+      const images = a.assets
+        .filter((x) => !x.hidden)
         .slice(0, PREVIEW_LIMIT)
-        .map((x) =>
-          hasUrl(x)
-            ? x.url
-            : hasFile(x)
-            ? // fallback to raw album.json shape -> public path
-              `/parks/${a.id}/${x.file}`
-            : null
-        )
-        .filter((u): u is string => Boolean(u));
+        .map((x) => x.url);
 
       return { name: a.id, title: a.title, images };
     }) ?? [];
@@ -59,7 +34,9 @@ export default async function ParksPage() {
   return (
     <main className="relative min-h-dvh px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-10 sm:py-14 md:py-20 select-none">
       <header className="mb-8 sm:mb-12 flex flex-col items-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2">parks</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2">
+          parks
+        </h1>
         <Link
           href="/"
           className="text-neutral-500 text-base sm:text-lg hover:text-neutral-700 transition-colors"
@@ -85,7 +62,7 @@ export default async function ParksPage() {
           ))
         ) : (
           <p className="text-center text-neutral-500">
-            No parks found. Generate a manifest at <code>generated/content.json</code>.
+            No parks found. Generate a manifest at <code>public/content.json</code>.
           </p>
         )}
       </div>

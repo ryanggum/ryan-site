@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ryangumlia.com"),
   title: "Ryan Gumlia",
   description: "I'm a senior Humanities major at Yale heading into L&C at D. E. Shaw & Co.," +
-	"and I'm broadly interested in law, linguistics, and tech.",
+	" and I'm broadly interested in law, linguistics, and tech.",
   alternates: { canonical: "https://ryangumlia.com" },
   openGraph: {
     title: "Ryan Gumlia",

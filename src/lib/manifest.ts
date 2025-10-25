@@ -1,8 +1,5 @@
 // src/lib/manifest.ts
 
-import fs from "node:fs/promises";
-import path from "node:path";
-
 // ===== canonical types =====
 export type Orientation = "landscape" | "portrait";
 
@@ -43,13 +40,29 @@ export type AlbumJson = {
   assets: AssetMeta[];
 };
 
-// ===== quiet reader (returns null on miss) =====
-export async function readManifestQuiet(
-  file = path.join(process.cwd(), "generated", "content.json")
-): Promise<Manifest | null> {
+/**
+ * Fetch the manifest from /content.json (served from /public).
+ *
+ * @param origin Optional absolute origin (e.g. "https://example.com").
+ *               If omitted, uses NEXT_PUBLIC_SITE_URL, then http://localhost:3000 (dev).
+ * @returns Manifest or null on any failure.
+ *
+ * Usage in a server component:
+ *   const h = await headers();
+ *   const host = h.get("x-forwarded-host") ?? h.get("host")!;
+ *   const proto = h.get("x-forwarded-proto") ?? "https";
+ *   const manifest = await fetchManifestQuiet(`${proto}://${host}`);
+ */
+export async function fetchManifestQuiet(origin?: string): Promise<Manifest | null> {
+  const base =
+    origin ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "http://localhost:3000"; // sensible dev fallback
+
   try {
-    const raw = await fs.readFile(file, "utf8");
-    return JSON.parse(raw) as Manifest;
+    const res = await fetch(`${base}/content.json`, { cache: "no-store" });
+    if (!res.ok) return null;
+    return (await res.json()) as Manifest;
   } catch {
     return null;
   }
