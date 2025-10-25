@@ -1,34 +1,6 @@
 {
-  "generatedAt": "2025-10-25T19:04:29.769Z",
+  "generatedAt": "2025-10-25T19:11:20.867Z",
   "albums": [
-    {
-      "id": "joshua_1",
-      "title": "joshua tree 1",
-      "sequence": 0,
-      "assets": [
-        {
-          "id": "joshua_1-1.jpg",
-          "url": "/parks/joshua_1/1.jpg",
-          "caption": "",
-          "orientation": "landscape",
-          "sequence": 1
-        },
-        {
-          "id": "joshua_1-2.jpg",
-          "url": "/parks/joshua_1/2.jpg",
-          "caption": "",
-          "orientation": "landscape",
-          "sequence": 2
-        },
-        {
-          "id": "joshua_1-3.jpg",
-          "url": "/parks/joshua_1/3.jpg",
-          "caption": "",
-          "orientation": "landscape",
-          "sequence": 3
-        }
-      ]
-    },
     {
       "id": "yosemite",
       "title": "yosemite",
@@ -254,6 +226,34 @@
         {
           "id": "redwoods-3.jpg",
           "url": "/parks/redwoods/3.jpg",
+          "caption": "",
+          "orientation": "landscape",
+          "sequence": 3
+        }
+      ]
+    },
+    {
+      "id": "joshua_1",
+      "title": "joshua tree 1",
+      "sequence": 7,
+      "assets": [
+        {
+          "id": "joshua_1-1.jpg",
+          "url": "/parks/joshua_1/1.jpg",
+          "caption": "",
+          "orientation": "landscape",
+          "sequence": 1
+        },
+        {
+          "id": "joshua_1-2.jpg",
+          "url": "/parks/joshua_1/2.jpg",
+          "caption": "",
+          "orientation": "landscape",
+          "sequence": 2
+        },
+        {
+          "id": "joshua_1-3.jpg",
+          "url": "/parks/joshua_1/3.jpg",
           "caption": "",
           "orientation": "landscape",
           "sequence": 3

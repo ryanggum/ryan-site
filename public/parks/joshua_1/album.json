@@ -1,7 +1,7 @@
 {
   "id": "joshua_1",
   "title": "joshua tree 1",
-  "sequence": 0,
+  "sequence": 7,
   "assets": [
     { "file": "1.jpg", "sequence": 1, "caption": "", "format": "", "orientation": "landscape" },
     { "file": "2.jpg", "sequence": 2, "caption": "", "format": "", "orientation": "landscape" },
