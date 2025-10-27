@@ -1,3 +1,4 @@
+// src/app/page.tsx
 import Link from "next/link";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
         <nav className="flex flex-col space-y-3 sm:space-y-2 md:pl-4 text-neutral-500 text-base sm:text-lg">
           <Link
             href="/parks"
-            className="inline-flex items-center gap-1 hover:text-neutral-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded"
+            className="inline-flex w-fit items-center gap-1 hover:text-neutral-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded"
             aria-label="Open parks gallery"
           >
             <span>parks</span>
