@@ -2,8 +2,9 @@
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import type { Photo } from "@/lib/types";
+import Lightbox, { type LightboxItem } from "./LightBox";
 
 type GridItem = { src: StaticImageData | string; alt: string };
 
@@ -40,20 +41,6 @@ function DisplayGridBase({
     );
   }, [images, title]);
 
-  useEffect(() => {
-    if (active === null) return;
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtmlOverflow = html.style.overflow;
-    const prevBodyOverflow = body.style.overflow;
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    return () => {
-      html.style.overflow = prevHtmlOverflow;
-      body.style.overflow = prevBodyOverflow;
-    };
-  }, [active]);
-
   return (
     <>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
@@ -80,27 +67,11 @@ function DisplayGridBase({
       </div>
 
       {active !== null && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Image viewer"
-          onClick={() => setActive(null)}
-        >
-          {/* Make everything except the image itself click-through */}
-          <div className="pointer-events-none relative max-w-[100vw] sm:max-w-[92vw] max-h-[88vh] flex items-center justify-center">
-            <div className="pointer-events-none relative w-[96vw] sm:w-[90vw] h-[80vh]">
-              <Image
-                src={items[active].src}
-                alt={items[active].alt}
-                fill
-                className="pointer-events-auto object-contain"
-                priority
-                onClick={(e) => e.stopPropagation()}
-              />
-            </div>
-          </div>
-        </div>
+        <Lightbox
+          item={items[active] as LightboxItem}
+          title="Image viewer"
+          onClose={() => setActive(null)}
+        />
       )}
     </>
   );
