@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-25T19:11:20.867Z",
+  "generatedAt": "2025-10-26T04:28:13.780Z",
   "albums": [
     {
       "id": "yosemite",
@@ -7,88 +7,88 @@
       "sequence": 1,
       "assets": [
         {
-          "id": "yosemite-1.jpg",
-          "url": "/parks/yosemite/1.jpg",
-          "caption": "",
+          "id": "yosemite-glacier_1.jpg",
+          "url": "/parks/yosemite/glacier_1.jpg",
+          "caption": "Half Dome from Glacier Point",
+          "orientation": "landscape",
+          "sequence": 0
+        },
+        {
+          "id": "yosemite-glacier_2.jpg",
+          "url": "/parks/yosemite/glacier_2.jpg",
+          "caption": "From Glacier Point",
           "orientation": "landscape",
           "sequence": 1
         },
         {
-          "id": "yosemite-2.jpg",
-          "url": "/parks/yosemite/2.jpg",
-          "caption": "",
+          "id": "yosemite-flower.jpg",
+          "url": "/parks/yosemite/flower.jpg",
+          "caption": "Flower",
           "orientation": "landscape",
           "sequence": 2
         },
         {
-          "id": "yosemite-3.jpg",
-          "url": "/parks/yosemite/3.jpg",
-          "caption": "",
+          "id": "yosemite-clouds.jpg",
+          "url": "/parks/yosemite/clouds.jpg",
+          "caption": "Clouds",
           "orientation": "landscape",
           "sequence": 3
         },
         {
-          "id": "yosemite-4.jpg",
-          "url": "/parks/yosemite/4.jpg",
-          "caption": "",
+          "id": "yosemite-valley_1.jpg",
+          "url": "/parks/yosemite/valley_1.jpg",
+          "caption": "Tunnel View",
           "orientation": "landscape",
           "sequence": 4
         },
         {
-          "id": "yosemite-5.jpg",
-          "url": "/parks/yosemite/5.jpg",
-          "caption": "",
+          "id": "yosemite-capitan.jpg",
+          "url": "/parks/yosemite/capitan.jpg",
+          "caption": "El Capitan",
           "orientation": "landscape",
           "sequence": 5
         },
         {
-          "id": "yosemite-7.jpg",
-          "url": "/parks/yosemite/7.jpg",
-          "caption": "",
+          "id": "yosemite-valley_2.jpg",
+          "url": "/parks/yosemite/valley_2.jpg",
+          "caption": "Evening Walls",
+          "orientation": "landscape",
+          "sequence": 6
+        },
+        {
+          "id": "yosemite-valley_3.jpg",
+          "url": "/parks/yosemite/valley_3.jpg",
+          "caption": "Half Dome from Valley",
           "orientation": "landscape",
           "sequence": 7
         },
         {
-          "id": "yosemite-8.jpg",
-          "url": "/parks/yosemite/8.jpg",
-          "caption": "",
-          "orientation": "portrait",
+          "id": "yosemite-falls_1.jpg",
+          "url": "/parks/yosemite/falls_1.jpg",
+          "caption": "Falls",
+          "orientation": "landscape",
           "sequence": 8
         },
         {
-          "id": "yosemite-9.jpg",
-          "url": "/parks/yosemite/9.jpg",
-          "caption": "",
+          "id": "yosemite-valley_4.jpg",
+          "url": "/parks/yosemite/valley_4.jpg",
+          "caption": "Valley",
           "orientation": "landscape",
           "sequence": 9
         },
         {
-          "id": "yosemite-10.jpg",
-          "url": "/parks/yosemite/10.jpg",
-          "caption": "",
+          "id": "yosemite-granite.jpg",
+          "url": "/parks/yosemite/granite.jpg",
+          "caption": "Granite",
           "orientation": "landscape",
           "sequence": 10
         },
         {
-          "id": "yosemite-11.jpg",
-          "url": "/parks/yosemite/11.jpg",
+          "id": "yosemite-falls_2.jpg",
+          "url": "/parks/yosemite/falls_2.jpg",
           "caption": "",
-          "orientation": "portrait",
+          "orientation": "landscape",
           "sequence": 11
-        },
-        {
-          "id": "yosemite-12.jpg",
-          "url": "/parks/yosemite/12.jpg",
-          "caption": "",
-          "orientation": "landscape",
-          "sequence": 12
-        },
-        {
-          "id": "yosemite-13.jpg",
-          "url": "/parks/yosemite/13.jpg",
-          "caption": "",
-          "orientation": "landscape",
-          "sequence": 13
         }
       ]
     },
@@ -102,7 +102,7 @@
           "url": "/parks/joshua_2/1.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 1
+          "sequence": 0
         },
         {
           "id": "joshua_2-2.jpg",
@@ -116,7 +116,7 @@
           "url": "/parks/joshua_2/3.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 1
+          "sequence": 2
         }
       ]
     },
@@ -130,21 +130,21 @@
           "url": "/parks/sequoia/1.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 1
+          "sequence": 0
         },
         {
           "id": "sequoia-2.jpg",
           "url": "/parks/sequoia/2.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 2
+          "sequence": 1
         },
         {
           "id": "sequoia-3.jpg",
           "url": "/parks/sequoia/3.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 3
+          "sequence": 2
         }
       ]
     },
@@ -158,21 +158,21 @@
           "url": "/parks/zion/1.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 1
+          "sequence": 0
         },
         {
           "id": "zion-2.jpg",
           "url": "/parks/zion/2.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 2
+          "sequence": 1
         },
         {
           "id": "zion-3.jpg",
           "url": "/parks/zion/3.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 3
+          "sequence": 2
         }
       ]
     },
@@ -186,21 +186,21 @@
           "url": "/parks/teton/1.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 1
+          "sequence": 0
         },
         {
           "id": "teton-2.jpg",
           "url": "/parks/teton/2.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 2
+          "sequence": 1
         },
         {
           "id": "teton-3.jpg",
           "url": "/parks/teton/3.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 3
+          "sequence": 2
         }
       ]
     },
@@ -214,21 +214,21 @@
           "url": "/parks/redwoods/1.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 1
+          "sequence": 0
         },
         {
           "id": "redwoods-2.jpg",
           "url": "/parks/redwoods/2.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 2
+          "sequence": 1
         },
         {
           "id": "redwoods-3.jpg",
           "url": "/parks/redwoods/3.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 3
+          "sequence": 2
         }
       ]
     },
@@ -242,21 +242,21 @@
           "url": "/parks/joshua_1/1.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 1
+          "sequence": 0
         },
         {
           "id": "joshua_1-2.jpg",
           "url": "/parks/joshua_1/2.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 2
+          "sequence": 1
         },
         {
           "id": "joshua_1-3.jpg",
           "url": "/parks/joshua_1/3.jpg",
           "caption": "",
           "orientation": "landscape",
-          "sequence": 3
+          "sequence": 2
         }
       ]
     }

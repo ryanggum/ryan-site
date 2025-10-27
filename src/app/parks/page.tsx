@@ -1,42 +1,26 @@
-// app/parks/page.tsx
-
-import { headers } from "next/headers";
+// src/app/parks/page.tsx
 import Link from "next/link";
-import DisplayGrid from "./DisplayGrid";
+import DisplayGrid from "./components/DisplayGrid";
 
-import type { Manifest } from "@/lib/manifest";
-import { fetchManifestQuiet } from "@/lib/manifest";
+import { albums } from "@/lib/albums";
+import type { AlbumModule } from "@/lib/types";
+import type { StaticImageData } from "next/image";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
-const PREVIEW_LIMIT = 3;
-
-export type Park = { name: string; title: string; images: string[] };
+export type Park = { name: string; title: string; images: StaticImageData[] };
 
 export default async function ParksPage() {
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host")!;
-  const proto = h.get("x-forwarded-proto") ?? "https";
-
-  const manifest: Manifest | null = await fetchManifestQuiet(`${proto}://${host}`);
-
-  const parks: Park[] =
-    manifest?.albums.map((a) => {
-      const images = a.assets
-        .filter((x) => !x.hidden)
-        .slice(0, PREVIEW_LIMIT)
-        .map((x) => x.url);
-
-      return { name: a.id, title: a.title, images };
-    }) ?? [];
+  const parks: Park[] = await Promise.all(
+    albums.map(async (a) => {
+      const mod = (await import(`@/app/assets/parks/${a.slug}/photos`)) as AlbumModule;
+      const images = mod.default.filter(p => p.preview).map(p => p.src);
+      return { name: a.slug, title: a.title, images };
+    })
+  );
 
   return (
     <main className="relative min-h-dvh px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-10 sm:py-14 md:py-20 select-none">
       <header className="mb-8 sm:mb-12 flex flex-col items-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2">
-          parks
-        </h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2">parks</h1>
         <Link
           href="/"
           className="text-neutral-500 text-base sm:text-lg hover:text-neutral-700 transition-colors"
@@ -62,7 +46,7 @@ export default async function ParksPage() {
           ))
         ) : (
           <p className="text-center text-neutral-500">
-            No parks found. Generate a manifest at <code>public/content.json</code>.
+						
           </p>
         )}
       </div>
