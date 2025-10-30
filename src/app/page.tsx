@@ -13,6 +13,10 @@ export default function Home() {
           I'm a senior Humanities major at Yale heading into L&amp;C at D. E. Shaw &amp; Co., broadly interested in law, linguistics, and tech.
         </p>
 
+				<p className="text-sm sm:text-base mb-1 text-black dark:text-white transition-colors whitespace-normal break-words">
+          Also, 35mm film.
+        </p>
+
         {/* Indented nav restored */}
         <nav className="flex flex-col space-y-3 sm:space-y-2 pl-4 md:pl-6 text-neutral-500 dark:text-neutral-400 text-base sm:text-lg">
           <Link
