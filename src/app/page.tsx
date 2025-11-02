@@ -14,7 +14,7 @@ export default function Home() {
         </p>
 
 				<p className="text-sm sm:text-base mb-1 text-black dark:text-white transition-colors whitespace-normal break-words">
-          Also, 35mm film.
+          Also, 35mm film:
         </p>
 
         {/* Indented nav restored */}
@@ -22,7 +22,7 @@ export default function Home() {
           <Link
             href="/parks"
             className="inline-flex w-fit items-center gap-1 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded"
-            aria-label="Open parks gallery"
+            aria-label=""
           >
             <span>parks</span>
             <span aria-hidden>→</span>

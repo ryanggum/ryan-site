@@ -7,9 +7,16 @@ export type Photo = {
   preview?: boolean;
 };
 
+export type Quote = {
+	text: string;
+	author: string;
+}
+
 export type AlbumMeta = Readonly<{
   slug: string;
   title: string;
+	quote?: Quote;
+	desc?: string;
 }>;
 
 // Reusable “default export” module helper.
