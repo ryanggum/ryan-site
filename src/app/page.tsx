@@ -18,7 +18,7 @@ export default function Home() {
   if (isMobile === null) return <main className="min-h-dvh" />;
 
   const bg = isMobile ? BACKGROUNDS[1] : BACKGROUNDS[0];
-  const textColor = bg.tone === "dark" ? "text-white/10" : "text-black/10";
+	const textColor = isMobile ? "text-black" : bg.tone === "dark" ? "text-white/10" : "text-black/10";
 
   return (
     <main
@@ -33,16 +33,16 @@ export default function Home() {
         />
       )}
 
-      <div
-        className={`
-          text-left max-w-[65ch]
-          -translate-y-32 sm:translate-y-0
-          md:fixed md:top-[35%] md:left-[25%] md:-translate-y-1/2
-          ${textColor}
-          md:mix-blend-difference md:text-white
-          pointer-events-none select-none
-        `}
-      >
+			<div
+				className={`
+					text-left max-w-[65ch]
+					-translate-y-32 sm:translate-y-0
+					md:fixed md:top-[35%] md:left-[25%] md:-translate-y-1/2
+					${textColor}
+					${!isMobile ? "md:mix-blend-difference md:text-white" : ""}
+					pointer-events-none select-none
+				`}
+			>
         <h1 className="text-4xl sm:text-5xl md:text-5xl font-medium mb-4">
           ryan gumlia
         </h1>
@@ -55,14 +55,14 @@ export default function Home() {
           Also, 35mm film:
         </p>
 
-        <nav className="flex flex-col space-y-3 sm:space-y-2 pl-4 md:pl-6 pointer-events-auto select-auto">
-          <Link
-            href="/parks"
-            className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400"
-          >
-            <span>parks→</span>
-          </Link>
-        </nav>
+<nav className="flex flex-col space-y-3 sm:space-y-2 pl-4 md:pl-6 pointer-events-auto select-auto">
+  <Link
+    href="/parks"
+    className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base"
+  >
+    <span>parks→</span>
+  </Link>
+</nav>
       </div>
     </main>
   );
