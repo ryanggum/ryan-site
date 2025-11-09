@@ -29,7 +29,7 @@ export default function Home() {
   className="
     relative min-h-dvh flex items-center justify-center
     px-4 sm:px-6 py-16 bg-cover bg-center
-    overflow-y-hidden md:overflow-y-auto
+    overflow-y-auto
   "
   style={{ backgroundImage: `url('${bg.url}')` }}
 >
@@ -37,19 +37,20 @@ export default function Home() {
   <img
     src="/bg-d.jpg"
     alt=""
-    className="hidden md:block absolute top-0 left-0 w-screen h-auto pointer-events-none"
+    className="
+      hidden md:block absolute top-0 left-0 w-screen h-auto pointer-events-none select-none
+    "
   />
 
 <div
   className={`
     text-left max-w-[65ch]
     -translate-y-32 sm:translate-y-0
-
-    md:fixed md:top-[40%] md:left-[25%] md:-translate-y-1/2
-
+    md:fixed md:top-[35%] md:left-[25%] md:-translate-y-1/2
     ${textColor}
-
     md:mix-blend-difference md:text-white
+    pointer-events-none
+    select-none
   `}
 >
         <h1 className="text-4xl sm:text-5xl md:text-5xl font-medium mb-4">
@@ -64,7 +65,9 @@ export default function Home() {
           Also, 35mm film:
         </p>
 
-<nav className="flex flex-col space-y-3 sm:space-y-2 pl-4 md:pl-6">
+<nav className="flex flex-col space-y-3 sm:space-y-2 pl-4 md:pl-6 pointer-events-auto select-auto">
+
+
   <Link
     href="/parks"
     className="
