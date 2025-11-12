@@ -39,7 +39,7 @@ export default function Home() {
         className={`
           text-left max-w-[65ch]
           -translate-y-32 sm:translate-y-0
-          md:fixed md:top-[35%] md:left-[25%] md:-translate-y-1/2
+          md:fixed md:top-[36%] md:left-[25%] md:-translate-y-1/2
           ${textColor}
           ${!isMobile ? "md:mix-blend-difference md:text-white" : ""}
           pointer-events-none select-none
@@ -56,22 +56,24 @@ export default function Home() {
 
         <p className="text-sm sm:text-base mb-1 whitespace-normal break-words">Also:</p>
 
-        <nav className="flex flex-col pl-4 md:pl-6 pointer-events-auto select-auto">
-          <Link
-            href="/parks"
-            className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5"
-          >
-            <span>film (photos)→</span>
-          </Link>
-          <Link
-            href="https://letterboxd.com/ryanggum/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base"
-          >
-            <span>films (letterboxd)→</span>
-          </Link>
-        </nav>
+			<div className="pl-4 md:pl-6">
+				<nav className="flex flex-col items-start w-fit pointer-events-auto select-auto">
+					<Link
+						href="/parks"
+						className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5"
+					>
+						<span>film (photos)→</span>
+					</Link>
+					<Link
+						href="https://letterboxd.com/ryanggum/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base"
+					>
+						<span>films (letterboxd)→</span>
+					</Link>
+				</nav>
+			</div>
       </div>
     </main>
   );
