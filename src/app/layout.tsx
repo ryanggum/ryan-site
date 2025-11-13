@@ -34,7 +34,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* ✅ Person schema for Google Knowledge Graph */}
+        <link rel="preload" as="image" href="/bg-d.jpg" />
+        <link rel="preload" as="image" href="/bg-m.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
