@@ -39,7 +39,7 @@ export default function Home() {
         className={`
           text-left max-w-[65ch]
           -translate-y-32 sm:translate-y-0
-          md:fixed md:top-[36%] md:left-[25%] md:-translate-y-1/2
+          md:fixed md:top-[36%] md:left-[24%] md:-translate-y-1/2
           text-black md:text-white md:mix-blend-difference
           pointer-events-none select-none
         `}
@@ -47,28 +47,39 @@ export default function Home() {
         <h1 className="text-4xl sm:text-5xl md:text-5xl font-medium mb-4">
           ryan gumlia
         </h1>
-        <p className="text-sm sm:text-base mb-3 break-words">
+        <p className="text-sm sm:text-base mb-2 break-words">
           I'm a senior Humanities major at Yale heading into L&amp;C at D. E. Shaw &amp; Co., broadly
-          interested in law, linguistics, and tech.
+          interested in law, linguistics, and tech. Also:
         </p>
-        <p className="text-sm sm:text-base mb-1 break-words">Also:</p>
         <div className="pl-4 md:pl-6">
           <nav className="flex flex-col items-start w-fit pointer-events-auto">
-            <Link
-              href="/parks"
-              prefetch={false}
-              className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5"
-            >
-              <span>film (photos)→</span>
-            </Link>
-            <a
-              href="https://letterboxd.com/ryanggum/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base"
-            >
-              <span>films (letterboxd)→</span>
-            </a>
+						<span>
+							{"film "} 
+							<Link href="/parks" prefetch={false} className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5">
+								<span>(parks→)</span>
+							</Link>
+							{/* {" "}
+							<Link href="/random" prefetch={false} className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5">
+								<span>(otm→)</span>
+							</Link> */}
+						</span>
+						<span>
+							{"films "}
+							<a
+								href="https://letterboxd.com/ryanggum/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base"
+							>
+								<span>(letterboxd→)</span>
+							</a>
+						</span>
+						<span>
+							{"and writing "}
+							<Link href="/posts" prefetch={false} className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5">
+								<span>(posts→)</span>
+							</Link>
+						</span>
           </nav>
         </div>
       </div>
