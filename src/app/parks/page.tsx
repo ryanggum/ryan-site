@@ -25,7 +25,7 @@ export default async function ParksPage() {
           href="/"
           className="text-neutral-500 text-base sm:text-lg hover:text-neutral-700 transition-colors"
         >
-          ← ryan gumlia
+          ←ryan gumlia
         </Link>
       </header>
 

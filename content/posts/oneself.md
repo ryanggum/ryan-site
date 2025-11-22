@@ -1,7 +1,7 @@
 Dear Professor F—., 
 
 My name is Ryan Gumlia, I am from Southern California, and I do not know how to
-balance the aesthetic and the ethical in my writing. Everything else follows from these facts, 
+balance the aesthetic and the ethical in my writing. Everything else follows, 
 but most significantly, two reasons I want to take your class: I have
 questions and I love [n] ^ writing.
 
@@ -82,7 +82,7 @@ the interplay between form and content is illuminating—that my desire is, at i
 still a desire to understand the other, and at its most, capable of an even more salient
 understanding. It’s to try for what lives in between the word boundaries, what shapes
 the morphemes, to beg for a grasp of the function that maps signified to sign and is
-thus applicable to all. This may be a fool’s errand. My premise that each of us refracts in
+thus applicable to all. This may be a fool’s errand. My premise that each of us refract in
 our writing via a unique and externally legible Rosetta Stone could just follow from
 naive egocentrism. Even if so, I proffer the positive externality of warmth. My tries
 manifest in close reading, in longform questions in longform responses, and in

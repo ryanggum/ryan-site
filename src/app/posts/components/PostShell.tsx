@@ -1,6 +1,7 @@
 // src/app/posts/components/PostShell.tsx
 
 import Link from "next/link";
+import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 const shell =
@@ -11,9 +12,11 @@ const backLink =
 
 export default function PostShell({
   title,
+  image,
   children,
 }: {
   title: string;
+  image?: StaticImageData; // <-- optional Next.js image import
   children: ReactNode;
 }) {
   return (
@@ -23,11 +26,20 @@ export default function PostShell({
           {title}
         </h1>
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 mb-4">
           <Link href="/posts" className={backLink}>
-            ← posts
+            ←posts
           </Link>
         </div>
+
+        {image && (
+          <Image
+            src={image}
+            alt={title}
+            className="max-h-60 w-auto"
+            priority
+          />
+        )}
       </header>
 
       <article className="prose dark:prose-invert max-w-[75ch] mx-auto [&_p]:my-3">
