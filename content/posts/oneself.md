@@ -42,7 +42,7 @@ placed as a reminder that I did not want a verb form, it’s a head notation I l
 “Morphology I” this semester: immediately parsable, and thus enriching, for me, but I
 imagine less for, if not at all, and thus potentially offensive to, others. I leave it as
 example of the hyperreferential and (yes) alienating mode I list toward of late, a
-modernish juxtaposition of everything, everywhere, all at once, a—I’ve defended—meticulous and excited treatment of all atoms for word and life.
+modernish juxtaposition of everything, everywhere, all at once, a—I’ve defended—meticulous and excited treatment of all atoms the of word and life.
 
 I owe this list to my most recent influence. Kierkegaard’s proven determinant on my
 approach to writing, but Proust and Joyce (in that order) have stoked it most proper. (in
@@ -65,7 +65,7 @@ it in an over-intellectualization of the writing act and Kierkegaard. I want to 
 and I want badly for others to take pleasure in how I say it. I apply to your class also
 because I want to improve. I want to sharpen this craft that is one of our best ways to
 share: my passion for lattes and freeways, my knotted dilemmas at studying Lukács
-before laying over in finance on the way to law school. And if I come on strong with my
+before laying over in finance. And if I come on strong with my
 questions, I hope I don’t impress that I am interested merely in transaction, in
 graduating with definite answers or clearer conscience. Just as my aesthetic-ethical
 framework developed in the company of three friends, I hope it may as well dissolve and

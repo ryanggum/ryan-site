@@ -36,7 +36,7 @@ export default function PostShell({
           <Image
             src={image}
             alt={title}
-            className="max-h-60 w-auto"
+            className="max-h-75 w-auto"
             priority
           />
         )}
