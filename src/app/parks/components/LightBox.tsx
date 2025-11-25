@@ -1,3 +1,4 @@
+// src/app/parks/components/LightBox.tsx
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
