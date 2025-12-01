@@ -38,7 +38,7 @@ export default function WalrusPage()
 				where does it all belong? Probably not Here, There and Every—wait.<Footnote index={11} vis={vis}>The Beatles, "—where."</Footnote>  
 				Let’s try that. Okay… I really want to stop the show, because I think you might like to know, yes! 
 				That the writer’s gonna right a wrong, and I want you all to read along, wow. 
-				So let me introduce to you the one and only—uh, who the fuck is Billy Shears?
+				So let me introduce to you the one and only—who the fuck is Billy Shears?
 				<Footnote index={12} vis={vis}>The Beatles, "Sgt. Pepper's Lonely Hearts Club Band."</Footnote> 
 			</p>
 			<p>
@@ -67,7 +67,7 @@ export default function WalrusPage()
 				you are composing—not merely stringing that web of associations—you are building with the mortar of your intellect a towering self. 
 			</p>
 			<p>
-				If you ask who is steering this ship, you ask whether such a totalizing intertextuality doesn’t efface some essence, 
+				If you ask who is steering this ship, you ask right whether such a totalizing intertextuality doesn’t efface some essence, 
 				doesn’t disintegrate some vocal muscle that no multiple of 42<Footnote index={14} vis={vis}>Fairlife.</Footnote> can save. 
 				You point out that such deafening displays of allusion might hamstring the non-associative, 
 				foreclose novelty, even inspire LLM-type spirals into muddled on muddled on nothing. 
@@ -93,7 +93,7 @@ export default function WalrusPage()
 				I am as though annihilated, as though paralyzed.<Footnote index={24} vis={vis}>Kierkegaard, <i>Fear and Trembling</i>.</Footnote>
 				I fall down—I am brought to my knees by the millions of bits that cry out in terror and are suddenly silenced. 
 				How do you not cry out! The spotlights her on fire, and we are breathing in, aren’t we all choking on the smoke? 
-				Not a drill nor a dream, Sophie cannot not lose her religion: she is one. 
+				Not a drill nor a dream, Sophie cannot lose her religion: she is one. 
 			</p>
 			<p>
 				Heavy is my head that voices desire. 
@@ -113,7 +113,7 @@ export default function WalrusPage()
 			<p>
 				We both know it is better to speak.<Footnote index={27} vis={vis}>Guadagnino.</Footnote> 
 				I know it is better to join you on the shore than the sea. 
-				Where in pale blue and a hint of pink the sun dresses the coast. Where glimmers pool in rock-snagged tides and basketballs arc in budding dusk. 
+				Where in pale blue and a hint of pink the sun dresses the coast. Where glimmers pool when rocks trap the tide and basketballs arc in budding dusk. 
 				I ask if you have any water. Sorry, I mean I want water. A band strums to the waves nearby. Will you be going tomorrow? 
 				Jesus, no, I say I want to go with you. Their rhythm rises in the purple twilight, and my feet begin to tap. Fuck, no, those were mistakes! 
 				I didn’t hear you—what song? Please, I know I ordered the peppermint mocha, but he knew it, too. I asked for coffee, I woke up to climb, please. 
@@ -158,7 +158,7 @@ export default function WalrusPage()
 				illegible to monologue. I had found in the modernists a trap to be escaped, but perhaps they really shared a new way to live. 
 				For December, I reach differently. 
 				Equipped with new lows of information access and a taste for sensory risk, I mean to abandon the self to a new being and hopefully others, too. 
-				I hope to think less, and I hope to be affected. I look forward to seeing the wake. 
+				I hope to think less. I hope to affect and be affected. I look forward to seeing the wake. 
 			</p>
     </PostShell>
   );
