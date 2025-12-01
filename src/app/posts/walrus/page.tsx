@@ -99,11 +99,10 @@ export default function WalrusPage()
 				Heavy is my head that voices desire. 
 				Uneasy should be any that hears the hitch.<Footnote index={25} vis={vis}>Shakespeare, <i>Henry IV</i>.</Footnote>  
 				Our fabric is so light, so thinly strung that every assertion risks slicing us through a space’s time. 
-				Hooray that our swift faculties can calculate every line! 
-				That we can arm ourselves with deniabilities and hold the balance in a language of feints. 
+				Hooray that our swift faculties can calculate every line, that we can arm ourselves with deniabilities and hold the balance in a language of feints. 
 				Fear no misunderstanding: the evaluation bar does not struggle with subjunctives. 
-				Impalpable initiatives still hallow immortal squares. We merely paint with brushes dipped in whispering currents—of 
-				unborn sequences and unknown sacrifice. Don’t we always speak with possibilities? 
+				Impalpable initiatives still hallow immortal squares—we merely paint with brushes dipped in the whispering currents, 
+				of unborn sequences and unknown sacrifice. Don’t we always speak with possibilities? 
 				So few moves will be played, how could we be poorer for thinking every turn? Do we even need the end? 
 				Oh, Sophie, the end! We are safer here in machination. Can you really bear the toppled crown? 
 				See tearlessly him that couldn’t see far enough? 
@@ -113,12 +112,12 @@ export default function WalrusPage()
 			<p>
 				We both know it is better to speak.<Footnote index={27} vis={vis}>Guadagnino.</Footnote> 
 				I know it is better to join you on the shore than the sea. 
-				Where in pale blue and a hint of pink the sun dresses the coast. Where glimmers pool when rocks trap the tide and basketballs arc in budding dusk. 
-				I ask if you have any water. Sorry, I mean I want water. A band strums to the waves nearby. Will you be going tomorrow? 
+				Where in pale blue and a hint of pink the sun dresses the coast. Where glimmers pool as rocks trap the tide and basketballs arc in a budding dusk. 
+				I ask if you have any water. <i>Sorry, I mean I want water.</i> A band strums to the waves nearby. <i>Will you be going tomorrow?</i> 
 				Jesus, no, I say I want to go with you. Their rhythm rises in the purple twilight, and my feet begin to tap. Fuck, no, those were mistakes! 
-				I didn’t hear you—what song? Please, I know I ordered the peppermint mocha, but he knew it, too. I asked for coffee, I woke up to climb, please. 
+				I didn’t hear you—what song? Please, I know I ordered the peppermint mocha, but he knew it, too. I asked for coffee, and I woke up to climb, please. 
 				A car door slams. The sands don’t feel his steps. He produces a bass guitar. 
-				Weber has arrived to make me dance until I die.<Footnote index={28} vis={vis}>DZ.</Footnote> 
+				Weber has arrived to make me dance until I die.<Footnote index={28} vis={vis}>DZ: "Weber would make you dance and study you."</Footnote> 
 				I will speak anyway. I promise that my flesh will draw apart an abstract standing. 
 				A new splatter of fortitude, this, a praying face to the sea.<Footnote index={29} vis={vis}><i>Redwoods</i>.</Footnote> 
 			</p>
@@ -126,13 +125,14 @@ export default function WalrusPage()
 				<i>3. What was optimization?</i>
 			</p>
 			<p>
-				For the worse part of a year I made u-turns. It did not matter the route. 
-				Whether I was picking up a friend from the airport or sharing music with the suburbs, 
-				at any moment a lurch would restore my attention. A pothole? Likely. But could I rule out a cyclist? 
-				My share in a felony hit and run? Always choosing—between the options of keeping driving or, for the cost of a mile, 
-				merging into the left lane—the latter, I would drive through the scene again completely alert, 
+				For the worse part of a year I made u-turns. It did not matter the route, 
+				not whether I was picking up a friend from the airport or sharing music with the suburbs. 
+				At any moment a lurch could restore my attention. A pothole? Likely. But could I rule out a cyclist? 
+				My share in a felony hit and run? Always choosing—between the options of keeping driving 
+				and risking four years in state prison or, for the cost of a mile, 
+				merging into the left lane—the latter, I'd drive through the scene again completely alert, 
 				music turned off and windows rolled down, sensitive to any texture of the road, rumble of the car, or 
-				corpse strewn on the curb. Every time I was completely satisfied that I hadn’t murdered a cyclist on my first pass. 
+				corpse strewn across the curb. Every time I was completely satisfied that I hadn’t murdered a cyclist on my first pass. 
 				But what if I had on the second?
 			</p>
 			<p>
@@ -153,14 +153,14 @@ export default function WalrusPage()
 				assuredly deceived subjectivity. In steads, I let myself to the mercy of too-long-forgotten and delightfully 
 				pecuilar sociality. Hello, friend with carabiner! Are you familiar with the Helix? Go down a size, you say? 
 				If I were Achilles, I would already be dead! It was a short fight in the swells of contingency, but one quite 
-				exciting and already in advance demanding of continued sensation, lest, for instance, my Scarpa’s fail me sufficiently 
-				for return. I once argued that we are only conscious while we calculate, that there is fathomable no existence 
-				illegible to monologue. I had found in the modernists a trap to be escaped, but perhaps they really shared with us a way to live. 
+				exciting and already in advance demanding of continued sensation, lest, for instance, my Scarpa’s fail sufficiently 
+				for a return. I once argued that we are only conscious while we calculate, that there is fathomable no existence 
+				illegible to monologue. I had found in the modernists a trap to be escaped, but perhaps they shared with us a way to live. 
 			</p>
 			<p>
 				For December, I plan to reach differently. 
 				Equipped with new lows of information access and a taste for sensory risk, I mean to abandon the self to a new being and hopefully others, too. 
-				I hope to think less. I hope to affect and be affected. I look forward to seeing the wake. 
+				I hope to think less. I hope to affect and be affected. And I look forward to seeing the wake. 
 			</p>
     </PostShell>
   );
