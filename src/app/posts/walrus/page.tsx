@@ -155,8 +155,10 @@ export default function WalrusPage()
 				If I were Achilles, I would already be dead! It was a short fight in the swells of contingency, but one quite 
 				exciting and already in advance demanding of continued sensation, lest, for instance, my Scarpa’s fail me sufficiently 
 				for return. I once argued that we are only conscious while we calculate, that there is fathomable no existence 
-				illegible to monologue. I had found in the modernists a trap to be escaped, but perhaps they really shared a new way to live. 
-				For December, I reach differently. 
+				illegible to monologue. I had found in the modernists a trap to be escaped, but perhaps they really shared with us a way to live. 
+			</p>
+			<p>
+				For December, I plan to reach differently. 
 				Equipped with new lows of information access and a taste for sensory risk, I mean to abandon the self to a new being and hopefully others, too. 
 				I hope to think less. I hope to affect and be affected. I look forward to seeing the wake. 
 			</p>
