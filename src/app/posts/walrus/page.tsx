@@ -118,8 +118,8 @@ export default function WalrusPage()
 				Jesus, no, I say I want to go with you. Their rhythm rises in the purple twilight, and my feet begin to tap. Fuck, no, those were mistakes! 
 				I didn’t hear you—what song? Please, I know I ordered the peppermint mocha, but he knew it, too. I asked for coffee, I woke up to climb, please. 
 				A car door slams. The sands don’t feel his steps. He produces a bass guitar. 
-				Weber has arrived to make me dance until I die.<Footnote index={28} vis={vis}>DZ.</Footnote> I will speak anyway. 
-				I promise that my flesh will draw apart an abstract standing. 
+				Weber has arrived to make me dance until I die.<Footnote index={28} vis={vis}>DZ.</Footnote> 
+				I will speak anyway. I promise that my flesh will draw apart an abstract standing. 
 				A new splatter of fortitude, this, a praying face to the sea.<Footnote index={29} vis={vis}><i>Redwoods</i>.</Footnote> 
 			</p>
 			<p style={{ textIndent: "2em" }}>
@@ -158,7 +158,7 @@ export default function WalrusPage()
 				illegible to monologue. I had found in the modernists a trap to be escaped, but perhaps they really shared a new way to live. 
 				For December, I reach differently. 
 				Equipped with new lows of information access and a taste for sensory risk, I mean to abandon the self to a new being and hopefully others, too. 
-				I hope to think less, and I hope to be affected. I look forward to see the wake. 
+				I hope to think less, and I hope to be affected. I look forward to seeing the wake. 
 			</p>
     </PostShell>
   );
