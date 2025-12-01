@@ -2,12 +2,14 @@
 import type { StaticImageData } from "next/image";
 
 // Your images
-import OneselfImg from "@/app/assets/posts/oneself.jpg"; // <-- example
+import OneselfImg from "@/app/assets/posts/oneself.jpg"; 
 
 export type PostMeta = {
   slug: string;
   title: string;
-  year: string;
+	subtitle?: string;
+	visible: boolean;
+  year?: string;
   image?: StaticImageData;   // <-- ADD THIS
 };
 
@@ -15,10 +17,16 @@ export const posts: PostMeta[] = [
   {
     slug: "oneself",
     title: "Writing about Oneself",
+		visible: true,
     year: "2025",
-    image: OneselfImg,       // <-- ADD THIS
+    image: OneselfImg, 
   },
-  // Add more posts here...
+	  {
+    slug: "sgtpepper",
+		subtitle: "November 2025",
+    title: "When I Was The Walrus",
+		visible: false,
+  }
 ];
 
 export const getPostMeta = (slug: string) =>

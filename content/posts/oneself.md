@@ -42,7 +42,8 @@ placed as a reminder that I did not want a verb form, it’s a head notation I l
 “Morphology I” this semester: immediately parsable, and thus enriching, for me, but I
 imagine less for, if not at all, and thus potentially offensive to, others. I leave it as
 example of the hyperreferential and (yes) alienating mode I list toward of late, a
-modernish juxtaposition of everything, everywhere, all at once, a—I’ve defended—meticulous and excited treatment of all the atoms of word and life.
+modernish juxtaposition of everything, everywhere, all at once, a—I’ve defended—meticulous 
+and excited treatment of all the atoms of word and life.
 
 I owe this list to my most recent influence. Kierkegaard’s proven determinant on my
 approach to writing, but Proust and Joyce (in that order) have stoked it most proper. (in

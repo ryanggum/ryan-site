@@ -12,25 +12,37 @@ const backLink =
 
 export default function PostShell({
   title,
+  subtitle,
   image,
   children,
+	visible,
 }: {
   title: string;
-  image?: StaticImageData; // <-- optional Next.js image import
+  subtitle?: string; 
+  image?: StaticImageData;
   children: ReactNode;
+	visible?: boolean;
 }) {
   return (
     <main className={shell}>
       <header className={headerBox}>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2 text-black dark:text-white">
-          {title}
-        </h1>
+<h1 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 text-black dark:text-white">
+  {title}
+</h1>
 
-        <div className="flex gap-4 mb-4">
-          <Link href="/posts" className={backLink}>
-            ←posts
-          </Link>
-        </div>
+{subtitle && (
+  <p className="text-neutral-500 dark:text-neutral-400 text-lg sm:text-xl mb-2">
+    {subtitle}
+  </p>
+)}
+
+{visible !== false && (
+  <div className="flex gap-4 mb-4">
+    <Link href="/posts" className={backLink}>
+      ←posts
+    </Link>
+  </div>
+)}
 
         {image && (
           <Image

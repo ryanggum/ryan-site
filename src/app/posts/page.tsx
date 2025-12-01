@@ -3,12 +3,19 @@
 import Link from "next/link";
 import { posts } from "@/lib/posts";
 
+// Filter out invisible posts before grouping
+const visiblePosts = posts.filter((post) => post.visible !== false);
+
 // Group posts by year
-const postsByYear = posts.reduce<Record<string, typeof posts>>((acc, post) => {
-  acc[post.year] = acc[post.year] || [];
-  acc[post.year].push(post);
-  return acc;
-}, {});
+const postsByYear = visiblePosts.reduce<Record<string, typeof visiblePosts>>(
+  (acc, post) => {
+    const year = post.year || "unknown"; // fallback if year missing
+    acc[year] = acc[year] || [];
+    acc[year].push(post);
+    return acc;
+  },
+  {}
+);
 
 export default function PostsPage() {
   return (

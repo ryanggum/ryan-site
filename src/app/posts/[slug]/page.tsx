@@ -21,7 +21,12 @@ export default async function PostPage({ params }: {
   const markdown = fs.readFileSync(filePath, "utf8");
 
   return (
-    <PostShell title={meta.title} image={meta.image}>
+    <PostShell
+      title={meta.title}
+      subtitle={meta.subtitle}
+      image={meta.image}
+      visible={meta.visible}
+    >
       <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
         {markdown}
       </ReactMarkdown>
