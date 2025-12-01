@@ -5,7 +5,7 @@ import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 const shell =
-  "relative min-h-dvh box-border overflow-x-clip px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-10 sm:py-14 md:py-20";
+  "post-shell relative box-border overflow-hidden px-0 py-0 min-h-dvh";
 const headerBox = "mb-6 flex flex-col items-center";
 const backLink =
   "text-neutral-500 text-base sm:text-lg hover:text-neutral-700 transition-colors";
@@ -15,48 +15,62 @@ export default function PostShell({
   subtitle,
   image,
   children,
-	visible,
+  visible,
 }: {
   title: string;
-  subtitle?: string; 
+  subtitle?: string;
   image?: StaticImageData;
   children: ReactNode;
-	visible?: boolean;
+  visible?: boolean;
 }) {
   return (
     <main className={shell}>
-      <header className={headerBox}>
-<h1 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 text-black dark:text-white">
-  {title}
-</h1>
+      {/* Scroll container */}
+      <div className="post-shell-scroll">
+        {/* Content wrapper */}
+        <div className="post-shell-inner px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-10 sm:py-14 md:py-20">
+          <header className={headerBox}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 text-black dark:text-white">
+              {title}
+            </h1>
 
-{subtitle && (
-  <p className="text-neutral-500 dark:text-neutral-400 text-lg sm:text-xl mb-2">
-    {subtitle}
-  </p>
-)}
+            {subtitle && (
+              <p
+                className={`text-neutral-500 dark:text-neutral-400 text-lg sm:text-xl ${
+                  image || visible !== false ? "mb-2" : "mb-1"
+                }`}
+              >
+                {subtitle}
+              </p>
+            )}
 
-{visible !== false && (
-  <div className="flex gap-4 mb-4">
-    <Link href="/posts" className={backLink}>
-      ←posts
-    </Link>
-  </div>
-)}
+            {visible !== false && (
+              <div className="flex gap-4 mb-4">
+                <Link href="/posts" className={backLink}>
+                  ←posts
+                </Link>
+              </div>
+            )}
 
-        {image && (
-          <Image
-            src={image}
-            alt={title}
-            className="max-h-75 w-auto"
-            priority
-          />
-        )}
-      </header>
+            {image && (
+              <Image
+                src={image}
+                alt={title}
+                className="max-h-75 w-auto"
+                priority
+              />
+            )}
+          </header>
 
-      <article className="prose dark:prose-invert max-w-[75ch] mx-auto [&_p]:my-3">
-        {children}
-      </article>
+          <article className="prose dark:prose-invert max-w-[75ch] mx-auto cursor-default [&_p]:my-3">
+            {children}
+          </article>
+        </div>
+      </div>
+
+      {/* Fades */}
+      <div className="fade-top pointer-events-none" />
+      <div className="fade-bottom pointer-events-none" />
     </main>
   );
 }
