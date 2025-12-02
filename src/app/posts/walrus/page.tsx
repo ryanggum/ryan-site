@@ -29,9 +29,9 @@ export default function WalrusPage()
 				seems that I live as I dream,<Footnote index={2} vis={vis}>Conrad, <i>Heart of Darkness</i>.</Footnote> 
 				seems I am clawing, gasping, and barely breaching<Footnote index={3} vis={vis}><i>Dev.</i>, 22.</Footnote> 
 				three things in this speech,<Footnote index={4} vis={vis}>WUDC 2025, Sydney C.</Footnote> 
-				two reasons why,<Footnote index={5} vis={vis}>"Writing about Oneself."</Footnote> 
+				two reasons why,<Footnote index={5} vis={vis}>From: "Writing about Oneself."</Footnote> 
 				or to become one?<Footnote index={6} vis={vis}><i>Dev.</i>, 1.</Footnote> 
-				No, scaring from the dead rat’s five more,<Footnote index={7} vis={vis}>AM.</Footnote> 
+				No, scaring from the dead rat’s five more,<Footnote index={7} vis={vis}>AM, <i>Quotes</i>: "When you see one dead rat, there’s five more."</Footnote> 
 				the V4,<Footnote index={8} vis={vis}>Ascent, "The Impaler."</Footnote> 
 				the face you keep in a jar by the door, who is this for?<Footnote index={9} vis={vis}>The Beatles, "Eleanor Rigby."</Footnote> 
 				All the hermetic logic,<Footnote index={10} vis={vis}>DZ.</Footnote> 
@@ -39,11 +39,11 @@ export default function WalrusPage()
 				Let’s try that. Okay… I really want to stop the show, because I think you might like to know, yes! 
 				That the writer’s gonna right a wrong, and I want you all to read along, wow. 
 				So let me introduce to you the one and only—who the fuck is Billy Shears?
-				<Footnote index={12} vis={vis}>The Beatles, "Sgt. Pepper's Lonely Hearts Club Band."</Footnote> 
+				<Footnote index={12} vis={vis}>I beg you listen to: The Beatles, "Sgt. Pepper's Lonely Hearts Club Band."</Footnote> 
 			</p>
 			<p>
-				November was. I befell a short number of poor decisions that had an outsized impact on my general welfare. 
-				I was also felled in the short by a number of reasonable decisions  I think will prove net positive to come. 
+				November was. I befell a short number of poor decisions that had an outsized impact on my welfare. 
+				I was also felled in the short by a number of reasonable decisions I think will prove net positive to come. 
 				Finally, I discovered more that I want to change. I am here to address few of these in no particular order 
 				for both myself and any of you curious. 
 			</p>
@@ -51,7 +51,7 @@ export default function WalrusPage()
 				<i>1. What is the aesthetic?</i>
 			</p>
 			<p>
-				I suggested to Professor Fadiman that mine adores play. I then performed enough counts of strained grammar, wrong words, 
+				I suggested to a Professor that mine adores play. I then performed enough counts of strained grammar, wrong words, 
 				hostile references, and felony modernism to be denied prescriptionist bail. I appealed to Judge Vilhelm that it was all 
 				transparently opaque enough. His Honor instructed me to alert everyone that he is the author of <i>Either/Or</i>’s ethical half. 
 				I obliged and then complained that a reference loses for its explanation. He asked me to explain the difference between a reference and a fraud. 
@@ -87,16 +87,16 @@ export default function WalrusPage()
 				Sophie sang “Losing My Religion” for one minute and fifty seconds.<Footnote index={21} vis={vis}>Wells, <i>Aftersun</i>.</Footnote> 
 				Sophie I cannot understand. 
 				Can you weep over her? 
-				She was not pressured into a five-part “At The Copa.”<Footnote index={22} vis={vis}>DG.</Footnote> 
-				She was not doused in vodka for holding the 40-second E.<Footnote index={23} vis={vis}>The Beatles, "A Day in the Life."</Footnote> 
+				She was not pressured into a five-part “At The Copa.”<Footnote index={22} vis={vis}>Bit around: DG.</Footnote> 
+				She was not doused in vodka for holding the 40-second E.<Footnote index={23} vis={vis}>Bit around: The Beatles, "A Day in the Life."</Footnote> 
 				When I think of Sophie, 
-				I am as though annihilated, as though paralyzed.<Footnote index={24} vis={vis}>Kierkegaard, <i>Fear and Trembling</i>.</Footnote>
+				I am as though annihilated, as though paralyzed.<Footnote index={24} vis={vis}>Scaffolding: Kierkegaard, <i>Fear and Trembling</i>.</Footnote>
 				I fall down—I am brought to my knees by the millions of bits that cry out in terror and are suddenly silenced. 
 				How do you not cry out! The spotlights her on fire, and we are breathing in, aren’t we all choking on the smoke? 
 				Not a drill nor a dream, Sophie cannot lose her religion: she is one. 
 			</p>
 			<p>
-				Heavy is my head that voices desire.<Footnote index={25} vis={vis}>Agadmator on Esipenko over Carlsen at Tata Steel 2021.</Footnote>  
+				Heavy is my head that voices desire.<Footnote index={25} vis={vis}>Agadmator on Esipenko defeating Carlsen (Tata Steel 2021).</Footnote>  
 				Uneasy should be any that hears the hitch.<Footnote index={26} vis={vis}>Shakespeare, <i>Henry IV</i>.</Footnote>  
 				Our fabric is so light, so thinly strung that every assertion risks slicing us through a space’s time. 
 				Hooray that our swift faculties can calculate every line, that we can arm ourselves with deniabilities and hold the balance in a language of feints. 
@@ -111,15 +111,15 @@ export default function WalrusPage()
 			</p>
 			<p>
 				We both know it is better to speak.<Footnote index={28} vis={vis}>Guadagnino.</Footnote> 
-				I know it is better to join you on the shore than the sea. 
+				I know it is better to join you on the shore than the sea.<Footnote index={29} vis={vis}>More: <i>Aftersun</i>.</Footnote> 
 				Where in pale blue and a hint of pink the sun dresses the coast. Where glimmers pool as rocks trap the tide and basketballs arc in a budding dusk. 
 				I ask if you have any water. <i>Sorry, I mean I want water.</i> A band strums to the waves nearby. <i>Will you be going tomorrow?</i> Jesus, no, I say I want to go with you. 
 				Their rhythm rises in the purple twilight, and my feet begin to tap. Fuck, no, those were mistakes! 
 				I didn’t hear you—what song? Please, I know I ordered the peppermint mocha, but he knew it, too. I asked for coffee, and I woke up to climb, please. 
 				A car door slams. The sands don’t feel his steps. He produces a bass guitar. 
-				Weber has arrived to make me dance until I die.<Footnote index={29} vis={vis}>DZ: "Weber would make you dance and study you."</Footnote> 
+				Weber has arrived to make me dance until I die.<Footnote index={30} vis={vis}>DZ: "Weber would make you dance and study you."</Footnote> 
 				I will speak anyway. I promise that my flesh will draw apart an abstract standing. 
-				A new splatter of fortitude, this, a praying face to the sea.<Footnote index={30} vis={vis}><i>Redwoods</i>.</Footnote> 
+				A new splatter of fortitude, this, a praying face to the sea.<Footnote index={31} vis={vis}><i>Redwoods</i>.</Footnote> 
 			</p>
 			<p style={{ textIndent: "2em" }}>
 				<i>3. What was optimization?</i>
@@ -151,10 +151,9 @@ export default function WalrusPage()
 				Last week I bought climbing shoes without Safari. I ached, rest assured, for quantity’s 
 				authorization of quality and objectivity’s patting the head of my easily confused and 
 				assuredly deceived subjectivity. In steads, I let myself to the mercy of too-long-forgotten and delightfully 
-				pecuilar sociality. Hello, friend with carabiner! Are you familiar with the Helix? Go down a size, you say? 
-				If I were Achilles, I would already be dead! It was a short fight in the swells of contingency, but one quite 
+				pecuilar sociality. <i>Hello, friend with carabiner! Are you familiar with the Helix? Go down a size, you say? If I were Achilles, I would already be dead!</i> It was a short fight in the swells of contingency, but one quite 
 				exciting and already in advance demanding of continued sensation, lest, for instance, my Scarpa’s fail sufficiently 
-				for a return. I once argued that we are only conscious while we calculate, that there is fathomable no existence 
+				to return. I once argued that we are only conscious while we calculate, that there is fathomable no existence 
 				illegible to monologue. I had found in the modernists a trap to be escaped, but perhaps they shared with us a way to live. 
 			</p>
 			<p>

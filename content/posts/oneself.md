@@ -1,4 +1,4 @@
-Dear Professor F—., 
+Dear Professor, 
 
 My name is Ryan Gumlia, I am from Southern California, and I do not know how to
 balance the aesthetic and the ethical in my writing. Everything else follows, 
@@ -49,7 +49,7 @@ I owe this list to my most recent influence. Kierkegaard’s proven determinant 
 approach to writing, but Proust and Joyce (in that order) have stoked it most proper. (in
 that order) because things have changed since DS. <i>In Search of Lost Time</i> terms, I
 stepped off that storied train, whose continuous track still remembers the classroom in
-which I read “Finger of God,” and in the act relinquished, like the forlorn poets before
+which I read “finger of God,” and in the act relinquished, like the forlorn poets before
 me who could neither themselves handle narrative’s frustrating hope, the power of
 helpful image and linear coherence, stealing instead for the slippery discreteness that
 composes our universe. In <i>Ulysses</i> terms, then “Eumaeus” now “Sirens.” In my terms, I
