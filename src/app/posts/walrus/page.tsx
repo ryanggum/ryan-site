@@ -113,8 +113,8 @@ export default function WalrusPage()
 				We both know it is better to speak.<Footnote index={28} vis={vis}>Guadagnino.</Footnote> 
 				I know it is better to join you on the shore than the sea. 
 				Where in pale blue and a hint of pink the sun dresses the coast. Where glimmers pool as rocks trap the tide and basketballs arc in a budding dusk. 
-				I ask if you have any water. <i>Sorry, I mean I want water.</i> A band strums to the waves nearby. 
-				<i>Will you be going tomorrow?</i> Jesus, no, I say I want to go with you. Their rhythm rises in the purple twilight, and my feet begin to tap. Fuck, no, those were mistakes! 
+				I ask if you have any water. <i>Sorry, I mean I want water.</i> A band strums to the waves nearby. <i>Will you be going tomorrow?</i> Jesus, no, I say I want to go with you. 
+				Their rhythm rises in the purple twilight, and my feet begin to tap. Fuck, no, those were mistakes! 
 				I didn’t hear you—what song? Please, I know I ordered the peppermint mocha, but he knew it, too. I asked for coffee, and I woke up to climb, please. 
 				A car door slams. The sands don’t feel his steps. He produces a bass guitar. 
 				Weber has arrived to make me dance until I die.<Footnote index={29} vis={vis}>DZ: "Weber would make you dance and study you."</Footnote> 
@@ -138,8 +138,8 @@ export default function WalrusPage()
 			<p>
 				If you make enough u-turns, you make no progress. 
 				If a new cyclist falls on your way to dissipate another, 
-				you begin an ugly type of recursion where the loops tighten around a single point. 
-				At it, your car is parked as every sense in your possession aims desperately at the road. 
+				you begin an ugly type of recursion where the loops tighten into a single point. 
+				At it, your car is parked while every sense in your possession aims desperately at the road. 
 				No matter its width, repair, or silence, you are unsure. Your perception has lost. 
 				It has been eclipsed by reason, a sick reason, an ill rationality shouting over 
 				the world while flailing between an analysis of which days cyclists ride 
