@@ -28,14 +28,14 @@ export default function WalrusPage()
 				It seems that I am seeking a metaphor,<Footnote index={1} vis={vis}><i>Med.</i>, 19.</Footnote> 
 				seems that I live as I dream,<Footnote index={2} vis={vis}>Conrad, <i>Heart of Darkness</i>.</Footnote> 
 				seems I am clawing, gasping, and barely breaching<Footnote index={3} vis={vis}><i>Dev.</i>, 22.</Footnote> 
-				three things in this speech,<Footnote index={4} vis={vis}>WUDC 2025, Sydney C.</Footnote> 
+				from three things in this speech,<Footnote index={4} vis={vis}>WUDC 2025, Sydney C.</Footnote> 
 				two reasons why,<Footnote index={5} vis={vis}>From: "Writing about Oneself."</Footnote> 
 				or to become one?<Footnote index={6} vis={vis}><i>Dev.</i>, 1.</Footnote> 
 				No, scaring from the dead rat’s five more,<Footnote index={7} vis={vis}>AM, <i>Quotes</i>: "When you see one dead rat, there’s five more."</Footnote> 
 				the V4,<Footnote index={8} vis={vis}>Ascent, "The Impaler."</Footnote> 
 				the face you keep in a jar by the door, who is this for?<Footnote index={9} vis={vis}>The Beatles, "Eleanor Rigby."</Footnote> 
 				All the hermetic logic,<Footnote index={10} vis={vis}>DZ.</Footnote> 
-				where does it all belong? Probably not Here, There and Every—wait.<Footnote index={11} vis={vis}>The Beatles, "—where."</Footnote>  
+				where does it all belong? Probably not Here, There and Every—wait.<Footnote index={11} vis={vis}>The Beatles, "—where."</Footnote> 
 				Let’s try that. Okay… I really want to stop the show, because I think you might like to know, yes! 
 				That the writer’s gonna right a wrong, and I want you all to read along, wow. 
 				So let me introduce to you the one and only—who the fuck is Billy Shears?
@@ -68,8 +68,8 @@ export default function WalrusPage()
 			</p>
 			<p>
 				If you ask who is steering this ship, you ask right whether such a totalizing intertextuality doesn’t efface some essence, 
-				doesn’t disintegrate some vocal muscle that no multiple of 42<Footnote index={14} vis={vis}>Fairlife.</Footnote> can save. 
-				You point out that such deafening displays of allusion might hamstring the non-associative, 
+				doesn’t disintegrate some vocal muscle that no multiple of 42<Footnote index={14} vis={vis}>Fairlife.</Footnote> 
+				can save. You point out that such deafening displays of allusion might hamstring the non-associative, 
 				foreclose novelty, even inspire LLM-type spirals into muddled on muddled on nothing. 
 				I shrug. I ask for a word that hasn’t been used. 
 				I point to Apollo.<Footnote index={15} vis={vis}><i>Star Trek</i>, "Who Mourns for Adonais?"</Footnote> 
