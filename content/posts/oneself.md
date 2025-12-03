@@ -52,7 +52,7 @@ stepped off that storied train, whose continuous track still remembers the class
 which I read “finger of God,” and in the act relinquished, like the forlorn poets before
 me who could neither themselves handle narrative’s frustrating hope, the power of
 helpful image and linear coherence, stealing instead for the slippery discreteness that
-composes our universe. In <i>Ulysses</i> terms, then “Eumaeus” now “Sirens.” In my terms, I
+composes our universe. In <i>Ulysses</i> terms, then “Eumaeus,” now “Sirens.” In my terms, I
 really have found more utility in Joyce’s infinites. Was Buck Mulligan stately, or did he
 come stately? In that second sentence above, do I love writing the product, activity, or
 both? In the same, could [n] operate as a sort of non-non Chrysostomos?
