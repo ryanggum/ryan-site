@@ -1,9 +1,8 @@
-Dear Professor, 
+Dear Reader, 
 
 My name is Ryan Gumlia, I am from Southern California, and I do not know how to
 balance the aesthetic and the ethical in my writing. Everything else follows, 
-but most significantly, two reasons I want to take your class: I have
-questions and I love [n] ^ writing.
+but most significantly: questions in light of a love for [n] ^ writing.
 
 When I refer to the aesthetic and the ethical, I refer to a sorry bastardization of the
 aesthetic-ethical-religious framework that Kierkegaard lays out in <i>Either/Or</i>, itself a less
@@ -46,7 +45,7 @@ modernish juxtaposition of everything, everywhere, all at once, a—I’ve defen
 and excited treatment of all the atoms of word and life.
 
 I owe this list to my most recent influence. Kierkegaard’s proven determinant on my
-approach to writing, but Proust and Joyce (in that order) have stoked it most proper. (in
+approach to writing, but Proust and Joyce (in that order) have most stoked it proper. (in
 that order) because things have changed since DS. <i>In Search of Lost Time</i> terms, I
 stepped off that storied train, whose continuous track still remembers the classroom in
 which I read “finger of God,” and in the act relinquished, like the forlorn poets before
@@ -63,32 +62,32 @@ as to be immune to audit. This explanation says I approach you as a less earnest
 attempting to account to myself for my experiences, desperate to be understood, but
 making a falser attempt to communicate than a vain one. I have this anxiety. I sublimate
 it in an over-intellectualization of the writing act and Kierkegaard. I want to say more,
-and I want badly for others to take pleasure in how I say it. I apply to your class also
+and I want badly for others to take pleasure in how I say it. I write to you also
 because I want to improve. I want to sharpen this craft that is one of our best ways to
-share: my passion for lattes and freeways, my knotted dilemmas at studying Lukács
-before laying over in finance. And if I come on strong with my
+share: trivial passions for lattes and freeways or knotted dilemmas re: pre-professional Lukács. 
+And if I come on strong with my
 questions, I hope I don’t impress that I am interested merely in transaction, in
-graduating with definite answers or clearer conscience. Just as my aesthetic-ethical
-framework developed in the company of three friends, I hope it may as well dissolve and
-another be born in the company of eleven new, stretched and prodded by a soirée of
+definite answers or clearer conscience. Just as my aesthetic-ethical
+framework developed in the company of three soulful friends, I hope it may as well dissolve and
+another be born in the company of yours and others new, stretched and prodded by a soirée of
 approaches. What won’t dissolve, though, is my contribution: I love language at its most
 granular, and even more, I love learning how others see that granularity.
 
-In your course, I would prove a relentless well of interest in how others write what they
-mean to say and how they understand what they write to mean what they mean to
-say—why they decide final forms: their internal harmonies, their comfort with risk, their
+Should we meet—should you share, too—you will find me a relentless well of interest in how you write what you
+mean to say and how you understand what you write to mean what you mean to
+say—why you decide final forms: your internal harmonies, your comfort with risk, your
 reverence or irreverence for convention. I admit that this interest can sometimes trade
 off with one in content writ large (or content in the traditional sense), but I suggest that
 the interplay between form and content is illuminating—that my desire is, at its least,
-still a desire to understand the other, and at its most, capable of an even more salient
+still a desire to understand you, and at its most, capable of an even more salient
 understanding. It’s to try for what lives in between the word boundaries, what shapes
 the morphemes, to beg for a grasp of the function that maps signified to sign and is
 thus applicable to all. This may be a fool’s errand. My premise that each of us refract in
 our writing via a unique and externally legible Rosetta Stone could just follow from
 naive egocentrism. Even if so, I proffer the positive externality of warmth. My tries
 manifest in close reading, in longform questions in longform responses, and in
-extraclass association. In friends and better ones. And I hope for the chance to make
-more in your course next semester.
+extraletter association. In friends and better ones. And I hope for the chance to make
+yours this year.
 
 Sincerely,
 

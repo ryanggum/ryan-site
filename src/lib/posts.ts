@@ -16,7 +16,7 @@ export type PostMeta = {
 export const posts: PostMeta[] = [
   {
     slug: "oneself",
-    title: "Writing about Oneself",
+    title: "Writing Oneself",
 		visible: true,
     year: "2025",
     image: OneselfImg, 
