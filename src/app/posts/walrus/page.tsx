@@ -125,8 +125,8 @@ export default function WalrusPage()
 				<i>3. What was optimization?</i>
 			</p>
 			<p>
-				For the worse part of a year I made u-turns. It did not matter the route, 
-				not whether I was picking up a friend from the airport or sharing music with the suburbs. 
+				For the worse part of a year, I made u-turns. It did not matter the route, 
+				whether I was picking up a friend from the airport or sharing music with the suburbs. 
 				At any moment a lurch could restore my attention. A pothole? Likely. But could I rule out a cyclist? 
 				My share in a felony hit and run? Always choosing—between the options of keeping driving 
 				and risking four years in state prison or, for the cost of a mile, 
