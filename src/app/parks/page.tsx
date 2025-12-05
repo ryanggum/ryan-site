@@ -35,8 +35,7 @@ export default async function ParksPage() {
                 className="inline-flex items-center gap-1 hover:text-neutral-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded text-neutral-500 text-base sm:text-lg mb-3 sm:mb-4"
                 aria-label={`Open ${park.title} gallery`}
               >
-                <span>{park.title}</span>
-                <span aria-hidden>→</span>
+                <span>{park.title}→</span>
               </Link>
               <DisplayGrid title={park.title} images={park.images} />
             </section>

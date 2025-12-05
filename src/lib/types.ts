@@ -17,6 +17,7 @@ export type AlbumMeta = Readonly<{
   title: string;
 	quote?: Quote;
 	desc?: string;
+	writing?: string;
 }>;
 
 // Reusable “default export” module helper.
