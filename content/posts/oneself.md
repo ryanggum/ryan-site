@@ -19,8 +19,8 @@ Hardly one for pleasure, though! How much more fun that realm of play where joys
 sprout from universal cracks, where syntactic transgressions and semantic doubts tease
 those parts of our brain that love subverted expectation and discovered solution. Too,
 those odd idiosyncrasies of private histories: read him he that walks by wearing his life
-on his language sleeve! Text[/ur]ed and stud[d/i]ed with those fragments of [l/y]ore,
-enjoining us in t<b>He</b> a<b>ge</b> o<b>l</b>d dialectic of battling subjectivities. The mode wherefore
+on his language sleeve! Text-ur-ed and studd-i-ed with those fragments of l-yore,
+enjoining us in tHe age old dialectic of battling subjectivities. The mode wherefore
 each abides by what pleases them, distributing commas for Rhythm’s sake, composing
 time for that inner Harmony, it whispering, quietly: pause here; all the while the
 Grammar shouts—STOP THERE!
@@ -37,9 +37,9 @@ giving too much weight to the aesthetic arbiter within that stakes its life on a
 confusion there, and mix to boot? (4) Should I subjugate this internal norm to the ethical
 priority of clarity—or one of universal aesthetics—and to what degree? To concretize
 some of my concern here, I point to the [n] in the second sentence of this letter. Initially
-placed as a reminder that I did not want a verb form, it’s a head notation I learned in
-“Morphology I” this semester: immediately parsable, and thus enriching, for me, but I
-imagine less for, if not at all, and thus potentially offensive to, others. I leave it as
+placed as a reminder that I did not want a verb form, it’s a morphological head notation I 
+learned recently: immediately parsable, and thus enriching, for me, but I
+imagine less for, if not at all, and thus potentially offensive to, you. I leave it as
 example of the hyperreferential and (yes) alienating mode I list toward of late, a
 modernish juxtaposition of everything, everywhere, all at once, a—I’ve defended—meticulous 
 and excited treatment of all the atoms of word and life.
@@ -69,9 +69,9 @@ And if I come on strong with my
 questions, I hope I don’t impress that I am interested merely in transaction, in
 definite answers or clearer conscience. Just as my aesthetic-ethical
 framework developed in the company of three soulful friends, I hope it may as well dissolve and
-another be born in the company of yours and others new, stretched and prodded by a soirée of
+another be born in the company of yours and others, stretched and prodded by a soirée of
 approaches. What won’t dissolve, though, is my contribution: I love language at its most
-granular, and even more, I love learning how others see that granularity.
+granular, and even more, I love learning how you might see that granularity.
 
 Should we meet—should you share, too—you will find me a relentless well of interest in how you write what you
 mean to say and how you understand what you write to mean what you mean to
@@ -87,7 +87,7 @@ our writing via a unique and externally legible Rosetta Stone could just follow 
 naive egocentrism. Even if so, I proffer the positive externality of warmth. My tries
 manifest in close reading, in longform questions in longform responses, and in
 extraletter association. In friends and better ones. And I hope for the chance to make
-yours this year.
+yours soon.
 
 Sincerely,
 

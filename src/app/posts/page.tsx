@@ -49,7 +49,7 @@ export default function PostsPage() {
                       href={`/posts/${post.slug}`}
                       className="hover:text-neutral-500 transition-colors"
                     >
-                      {post.title} (→)
+                      {post.title}→
                     </Link>
                   </div>
                 ))}
