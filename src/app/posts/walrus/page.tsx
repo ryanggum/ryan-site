@@ -1,4 +1,5 @@
 // src/app/posts/walrus/page.tsx
+
 "use client";
 import { useState } from "react";
 import ModeSwitcher, { type Mode } from "../components/ModeSwitcher";
@@ -104,22 +105,23 @@ export default function WalrusPage()
 				Impalpable initiatives still hallow immortal squares—we merely paint with brushes dipped in the whispering currents, 
 				of unborn sequences and unknown sacrifice. Don’t we always speak with possibilities? 
 				So few moves will be played, how could we be poorer for thinking every turn? Do we even need the end? 
-				Oh, Sophie, the end! We are safer here in machination. Can you really bear the toppled crown? 
+				Oh, Sophie, the promised end!<Footnote index={27} vis={vis}>Shakespeare, <i>King Lear</i>.</Footnote> 
+				We are safer here in machination. Can you really bear the toppled crown? 
 				See tearlessly him that couldn’t see far enough? 
-				If you do not shudder at Qe2,<Footnote index={27} vis={vis}>World Chess Championship 2023, Final Tiebreak.</Footnote>  
+				If you do not shudder at Qe2,<Footnote index={28} vis={vis}>World Chess Championship 2023, Final Tiebreak.</Footnote>  
 				if Rg6 does not drench you in—does not make you tread nausea, you do not know me. 
 			</p>
 			<p>
-				We both know it is better to speak.<Footnote index={28} vis={vis}>Guadagnino.</Footnote> 
-				I know it is better to join you on the shore than the sea.<Footnote index={29} vis={vis}>More: <i>Aftersun</i>.</Footnote> 
+				We both know it is better to speak.<Footnote index={29} vis={vis}>Guadagnino.</Footnote> 
+				I know it is better to join you on the shore than the sea.<Footnote index={30} vis={vis}>More: <i>Aftersun</i>.</Footnote> 
 				Where in pale blue and a hint of pink the sun dresses the coast. Where glimmers pool as rocks trap the tide and basketballs arc in a budding dusk. 
 				I ask if you have any water. <i>Sorry, I mean I want water.</i> A band strums to the waves nearby. <i>Will you be going tomorrow?</i> Jesus, no, I say I want to go with you. 
 				Their rhythm rises in the purple twilight, and my feet begin to tap. Fuck, no, those were mistakes! 
 				I didn’t hear you—what song? Please, I know I ordered the peppermint mocha, but he knew it, too. I asked for coffee, and I woke up to climb, please. 
 				A car door slams. The sands don’t feel his steps. He produces a bass guitar. 
-				Weber has arrived to make me dance until I die.<Footnote index={30} vis={vis}>DZ: "Weber would make you dance and study you."</Footnote> 
+				Weber has arrived to make me dance until I die.<Footnote index={31} vis={vis}>DZ: "Weber would make you dance and study you."</Footnote> 
 				I will speak anyway. I promise that my flesh will draw apart an abstract standing. 
-				A new splatter of fortitude, this, a praying face to the sea.<Footnote index={31} vis={vis}><i>Redwoods</i>.</Footnote> 
+				A new splatter of fortitude, this, a praying face to the sea.<Footnote index={32} vis={vis}><i>Redwoods</i>.</Footnote> 
 			</p>
 			<p style={{ textIndent: "2em" }}>
 				<i>3. What was optimization?</i>

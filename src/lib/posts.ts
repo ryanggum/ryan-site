@@ -19,13 +19,13 @@ export const posts: PostMeta[] = [
     title: "Writing Oneself",
 		visible: true,
     year: "2025",
-    image: OneselfImg, 
+    // image: OneselfImg, 
   },
 	  {
-    slug: "sgtpepper",
-		subtitle: "November 2025",
-    title: "When I Was The Walrus",
-		visible: false,
+    slug: "revolver",
+    title: "Ranking <i>Revolver</i>",
+		visible: true,
+		year: "2025",
   }
 ];
 

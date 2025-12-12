@@ -9,7 +9,7 @@ const visiblePosts = posts.filter((post) => post.visible !== false);
 // Group posts by year
 const postsByYear = visiblePosts.reduce<Record<string, typeof visiblePosts>>(
   (acc, post) => {
-    const year = post.year || "unknown"; // fallback if year missing
+    const year = post.year || "unknown";
     acc[year] = acc[year] || [];
     acc[year].push(post);
     return acc;
@@ -20,42 +20,38 @@ const postsByYear = visiblePosts.reduce<Record<string, typeof visiblePosts>>(
 export default function PostsPage() {
   return (
     <main className="relative min-h-dvh px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-10 sm:py-14 md:py-20 bg-white dark:bg-black">
-      <header className="mb-8 sm:mb-12 flex flex-col items-center">
+      <header className="mb-4 sm:mb-4 flex flex-col items-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2 text-black dark:text-white">
           posts
         </h1>
-        <Link
-          href="/"
-          className="text-neutral-500 text-base sm:text-lg hover:text-neutral-700 transition-colors"
-        >
+        <Link href="/" className="text-neutral-500 text-base sm:text-lg hover:text-neutral-700 transition-colors">
           ←ryan gumlia
         </Link>
+        <div className="mt-4 w-[60%] max-w-[660px] border-t border-black dark:border-white"></div>
       </header>
 
-      <section className="space-y-8">
-        {Object.keys(postsByYear)
-          .sort((a, b) => Number(b) - Number(a)) // newest year first
-          .map((year) => (
-            <div key={year}>
-              <h2 className="text-xl sm:text-2xl font-medium text-black dark:text-white mb-2 pl-4 sm:pl-8 lg:pl-32">
-                {year}
-              </h2>
-
-              <div className="pl-8 sm:pl-16 lg:pl-40 space-y-2">
-                {postsByYear[year].map((post, i) => (
-                  <div key={post.slug} className="text-black dark:text-white">
-                    #{i + 1}:{" "}
-                    <Link
-                      href={`/posts/${post.slug}`}
-                      className="hover:text-neutral-500 transition-colors"
-                    >
-                      {post.title}→
-                    </Link>
-                  </div>
-                ))}
+      <section className="space-y-8 flex flex-col items-center">
+        <div className="w-[60%] max-w-[660px] space-y-10">
+          {Object.keys(postsByYear)
+            .sort((a, b) => Number(b) - Number(a))
+            .map((year) => (
+              <div key={year}>
+                <h2 className="text-xl sm:text-2xl font-medium text-black dark:text-white mb-2">
+                  {year}
+                </h2>
+                <div className="pl-4 sm:pl-6 lg:pl-10 space-y-2">
+                  {postsByYear[year].map((post, i) => (
+                    <div key={post.slug} className="text-black dark:text-white">
+                      #{i + 1}:{" "}
+                      <Link href={`/posts/${post.slug}`} className="hover:text-neutral-500 transition-colors">
+                        <span dangerouslySetInnerHTML={{ __html: post.title }}/>→
+                      </Link>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
       </section>
     </main>
   );
