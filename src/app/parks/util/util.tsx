@@ -38,7 +38,7 @@ export function groupAlbumsByYear(albums: readonly AlbumMeta[]) {
 
 	// Sort albums within each year by date desc
 	for (const [, yearAlbums] of map) {
-		yearAlbums.sort((a, b) => b.date - a.date);
+		yearAlbums.sort((a, b) => b.num - a.num);
 	}
 
 	// Sort years desc
