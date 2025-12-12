@@ -1,51 +1,49 @@
 // src/app/parks/page.tsx
 import Link from "next/link";
+
 import DisplayGrid from "./components/DisplayGrid";
 
 import { albums } from "@/lib/albums";
-import type { AlbumModule } from "@/lib/types";
-import type { StaticImageData } from "next/image";
+import { groupAlbumsByYear, getMonthNameFromDate, hydrateAlbumsWithImages } from "./util/util";
 
-export type Park = { name: string; title: string; images: StaticImageData[] };
+export default async function ParksPage() 
+{
+	const albumsByYear = groupAlbumsByYear(albums);
+	const albumsWithImagesByYear = await hydrateAlbumsWithImages(albumsByYear);
 
-export default async function ParksPage() {
-  const parks: Park[] = await Promise.all(
-    albums.map(async (a) => {
-      const mod = (await import(`@/app/assets/parks/${a.slug}/photos`)) as AlbumModule;
-      const images = mod.default.filter(p => p.preview).map(p => p.src);
-      return { name: a.slug, title: a.title, images };
-    })
-  );
-
-  return (
-    <main className="relative min-h-dvh px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-10 sm:py-14 md:py-20 select-none">
-      <header className="mb-8 sm:mb-12 flex flex-col items-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2">parks</h1>
-        <Link href="/" className="text-neutral-500 text-base sm:text-lg hover:text-neutral-700 transition-colors">
-          ←ryan gumlia
-        </Link>
-      </header>
-
-      <div className="max-w-4xl mx-auto">
-        {parks.length ? (
-          parks.map((park) => (
-            <section key={park.name} className="mb-10 sm:mb-16">
-              <Link
-                href={`/parks/${park.name}`}
-                className="inline-flex items-center gap-1 hover:text-neutral-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded text-neutral-500 text-base sm:text-lg mb-3 sm:mb-4"
-                aria-label={`Open ${park.title} gallery`}
-              >
-                <span>{park.title}→</span>
-              </Link>
-              <DisplayGrid title={park.title} images={park.images} />
-            </section>
-          ))
-        ) : (
-          <p className="text-center text-neutral-500">
-						
-          </p>
-        )}
-      </div>
-    </main>
-  );
+	return (
+		<main className="relative min-h-dvh select-none px-4 py-10 sm:px-6 sm:py-14 md:px-12 md:py-20 lg:px-24 xl:px-48">
+			<header className="mb-8 flex flex-col items-center sm:mb-12">
+				<h1 className="mb-2 text-3xl font-medium sm:text-4xl md:text-5xl">
+					rolls
+				</h1>
+				<Link href="/" className="text-base text-neutral-500 transition-colors hover:text-neutral-700 sm:text-lg">
+					←ryan gumlia
+				</Link>
+			</header>
+			<div className="mx-auto max-w-4xl">
+				{albumsWithImagesByYear.map(({ year, albums }) => (
+					<section key={year} className="mb-16 sm:mb-24">
+						<h2 className="mb-6 text-xl font-medium sm:text-2xl">
+							{year}
+						</h2>
+						{albums.map((album) => (
+							<section key={album.slug} className="mb-10 sm:mb-16">
+								<Link href={`/parks/${album.slug}`} className="inline-flex items-center gap-1 rounded text-base text-neutral-700 transition-colors hover:text-neutral-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 sm:text-lg">
+									{album.title}→
+								</Link>
+								<div className="mb-3 mt-1 text-sm text-neutral-500 sm:text-base">
+									<span>
+										{getMonthNameFromDate(album.date)} {album.film.stock}{" "}
+										{album.film.iso} {album.desc} {album.imageCount}
+									</span>
+								</div>
+								<DisplayGrid title={album.title} images={album.images}/>
+							</section>
+						))}
+					</section>
+				))}
+			</div>
+		</main>
+	);
 }

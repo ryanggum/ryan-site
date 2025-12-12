@@ -2,13 +2,13 @@
 import type { AlbumMeta } from "./types";
 
 export const albums: AlbumMeta[] = [
-	{ slug: "joshua_1", title: "Joshua Tree no. 1", desc: "June 2023, Ektar 100" },
-  { slug: "yosemite", title: "Yosemite", desc: "August 2023, Portra 160" },
-	{ slug: "joshua_2", title: "Joshua Tree no. 2", desc: "January 2024, Gold 200" },
-	{ slug: "sequoia", title: "Sequoia", desc: "March 2024, Fujifilm 400" },
-	{ slug: "zion", title: "Zion", quote: { text: "All this is the music of waters.", author: "John Wesley Powell" }, desc: "July 2024, Ektachrome 100" },
-	{ slug: "teton", title: "Grand Teton & Yellowstone", desc: "May 2025, Ektar 100" },
-	{ slug: "redwoods", title: "Redwoods", desc: "May 2025, Ektachrome 100",
+	{ date: 202306, film: { iso: 100, stock: "Ektar" 			}, slug: "joshua_1", title: "Joshua Tree no. 1", desc: "Images" },
+  { date: 202308, film: { iso: 160, stock: "Portra" 		}, slug: "yosemite", title: "Yosemite", desc: "Images" 					},
+	{ date: 202401, film: { iso: 200, stock: "Gold" 			}, slug: "joshua_2", title: "Joshua Tree no. 2", desc: "Images" },
+	{ date: 202403, film: { iso: 400, stock: "Fujifilm" 	}, slug: "sequoia",  title: "Sequoia", desc: "Images" 					},
+	{ date: 202406, film: { iso: 100, stock: "Ektachrome" }, slug: "zion", 		 title: "Zion", desc: "Images" 							},
+	{ date: 202505, film: { iso: 100, stock: "Ektar" 			}, slug: "teton", 	 title: "Grand Teton & Yellowstone", desc: "Images" },
+	{ date: 202505, film: { iso: 100, stock: "Ektachrome" }, slug: "redwoods", title: "Redwoods", desc: "Images", 
 		writing: "so there are these structures, right, these constructions, " + 
 		"they populate the northern coast, white abstract standings leaning out of grey sand, " +
 		"sporadically placed and functionally inept, because what are those skeletons of brittle white bones angled together and facing always the sea, "
@@ -25,3 +25,5 @@ export const albums: AlbumMeta[] = [
 
 export const albumSlugs = albums.map(a => ({ slug: a.slug }));
 export const getAlbumMeta = (slug: string) => albums.find(a => a.slug === slug);
+
+// quote: { text: "All this is the music of waters.", author: "John Wesley Powell" }

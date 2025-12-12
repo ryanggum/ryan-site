@@ -13,10 +13,13 @@ export type Quote = {
 }
 
 export type AlbumMeta = Readonly<{
-  slug: string;
+	date: number;
+	slug: string;
+	film: { stock: string; iso: number };
   title: string;
+	desc: string;
+	
 	quote?: Quote;
-	desc?: string;
 	writing?: string;
 }>;
 
