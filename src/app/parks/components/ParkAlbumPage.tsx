@@ -15,9 +15,9 @@ function Header({ title }: { title: string }) {
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-3">
         {title}
       </h1>
-      <Link href="/" className={backLink}>
+      {/* <Link href="/" className={backLink}>
         ←ryan gumlia
-      </Link>
+      </Link> */}
       <Link href="/parks" className={backLink}>
         ←parks
       </Link>
@@ -60,11 +60,11 @@ return (
       <div className="text-center text-neutral-500">No Images</div>
     )}
 
-    {meta.desc && (
+    {/* {meta.desc && (
       <p className="text-left max-w-prose text-neutral-900 dark:text-neutral-100 mt-6 text-sm sm:text-base">
         {meta.desc}
       </p>
-    )}
+    )} */}
   </main>
 );
 }
