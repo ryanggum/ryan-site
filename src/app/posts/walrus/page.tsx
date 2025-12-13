@@ -12,7 +12,7 @@ export default function WalrusPage()
   const vis: boolean = mode !== "standard";
 
   return (
-    <PostShell title="When I Am The Walrus" subtitle="November 2025" visible={false}>
+    <PostShell title="When I Am The Walrus" subtitle="November 2025" visible={true}>
       <ModeSwitcher mode={mode} setMode={setMode} />
 
       <p>
