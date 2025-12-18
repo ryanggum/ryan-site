@@ -22,6 +22,9 @@ export default async function ParksPage()
 				</Link>
 			</header>
 			<div className="mx-auto max-w-4xl">
+				<div>
+					Hey!
+				</div>
 				{albumsWithImagesByYear.map(({ year, albums }) => (
 					<section key={year} className="mb-12">
 						<h2 className="text-2xl sm:text-3xl font-medium">
