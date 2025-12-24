@@ -24,8 +24,6 @@ export default async function PostPage({ params }: {
     <PostShell
       title={meta.title}
       subtitle={meta.subtitle}
-      image={meta.image}
-      visible={meta.visible}
     >
       <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
         {markdown}

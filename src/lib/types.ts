@@ -5,6 +5,7 @@ export type Post = {
 	slug: string;
 	num: number;
 	title: string;
+	subtitle?: string;
 	date: number;
 }
 
