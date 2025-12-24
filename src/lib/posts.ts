@@ -1,37 +1,30 @@
 // src/lib/posts.ts
-import type { StaticImageData } from "next/image";
+import { Post } from "@/lib/types";
 
-// Your images
-import OneselfImg from "@/app/assets/posts/oneself.jpg"; 
-
-export type PostMeta = {
-  slug: string;
-  title: string;
-	subtitle?: string;
-	visible: boolean;
-  year?: string;
-  image?: StaticImageData;   // <-- ADD THIS
-};
-
-export const posts: PostMeta[] = [
+export const posts: Post[] = [
   {
     slug: "oneself",
+		num: 1,
     title: "Writing Oneself",
-		visible: true,
-    year: "2025",
-    // image: OneselfImg, 
+    date: 20250901,
   },
-	  {
+	{
     slug: "walrus",
-    title: "November, or When I Was The Walrus",
-		visible: true,
-		year: "2025",
+		num: 2,
+    title: "November, or When I Was the Walrus",
+		date: 20251101,
   },
-	  {
+	{
     slug: "revolver",
+		num: 3,
     title: "Ranking <i>Revolver</i>",
-		visible: true,
-		year: "2025",
+		date: 20251102,
+  },
+	{
+    slug: "island",
+		num: 4,
+    title: "Hawaii, or The Fate of O...",
+		date: 20251201,
   }
 ];
 

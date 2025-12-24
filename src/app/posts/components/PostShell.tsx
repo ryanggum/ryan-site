@@ -44,13 +44,13 @@ export default function PostShell({
               </p>
             )}
 
-            {visible !== false && (
+            {/* {visible !== false && (
               <div className="flex gap-4 mb-4">
                 <Link href="/posts" className={backLink}>
                   ←posts
                 </Link>
               </div>
-            )}
+            )} */}
 
             {image && (
               <Image

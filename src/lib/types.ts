@@ -1,6 +1,13 @@
 // src/lib/types.ts
 import type { StaticImageData } from "next/image";
 
+export type Post = {
+	slug: string;
+	num: number;
+	title: string;
+	date: number;
+}
+
 export type Photo = {
   src: StaticImageData;
   alt: string;
