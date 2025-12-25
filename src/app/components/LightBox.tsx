@@ -1,22 +1,25 @@
 // src/app/parks/components/LightBox.tsx
 "use client";
 
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-
-export type LightboxItem = { src: StaticImageData | string; alt: string };
+import type { Photo } from "@/lib/types";
 
 export default function Lightbox({
   item,
   title = "Image viewer",
   onClose,
 }: {
-  item: LightboxItem;
+  item: Photo;
   title?: string;
   onClose: () => void;
 }) {
-  const [vw, setVw] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 0);
-  const [vh, setVh] = useState<number>(typeof window !== "undefined" ? window.innerHeight : 0);
+  const [vw, setVw] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+  const [vh, setVh] = useState<number>(
+    typeof window !== "undefined" ? window.innerHeight : 0
+  );
 
   useEffect(() => {
     function onResize() {
@@ -28,8 +31,10 @@ export default function Lightbox({
   }, []);
 
   const staticDims =
-    typeof item.src === "object" && "width" in item.src && "height" in item.src
-      ? { w: (item.src as StaticImageData).width, h: (item.src as StaticImageData).height }
+    typeof item.src === "object" &&
+    "width" in item.src &&
+    "height" in item.src
+      ? { w: item.src.width, h: item.src.height }
       : null;
 
   const knownAspect = staticDims ? staticDims.w / staticDims.h : null;
@@ -48,6 +53,7 @@ export default function Lightbox({
   }, [vw, vh, knownAspect]);
 
   const [loadedAspect, setLoadedAspect] = useState<number | null>(null);
+
   const finalBox = useMemo(() => {
     const aspect = loadedAspect ?? knownAspect;
     if (!aspect) return box;
@@ -61,6 +67,12 @@ export default function Lightbox({
     }
     return { w, h };
   }, [box, vw, vh, loadedAspect, knownAspect]);
+
+  // ✅ GUARANTEED non-empty alt text
+  const alt =
+    item.alt?.trim() ||
+    item.caption?.trim() ||
+    title;
 
   return (
     <div
@@ -77,7 +89,7 @@ export default function Lightbox({
         >
           <Image
             src={item.src}
-            alt={item.alt}
+            alt={alt}
             width={Math.round(finalBox.w)}
             height={Math.round(finalBox.h)}
             className="pointer-events-auto object-contain"
@@ -86,7 +98,9 @@ export default function Lightbox({
             onLoadingComplete={(img) => {
               if (!knownAspect) {
                 const a = img.naturalWidth / img.naturalHeight || null;
-                if (a && Math.abs(a - (loadedAspect ?? a + 1)) > 0.001) setLoadedAspect(a);
+                if (a && Math.abs(a - (loadedAspect ?? a + 1)) > 0.001) {
+                  setLoadedAspect(a);
+                }
               }
             }}
           />

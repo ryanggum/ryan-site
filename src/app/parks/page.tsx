@@ -1,7 +1,7 @@
 // src/app/parks/page.tsx
 import Link from "next/link";
 
-import DisplayGrid from "./components/DisplayGrid";
+import DisplayGrid from "../components/DisplayGrid";
 
 import { albums } from "@/lib/albums";
 import { groupAlbumsByYear, getMonthNameFromDate, hydrateAlbumsWithImages } from "./util/util";

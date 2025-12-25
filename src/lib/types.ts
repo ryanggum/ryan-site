@@ -12,6 +12,8 @@ export type Post = {
 export type Photo = {
   src: StaticImageData;
   alt: string;
+	caption?: string;
+	format?: string;
   preview?: boolean;
 };
 
