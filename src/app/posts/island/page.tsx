@@ -35,10 +35,10 @@ export default function Page() {
         moonlight. We picked up food at Da Broke Mouth Grindz, packed into the
         CTS with heaping plates of well seasoned meat and rice, and started the
         navigation. Maps suggested an hour and a half ride, but Maps wasn’t
-        familiar with our game. We discovered early that going a decimal over
-        40mph caused the CTS to shake uncontrollably, so we cruised at 39,
-        taunting law enforcement though the 40-minimums and splitting the cloud
-        cover with the virulence of Icarus were he depressed.
+        familiar with our game. We discovered early that going a decimal over 40
+        caused the CTS to shake uncontrollably, so we cruised at 39, taunting
+        law enforcement though the 40-minimums and splitting the cloud cover
+        with the virulence of Icarus were he depressed.
       </p>
       {/* <div className="flex justify-center">
         <DisplayGrid title="idk" images={a} width={600} />
@@ -237,19 +237,19 @@ export default function Page() {
         life.
       </p>
       <p>
-        Two photographers on the trip but seems that all of this one is for
-        us—blame the cameras for not working underwater. Even then I would have
-        taken more photos of bodies. You rarely see them suspended like that,
-        casting in the pale dark blue, stabilizing with torquings and slow
-        danceed limbs for all that small number of movements which make
-        brilliant, purposeful strokes. Free. Up and down as pleased. Far
-        clunkier on land, weighed down by wet packs that Josh and I bore up the
-        faster than my heart wanted, dominating relentless grade and loose rocks
-        with too a towel for the evening's heat. Fighting on with quick steps
-        and hardly concerned about gravity, goats clambered out to watch us. A
-        black one studied our last stop. Behind him the sky was setting dark and
-        white around the vales of ocean showers. We pushed, switching paces then
-        leads then breaths until Josh turned I didn't.
+        Two photographers on the trip but it seems this one is for us—blame our
+        cameras for not working underwater. Even then I would have taken more
+        photos of bodies. You rarely see them suspended like that, cast free in
+        pale dark blue, stabilizing with torque and slow danceing limbs, for all
+        those small number of movements that make brilliant, purposeful strokes.
+        Free. Up and down as pleased. Far clunkier on land, weighed down by wet
+        packs that Josh and I bore up faster than my heart wanted, dominated by
+        relentless grade and loose rocks, weighed by a towel for conducting the
+        evening's heat. Fighting on with quick steps, hardly concerned about
+        gravity, goats clambered out to watch us. A black one studied our last
+        stop. Behind him the sky was setting dark and white around the vales of
+        long showers. We pushed, switching paces then leads then breaths. Josh
+        turned.
       </p>
       <div className="flex justify-center">
         <DisplayGrid title="idk" images={i} width={600} />
@@ -257,10 +257,11 @@ export default function Page() {
       <p>
         We made it to the CTS dripping wet, carried the last portion by tahitian
         limeade, and aggressive on the downhill tried to catch the last of the
-        sun that now held court over a kingdown of orange. We would have Black
-        Rock Pizza later, then a flight, riding winds on the steep downhill,
-        multiplying The Beat blaring already the butchered chorus in rapture,
-        having kept it would some say one hundred on the land, the sea, the sky.
+        sun now holding court over a kingdown of orange. We would have Black
+        Rock Pizza later, before a flight, riding winds on the steep downhill,
+        multiplying The Beat blaring already our butchered chorus and in rapture
+        deciding the fate of, which? We did not know. We only tried to keep it
+        one hundred, on the land, the sea, the sky.
       </p>
     </PostShell>
   );
