@@ -6,6 +6,9 @@ import crest from "@/app/assets/posts/hawaii/crest.jpg";
 import lean from "@/app/assets/posts/hawaii/lean.jpg";
 import launch from "@/app/assets/posts/hawaii/launch.jpg";
 import coast from "@/app/assets/posts/hawaii/coast.jpg";
+import bay from "@/app/assets/posts/hawaii/bay.jpg";
+import cook from "@/app/assets/posts/hawaii/cook.jpg";
+import white from "@/app/assets/posts/hawaii/white.jpg";
 
 import stars from "@/app/assets/posts/hawaii/stars.jpg";
 import thinking from "@/app/assets/posts/hawaii/thinking.jpg";
@@ -63,6 +66,27 @@ export const f: Photo[] = [
 export const g: Photo[] = [
   {
     src: coast,
+    alt: "[photo]",
+    // caption: "Josh's Digital: Coast"
+  },
+];
+
+export const h: Photo[] = [
+  {
+    src: cook,
+    alt: "[photo]",
+    // caption: "Josh's Digital: Coast"
+  },
+  {
+    src: bay,
+    alt: "[photo]",
+    // caption: "Josh's Digital: Coast"
+  },
+];
+
+export const i: Photo[] = [
+  {
+    src: white,
     alt: "[photo]",
     // caption: "Josh's Digital: Coast"
   },

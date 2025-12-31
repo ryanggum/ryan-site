@@ -4,7 +4,7 @@
 import PostShell from "../components/PostShell";
 import DisplayGrid from "@/app/components/DisplayGrid";
 
-import { a, b, c, e, f, g } from "./photos";
+import { a, b, c, e, f, g, h, i } from "./photos";
 
 export default function Page() {
   return (
@@ -213,25 +213,54 @@ export default function Page() {
         to see the tiger shark there because it meant it was not currently in
         Kealakekua Bay.
       </p>
+      <div className="flex justify-center">
+        <DisplayGrid title="idk" images={h} width={600} />
+      </div>
       <p>
         A short time later we started the 1,400 foot descent into Kealakekua
         Bay. A succession of grass, rock, rubble, and dirt brought us to Captain
         Cook's Monument, erected a year after his death in 1874, and some more
         dirt to one of the healthiest reefs in the state. Kealakekua is
-        protected on land by its approach and in sea by a prowling pack of
-        spinner dolphins. Its clarity is ensured through overcast skies by a of
-        springs that feed it freshwater. We suited up, dove in, and stared down
-        for a long time: banking south with the coast where the reef gradually
-        slid into a large blue crater. I’d never really done anything like
-        this—snorkeled, yes, but not through a metropolis while undulating like
-        a fish myself, involved in so many numbers and types: from clear to long
-        to rainbow. By the last I mean parrotfish; I followed one around for a
-        while watching him preen the reef by chipping away with quite bites at
-        coral, angling his body for the best approach. Watching him I felt my
-        height—i t should have been a clue that all we can hear underwater is
-        the crackle, air bubbles supposedly, but if I we were really attuned my
-        ears would be ringing with tweets and squaws of the songs of the trees.
-        What else to be rising from such urban constellations of life.
+        protected on land by its approach and in sea by prowling spinner
+        dolphins. Its clarity is ensured even through overcast skies by springs
+        that feed it freshwater. We suited up, dove in, and stared down for a
+        long time: banking south as the reef gradually slid into a large blue
+        crater. I’d never really done anything like this—snorkeled, yes, but not
+        through a metropolis, or while undulating like a fish myself, involved
+        with so many numbers or types: clear to long to rainbow. By the last I
+        mean parrotfish. I followed one around for a while watching him preen
+        the reef by biting off coral, turning his whole body always just to
+        angle a mouth. Watching I felt my presence and my height—it should have
+        been a clue that all we can only hear a crackle underwater—air bubbles
+        apparently—if we were really attuned I know our ears would ring with the
+        cries and squaws of the trees. What else to be rising from this urban
+        life.
+      </p>
+      <p>
+        Two photographers on the trip but seems that all of this one is for
+        us—blame the cameras for not working underwater. Even then I would have
+        taken more photos of bodies. You rarely see them suspended like that,
+        casting in the pale dark blue, stabilizing with torquings and slow
+        danceed limbs for all that small number of movements which make
+        brilliant, purposeful strokes. Free. Up and down as pleased. Far
+        clunkier on land, weighed down by wet packs that Josh and I bore up the
+        faster than my heart wanted, dominating relentless grade and loose rocks
+        with too a towel for the evening's heat. Fighting on with quick steps
+        and hardly concerned about gravity, goats clambered out to watch us. A
+        black one studied our last stop. Behind him the sky was setting dark and
+        white around the vales of ocean showers. We pushed, switching paces then
+        leads then breaths until Josh turned I didn't.
+      </p>
+      <div className="flex justify-center">
+        <DisplayGrid title="idk" images={i} width={600} />
+      </div>
+      <p>
+        We made it to the CTS dripping wet, carried the last portion by tahitian
+        limeade, and aggressive on the downhill tried to catch the last of the
+        sun that now held court over a kingdown of orange. We would have Black
+        Rock Pizza later, then a flight, riding winds on the steep downhill,
+        multiplying The Beat blaring already the butchered chorus in rapture,
+        having kept it would some say one hundred on the land, the sea, the sky.
       </p>
     </PostShell>
   );
