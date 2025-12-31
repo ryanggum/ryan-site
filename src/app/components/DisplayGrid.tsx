@@ -47,11 +47,11 @@ function DisplayGridBase({
             return (
               <div key={idx} className="flex flex-col">
                 {/* Image */}
-<button
-  onClick={() => setActive(idx)}
-  className="group relative block overflow-hidden cursor-pointer p-0 m-0 border-0 bg-transparent"
-  aria-label={`Open ${title} photo ${idx + 1}`}
->
+                <button
+                  onClick={() => setActive(idx)}
+                  className="group relative block overflow-hidden cursor-pointer p-0 m-0 border-0 bg-transparent"
+                  aria-label={`Open ${title} photo ${idx + 1}`}
+                >
                   <div className="relative w-full aspect-[3/2]">
                     <Image
                       src={photo.src}
@@ -67,11 +67,11 @@ function DisplayGridBase({
                 </button>
 
                 {/* Caption */}
-{photo.caption && (
-  <div className="text-sm text-gray-500 leading-tight">
-    {photo.caption}
-  </div>
-)}
+                {photo.caption && (
+                  <div className="text-sm text-gray-500 leading-tight">
+                    {photo.caption}
+                  </div>
+                )}
               </div>
             );
           })}
