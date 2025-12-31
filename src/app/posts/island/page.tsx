@@ -214,23 +214,24 @@ export default function Page() {
         Kealakekua Bay.
       </p>
       <p>
-        A short time later we started the 1,400 foot descent into the bottom of
-        Kealakekua Bay. A steady succession of grass, rock, rubble, and dirt
-        brought us to Captain Cook's Monument, erected a year after his death in
-        1874, and a couple more steps to one of the healthiest and most abundant
-        reefs in the state. The bay is protected on land by the severity of the
-        hike in the sea by packs of spinner dolphins. It is near crystal clear
-        even in overcast skies thanks to a couple freshwater springs. We suited
-        up, dove in, and stared down for a long time, banking southeast with the
-        coast line where the reef gradually slid into the bay’s big blue crater.
-        I’d never really done anything like this—snorkeled, yes, but not over a
-        metropolis, not undulating in the waves like a fish myself, involved in
-        the affairs of types never dreamed, some clear others long one a true
-        rainbow. When submerged you hear only this crackle, from air bubbles
-        supposedly, but I felt that if I were beter tuned my ears would be
-        ringing with the tweets and squaws that sang earlier in the trees...
-        what else to be rising from these swirling and urban constellations of
-        life.
+        A short time later we started the 1,400 foot descent into Kealakekua
+        Bay. A succession of grass, rock, rubble, and dirt brought us to Captain
+        Cook's Monument, erected a year after his death in 1874, and some more
+        dirt to one of the healthiest reefs in the state. Kealakekua is
+        protected on land by its approach and in sea by a prowling pack of
+        spinner dolphins. Its clarity is ensured through overcast skies by a of
+        springs that feed it freshwater. We suited up, dove in, and stared down
+        for a long time: banking south with the coast where the reef gradually
+        slid into a large blue crater. I’d never really done anything like
+        this—snorkeled, yes, but not through a metropolis while undulating like
+        a fish myself, involved in so many numbers and types: from clear to long
+        to rainbow. By the last I mean parrotfish; I followed one around for a
+        while watching him preen the reef by chipping away with quite bites at
+        coral, angling his body for the best approach. Watching him I felt my
+        height—i t should have been a clue that all we can hear underwater is
+        the crackle, air bubbles supposedly, but if I we were really attuned my
+        ears would be ringing with tweets and squaws of the songs of the trees.
+        What else to be rising from such urban constellations of life.
       </p>
     </PostShell>
   );
