@@ -17,15 +17,15 @@ export default function Page() {
         One hour into the trip, the 2014 Toyota Sienna that Josh and I parked
         half a mile from Costco’s Kailua-Kona warehouse refused to start. Two
         hours into the trip—after flooding the engine, communing with Chat, and
-        last gasp slamming down on both the brake and the gas—she roared to
-        life. So we took a victory lap, trotting the triumph around the lot
-        until Scott gained on our course and waved us into his lot, to its back,
-        to Ernesto, whose son taught me how to pop the hood and gently explained
-        that radiators should not float in antifreeze, and that his father’s
-        amusement meant we needed a new car. Three hours into the trip, we
-        rolled stylishly out of Scott’s lot in an unregistered 2003 Cadillac
-        CTS, and three hours and three minutes into the trip, I released her
-        parking brake.
+        last gasp slamming down on both brake and gas—she roared to life. So we
+        took a victory lap, trotting the triumph around the lot until Scott
+        gained on our course and waved us into his lot, to its back, to Ernesto,
+        whose son taught me how to pop the hood and gently explained that
+        radiators do not float in antifreeze, and that his father’s amusement
+        meant we needed a new car. Three hours into the trip, we rolled
+        stylishly out of Scott’s lot in an unregistered 2003 Cadillac CTS, and
+        three hours and three minutes into the trip, I released her parking
+        brake.
       </p>
       <p>
         She was a beater, he said. We didn’t like his cynicism and set out on
@@ -47,8 +47,8 @@ export default function Page() {
         We arrived at 9:00pm and for the last part of the drive batted off hard
         the urges to look past the specks hanging on the horizon and splattering
         our windshield like bugs, and committed still to a true first sight,
-        stole up an outcropping with eyes trained on the glow my phone could get
-        to the ground. It was windy. The gusts belayed us despite their 30
+        stole up an outcropping with our eyes trained on the glow my phone could
+        get to the ground. It was windy. The gusts belayed us despite their 30
         percent less effective oxygen content and no less effectively struck
         into me fear. Forgive me, please, conceptually: a lion’s share up the
         tallest mountain on Earth, stranded by some 2,400 miles of gruesome
@@ -64,16 +64,16 @@ export default function Page() {
         black but bright dotting light, flowers—Rigel, Sirius, them all—topping
         the hazy undergrowth like drips on brush sweeps: North South East and
         West spinning did not discriminate, the patterns stretched to every
-        horizon even though we had to... in the sea do you soften your gaze and
-        float on a blur or do you pick on the darting fish and chase the schools
-        and dive deep into the crevices where the anemones bloom—I jumped at
-        Orion at the shooting stars flitting beneath his belt teeming all across
-        my hands while Josh clawed long by me up a boulder yelling down the
-        hunter’s great dog, the canine’s teeth bared and snarling at our
+        horizon even though we had to... because in the sea you don't soften
+        your gaze and float on a blur, you pick on the darting fish and chase
+        the schools and dive deep into the crevices where the anemones bloom—I
+        jumped at Orion at the shooting stars flitting beneath his belt teeming
+        across my hands while Josh clawed long by me up a boulder yelling down
+        the hunter’s great dog, the canine’s teeth bared and snarling at our
         intrusion then our retreat to behind the Ursas our recollection of
         bearings in Jupiter’s eye on our long arc West borne by the current of
-        the galaxy on the tracks of Vega falling over the edge of the world for
-        Lyra all left in our minds: the choice.
+        the galaxy toward the trail of Vega falling over the edge of the world
+        for Lyra all left in our minds the choice.
       </p>
       <div className="flex justify-center">
         <DisplayGrid title="idk" images={c} width={600} />
@@ -158,15 +158,16 @@ export default function Page() {
         and I landed on point break—wanting a tough smash on the way out, but at
         that peak hit sand, twisted into a wall of solid foam and lost my head
         over my arms in a barrel tide—body, my body kept the idea of jamming a
-        foot into the coarse and wavering up a lean on the horizon, there to be
-        smacked again by a cap that barely left my chest out of the water, the
-        marin now running a shining pink. Sun dries by exhausting the water and
-        bleaching less than sand I, bounced in the next strike watched sea and
-        shore blend, tackled ebb by ebb until looking back and straight at the
-        sun, that made salt in my ears, watched the steady heat beat better,
-        better, better in the licking crashes, beared not by cliffs, depth, or
-        earth but really, really, really none of the places rather who to be
-        joined in the frame of fire.
+        foot in the coarse and wavering up a lean on the horizon, there to be
+        smacked again by a cap that barely left my chest out of the marine now
+        running a shining pink. Sun dries by exhausting the water and bleaching
+        less than sand I, collapsing in the next strike watched sea and shore
+        blend, tackled into ebb into ebb until laying back and looking straight
+        at the sun as making salt in my ears, watched the steady heat beat
+        better, better, better in the crashing extremes, bearing not from cliffs
+        depth or earth really, really, really not choosing place but who,
+        lifting hair coarsened black, eying that frame of fire, squinting on I
+        see...
       </p>
       <div className="flex justify-center">
         <DisplayGrid title="idk" images={g} width={600} />
@@ -175,14 +176,62 @@ export default function Page() {
         Back, land stretched surreal. Windless and in the northern fence, we
         pushed the boat launch until even in her there were no words, none as
         the horsediggers diagonaled our plod and none as Josh pushed the CTS,
-        finding that quiet settled her with us any over 60. Home, Josh says I
-        ate milk and tuna, I he a quarter caesar salad, and surprise we sans
-        caloric survival instinct had sans caloric survival instinct, fed more
-        on the Last Crusade, crushing weakened in the cycle of dreams.
+        finding that quiet settled her with us after 60. Home, Josh says I ate
+        tuna and milk, I he a quarter caesar salad, and surprise we sans caloric
+        survival instinct had sans caloric survival instinct, feeding on the{" "}
+        <i>Last Crusade</i>, crushing weakened in the cycles of dreams.
       </p>
       <div className="flex justify-center">
         <p>* * *</p>
       </div>
+      <p>
+        Exhausted? I pray as much as we, rewound by hate for the pounds of milk
+        and almonds in our fridge and driving to Costco for breakfast. An
+        executive membership apparently gets you hot dogs 30 minutes before
+        everyone else. We enjoyed those and two cold brew mocha freezes while
+        reviewing the medley that was supposed to start high and end low. The
+        high was the Makāula ʻŌʻoma Trail system that lay directly above Kona
+        and run rife through the cloud forest known for coffee plantations.
+        Neverminding the artisan drips available at every turn on the way, we
+        showed up to the trailhead with half our freezes left because their
+        ridiculous sweetness meant we had to chase every sip with water. We
+        didn’t blame the freezes for this. Like both the CTS and The Beat, (the
+        former now emitting a plume of white smoke every time we parked her),
+        they made no pretense of being anything but themselves.
+      </p>
+      <p>
+        The trails showed far more discretion. Their biggest boon of bird song
+        never betrayed a source, indeed, despite thicketing every path with
+        shrill and colorful clattering, we ultimately made as many wings as
+        quiet moments as harmonies. The hike was very nice, the ecosystem we
+        were told but did not verify Jurassic, and our shoes muddy as we
+        descended later to the middle part of Honokohau Beach, known regionally
+        as Turtle Beach for its high volume of turtles. Josh and I saw many
+        turtles there—(wouldn’t you know it: they are one of Josh’s favorite
+        animals)—and also one of the animals that I know: a tiger shark,
+        swimming alongside the jetty that split us from the harbor. I was happy
+        to see the tiger shark there because it meant it was not currently in
+        Kealakekua Bay.
+      </p>
+      <p>
+        A short time later we started the 1,400 foot descent into the bottom of
+        Kealakekua Bay. A steady succession of grass, rock, rubble, and dirt
+        brought us to Captain Cook's Monument, erected a year after his death in
+        1874, and a couple more steps to one of the healthiest and most abundant
+        reefs in the state. The bay is protected on land by the severity of the
+        hike in the sea by packs of spinner dolphins. It is near crystal clear
+        even in overcast skies thanks to a couple freshwater springs. We suited
+        up, dove in, and stared down for a long time, banking southeast with the
+        coast line where the reef gradually slid into the bay’s big blue crater.
+        I’d never really done anything like this—snorkeled, yes, but not over a
+        metropolis, not undulating in the waves like a fish myself, involved in
+        the affairs of types never dreamed, some clear others long one a true
+        rainbow. When submerged you hear only this crackle, from air bubbles
+        supposedly, but I felt that if I were beter tuned my ears would be
+        ringing with the tweets and squaws that sang earlier in the trees...
+        what else to be rising from these swirling and urban constellations of
+        life.
+      </p>
     </PostShell>
   );
 }
