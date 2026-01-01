@@ -185,19 +185,19 @@ export default function Page() {
         <p>* * *</p>
       </div>
       <p>
-        Exhausted? I pray as much as we, rewound by hate for the pounds of milk
-        and almonds in our fridge and driving to Costco for breakfast. An
-        executive membership apparently gets you hot dogs 30 minutes before
-        everyone else. We enjoyed those and two cold brew mocha freezes while
-        reviewing the medley that was supposed to start high and end low. The
-        high was the Makāula ʻŌʻoma Trail system that lay directly above Kona
-        and run rife through the cloud forest known for coffee plantations.
-        Neverminding the artisan drips available at every turn on the way, we
-        showed up to the trailhead with half our freezes left because their
-        ridiculous sweetness meant we had to chase every sip with water. We
-        didn’t blame the freezes for this. Like both the CTS and The Beat, (the
-        former now emitting a plume of white smoke every time we parked her),
-        they made no pretense of being anything but themselves.
+        Exhausted? I pray less than this prose but more than we who rewound by
+        hate for the three pounds of milk and almonds in our fridge drove to
+        Costco for breakfast. An executive membership apparently gets you hot
+        dogs 30 minutes before everyone else. We enjoyed those and two cold brew
+        mocha freezes while reviewing the medley that was supposed to start high
+        and end low. The high was the Makāula ʻŌʻoma Trail system that lay
+        directly above Kona and run rife through the cloud forest known for
+        coffee plantations. Neverminding the artisan drips available at every
+        turn on the way, we showed up to the trailhead with half our freezes
+        left because their ridiculous sweetness meant we had to chase every sip
+        with water. We didn’t blame the freezes for this. Like both the CTS and
+        The Beat, (the former now emitting a plume of white smoke every time we
+        parked her), they made no pretense of being anything but themselves.
       </p>
       <p>
         The trails showed far more discretion. Their biggest boon of bird song
