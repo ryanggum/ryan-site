@@ -17,7 +17,7 @@ export default function Page() {
         One hour into the trip, the 2014 Toyota Sienna that Josh and I parked
         half a mile from Costco’s Kailua-Kona warehouse refused to start. Two
         hours into the trip—after flooding the engine, communing with Chat, and
-        last gasp slamming down on both brake and gas—she roared to life. So we
+        last gasp slamming down both brake and gas—she roared to life. So we
         took a victory lap, trotting the triumph around the lot until Scott
         gained on our course and waved us into his lot, to its back, to Ernesto,
         whose son taught me how to pop the hood and gently explained that
