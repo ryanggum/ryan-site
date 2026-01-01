@@ -237,31 +237,31 @@ export default function Page() {
         life.
       </p>
       <p>
-        Two photographers on the trip but it seems this one is for us—blame our
-        cameras for not working underwater. Even then I would have taken more
-        photos of bodies. You rarely see them suspended like that, cast free in
-        pale dark blue, stabilizing with torque and slow danceing limbs, for all
-        those small number of movements that make brilliant, purposeful strokes.
-        Free. Up and down as pleased. Far clunkier on land, weighed down by wet
-        packs that Josh and I bore up faster than my heart wanted, dominated by
-        relentless grade and loose rocks, weighed by a towel for conducting the
-        evening's heat. Fighting on with quick steps, hardly concerned about
-        gravity, goats clambered out to watch us. A black one studied our last
-        stop. Behind him the sky was setting dark and white around the vales of
-        long showers. We pushed, switching paces then leads then breaths then
-        Josh turned.
+        Two photographers on the trip but it seems this one is for us. Even had
+        out cameras worked underwater, I would have taken more photos of us. You
+        rarely see a body so suspended. Josh, ahead of me, was cast by the blue
+        in all number of movements, their inertia comprising slow powerful
+        strokes. Freedom: powering up and down as pleased... far clunkier on
+        land, weighed down by wet packs that we bore faster than my heart
+        desired, dominated by relentless grade and loose rocks, weighed down by
+        a towel perfect at conducting heat. Fighting on with quick steps, none
+        concerned with gravity, goats clambered out to watch us, and a black one
+        studied our last stop. Behind him the sky was setting dark and white
+        through vales of showers. We pushed, switching paces then leads then
+        breaths then turns, save at the final heights, where I finally
+        recognized it better to give all the last to Josh.
       </p>
       <div className="flex justify-center">
         <DisplayGrid title="idk" images={i} width={600} />
       </div>
       <p>
-        We made it to the CTS dripping wet, carried the last portion by tahitian
+        We made it to the CTS dripping wet, carried the last portion by Tahitian
         limeade, and aggressive on the downhill tried to catch the last of the
         sun now holding court over a kingdown of orange. We would have Black
-        Rock Pizza later, before a flight, riding winds on the steep downhill,
+        Rock Pizza later before a flight, riding winds on the steep downhill,
         multiplying The Beat blaring already our butchered chorus and in rapture
-        deciding the fate of, which? We did not know. We only tried to keep it
-        one hundred, on the land, the sea, the sky.
+        deciding the fate of, which? We did not know. We had only tried to keep
+        it one hundred, on the land, the sea, and the sky.
       </p>
     </PostShell>
   );
