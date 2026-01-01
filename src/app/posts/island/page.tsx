@@ -163,11 +163,10 @@ export default function Page() {
         running a shining pink. Sun dries by exhausting the water and bleaching
         less than sand I, collapsing in the next strike watched sea and shore
         blend, tackled into ebb onto ebb until laying back and looking straight
-        at the sun as making salt in my ears, watched the steady heat beat
-        better, better, better in the crashing extremes, bearing not from cliffs
-        depth or earth really, really, really not choosing place but who,
-        lifting hair coarsened black, eying that frame of fire, squinting on I
-        saw...
+        at the sun making salt in my ears, watched the steady heat beat better,
+        better, better in the crashing extremes bearing not from cliffs depth or
+        earth really, really, really not choosing place but who. Lifting my hair
+        run rigid black eying that frame of fire squinting on I saw...
       </p>
       <div className="flex justify-center">
         <DisplayGrid title="idk" images={g} width={600} />
@@ -190,8 +189,8 @@ export default function Page() {
         Costco for breakfast. An executive membership apparently gets you hot
         dogs 30 minutes before everyone else. We enjoyed those and two cold brew
         mocha freezes while reviewing the medley that was supposed to start high
-        and end low. The high was the Makāula ʻŌʻoma Trail system that lay
-        directly above Kona and run rife through the cloud forest known for
+        and end low. The high was the Makāula ʻŌʻoma Trail system that lies
+        directly above Kona and runs rife through a cloud forest known for
         coffee plantations. Neverminding the artisan drips available at every
         turn on the way, we showed up to the trailhead with half our freezes
         left because their ridiculous sweetness meant we had to chase every sip
