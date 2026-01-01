@@ -248,8 +248,8 @@ export default function Page() {
         evening's heat. Fighting on with quick steps, hardly concerned about
         gravity, goats clambered out to watch us. A black one studied our last
         stop. Behind him the sky was setting dark and white around the vales of
-        long showers. We pushed, switching paces then leads then breaths. Josh
-        turned.
+        long showers. We pushed, switching paces then leads then breaths then
+        Josh turned.
       </p>
       <div className="flex justify-center">
         <DisplayGrid title="idk" images={i} width={600} />
