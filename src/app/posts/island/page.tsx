@@ -94,14 +94,15 @@ export default function Page() {
         <p>* * *</p>
       </div>
       <p>
-        Around 4:00am I moved to the balcony and held 100 Years of Solitude to
-        my chest until dawn made it light enough to read. The mornings in
-        Kailua-Kona are nicely tame. The island’s volcanic spine protects the
-        west side from sunrise and channels its harshest lights into the clouds.
-        After watering Hilo, the northeast trade winds push what is left over
-        the mountains to be burnt off by noon, but not before blazing a
-        brilliant pink and gold in a dying announcement of Kona’s day. Josh rose
-        to it, and we regrouped with my laptop.
+        Around 4:00am I moved to the balcony and held{" "}
+        <i>100 Years of Solitude</i> to my chest until dawn made it light enough
+        to read. The mornings in Kailua-Kona are nicely tame. The island’s
+        volcanic spine protects the west side from sunrise and channels its
+        harshest lights into the clouds. After watering Hilo, the northeast
+        trade winds push what is left over the mountains to be burnt off by
+        noon, but not before blazing a brilliant pink and gold in a dying
+        announcement of Kona’s day. Josh rose to it, and we regrouped with my
+        laptop.
       </p>
       <p>
         In deference to the CTS’s age, we abridged the expedition planned for
@@ -115,8 +116,8 @@ export default function Page() {
         banger “Golden” three times in a row. The station knew what we wanted
         (all the hits), when we wanted them (now), and at that The Beat (93.9 FM
         “All the Hits, Now”) excelled, running only three ads an hour (the same
-        three) around Abbey Road-esque mixes of Taylor Swift, Lola Young, and
-        Sia.
+        three) around <i>Abbey Road</i>-esque mixes of Taylor Swift, Lola Young,
+        and Sia.
       </p>
       {/* <div className="flex justify-center">
         <DisplayGrid title="idk" images={d} width={600} />
@@ -192,21 +193,21 @@ export default function Page() {
         and end low. The high was the Makāula ʻŌʻoma Trail system that lies
         directly above Kona and runs rife through a cloud forest known for
         coffee plantations. Neverminding the artisan drips available at every
-        turn on the way, we showed up to the trailhead with half our freezes
-        left because their ridiculous sweetness meant we had to chase every sip
-        with water. We didn’t blame the freezes for this. Like both the CTS and
-        The Beat, (the former now emitting a plume of white smoke every time we
-        parked her), they made no pretense of being anything but themselves.
+        turn along the way, we showed up to the trailhead with half our freezes
+        to go because their sweetness made up chase every sip with water. We
+        didn’t blame the freezes for this. Like both the CTS and The Beat, (the
+        former now emitting a plume of white smoke every time we parked her),
+        they made no pretense of being anything but themselves.
       </p>
       <p>
         The trails showed far more discretion. Their biggest boon of bird song
-        never betrayed a source, indeed, despite thicketing every path with
-        shrill and colorful clattering, we ultimately made as many wings as
-        quiet moments as harmonies. The hike was very nice, the ecosystem we
-        were told but did not verify Jurassic, and our shoes muddy as we
-        descended later to the middle part of Honokohau Beach, known regionally
-        as Turtle Beach for its high volume of turtles. Josh and I saw many
-        turtles there—(wouldn’t you know it: they are one of Josh’s favorite
+        never betrayed a source. Indeed, despite thicketing every path with
+        shrill and colorful clattering, we made out with as many wings as quiet
+        moments as harmonies. The hike was very nice, the ecosystem we were told
+        but did not verify Jurassic, and our shoes muddy as we later descended
+        to the middle part of Honokohau Beach, known regionally as Turtle Beach
+        for its high volume of turtles. There, Josh and I saw many
+        turtles—(wouldn’t you know it: they are one of Josh’s favorite
         animals)—and also one of the animals that I know: a tiger shark,
         swimming alongside the jetty that split us from the harbor. I was happy
         to see the tiger shark there because it meant it was not currently in
@@ -216,21 +217,21 @@ export default function Page() {
         <DisplayGrid title="idk" images={h} width={600} />
       </div>
       <p>
-        A short time later we started the 1,400 foot descent into Kealakekua
-        Bay. A succession of grass, rock, rubble, and dirt brought us to Captain
-        Cook's Monument, erected a year after his death in 1874, and some more
-        dirt to one of the healthiest reefs in the state. Kealakekua is
-        protected on land by its approach and in sea by prowling spinner
-        dolphins. Its clarity is ensured even through overcast skies by springs
-        that feed it freshwater. We suited up, dove in, and stared down for a
-        long time: banking south as the reef gradually slid into a large blue
-        crater. I’d never really done anything like this—snorkeled, yes, but not
-        through a metropolis, or while undulating like a fish myself, involved
-        with so many numbers or types: clear to long to rainbow. By the last I
-        mean parrotfish. I followed one around for a while watching him preen
-        the reef by biting off coral, turning his whole body always just to
-        angle a mouth. Watching I felt my presence and my height—it should have
-        been a clue that all we can only hear a crackle underwater—air bubbles
+        A short time later we descended 1,400 feet into Kealakekua Bay. A
+        succession of grass, rock, rubble, and dirt brought us to Captain Cook's
+        Monument, erected a year after his death in 1874, and some more dirt to
+        one of the healthiest reefs in the state. Kealakekua is protected on
+        land by its approach and in sea by prowling spinner dolphins. Its
+        clarity is ensured even through overcast skies by springs that feed it
+        freshwater. We suited up, dove in, and stared down for a long time:
+        banking south as the reef gradually slid into a large blue crater. I’d
+        never really done anything like this—snorkeled, yes, but not through a
+        metropolis, or while undulating like a fish myself, involved with so
+        many numbers or types: clear to long to rainbow. By the last I mean
+        parrotfish. I followed one around for a while watching him preen the
+        reef by biting off coral, turning his whole body always just to angle a
+        mouth. Watching I felt my presence and my height—it should have been a
+        clue that we can only hear a crackle underwater—air bubbles
         apparently—if we were really attuned I know our ears would ring with the
         cries and squaws of the trees. What else to be rising from this urban
         life.
@@ -239,11 +240,11 @@ export default function Page() {
         Two photographers on the trip but it seems this one is for us. Even had
         out cameras worked underwater, I would have taken more photos of us. You
         rarely see a body so suspended. Josh, ahead of me, was cast by the blue
-        in all number of movements, their inertia comprising slow powerful
-        strokes. Freedom: powering up and down as pleased... far clunkier on
+        in all number of movements, together an inertia making out slow and
+        powerful strokes. Freedom: up and down as pleased... far clunkier on
         land, weighed down by wet packs that we bore faster than my heart
         desired, dominated by relentless grade and loose rocks, weighed down by
-        a towel perfect at conducting heat. Fighting on with quick steps, none
+        a towel great at conducting heat. Fighting on with quick steps, none
         concerned with gravity, goats clambered out to watch us, and a black one
         studied our last stop. Behind him the sky was setting dark and white
         through vales of showers. We pushed, switching paces then leads then
