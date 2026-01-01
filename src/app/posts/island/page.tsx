@@ -104,7 +104,7 @@ export default function Page() {
         three bananas. We were confident we could make the hour and a half drive
         in two, and to pass the time, we had each other. More importantly, we
         had Sasha K. of The Beat. Her station crackled into range the night
-        before and turned an instant classic by playing of KPop Demon Hunters
+        before and turned an instant classic by playing KPop Demon Hunters
         banger “Golden” three times in a row. The station knew what we wanted
         (all the hits), when we wanted them (now), and at that The Beat (93.9 FM
         “All the Hits, Now”) excelled, running only three ads an hour (the same
@@ -119,11 +119,11 @@ export default function Page() {
         makeshift lot three miles west, and every forty minutes or so, one of
         the beasts will pitch along a groove in the landscape, grinding in
         deeper a wide braid of routes that have come to scar the scrubland
-        orange, and exposing each time more basaltic iron for pulverization and
-        oxidization by the seemingly endless southern gale. We knew it well as
-        we hiked the coast, splitting shore rock and pastures in one long lean
-        against the blast that was quite proficient at finding the right silts
-        for our eyes, which otherwise made out barren gorgeous.
+        orange, exposing more basaltic iron for pulverization and oxidization by
+        the seemingly endless southern gale. We knew it well as we hiked the
+        coast, splitting shore rock and pastures in one long lean against the
+        blast that was quite proficient at finding the right silts for our eyes,
+        which otherwise made out barren gorgeous.
       </p>
       <ImageGridStack images={[e, f]} width={[600, 330]} />
       <p>
@@ -151,17 +151,17 @@ export default function Page() {
         at the sun making salt in my ears, watched the steady heat beat better,
         better, better in the crashing extremes bearing not from cliffs depth or
         earth really, really, really not choosing place but who. Lifting my hair
-        run rigid black eying that frame of fire squinting on I saw...
+        run rigid black eying that frame of fire squinting on I saw.
       </p>
       <ImageGridStack images={g} width={600} />
       <p>
         Back, land stretched surreal. Windless and in the northern fence, we
         pushed the boat launch until even in her there were no words, none as
         the horsediggers diagonaled our plod and none as Josh pushed the CTS,
-        finding that quiet settled her with us after 60. Home, Josh says I ate
-        tuna and milk, I he a quarter caesar salad, and surprise we sans caloric
-        survival instinct had sans caloric survival instinct, feeding on the{" "}
-        <i>Last Crusade</i>, crushing weakened in the cycles of dreams.
+        finding that quiet settled over her with us after 60. Home, Josh says I
+        ate tuna and milk, I he a quarter caesar salad, and surprise we sans
+        caloric survival instinct had sans caloric survival instinct, feeding on
+        the <i>Last Crusade</i>, crushing weakened in the cycles of dreams.
       </p>
       <div className="flex justify-center">
         <p>* * *</p>
@@ -204,27 +204,27 @@ export default function Page() {
         of the healthiest reefs in the state. Kealakekua is protected on land by
         its approach and in sea by spinner dolphins. Its clarity is ensured
         through overcast skies by springs that feed it freshwater. We suited up,
-        dove in, and stared down for a long time: banking south as the reef
-        gradually slid into a large blue crater. I’d never really done anything
-        like this—snorkeled, yes, but not through a metropolis, or while
-        undulating like a fish myself, involved with so many numbers or types:
-        clear to long to rainbow. By the last I mean parrotfish. I followed one
-        around for a while watching him preen the reef by biting off coral,
-        turning his whole body always just to angle a mouth. Watching I felt my
-        presence and my height—it should have been a clue that we can only hear
-        a crackle underwater—air bubbles apparently—if we were really attuned I
-        know our ears would ring with the cries and squaws of the trees. What
-        else to be rising from this urban life.
+        dove in, and stared down for a long time: banking south where the reef
+        gradually slides into a large blue crater. I’d never really done
+        anything like this—snorkeled, yes, but not through a metropolis, or
+        while undulating like a fish myself, involved with so many numbers or
+        types: clear to long to rainbow. By the last I mean parrotfish. I
+        followed one around for a while watching him preen the reef and bite off
+        coral, turning its whole body always just to angle its mouth. Watching I
+        felt my presence and my height—it should have been a clue that we can
+        only hear a crackle underwater—air bubbles apparently—if we were really
+        attuned I know our ears would ring with the cries and squaws of the
+        trees. What else to be rising from this urban but alien life.
       </p>
       <p>
         Two photographers on the trip but it seems this one is for us. Even had
-        out cameras worked underwater, I would have taken more photos of us. You
-        rarely see a body so suspended. Josh, ahead of me, was cast by the blue
-        in all number of movements, together an inertia making out slow and
+        our cameras worked underwater, I would have taken more photos of us. You
+        rarely see a body so suspended. Josh, ahead of me, was cast in the blue
+        by all number of movements, together in inertia making out slow and
         powerful strokes. Freedom: up and down as pleased... far clunkier on
         land, weighed down by wet packs that we bore faster than my heart
-        desired, dominated by relentless grade, loose rocks, and towels great at
-        conducting heat. Fighting on with quick steps, none concerned with
+        desired, dominated by relentless grade, loose rocks, and towels great
+        for conducting heat. Fighting on with quick steps, none concerned with
         gravity, goats clambered out to watch us, and a black one studied our
         last stop. Behind him the sky was setting dark and white through vales
         of showers. We pushed, switching paces then leads then breaths then
@@ -239,7 +239,7 @@ export default function Page() {
         Rock Pizza later before a flight, riding winds on the steep downhill,
         multiplying The Beat blaring already our butchered chorus and in rapture
         deciding the fate of, which? We did not know. We had only tried to keep
-        it one hundred, on the land, the sea, and the sky.
+        it one hundred, on the land, the sea, the sky.
       </p>
     </PostShell>
   );
