@@ -223,13 +223,13 @@ export default function Page() {
         in all number of movements, together an inertia making out slow and
         powerful strokes. Freedom: up and down as pleased... far clunkier on
         land, weighed down by wet packs that we bore faster than my heart
-        desired, dominated by relentless grade and loose rocks, weighed down by
-        a towel great at conducting heat. Fighting on with quick steps, none
-        concerned with gravity, goats clambered out to watch us, and a black one
-        studied our last stop. Behind him the sky was setting dark and white
-        through vales of showers. We pushed, switching paces then leads then
-        breaths then turns, save at the final heights, where I finally
-        recognized it better to give all the last to Josh.
+        desired, dominated by relentless grade, loose rocks, and towels great at
+        conducting heat. Fighting on with quick steps, none concerned with
+        gravity, goats clambered out to watch us, and a black one studied our
+        last stop. Behind him the sky was setting dark and white through vales
+        of showers. We pushed, switching paces then leads then breaths then
+        turns, save at the final heights, where I finally recognized it better
+        to give all the last to Josh.
       </p>
       <ImageGridStack images={[j, i]} width={[600, 330]} />
       <p>
