@@ -177,7 +177,7 @@ export default function Page() {
         directly above Kona and runs rife through a cloud forest known for
         coffee plantations. Neverminding the artisan drips available at every
         turn along the way, we showed up to the trailhead with half our freezes
-        to go because their sweetness made up chase every sip with water. We
+        to go because their sweetness made us chase every sip with water. We
         didn’t blame the freezes for this. Like both the CTS and The Beat, (the
         former now emitting a plume of white smoke every time we parked her),
         they made no pretense of being anything but themselves.
