@@ -70,10 +70,10 @@ export default function Page() {
         jumped at Orion at the shooting stars flitting beneath his belt teeming
         across my hands while Josh clawed long by me up a boulder yelling down
         the hunter’s great dog, the canine’s teeth bared and snarling at our
-        intrusion then our retreat to behind the Ursas our recollection of
-        bearings in Jupiter’s eye on our long arc West borne by the current of
-        the galaxy toward the trail of Vega falling over the edge of the world
-        for Lyra all left in our minds the choice.
+        intrusion then our retreat behind the Ursas our recollection of bearings
+        in Jupiter’s eye on our long arc West borne by the current of the galaxy
+        toward the trail of Vega falling over the edge of the world for Lyra all
+        left in our minds the choice.
       </p>
       <div className="flex justify-center">
         <DisplayGrid title="idk" images={c} width={600} />
@@ -81,14 +81,14 @@ export default function Page() {
       <p>
         I couldn’t sleep that night. As we walked down the hill not more than
         once did we shoot our heads back in ridiculous ambush, too weak to
-        appreciate the nature of our revolution and too lost in the awe that
-        looking up didn’t somehow turn off the sky. Admittedly we hadn’t really
-        begun the return. After it in bed my breath remained short and hostile;
-        no rhythm of exhale could change the fact that at sea level you must
-        trust they are still above you, that she has not dissipated—those few
-        glimmers to survive the distance not all there is left, and that parting
-        with vibrance until tomorrow or tomorrow will not preclude you from
-        seeing it again.
+        appreciate the nature of our revolution and too lost in awe that looking
+        up didn’t somehow turn off the sky. Admittedly we hadn’t really begun
+        the return. After it in bed my breath remained short and hostile; no
+        rhythm of exhale could change the fact that at sea level you must trust
+        they are still above you, that she has not dissipated—those few glimmers
+        to survive the distance are not all there is left, and that parting with
+        vibrance until tomorrow or tomorrow will not preclude you from seeing it
+        again.
       </p>
       <div className="flex justify-center">
         <p>* * *</p>
@@ -162,12 +162,12 @@ export default function Page() {
         smacked again by a cap that barely left my chest out of the marine now
         running a shining pink. Sun dries by exhausting the water and bleaching
         less than sand I, collapsing in the next strike watched sea and shore
-        blend, tackled into ebb into ebb until laying back and looking straight
+        blend, tackled into ebb onto ebb until laying back and looking straight
         at the sun as making salt in my ears, watched the steady heat beat
         better, better, better in the crashing extremes, bearing not from cliffs
         depth or earth really, really, really not choosing place but who,
         lifting hair coarsened black, eying that frame of fire, squinting on I
-        see...
+        saw...
       </p>
       <div className="flex justify-center">
         <DisplayGrid title="idk" images={g} width={600} />
