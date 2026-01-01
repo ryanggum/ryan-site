@@ -9,6 +9,10 @@ import coast from "@/app/assets/posts/hawaii/coast.jpg";
 import bay from "@/app/assets/posts/hawaii/bay.jpg";
 import cook from "@/app/assets/posts/hawaii/cook.jpg";
 import white from "@/app/assets/posts/hawaii/white.jpg";
+import goat from "@/app/assets/posts/hawaii/goat.jpg";
+import towel from "@/app/assets/posts/hawaii/towel.jpg";
+import school from "@/app/assets/posts/hawaii/school.jpg";
+import drive from "@/app/assets/posts/hawaii/drive.jpg";
 
 import stars from "@/app/assets/posts/hawaii/stars.jpg";
 import thinking from "@/app/assets/posts/hawaii/thinking.jpg";
@@ -89,5 +93,31 @@ export const i: Photo[] = [
     src: white,
     alt: "[photo]",
     // caption: "Josh's Digital: Coast"
+  },
+];
+
+export const j: Photo[] = [
+  {
+    src: towel,
+    alt: "[photo]",
+    // caption: "Josh's Digital: Above"
+  },
+  {
+    src: goat,
+    alt: "[photo]",
+    // caption: "Josh's Digital: Claw"
+  },
+];
+
+export const k: Photo[] = [
+  {
+    src: school,
+    alt: "[photo]",
+    // caption: "Josh's Digital: Above"
+  },
+  {
+    src: drive,
+    alt: "[photo]",
+    // caption: "Josh's Digital: Claw"
   },
 ];

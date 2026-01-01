@@ -2,9 +2,9 @@
 
 "use client";
 import PostShell from "../components/PostShell";
-import DisplayGrid from "@/app/components/DisplayGrid";
+import { ImageGridStack } from "./components/components";
 
-import { a, b, c, e, f, g, h, i } from "./photos";
+import { a, b, c, e, f, g, h, i, j, k } from "./photos";
 
 export default function Page() {
   return (
@@ -40,9 +40,6 @@ export default function Page() {
         law enforcement though the 40-minimums and splitting the cloud cover
         with the virulence of Icarus were he depressed.
       </p>
-      {/* <div className="flex justify-center">
-        <DisplayGrid title="idk" images={a} width={600} />
-      </div> */}
       <p>
         We arrived at 9:00pm and for the last part of the drive batted off hard
         the urges to look past the specks hanging on the horizon and splattering
@@ -56,9 +53,7 @@ export default function Page() {
         am lucky Josh kicked them on. We made the peak and burrowed behind some
         rocks before looking up.
       </p>
-      <div className="flex justify-center">
-        <DisplayGrid title="idk" images={b} width={600} />
-      </div>
+      <ImageGridStack images={b} width={600} />
       <p>
         What to do with a night sky? This was not a matter of white dotting
         black but bright dotting light, flowers—Rigel, Sirius, them all—topping
@@ -75,18 +70,16 @@ export default function Page() {
         toward the trail of Vega falling over the edge of the world for Lyra all
         left in our minds the choice.
       </p>
-      <div className="flex justify-center">
-        <DisplayGrid title="idk" images={c} width={600} />
-      </div>
+      <ImageGridStack images={[c, a]} width={[600, 330]} />
       <p>
         I couldn’t sleep that night. As we walked down the hill not more than
         once did we shoot our heads back in ridiculous ambush, too weak to
-        appreciate the nature of our revolution and too lost in awe that looking
-        up didn’t somehow turn off the sky. Admittedly we hadn’t really begun
-        the return. After it in bed my breath remained short and hostile; no
-        rhythm of exhale could change the fact that at sea level you must trust
-        they are still above you, that she has not dissipated—those few glimmers
-        to survive the distance are not all there is left, and that parting with
+        appreciate the nature of our revolution and too in awe that looking up
+        didn’t somehow turn off the sky. Admittedly we hadn’t really begun the
+        return. After it in bed my breath remained short and hostile; no rhythm
+        of exhale could change the fact that at sea level you must trust they
+        are still above you, that she has not dissipated—those few glimmers to
+        survive the distance are not all there is left, and that parting with
         vibrance until tomorrow or tomorrow will not preclude you from seeing it
         again.
       </p>
@@ -96,13 +89,12 @@ export default function Page() {
       <p>
         Around 4:00am I moved to the balcony and held{" "}
         <i>100 Years of Solitude</i> to my chest until dawn made it light enough
-        to read. The mornings in Kailua-Kona are nicely tame. The island’s
-        volcanic spine protects the west side from sunrise and channels its
-        harshest lights into the clouds. After watering Hilo, the northeast
-        trade winds push what is left over the mountains to be burnt off by
-        noon, but not before blazing a brilliant pink and gold in a dying
-        announcement of Kona’s day. Josh rose to it, and we regrouped with my
-        laptop.
+        to read. The mornings in Kailua-Kona are tame. The island’s volcanic
+        spine protects the west side from sunrise and channels its harshest
+        lights into the clouds. After watering Hilo, the northeast trade winds
+        push what is left over the mountains to be burnt off by noon, but not
+        before blazing a brilliant pink and gold in a dying announcement of
+        Kona’s day. Josh rose to it, and we regrouped with my laptop.
       </p>
       <p>
         In deference to the CTS’s age, we abridged the expedition planned for
@@ -119,9 +111,6 @@ export default function Page() {
         three) around <i>Abbey Road</i>-esque mixes of Taylor Swift, Lola Young,
         and Sia.
       </p>
-      {/* <div className="flex justify-center">
-        <DisplayGrid title="idk" images={d} width={600} />
-      </div> */}
       <p>
         We left the highway to the opening chords of “The Fate of Ophelia” and
         bore south down a winding yellow line to South Point, the southern most
@@ -136,9 +125,7 @@ export default function Page() {
         against the blast that was quite proficient at finding the right silts
         for our eyes, which otherwise made out barren gorgeous.
       </p>
-      <div className="flex justify-center">
-        <DisplayGrid title="idk" images={e} width={600} />
-      </div>
+      <ImageGridStack images={[e, f]} width={[600, 330]} />
       <p>
         At the crest of the bay, olivine joined the mix for a sharper lashing.
         Josh dove under it and sprinted down the 60 percent grade of tinted sand
@@ -149,9 +136,6 @@ export default function Page() {
         refracted long white rays that stretched unbroken from its surface to
         the ground.
       </p>
-      {/* <div className="flex justify-center">
-        <DisplayGrid title="idk" images={f} width={600} />
-      </div> */}
       <p>
         We hung in the swells refracted too for a while until the delight of
         refresh turned into the delight of play and a joyful cadence of crest
@@ -169,9 +153,7 @@ export default function Page() {
         earth really, really, really not choosing place but who. Lifting my hair
         run rigid black eying that frame of fire squinting on I saw...
       </p>
-      <div className="flex justify-center">
-        <DisplayGrid title="idk" images={g} width={600} />
-      </div>
+      <ImageGridStack images={g} width={600} />
       <p>
         Back, land stretched surreal. Windless and in the northern fence, we
         pushed the boat launch until even in her there were no words, none as
@@ -184,9 +166,10 @@ export default function Page() {
       <div className="flex justify-center">
         <p>* * *</p>
       </div>
+      <ImageGridStack images={k} width={600} />
       <p>
-        Exhausted? I pray less than this prose but more than we who rewound by
-        hate for the three pounds of milk and almonds in our fridge drove to
+        Exhausted? I pray less than this prose but more than we who, rewound by
+        hate for the three pounds of milk and almonds in our fridge, drove to
         Costco for breakfast. An executive membership apparently gets you hot
         dogs 30 minutes before everyone else. We enjoyed those and two cold brew
         mocha freezes while reviewing the medley that was supposed to start high
@@ -213,28 +196,25 @@ export default function Page() {
         to see the tiger shark there because it meant it was not currently in
         Kealakekua Bay.
       </p>
-      <div className="flex justify-center">
-        <DisplayGrid title="idk" images={h} width={600} />
-      </div>
+      <ImageGridStack images={h} width={600} />
       <p>
         A short time later we descended 1,400 feet into Kealakekua Bay. A
         succession of grass, rock, rubble, and dirt brought us to Captain Cook's
-        Monument, erected a year after his death in 1874, and some more dirt to
-        one of the healthiest reefs in the state. Kealakekua is protected on
-        land by its approach and in sea by prowling spinner dolphins. Its
-        clarity is ensured even through overcast skies by springs that feed it
-        freshwater. We suited up, dove in, and stared down for a long time:
-        banking south as the reef gradually slid into a large blue crater. I’d
-        never really done anything like this—snorkeled, yes, but not through a
-        metropolis, or while undulating like a fish myself, involved with so
-        many numbers or types: clear to long to rainbow. By the last I mean
-        parrotfish. I followed one around for a while watching him preen the
-        reef by biting off coral, turning his whole body always just to angle a
-        mouth. Watching I felt my presence and my height—it should have been a
-        clue that we can only hear a crackle underwater—air bubbles
-        apparently—if we were really attuned I know our ears would ring with the
-        cries and squaws of the trees. What else to be rising from this urban
-        life.
+        Monument, erected a year after his death in 1874, and some stone to one
+        of the healthiest reefs in the state. Kealakekua is protected on land by
+        its approach and in sea by spinner dolphins. Its clarity is ensured
+        through overcast skies by springs that feed it freshwater. We suited up,
+        dove in, and stared down for a long time: banking south as the reef
+        gradually slid into a large blue crater. I’d never really done anything
+        like this—snorkeled, yes, but not through a metropolis, or while
+        undulating like a fish myself, involved with so many numbers or types:
+        clear to long to rainbow. By the last I mean parrotfish. I followed one
+        around for a while watching him preen the reef by biting off coral,
+        turning his whole body always just to angle a mouth. Watching I felt my
+        presence and my height—it should have been a clue that we can only hear
+        a crackle underwater—air bubbles apparently—if we were really attuned I
+        know our ears would ring with the cries and squaws of the trees. What
+        else to be rising from this urban life.
       </p>
       <p>
         Two photographers on the trip but it seems this one is for us. Even had
@@ -251,9 +231,7 @@ export default function Page() {
         breaths then turns, save at the final heights, where I finally
         recognized it better to give all the last to Josh.
       </p>
-      <div className="flex justify-center">
-        <DisplayGrid title="idk" images={i} width={600} />
-      </div>
+      <ImageGridStack images={[j, i]} width={[600, 330]} />
       <p>
         We made it to the CTS dripping wet, carried the last portion by Tahitian
         limeade, and aggressive on the downhill tried to catch the last of the
