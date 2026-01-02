@@ -39,3 +39,11 @@ export function ImageGridStack({ images, width }: ImageGridStackProps) {
     </div>
   );
 }
+
+export function DayBreak() {
+  return (
+    <div className="flex justify-center">
+      <p>* * *</p>
+    </div>
+  );
+}

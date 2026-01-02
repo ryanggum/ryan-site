@@ -2,8 +2,7 @@
 
 "use client";
 import PostShell from "../components/PostShell";
-import { ImageGridStack } from "./components/components";
-
+import { ImageGridStack, DayBreak } from "./components/components";
 import { a, b, c, e, f, g, h, i, j, k } from "./photos";
 
 export default function Page() {
@@ -83,9 +82,7 @@ export default function Page() {
         vibrance until tomorrow or tomorrow will not preclude you from seeing it
         again.
       </p>
-      <div className="flex justify-center">
-        <p>* * *</p>
-      </div>
+      <DayBreak />
       <p>
         Around 4:00am I moved to the balcony and held{" "}
         <i>100 Years of Solitude</i> to my chest until dawn made it light enough
@@ -163,9 +160,7 @@ export default function Page() {
         caloric survival instinct had sans caloric survival instinct, feeding on
         the <i>Last Crusade</i>, crushing weakened in the cycles of dreams.
       </p>
-      <div className="flex justify-center">
-        <p>* * *</p>
-      </div>
+      <DayBreak />
       <ImageGridStack images={k} width={600} />
       <p>
         Exhausted? I pray less than this prose but more than we who rewound by
