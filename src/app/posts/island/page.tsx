@@ -45,8 +45,8 @@ export default function Page() {
         the urges to look past the specks hanging on the horizon and splattering
         our windshield like bugs, and committed still to a true first sight,
         stole up an outcropping with our eyes trained on the glow my phone could
-        get to the ground. It was windy. The gusts belayed us despite their 30
-        percent less effective oxygen content and no less effectively struck
+        get to the ground. It was windy. The gusts belayed us about despite
+        their 30% less effective oxygen content and no less effectively struck
         into me fear. Forgive me, please, conceptually: a lion’s share up the
         tallest mountain on Earth, stranded by some 2,400 miles of gruesome
         water and air and panting on pitch black, nerves kicked out my knees. I
@@ -59,16 +59,16 @@ export default function Page() {
         black but bright dotting light, flowers—Rigel, Sirius, them all—topping
         the hazy undergrowth like drips on brush sweeps: North South East and
         West spinning did not discriminate, the patterns stretched to every
-        horizon even though we had to... because in the sea you don't soften
-        your gaze and float on a blur, you pick on the darting fish and chase
-        the schools and dive deep into the crevices where the anemones bloom—I
+        horizon even though we had to because in the sea you don't soften your
+        gaze and float on a blur, you pick on the darting fish and chase the
+        schools and dive deep into the crevices where the anemones bloom—I
         jumped at Orion at the shooting stars flitting beneath his belt teeming
         across my hands while Josh clawed long by me up a boulder yelling down
         the hunter’s great dog, the canine’s teeth bared and snarling at our
-        intrusion then our retreat behind the Ursas our recollection of bearings
-        in Jupiter’s eye on our long arc West borne by the current of the galaxy
-        toward the trail of Vega falling over the edge of the world for Lyra all
-        left in our minds the choice.
+        intrusion then our retreat behind the Ursas, our recollection of
+        bearings in Jupiter’s eye on our long arc West borne by the current of
+        the galaxy toward the trail of Vega falling over the edge of the world
+        for Lyra all left in our minds the choice.
       </p>
       <ImageGridStack images={[c, a]} width={[600, 330]} />
       <p>
@@ -128,11 +128,11 @@ export default function Page() {
       <ImageGridStack images={[e, f]} width={[600, 330]} />
       <p>
         At the crest of the bay, olivine joined the mix for a sharper lashing.
-        Josh dove under it and sprinted down the 60 percent grade of tinted sand
-        for a smooth dive into the surf. More calculated than me on land and
-        sea, I climbed down the western edge to maximum gristle and a slick
-        bending in the first major breaks. It was awesome: the swim was what we
-        needed: teal on olive washed the dirt off our faces and in pristine form
+        Josh dove under it and sprinted down the 60% grade of tinted sand for a
+        smooth dive into the surf. More calculated than me on land and sea, I
+        climbed down the western edge to maximum gristle and a slick bending in
+        the first major breaks. It was awesome: the swim was what we needed:
+        teal on olive washed the dirt off our faces and in pristine form
         refracted long white rays that stretched unbroken from its surface to
         the ground.
       </p>
@@ -145,7 +145,7 @@ export default function Page() {
         over my arms in a barrel tide—body, my body kept the idea of jamming a
         foot in the coarse and wavering up a lean on the horizon, there to be
         smacked again by a cap that barely left my chest out of the marine now
-        running a shining pink. Sun dries by exhausting the water and bleaching
+        running shining pink. Sun dries by exhausting the water and bleaching
         less than sand I, collapsing in the next strike watched sea and shore
         blend, tackled into ebb onto ebb until laying back and looking straight
         at the sun making salt in my ears, watched the steady heat beat better,
@@ -168,19 +168,19 @@ export default function Page() {
       </div>
       <ImageGridStack images={k} width={600} />
       <p>
-        Exhausted? I pray less than this prose but more than we who, rewound by
-        hate for the three pounds of milk and almonds in our fridge, drove to
+        Exhausted? I pray less than this prose but more than we who rewound by
+        hate for the three pounds of milk and almonds in our fridge drove to
         Costco for breakfast. An executive membership apparently gets you hot
-        dogs 30 minutes before everyone else. We enjoyed those and two cold brew
+        dogs 30 minutes before everyone else. We ate those with two cold brew
         mocha freezes while reviewing the medley that was supposed to start high
-        and end low. The high was the Makāula ʻŌʻoma Trail system that lies
-        directly above Kona and runs rife through a cloud forest known for
-        coffee plantations. Neverminding the artisan drips available at every
-        turn along the way, we showed up to the trailhead with half our freezes
-        to go because their sweetness made us chase every sip with water. We
-        didn’t blame the freezes for this. Like both the CTS and The Beat, (the
-        former now emitting a plume of white smoke every time we parked her),
-        they made no pretense of being anything but themselves.
+        and end low. The high was the Makāula ʻŌʻoma Trail system that lay
+        directly above Kona and run rife through a cloud forest known for coffee
+        plantations. Neverminding the artisan drips available at every turn
+        along the way, we showed up to the trailhead with half our freezes to go
+        because their sweetness made us chase every sip with water. We didn’t
+        blame the freezes for this. Like both the CTS and The Beat, (the former
+        now emitting a plume of white smoke every time we parked her), they made
+        no pretense of being anything but themselves.
       </p>
       <p>
         The trails showed far more discretion. Their biggest boon of bird song
@@ -214,7 +214,7 @@ export default function Page() {
         felt my presence and my height—it should have been a clue that we can
         only hear a crackle underwater—air bubbles apparently—if we were really
         attuned I know our ears would ring with the cries and squaws of the
-        trees. What else to be rising from this urban but alien life.
+        trees. What else to be rising from this urban alien life.
       </p>
       <p>
         Two photographers on the trip but it seems this one is for us. Even had
@@ -223,8 +223,8 @@ export default function Page() {
         by all number of movements, together in inertia making out slow and
         powerful strokes. Freedom: up and down as pleased... far clunkier on
         land, weighed down by wet packs that we bore faster than my heart
-        desired, dominated by relentless grade, loose rocks, and towels great
-        for conducting heat. Fighting on with quick steps, none concerned with
+        desired, dominated by relentless grade, loose rocks, and towels great at
+        conducting heat. Fighting on with quick steps, none concerned with
         gravity, goats clambered out to watch us, and a black one studied our
         last stop. Behind him the sky was setting dark and white through vales
         of showers. We pushed, switching paces then leads then breaths then
