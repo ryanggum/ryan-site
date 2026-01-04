@@ -4,11 +4,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-const BACKGROUNDS = [
-  { url: "/bg-d.jpg", tone: "light" },
-  { url: "/bg-m.jpg", tone: "light" },
-];
-
 export default function Home() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
@@ -48,8 +43,8 @@ export default function Home() {
           ryan gumlia
         </h1>
         <p className="text-sm sm:text-base mb-2 break-words">
-          I'm a senior Humanities major at Yale heading into L&C at D. E. Shaw & Co., broadly
-          interested in law, linguistics, and tech. Also:
+          I'm a senior Humanities major at Yale heading into L&C at D. E. Shaw &
+          Co., broadly interested in law, linguistics, and tech. Also:
         </p>
         <div className="pl-4 md:pl-6">
           <nav className="flex flex-col items-start w-fit pointer-events-auto">
@@ -60,7 +55,7 @@ export default function Home() {
                 prefetch={false}
                 className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5"
               >
-                <span>(parks→)</span>
+                <span>(rolls→)</span>
               </Link>
             </span>
             <span className="text-sm sm:text-base">
