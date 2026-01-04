@@ -32,7 +32,7 @@ export default function PostsPage() {
 
         <Link
           href="/"
-          className="text-neutral-500 text-base sm:text-lg hover:text-neutral-700 transition-colors"
+          className="text-base transition-colors sm:text-lg text-black dark:text-white hover:text-neutral-500"
         >
           ←ryan gumlia
         </Link>
@@ -51,16 +51,16 @@ export default function PostsPage() {
                 </h2>
                 <div className="pl-4 sm:pl-6 lg:pl-10 space-y-2">
                   {postsByYear[year].map((post) => (
-                    <div
-                      key={post.slug}
-                      className="text-black dark:text-white"
-                    >
+                    <div key={post.slug} className="text-black dark:text-white">
                       #{post.num}:{" "}
                       <Link
                         href={`/posts/${post.slug}`}
                         className="hover:text-neutral-500 transition-colors"
                       >
-                        <span dangerouslySetInnerHTML={{ __html: post.title }}/>→
+                        <span
+                          dangerouslySetInnerHTML={{ __html: post.title }}
+                        />
+                        →
                       </Link>
                     </div>
                   ))}

@@ -4,11 +4,7 @@ import Link from "next/link";
 import DisplayGrid from "../components/DisplayGrid";
 
 import { albums } from "@/lib/albums";
-import {
-  groupAlbumsByYear,
-  getMonthNameFromDate,
-  hydrateAlbumsWithImages,
-} from "./util/util";
+import { groupAlbumsByYear, hydrateAlbumsWithImages } from "./util/util";
 
 export default async function ParksPage() {
   const albumsByYear = groupAlbumsByYear(albums);

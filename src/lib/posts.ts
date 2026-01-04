@@ -21,7 +21,7 @@ export const posts: Post[] = [
     date: 20251102,
   },
   {
-    slug: "island",
+    slug: "hawaii",
     num: 4,
     title: "Hawaii, or The Fate of O...",
     date: 20251201,
