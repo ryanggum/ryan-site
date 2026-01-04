@@ -79,7 +79,7 @@ export const albums: AlbumMeta[] = [
     date: 202505,
     film: { iso: 100, stock: "Ektar" },
     slug: "teton",
-    title: "Grand Teton & Yellowstone",
+    title: "Yellowstone",
     desc: "Images",
   },
   {
