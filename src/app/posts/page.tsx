@@ -11,8 +11,6 @@ function groupPostsByYear(posts: Post[]) {
     const year = String(Math.trunc(post.date / 10000));
     (postsByYear[year] ??= []).push(post);
   }
-
-  // Sort posts within each year (newest first)
   Object.values(postsByYear).forEach((yearPosts) => {
     yearPosts.sort((a, b) => b.date - a.date);
   });
@@ -29,17 +27,14 @@ export default function PostsPage() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2 text-black dark:text-white">
           posts
         </h1>
-
-        <Link
-          href="/"
-          className="text-base transition-colors sm:text-lg text-black dark:text-white hover:text-neutral-500"
-        >
-          ←ryan gumlia
-        </Link>
-
+        <div className="text-black dark:text-white">
+          ←
+          <Link href="/" className="hover:text-neutral-500 transition-colors">
+            ryan gumlia
+          </Link>
+        </div>
         <div className="mt-4 w-[60%] max-w-[660px] border-t border-black dark:border-white" />
       </header>
-
       <section className="space-y-8 flex flex-col items-center">
         <div className="w-[60%] max-w-[660px] space-y-10">
           {Object.keys(postsByYear)
@@ -60,8 +55,8 @@ export default function PostsPage() {
                         <span
                           dangerouslySetInnerHTML={{ __html: post.title }}
                         />
-                        →
                       </Link>
+                      →
                     </div>
                   ))}
                 </div>
