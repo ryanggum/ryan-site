@@ -2,6 +2,7 @@
 import Link from "next/link";
 
 import DisplayGrid from "../components/DisplayGrid";
+import Header from "@/app/components/Header";
 
 import { albums } from "@/lib/albums";
 import { groupAlbumsByYear, hydrateAlbumsWithImages } from "./util/util";
@@ -12,35 +13,27 @@ export default async function ParksPage() {
 
   return (
     <main className="relative min-h-dvh select-none px-4 py-10 sm:px-6 sm:py-14 md:px-12 md:py-20 lg:px-24 xl:px-48 text-black dark:text-white">
-      <header className="flex flex-col items-center">
-        <h1 className="text-3xl font-medium sm:text-4xl md:text-5xl">rolls</h1>
-        <Link
-          href="/"
-          className="text-base transition-colors sm:text-lg text-black dark:text-white"
-        >
-          ←ryan gumlia
-        </Link>
-      </header>
+      <Header title="rolls" />
       <div className="mx-auto max-w-4xl">
+        <div className="mb-4 border-t border-black dark:border-white" />
         {albumsWithImagesByYear.map(({ year, albums }) => (
           <section key={year} className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-medium">{year}</h2>
-            <div className="pl-6">
+            <h2 className="text-xl sm:text-2xl font-medium mb-2">{year}</h2>
+            <div className="pl-2 sm:pl-6 space-y-6">
               {albums.map((album) => (
-                <section key={album.slug} className="mb-6">
+                <section
+                  key={album.slug}
+                  className="text-black dark:text-white"
+                >
+                  #{album.num}:{" "}
                   <Link
                     href={`/parks/${album.slug}`}
-                    className="inline-flex items-center gap-1 text-lg sm:text-xl font-medium text-black dark:text-white mb-2"
+                    className="inline-flex items-center gap-1 text-base sm:text-lg font-normal hover:text-neutral-500 transition-colors mb-2"
                   >
-                    #{album.num}: {album.title}→
+                    {album.title}
                   </Link>
-                  <div className="pl-6">
-                    {/* <div className="text-sm sm:text-base leading-snug text-black dark:text-white">
-                      <span>
-                        {getMonthNameFromDate(album.date)}. {album.film.stock}{" "}
-                        {album.film.iso}. {album.imageCount}.
-                      </span>
-                    </div> */}
+                  →
+                  <div className="pl-2 sm:pl-6">
                     <DisplayGrid title={album.title} images={album.images} />
                   </div>
                 </section>

@@ -1,6 +1,7 @@
 // src/app/posts/page.tsx
 
 import Link from "next/link";
+import Header from "@/app/components/Header";
 import { Post } from "@/lib/types";
 import { posts } from "@/lib/posts";
 
@@ -24,24 +25,11 @@ export default function PostsPage() {
 
   return (
     <main className="relative min-h-dvh px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-10 sm:py-14 md:py-20 bg-white dark:bg-black">
-      <header className="mb-4 flex flex-col items-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2 text-black dark:text-white">
-          posts
-        </h1>
-
-        <div className="text-black dark:text-white">
-          ←{" "}
-          <Link href="/" className="hover:text-neutral-500 transition-colors">
-            ryan gumlia
-          </Link>
-        </div>
-
-        {/* Divider */}
-        <div className="mt-4 w-full sm:w-[60%] sm:max-w-[660px] border-t border-black dark:border-white" />
-      </header>
-
+      <Header title={"posts"} />
+      <div className="flex flex-col items-center">
+        <div className="mb-4 w-full sm:w-[60%] sm:max-w-[660px] border-t border-black dark:border-white" />
+      </div>
       <section className="space-y-8 flex flex-col items-center">
-        {/* Content column */}
         <div className="w-full sm:w-[60%] sm:max-w-[660px] space-y-10">
           {Object.keys(postsByYear)
             .sort((a, b) => Number(b) - Number(a))
@@ -50,7 +38,6 @@ export default function PostsPage() {
                 <h2 className="text-xl sm:text-2xl font-medium text-black dark:text-white mb-2">
                   {year}
                 </h2>
-
                 <div className="pl-2 sm:pl-6 lg:pl-10 space-y-2">
                   {postsByYear[year].map((post) => (
                     <div key={post.slug} className="text-black dark:text-white">

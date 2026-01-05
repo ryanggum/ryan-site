@@ -47,9 +47,7 @@ export function groupAlbumsByYear(albums: readonly AlbumMeta[]) {
   }
 
   // Sort years desc
-  return Array.from(map.entries()).sort(
-    ([yearA], [yearB]) => yearB - yearA
-  );
+  return Array.from(map.entries()).sort(([yearA], [yearB]) => yearB - yearA);
 }
 
 /* --------------------------------
@@ -63,9 +61,7 @@ export type AlbumWithImages = AlbumMeta & {
 
 function resolvePreviewPhotos(photos: Photo[]) {
   const hasPreview = photos.some((p) => p.preview === true);
-  return hasPreview
-    ? photos.filter((p) => p.preview === true)
-    : photos;
+  return hasPreview ? photos.filter((p) => p.preview === true) : photos;
 }
 
 export async function hydrateAlbumsWithImages(
