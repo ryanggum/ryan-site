@@ -23,6 +23,7 @@ function DisplayGridBase({
 }) {
   const [active, setActive] = useState<number | null>(null);
 
+  // Default column logic (used only if `columns` is not provided)
   const fallbackColumnClass = useMemo(() => {
     if (images.length === 1) return "grid-cols-1";
     if (images.length === 2) return "grid-cols-2";
@@ -43,7 +44,8 @@ function DisplayGridBase({
       <div
         className="overflow-hidden"
         style={{
-          width: width ? `${width}px` : undefined,
+          width: width ? "100%" : undefined,
+          maxWidth: width ? `${width}px` : undefined,
           height: height ? `${height}px` : undefined,
         }}
       >
@@ -67,7 +69,6 @@ function DisplayGridBase({
 
             return (
               <div key={idx} className="flex flex-col">
-                {/* Image */}
                 <button
                   type="button"
                   onClick={() => openAtIndex(idx)}
@@ -79,8 +80,8 @@ function DisplayGridBase({
                       src={photo.src}
                       alt={photo.alt?.trim() || `${title} photo ${idx + 1}`}
                       fill
-                      priority={idx < 3}
-                      sizes="100vw"
+                      priority={idx === 0}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-200 ease-out group-hover:-translate-y-0.5"
                       placeholder={blurDataURL ? "blur" : "empty"}
                       blurDataURL={blurDataURL}

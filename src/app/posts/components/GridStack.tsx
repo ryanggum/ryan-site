@@ -30,7 +30,7 @@ export function ImageGridStack({
       {grids.map((imgSet, i) => (
         <div
           key={i}
-          className={`flex justify-center ${
+          className={`flex justify-center w-full ${
             grids.length === 1
               ? "mt-4 mb-4"
               : i === 0
@@ -38,13 +38,15 @@ export function ImageGridStack({
               : "mt-1 mb-4"
           }`}
         >
-          <DisplayGrid
-            title="idk"
-            images={imgSet}
-            width={widths[i] ?? widths[0]}
-            columns={columnsArr[i]}
-            square={squareArr[i]}
-          />
+          <div className="not-prose w-full flex justify-center">
+            <DisplayGrid
+              title="idk"
+              images={imgSet}
+              width={widths[i] ?? widths[0]}
+              columns={columnsArr[i]}
+              square={squareArr[i]}
+            />
+          </div>
         </div>
       ))}
     </div>

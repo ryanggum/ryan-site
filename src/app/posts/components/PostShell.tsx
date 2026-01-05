@@ -1,6 +1,5 @@
 // src/app/posts/components/PostShell.tsx
 
-import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
@@ -43,15 +42,6 @@ export default function PostShell({
                 {subtitle}
               </p>
             )}
-
-            {/* {visible !== false && (
-              <div className="flex gap-4 mb-4">
-                <Link href="/posts" className={backLink}>
-                  ←posts
-                </Link>
-              </div>
-            )} */}
-
             {image && (
               <Image
                 src={image}
@@ -61,14 +51,11 @@ export default function PostShell({
               />
             )}
           </header>
-
           <article className="prose dark:prose-invert max-w-[75ch] mx-auto cursor-default [&_p]:my-3">
             {children}
           </article>
         </div>
       </div>
-
-      {/* Fades */}
       <div className="fade-top pointer-events-none" />
       <div className="fade-bottom pointer-events-none" />
     </main>
