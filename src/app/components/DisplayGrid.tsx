@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { memo, useState } from "react";
+import { memo, useState, useMemo, useCallback } from "react";
 import type { Photo } from "@/lib/types";
 import Lightbox from "./LightBox";
 
@@ -23,15 +23,20 @@ function DisplayGridBase({
 }) {
   const [active, setActive] = useState<number | null>(null);
 
-  // Default column logic (used only if `columns` is not provided)
-  const fallbackColumnClass =
-    images.length === 1
-      ? "grid-cols-1"
-      : images.length === 2
-      ? "grid-cols-2"
-      : "grid-cols-3";
+  const fallbackColumnClass = useMemo(() => {
+    if (images.length === 1) return "grid-cols-1";
+    if (images.length === 2) return "grid-cols-2";
+    return "grid-cols-3";
+  }, [images.length]);
 
-  const aspectClass = square ? "aspect-square" : "aspect-[3/2]";
+  const aspectClass = useMemo(
+    () => (square ? "aspect-square" : "aspect-[3/2]"),
+    [square]
+  );
+
+  const openAtIndex = useCallback((idx: number) => {
+    setActive(idx);
+  }, []);
 
   return (
     <>
@@ -64,7 +69,8 @@ function DisplayGridBase({
               <div key={idx} className="flex flex-col">
                 {/* Image */}
                 <button
-                  onClick={() => setActive(idx)}
+                  type="button"
+                  onClick={() => openAtIndex(idx)}
                   className="group relative block overflow-hidden cursor-pointer p-0 m-0 border-0 bg-transparent"
                   aria-label={`Open ${title} photo ${idx + 1}`}
                 >
@@ -82,7 +88,6 @@ function DisplayGridBase({
                   </div>
                 </button>
 
-                {/* Caption */}
                 {photo.caption && (
                   <div className="text-sm text-gray-500 leading-tight">
                     {photo.caption}
