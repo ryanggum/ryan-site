@@ -2,7 +2,8 @@
 
 "use client";
 import PostShell from "../components/PostShell";
-import { ImageGridStack, DayBreak } from "./components/components";
+import { DayBreak } from "../components/DayBreak";
+import { ImageGridStack } from "../components/GridStack";
 import { a, b, c, e, f, g, h, i, j, k } from "./photos";
 
 export default function Page() {

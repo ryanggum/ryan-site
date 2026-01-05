@@ -26,6 +26,12 @@ export const posts: Post[] = [
     title: "Hawaii, or The Fate of O...",
     date: 20251201,
   },
+  {
+    slug: "death",
+    num: 5,
+    title: "Death Valley",
+    date: 20260101,
+  },
 ];
 
 export const getPostMeta = (slug: string) => posts.find((p) => p.slug === slug);

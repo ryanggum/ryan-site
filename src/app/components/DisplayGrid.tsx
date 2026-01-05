@@ -11,20 +11,27 @@ function DisplayGridBase({
   images,
   width,
   height,
+  columns,
+  square = false,
 }: {
   title: string;
   images: Photo[];
   width?: number;
   height?: number;
+  columns?: number;
+  square?: boolean;
 }) {
   const [active, setActive] = useState<number | null>(null);
 
-  const columnClass =
+  // Default column logic (used only if `columns` is not provided)
+  const fallbackColumnClass =
     images.length === 1
       ? "grid-cols-1"
       : images.length === 2
       ? "grid-cols-2"
       : "grid-cols-3";
+
+  const aspectClass = square ? "aspect-square" : "aspect-[3/2]";
 
   return (
     <>
@@ -35,7 +42,16 @@ function DisplayGridBase({
           height: height ? `${height}px` : undefined,
         }}
       >
-        <div className={`grid ${columnClass} gap-2 sm:gap-4 w-full h-full`}>
+        <div
+          className={`grid gap-2 sm:gap-4 w-full h-full ${
+            columns ? "" : fallbackColumnClass
+          }`}
+          style={
+            columns
+              ? { gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }
+              : undefined
+          }
+        >
           {images.map((photo, idx) => {
             const blurDataURL =
               typeof photo.src === "object" &&
@@ -52,7 +68,7 @@ function DisplayGridBase({
                   className="group relative block overflow-hidden cursor-pointer p-0 m-0 border-0 bg-transparent"
                   aria-label={`Open ${title} photo ${idx + 1}`}
                 >
-                  <div className="relative w-full aspect-[3/2]">
+                  <div className={`relative w-full ${aspectClass}`}>
                     <Image
                       src={photo.src}
                       alt={photo.alt?.trim() || `${title} photo ${idx + 1}`}

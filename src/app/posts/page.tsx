@@ -20,7 +20,7 @@ function groupPostsByYear(posts: Post[]) {
   return postsByYear;
 }
 
-export default function PostsPage() {
+export default function Page() {
   const postsByYear = groupPostsByYear(posts);
 
   return (
@@ -29,12 +29,12 @@ export default function PostsPage() {
       <div className="flex flex-col items-center">
         <div className="mb-4 w-full sm:w-[60%] sm:max-w-[660px] border-t border-black dark:border-white" />
       </div>
-      <section className="space-y-8 flex flex-col items-center">
-        <div className="w-full sm:w-[60%] sm:max-w-[660px] space-y-10">
+      <section className="flex flex-col items-center">
+        <div className="w-full sm:w-[60%] sm:max-w-[660px]">
           {Object.keys(postsByYear)
             .sort((a, b) => Number(b) - Number(a))
             .map((year) => (
-              <div key={year}>
+              <div key={year} className="mb-4">
                 <h2 className="text-xl sm:text-2xl font-medium text-black dark:text-white mb-2">
                   {year}
                 </h2>
