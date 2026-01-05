@@ -11,6 +11,7 @@ function groupPostsByYear(posts: Post[]) {
     const year = String(Math.trunc(post.date / 10000));
     (postsByYear[year] ??= []).push(post);
   }
+
   Object.values(postsByYear).forEach((yearPosts) => {
     yearPosts.sort((a, b) => b.date - a.date);
   });
@@ -27,16 +28,21 @@ export default function PostsPage() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-2 text-black dark:text-white">
           posts
         </h1>
+
         <div className="text-black dark:text-white">
-          ←
+          ←{" "}
           <Link href="/" className="hover:text-neutral-500 transition-colors">
             ryan gumlia
           </Link>
         </div>
-        <div className="mt-4 w-[60%] max-w-[660px] border-t border-black dark:border-white" />
+
+        {/* Divider */}
+        <div className="mt-4 w-full sm:w-[60%] sm:max-w-[660px] border-t border-black dark:border-white" />
       </header>
+
       <section className="space-y-8 flex flex-col items-center">
-        <div className="w-[60%] max-w-[660px] space-y-10">
+        {/* Content column */}
+        <div className="w-full sm:w-[60%] sm:max-w-[660px] space-y-10">
           {Object.keys(postsByYear)
             .sort((a, b) => Number(b) - Number(a))
             .map((year) => (
@@ -44,7 +50,8 @@ export default function PostsPage() {
                 <h2 className="text-xl sm:text-2xl font-medium text-black dark:text-white mb-2">
                   {year}
                 </h2>
-                <div className="pl-4 sm:pl-6 lg:pl-10 space-y-2">
+
+                <div className="pl-2 sm:pl-6 lg:pl-10 space-y-2">
                   {postsByYear[year].map((post) => (
                     <div key={post.slug} className="text-black dark:text-white">
                       #{post.num}:{" "}
