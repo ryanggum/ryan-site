@@ -36,6 +36,14 @@ export const albums: AlbumMeta[] = [
   },
   {
     num: 5,
+    date: 202307,
+    film: { iso: 400, stock: "UltraMax" },
+    slug: "sbarbara",
+    title: "Santa Barbara",
+    desc: "Images",
+  },
+  {
+    num: 6,
     date: 202308,
     film: { iso: 800, stock: "Cinestill" },
     slug: "arrowhead",
@@ -43,7 +51,7 @@ export const albums: AlbumMeta[] = [
     desc: "Images",
   },
   {
-    num: 6,
+    num: 7,
     date: 202308,
     film: { iso: 160, stock: "Portra" },
     slug: "yosemite",
@@ -51,7 +59,7 @@ export const albums: AlbumMeta[] = [
     desc: "Images",
   },
   {
-    num: 7,
+    num: 8,
     date: 202401,
     film: { iso: 401, stock: "???" },
     slug: "joshua_2",
@@ -59,7 +67,7 @@ export const albums: AlbumMeta[] = [
     desc: "Images",
   },
   {
-    num: 8,
+    num: 9,
     date: 202403,
     film: { iso: 400, stock: "Fujifilm" },
     slug: "sequoia",
@@ -67,7 +75,7 @@ export const albums: AlbumMeta[] = [
     desc: "Images",
   },
   {
-    num: 9,
+    num: 10,
     date: 202406,
     film: { iso: 100, stock: "Ektachrome" },
     slug: "zion",
@@ -75,7 +83,15 @@ export const albums: AlbumMeta[] = [
     desc: "Images",
   },
   {
-    num: 10,
+    num: 11,
+    date: 202410,
+    film: { iso: 200, stock: "Gold" },
+    slug: "yale",
+    title: "Yale",
+    desc: "Images",
+  },
+  {
+    num: 12,
     date: 202505,
     film: { iso: 100, stock: "Ektar" },
     slug: "teton",
@@ -83,7 +99,7 @@ export const albums: AlbumMeta[] = [
     desc: "Images",
   },
   {
-    num: 11,
+    num: 13,
     date: 202505,
     film: { iso: 100, stock: "Ektachrome" },
     slug: "redwoods",
@@ -91,7 +107,7 @@ export const albums: AlbumMeta[] = [
     desc: "Images",
   },
   {
-    num: 12,
+    num: 14,
     date: 202512,
     film: { iso: 400, stock: "???" },
     slug: "hawaii",

@@ -8,11 +8,7 @@ import { a } from "./photos";
 
 export default function Page() {
   return (
-    <PostShell
-      title="Death Valley"
-      subtitle="Trip Report: Death Valley"
-      visible={true}
-    >
+    <PostShell title="Death Valley" subtitle="Trip Report" visible={true}>
       <p>
         <i>(film developing... : )</i>
       </p>
