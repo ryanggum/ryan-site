@@ -114,6 +114,14 @@ export const albums: AlbumMeta[] = [
     title: "Hawaii",
     desc: "Images",
   },
+  {
+    num: 15,
+    date: 202601,
+    film: { iso: 200, stock: "Kodak" },
+    slug: "death",
+    title: "Death Valley",
+    desc: "Images",
+  },
 ];
 
 export const albumSlugs = albums.map((a) => ({ slug: a.slug }));
