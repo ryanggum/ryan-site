@@ -22,14 +22,24 @@ export default async function ParksPage() {
             <div className="pl-2 sm:pl-6 space-y-6">
               {albums.map((album) => (
                 <section key={album.slug}>
-                  #{album.num}:{" "}
-                  <Link
-                    href={`/parks/${album.slug}`}
-                    className="inline-flex items-center gap-1 text-base sm:text-lg font-normal hover:text-neutral-500 transition-colors mb-2"
-                  >
-                    {album.title}
-                  </Link>
-                  →
+                  <div className="mb-2">
+                    #{album.i}:{" "}
+                    {album.page ? (
+                      <>
+                        <Link
+                          href={`/parks/${album.slug}`}
+                          className="inline-flex items-center gap-1 text-base sm:text-lg font-normal hover:text-neutral-500 transition-colors"
+                        >
+                          {album.title}
+                        </Link>
+                        {"→"}
+                      </>
+                    ) : (
+                      <span className="text-base sm:text-lg font-normal">
+                        {album.title}
+                      </span>
+                    )}
+                  </div>
                   <div className="pl-2 sm:pl-6">
                     <DisplayGrid title={album.title} images={album.images} />
                   </div>

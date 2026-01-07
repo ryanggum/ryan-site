@@ -77,8 +77,8 @@ export default function Page() {
         appreciate the nature of our revolution and too in awe that looking up
         didn’t somehow turn off the sky. Admittedly we hadn’t really begun the
         return. After it in bed my breath remained short and hostile; no rhythm
-        of exhale could change the fact that at sea level you must trust they
-        are still above you, that she has not dissipated—those few glimmers to
+        of exhale could change the fact that at sea level you must trust she is
+        still above you, that it has not dissipated—those few glimmers to
         survive the distance are not all there is left, and that parting with
         vibrance until tomorrow or tomorrow will not preclude you from seeing it
         again.

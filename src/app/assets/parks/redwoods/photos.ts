@@ -16,6 +16,7 @@ import j13 from "./13.jpg";
 import j14 from "./14.jpg";
 import j15 from "./15.jpg";
 import j16 from "./16.jpg";
+import j17 from "./bentom.jpg";
 
 import type { Photo } from "@/lib/types";
 
@@ -35,6 +36,7 @@ const photos: Photo[] = [
   { src: j11, alt: "", preview: true },
   { src: j12, alt: "" },
   { src: j8, alt: "" },
+  { src: j17, alt: "" },
   { src: j16, alt: "" },
 ];
 

@@ -43,7 +43,7 @@ export function groupAlbumsByYear(albums: readonly AlbumMeta[]) {
 
   // Sort albums within each year by roll number desc
   for (const [, yearAlbums] of map) {
-    yearAlbums.sort((a, b) => b.num - a.num);
+    yearAlbums.sort((a, b) => b.i - a.i);
   }
 
   // Sort years desc
