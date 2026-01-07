@@ -4,7 +4,7 @@ import Link from "next/link";
 import DisplayGrid from "../components/DisplayGrid";
 import Header from "@/app/components/Header";
 
-import { albums } from "@/lib/albums";
+import { albums } from "@/lib/rolls";
 import { groupAlbumsByYear, hydrateAlbumsWithImages } from "./util/util";
 
 export default async function ParksPage() {
@@ -21,10 +21,7 @@ export default async function ParksPage() {
             <h2 className="text-xl sm:text-2xl font-medium mb-2">{year}</h2>
             <div className="pl-2 sm:pl-6 space-y-6">
               {albums.map((album) => (
-                <section
-                  key={album.slug}
-                  className="text-black dark:text-white"
-                >
+                <section key={album.slug}>
                   #{album.num}:{" "}
                   <Link
                     href={`/parks/${album.slug}`}

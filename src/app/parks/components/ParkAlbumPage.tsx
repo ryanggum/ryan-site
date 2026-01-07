@@ -1,7 +1,7 @@
 // src/app/parks/components/ParkAlbumPage.tsx
 
 import DisplayGrid from "../../components/DisplayGrid";
-import { getAlbumMeta } from "@/lib/albums";
+import { getAlbumMeta } from "@/lib/rolls";
 import type { AlbumModule } from "@/lib/types";
 
 const shell =

@@ -2,36 +2,29 @@
 import type { StaticImageData } from "next/image";
 
 export type Post = {
-	slug: string;
-	num: number;
-	title: string;
-	subtitle?: string;
-	date: number;
-}
+  slug: string;
+  num: number;
+  title: string;
+  subtitle?: string;
+  date: number;
+};
 
 export type Photo = {
   src: StaticImageData;
   alt: string;
-	caption?: string;
-	format?: string;
+  caption?: string;
+  format?: string;
   preview?: boolean;
 };
 
-export type Quote = {
-	text: string;
-	author: string;
-}
-
 export type AlbumMeta = Readonly<{
-	num: number;
-	date: number;
-	slug: string;
-	film: { stock: string; iso: number };
+  num: number;
+  date: number;
+  slug: string;
+  film: { stock: string; iso: number };
   title: string;
-	desc: string;
-	
-	quote?: Quote;
-	writing?: string;
+  desc: string;
+  writing?: string;
 }>;
 
 // Reusable “default export” module helper.

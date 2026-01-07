@@ -34,14 +34,14 @@ export const albums: AlbumMeta[] = [
     title: "San Diego",
     desc: "Images",
   },
-  {
-    num: 5,
-    date: 202307,
-    film: { iso: 400, stock: "UltraMax" },
-    slug: "sbarbara",
-    title: "Santa Barbara",
-    desc: "Images",
-  },
+  // {
+  //   num: 5,
+  //   date: 202307,
+  //   film: { iso: 400, stock: "UltraMax" },
+  //   slug: "sbarbara",
+  //   title: "Santa Barbara",
+  //   desc: "Images",
+  // },
   {
     num: 6,
     date: 202308,
