@@ -1,8 +1,10 @@
 import type { AlbumMeta, AlbumModule, Photo } from "@/lib/types";
 
 /* --------------------------------
-   Date helpers
+   Constants
 --------------------------------- */
+
+const PREVIEW_COUNT = 3 as const;
 
 const MONTHS = [
   "January",
@@ -18,6 +20,10 @@ const MONTHS = [
   "November",
   "December",
 ] as const;
+
+/* --------------------------------
+   Date helpers
+--------------------------------- */
 
 export function getMonthNameFromDate(date: number) {
   const monthIndex = (date % 100) - 1; // YYYYMM → MM → 0-based
@@ -47,7 +53,7 @@ export function groupAlbumsByYear(albums: readonly AlbumMeta[]) {
   }
 
   // Sort years desc
-  return Array.from(map.entries()).sort(([yearA], [yearB]) => yearB - yearA);
+  return Array.from(map.entries()).sort(([a], [b]) => b - a);
 }
 
 /* --------------------------------
@@ -55,37 +61,73 @@ export function groupAlbumsByYear(albums: readonly AlbumMeta[]) {
 --------------------------------- */
 
 export type AlbumWithImages = AlbumMeta & {
-  images: Photo[];
+  images: readonly [Photo, Photo, Photo];
   imageCount: number;
 };
 
-function resolvePreviewPhotos(photos: Photo[]) {
-  const hasPreview = photos.some((p) => p.preview === true);
-  return hasPreview ? photos.filter((p) => p.preview === true) : photos;
+export type AlbumsByYear = {
+  year: number;
+  albums: readonly AlbumWithImages[];
+};
+
+/**
+ * Cache album photo modules for the lifetime of the request
+ */
+const albumModuleCache = new Map<string, Photo[]>();
+
+function getPreviewPhotos(photos: Photo[]): [Photo, Photo, Photo] {
+  const previews = photos.filter((p) => p.preview === true);
+
+  if (previews.length !== PREVIEW_COUNT) {
+    throw new Error(
+      `Expected exactly ${PREVIEW_COUNT} preview photos, found ${previews.length}`
+    );
+  }
+
+  return previews as [Photo, Photo, Photo];
 }
 
 export async function hydrateAlbumsWithImages(
-  albumsByYear: [number, AlbumMeta[]][]
-): Promise<{ year: number; albums: AlbumWithImages[] }[]> {
-  return Promise.all(
+  albumsByYear: readonly [number, AlbumMeta[]][]
+): Promise<AlbumsByYear[]> {
+  const results = await Promise.all(
     albumsByYear.map(async ([year, yearAlbums]) => {
-      const albums = await Promise.all(
+      const hydratedAlbums = await Promise.all(
         yearAlbums.map(async (album) => {
-          const mod = (await import(
-            `@/app/assets/parks/${album.slug}/photos`
-          )) as AlbumModule;
+          let allPhotos = albumModuleCache.get(album.slug);
 
-          const allPhotos = mod.default;
+          if (!allPhotos) {
+            const mod = (await import(
+              `@/app/assets/parks/${album.slug}/photos`
+            )) as AlbumModule;
+
+            allPhotos = mod.default;
+            albumModuleCache.set(album.slug, allPhotos);
+          }
+
+          if (process.env.NODE_ENV !== "production") {
+            if (!Array.isArray(allPhotos) || allPhotos.length === 0) {
+              throw new Error(`Album "${album.slug}" has no photos`);
+            }
+          }
 
           return {
             ...album,
-            images: resolvePreviewPhotos(allPhotos),
+            images: getPreviewPhotos(allPhotos),
             imageCount: allPhotos.length,
           };
         })
       );
 
-      return { year, albums };
+      // Reinforce deterministic ordering (idempotent safety)
+      hydratedAlbums.sort((a, b) => b.i - a.i);
+
+      return {
+        year,
+        albums: hydratedAlbums,
+      };
     })
   );
+
+  return results;
 }

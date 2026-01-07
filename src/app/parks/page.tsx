@@ -41,7 +41,10 @@ export default async function ParksPage() {
                     )}
                   </div>
                   <div className="pl-2 sm:pl-6">
-                    <DisplayGrid title={album.title} images={album.images} />
+                    <DisplayGrid
+                      title={album.title}
+                      images={[...album.images]}
+                    />
                   </div>
                 </section>
               ))}
