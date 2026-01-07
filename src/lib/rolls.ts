@@ -8,7 +8,7 @@ export const albums: AlbumMeta[] = [
     film: { iso: 100, stock: "Ektar" },
     slug: "tustin",
     title: "Tustin",
-    page: false,
+    page: true,
   },
   {
     i: 2,
@@ -47,7 +47,7 @@ export const albums: AlbumMeta[] = [
     film: { iso: 800, stock: "Cinestill" },
     slug: "arrowhead",
     title: "Arrowhead",
-    page: false,
+    page: true,
   },
   {
     i: 7,
