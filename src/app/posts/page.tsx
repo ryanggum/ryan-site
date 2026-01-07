@@ -41,7 +41,7 @@ export default function Page() {
                 <div className="pl-2 sm:pl-6 lg:pl-10 space-y-2">
                   {postsByYear[year].map((post) => (
                     <div key={post.slug} className="text-black dark:text-white">
-                      #{post.num}:{" "}
+                      #{post.i}:{" "}
                       <Link
                         href={`/posts/${post.slug}`}
                         className="hover:text-neutral-500 transition-colors"

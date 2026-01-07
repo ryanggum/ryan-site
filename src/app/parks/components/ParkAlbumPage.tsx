@@ -38,11 +38,6 @@ export default async function ParkAlbumPage({ album }: { album: string }) {
   return (
     <main className={shell}>
       <Header title={meta.title} />
-      {meta.writing && (
-        <p className="mb-6 mx-auto italic text-center text-sm text-neutral-700 dark:text-neutral-300 max-w-[116ch]">
-          {meta.writing}
-        </p>
-      )}
       {images.length ? (
         <DisplayGrid title={meta.title} images={images} />
       ) : (
