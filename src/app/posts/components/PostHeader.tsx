@@ -8,7 +8,7 @@ export default function PostHeader({
   subtitle?: string;
 }) {
   return (
-    <header className="mb-6 flex flex-col items-center">
+    <header className="mb-6 flex flex-col items-center cursor-default">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 text-black dark:text-white">
         {title}
       </h1>
