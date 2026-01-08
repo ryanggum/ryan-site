@@ -3,7 +3,7 @@ import PostShell from "../components/PostShell";
 
 export default function Page() {
   return (
-    <PostShell title="Writing Oneself" visible={true}>
+    <PostShell title="Writing Oneself">
       <p>Dear Reader,</p>
       <p>
         My name is Ryan Gumlia, I am from Southern California, and I do not know

@@ -8,11 +8,7 @@ import { a, b, c, e, f, g, h, i, j, k } from "./photos";
 
 export default function Page() {
   return (
-    <PostShell
-      title="The Fate of O..."
-      subtitle="Trip Report: Hawaii"
-      visible={true}
-    >
+    <PostShell title="The Fate of O..." subtitle="Trip Report: Hawaii">
       <p>
         One hour into the trip, the 2014 Toyota Sienna that Josh and I parked
         half a mile from Costco’s Kailua-Kona warehouse refused to start. Two
