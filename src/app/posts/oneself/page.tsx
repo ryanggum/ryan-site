@@ -1,17 +1,18 @@
 "use client";
 import PostShell from "../components/PostShell";
+import { Prose } from "./../components/Prose";
 
 export default function Page() {
   return (
     <PostShell title="Writing Oneself">
-      <p>Dear Reader,</p>
-      <p>
+      <Prose>Dear Reader,</Prose>
+      <Prose>
         My name is Ryan Gumlia, I am from Southern California, and I do not know
         how to balance the aesthetic and the ethical in my writing. Everything
         else follows, but most significantly: questions in light of a love for
         [n] ^ writing.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         When I refer to the aesthetic and the ethical, I refer to a sorry
         bastardization of the aesthetic-ethical-religious framework that
         Kierkegaard lays out in <i>Either/Or</i>, itself a less sorry
@@ -25,8 +26,8 @@ export default function Page() {
         The result is a universal form, as well defined and minimally ambiguous
         as possible, that, alongside norms of cooperative intent, supplies us
         with a functional language for law and etc.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         Hardly one for pleasure, though! How much more fun that realm of play
         where joys can sprout from universal cracks, where syntactic
         transgressions and semantic doubts tease those parts of our brain that
@@ -38,12 +39,12 @@ export default function Page() {
         distributing commas for Rhythm’s sake, composing time for that inner
         Harmony, it whispering, quietly: pause here; all the while the Grammar
         shouts—STOP THERE!
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         My main question is how to negotiate the aesthetic and ethical when I
         write about myself.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         It seems to me that writing about oneself is, more than writing about
         anything else, writing oneself. But to the extent that the self does not
         come in universal form, this translation cannot be of perfect fidelity.
@@ -63,8 +64,8 @@ export default function Page() {
         I list toward of late, a modernish juxtaposition of everything,
         everywhere, all at once, a—I’ve defended—meticulous and excited
         treatment of all the atoms of word and life.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         I owe this list to my most recent influence. Kierkegaard’s proven
         determinant on my approach to writing, but Proust and Joyce (in that
         order) have most stoked it proper. (in that order) because things have
@@ -79,8 +80,8 @@ export default function Page() {
         Mulligan stately, or did he come stately? In that second sentence above,
         do I love writing the product, activity, or both? In the same, could [n]
         operate as a sort of non-non Chrysostomos?
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         The less charitable explanation for my transformation is that I am
         insecure, that not only do I obscure void content with decorative form,
         but that I deliberately contrive it all so as to be immune to audit.
@@ -101,8 +102,8 @@ export default function Page() {
         approaches. What won’t dissolve, though, is my contribution: I love
         language at its most granular, and even more, I love learning how you
         might see that granularity.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         Should we meet—should you share, too—you will find me a relentless well
         of interest in how you write what you mean to say and how you understand
         what you write to mean what you mean to say—why you decide final forms:
@@ -121,9 +122,9 @@ export default function Page() {
         externality of warmth. My tries manifest in close reading, in longform
         questions in longform responses, and in extraletter association. In
         friends and better ones. And I hope for the chance to make yours soon.
-      </p>
-      <p>Sincerely,</p>
-      <p>Ryan</p>
+      </Prose>
+      <Prose>Sincerely,</Prose>
+      <Prose>Ryan</Prose>
     </PostShell>
   );
 }

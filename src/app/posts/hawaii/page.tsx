@@ -2,6 +2,7 @@
 
 "use client";
 import PostShell from "../components/PostShell";
+import { Prose } from "../components/Prose";
 import { DayBreak } from "../components/DayBreak";
 import { ImageGridStack } from "../components/GridStack";
 import { a, b, c, e, f, g, h, i, j, k } from "./photos";
@@ -9,7 +10,7 @@ import { a, b, c, e, f, g, h, i, j, k } from "./photos";
 export default function Page() {
   return (
     <PostShell title="The Fate of O..." subtitle="Trip Report: Hawaii">
-      <p>
+      <Prose>
         One hour into the trip, the 2014 Toyota Sienna that Josh and I parked
         half a mile from Costco’s Kailua-Kona warehouse refused to start. Two
         hours into the trip—after flooding the engine, communing with Chat, and
@@ -22,8 +23,8 @@ export default function Page() {
         stylishly out of Scott’s lot in an unregistered 2003 Cadillac CTS, and
         three hours and three minutes into the trip, I released her parking
         brake.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         She was a beater, he said. We didn’t like his cynicism and set out on
         the 9,000 foot ascent of Mauna Kea. Clouds and showers had kicked us out
         of the bay beside the apartment, and the visitor center’s livestream
@@ -35,8 +36,8 @@ export default function Page() {
         caused the CTS to shake uncontrollably, so we cruised at 39, taunting
         law enforcement though the 40-minimums and splitting the cloud cover
         with the virulence of Icarus were he depressed.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         We arrived at 9:00pm and for the last part of the drive batted off hard
         the urges to look past the specks hanging on the horizon and splattering
         our windshield like bugs, and committed still to a true first sight,
@@ -48,9 +49,9 @@ export default function Page() {
         water and air and panting on pitch black, nerves kicked out my knees. I
         am lucky Josh kicked them on. We made the peak and burrowed behind some
         rocks before looking up.
-      </p>
+      </Prose>
       <ImageGridStack images={b} width={600} />
-      <p>
+      <Prose>
         What to do with a night sky? This was not a matter of white dotting
         black but bright dotting light, flowers—Rigel, Sirius, them all—topping
         the hazy undergrowth like drips on brush sweeps: North South East and
@@ -65,9 +66,9 @@ export default function Page() {
         bearings in Jupiter’s eye on our long arc West borne by the current of
         the galaxy toward the trail of Vega falling over the edge of the world
         for Lyra all left in our minds the choice.
-      </p>
+      </Prose>
       <ImageGridStack images={[c, a]} width={[600, 330]} />
-      <p>
+      <Prose>
         I couldn’t sleep that night. As we walked down the hill not more than
         once did we shoot our heads back in ridiculous ambush, too weak to
         appreciate the nature of our revolution and too in awe that looking up
@@ -78,9 +79,9 @@ export default function Page() {
         survive the distance are not all there is left, and that parting with
         vibrance until tomorrow or tomorrow will not preclude you from seeing it
         again.
-      </p>
+      </Prose>
       <DayBreak />
-      <p>
+      <Prose>
         Around 4:00am I moved to the balcony and held{" "}
         <i>100 Years of Solitude</i> to my chest until dawn made it light enough
         to read. The mornings in Kailua-Kona are tame. The island’s volcanic
@@ -89,8 +90,8 @@ export default function Page() {
         push what is left over the mountains to be burnt off by noon, but not
         before blazing a brilliant pink and gold in a dying announcement of
         Kona’s day. Josh rose to it, and we regrouped with my laptop.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         In deference to the CTS’s age, we abridged the expedition planned for
         the Sienna and cut Volcanoes National Park from a southern itinerary now
         solely focused on Papakōlea Beach. For fuel we stopped at Kaya’s Coffee
@@ -104,8 +105,8 @@ export default function Page() {
         “All the Hits, Now”) excelled, running only three ads an hour (the same
         three) around <i>Abbey Road</i>-esque mixes of Taylor Swift, Lola Young,
         and Sia.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         We left the highway to the opening chords of “The Fate of Ophelia” and
         bore south down a winding yellow line to South Point, the southern most
         of both Hawaii and the United States. Though the beach is not accessible
@@ -118,9 +119,9 @@ export default function Page() {
         coast, splitting shore rock and pastures in one long lean against the
         blast that was quite proficient at finding the right silts for our eyes,
         which otherwise made out barren gorgeous.
-      </p>
+      </Prose>
       <ImageGridStack images={[e, f]} width={[600, 330]} />
-      <p>
+      <Prose>
         At the crest of the bay, olivine joined the mix for a sharper lashing.
         Josh dove under it and sprinted down the 60% grade of tinted sand for a
         smooth dive into the surf. More calculated than me on land and sea, I
@@ -129,8 +130,8 @@ export default function Page() {
         teal on olive washed the dirt off our faces and in pristine form
         refracted long white rays that stretched unbroken from its surface to
         the ground.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         We hung in the swells refracted too for a while until the delight of
         refresh turned into the delight of play and a joyful cadence of crest
         rides into low returns into crest rides dissolved into a calmer rhythm,
@@ -146,9 +147,9 @@ export default function Page() {
         better, better in the crashing extremes bearing not from cliffs depth or
         earth really, really, really not choosing place but who. Lifting my hair
         run rigid black eying that frame of fire squinting on I saw.
-      </p>
+      </Prose>
       <ImageGridStack images={g} width={600} />
-      <p>
+      <Prose>
         Back, land stretched surreal. Windless and in the northern fence, we
         pushed the boat launch until even in her there were no words, none as
         the horsediggers diagonaled our plod and none as Josh pushed the CTS,
@@ -156,10 +157,10 @@ export default function Page() {
         ate tuna and milk, I he a quarter caesar salad, and surprise we sans
         caloric survival instinct had sans caloric survival instinct, feeding on
         the <i>Last Crusade</i>, crushing weakened in the cycles of dreams.
-      </p>
+      </Prose>
       <DayBreak />
       <ImageGridStack images={k} width={600} />
-      <p>
+      <Prose>
         Exhausted? I pray less than this prose but more than we who rewound by
         hate for the three pounds of milk and almonds in our fridge drove to
         Costco for breakfast. An executive membership apparently gets you hot
@@ -173,8 +174,8 @@ export default function Page() {
         blame the freezes for this. Like both the CTS and The Beat, (the former
         now emitting a plume of white smoke every time we parked her), they made
         no pretense of being anything but themselves.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         The trails showed far more discretion. Their biggest boon of bird song
         never betrayed a source. Indeed, despite thicketing every path with
         shrill and colorful clattering, we made out with as many wings as quiet
@@ -187,9 +188,9 @@ export default function Page() {
         swimming alongside the jetty that split us from the harbor. I was happy
         to see the tiger shark there because it meant it was not currently in
         Kealakekua Bay.
-      </p>
+      </Prose>
       <ImageGridStack images={h} width={600} />
-      <p>
+      <Prose>
         A short time later we descended 1,400 feet into Kealakekua Bay. A
         succession of grass, rock, rubble, and dirt brought us to Captain Cook's
         Monument, erected a year after his death in 1874, and some stone to one
@@ -207,8 +208,8 @@ export default function Page() {
         only hear a crackle underwater—air bubbles apparently—if we were really
         attuned I know our ears would ring with the cries and squaws of the
         trees. What else to be rising from this urban alien life.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         Two photographers on the trip but it seems this one is for us. Even had
         our cameras worked underwater, I would have taken more photos of us. You
         rarely see a body so suspended. Josh, ahead of me, was cast in the blue
@@ -222,9 +223,9 @@ export default function Page() {
         of showers. We pushed, switching paces then leads then breaths then
         turns, save at the final heights, where I finally recognized it better
         to give all the last to Josh.
-      </p>
+      </Prose>
       <ImageGridStack images={[j, i]} width={[600, 330]} />
-      <p>
+      <Prose>
         We made it to the CTS dripping wet, carried the last portion by Tahitian
         limeade, and aggressive on the downhill tried to catch the last of the
         sun now holding court over a kingdown of orange. We would have Black
@@ -232,7 +233,7 @@ export default function Page() {
         multiplying The Beat blaring already our butchered chorus and in rapture
         deciding the fate of, which? We did not know. We had only tried to keep
         it one hundred, on the land, the sea, the sky.
-      </p>
+      </Prose>
     </PostShell>
   );
 }

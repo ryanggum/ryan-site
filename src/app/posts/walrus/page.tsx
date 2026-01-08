@@ -3,6 +3,7 @@
 "use client";
 import { useState } from "react";
 import ModeSwitcher, { type Mode } from "../components/ModeSwitcher";
+import { Prose } from "./../components/Prose";
 import PostShell from "../components/PostShell";
 import Footnote from "../components/Footnote";
 
@@ -12,9 +13,10 @@ export default function WalrusPage() {
 
   return (
     <PostShell title="When I Am the Walrus" subtitle="November 2025">
-      <ModeSwitcher mode={mode} setMode={setMode} />
-
-      <p>
+      <Prose as="div">
+        <ModeSwitcher mode={mode} setMode={setMode} />
+      </Prose>
+      <Prose>
         I have taken “all things in moderation, even moderation” too far.
         Knowing neither temperance nor inertia and swinging violently back
         across the mental-physical divide, I swing and not run because my shins
@@ -27,8 +29,8 @@ export default function WalrusPage() {
         from the content. Is Ryan the freeway or the morphology? Ridiculous
         question: he is interested in law, linguistics, and tech—obviously, he’s
         the tension itself!
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         It seems sometimes that I am being suffocated by everything I have ever
         heard, read, and wrote. It seems that I am seeking a metaphor,
         <Footnote index={1} vis={vis}>
@@ -82,19 +84,21 @@ export default function WalrusPage() {
           I beg you listen to: The Beatles, "Sgt. Pepper's Lonely Hearts Club
           Band."
         </Footnote>
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         November was. I befell a short number of poor decisions that had an
         outsized impact on my welfare. I was also felled in the short by a
         number of reasonable decisions I think will prove net positive to come.
         Finally, I discovered more that I want to change. I am here to address
         few of these in no particular order for both myself and any of you
         curious.
-      </p>
-      <p style={{ textIndent: "2em" }}>
-        <i>1. What is the aesthetic?</i>
-      </p>
-      <p>
+      </Prose>
+      <Prose as="div">
+        <div style={{ textIndent: "2em" }}>
+          <i>1. What is the aesthetic?</i>
+        </div>
+      </Prose>
+      <Prose>
         I suggested to a Professor that mine adores play. I then performed
         enough counts of strained grammar, wrong words, hostile references, and
         felony modernism to be denied prescriptionist bail. I appealed to Judge
@@ -103,8 +107,8 @@ export default function WalrusPage() {
         <i>Either/Or</i>’s ethical half. I obliged and then complained that a
         reference loses for its explanation. He asked me to explain the
         difference between a reference and a fraud. I charged him.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         What I propose is writing as curation. Try it. Clip a ransom note from
         your life. Think deep. What can you scrounge up? Take an inventory. Who
         are you right now? I’m guessing <i>Revolver</i> is not on tap, so what
@@ -119,8 +123,8 @@ export default function WalrusPage() {
         deployed and your conditions spill reclaimed from every phrase, you are
         composing—not merely stringing that web of associations—you are building
         with the mortar of your intellect a towering self.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         If you ask who is steering this ship, you ask right whether such a
         totalizing intertextuality doesn’t efface some essence, doesn’t
         disintegrate some vocal muscle that no multiple of 42
@@ -156,11 +160,13 @@ export default function WalrusPage() {
         </Footnote>
         I sob as I bury my head in your neck as our hearts convulse in rhythm
         as.
-      </p>
-      <p style={{ textIndent: "2em" }}>
-        <i>2. What will be friction?</i>
-      </p>
-      <p>
+      </Prose>
+      <Prose as="div">
+        <div style={{ textIndent: "2em" }}>
+          <i>2. What will be friction?</i>
+        </div>
+      </Prose>
+      <Prose>
         Sophie sang “Losing My Religion” for one minute and fifty seconds.
         <Footnote index={21} vis={vis}>
           Wells, <i>Aftersun</i>.
@@ -183,8 +189,8 @@ export default function WalrusPage() {
         spotlights her on fire, and we are breathing in, aren’t we all choking
         on the smoke? Not a drill nor a dream, Sophie cannot lose her religion:
         she is one.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         Heavy is my head that voices desire.
         <Footnote index={25} vis={vis}>
           Agadmator on Esipenko defeating Carlsen (Tata Steel 2021).
@@ -214,8 +220,8 @@ export default function WalrusPage() {
         </Footnote>
         if Rg6 does not drench you in—does not make you tread nausea, you do not
         know me.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         We both know it is better to speak.
         <Footnote index={29} vis={vis}>
           Guadagnino.
@@ -242,11 +248,13 @@ export default function WalrusPage() {
         <Footnote index={32} vis={vis}>
           <i>Redwoods</i>.
         </Footnote>
-      </p>
-      <p style={{ textIndent: "2em" }}>
-        <i>3. What was optimization?</i>
-      </p>
-      <p>
+      </Prose>
+      <Prose as="div">
+        <div style={{ textIndent: "2em" }}>
+          <i>3. What was optimization?</i>
+        </div>
+      </Prose>
+      <Prose>
         For the worse part of a year, I made u-turns. It did not matter the
         route, whether I was picking up a friend from the airport or sharing
         music with the suburbs. At any moment a lurch could restore my
@@ -259,8 +267,8 @@ export default function WalrusPage() {
         strewn across the curb. Every time I was completely satisfied that I
         hadn’t murdered a cyclist on my first pass. But what if I had on the
         second?
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         If you make enough u-turns, you make no progress. If a new cyclist falls
         on your way to dissipate another, you begin an ugly type of recursion
         where the loops tighten into a single point. At it, your car is parked
@@ -272,8 +280,8 @@ export default function WalrusPage() {
         be crumpled by a Prius driving four miles an hour, and if so, what that
         would sound like. Here, your rearview replaces your dashboard and
         objects are too close to be objects. You are motionless in this world.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         Last week I bought climbing shoes without Safari. I ached, rest assured,
         for quantity’s authorization of quality and objectivity’s patting the
         head of my easily confused and assuredly deceived subjectivity. In
@@ -289,13 +297,13 @@ export default function WalrusPage() {
         that we are only conscious while we calculate, that there is fathomable
         no existence illegible to monologue. I had found in the modernists a
         trap to be escaped, but perhaps they shared with us a way to live.
-      </p>
-      <p>
+      </Prose>
+      <Prose>
         For December, I plan to reach differently. Equipped with new lows of
         information access and a taste for sensory risk, I mean to abandon the
         self to a new being and hopefully others, too. I hope to think less. I
         hope to affect and be affected. And I look forward to seeing the wake.
-      </p>
+      </Prose>
     </PostShell>
   );
 }

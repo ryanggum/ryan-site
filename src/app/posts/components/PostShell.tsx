@@ -16,9 +16,7 @@ export default function PostShell({
     <main className="min-h-dvh">
       <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-48 py-10 sm:py-14 md:py-20">
         <PostHeader title={title} subtitle={subtitle} />
-        <article className="prose dark:prose-invert max-w-[75ch] mx-auto cursor-default [&_p]:my-3">
-          {children}
-        </article>
+        <article>{children}</article>
       </div>
     </main>
   );

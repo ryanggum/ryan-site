@@ -2,11 +2,12 @@
 
 "use client";
 import PostShell from "../components/PostShell";
+import { Prose } from "./../components/Prose";
 
 export default function RevolverPage() {
   return (
     <PostShell title="Ranking Revolver">
-      <p>Hey, what are you looking at?</p>
+      <Prose>Hey, what are you looking at?</Prose>
     </PostShell>
   );
 }
