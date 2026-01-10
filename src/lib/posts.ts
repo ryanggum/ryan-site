@@ -11,7 +11,7 @@ export const posts: Post[] = [
   {
     slug: "walrus",
     i: 2,
-    title: "November, or When I Was the Walrus",
+    title: "When I Am the Walrus",
     date: 20251101,
   },
   {
@@ -23,7 +23,7 @@ export const posts: Post[] = [
   {
     slug: "hawaii",
     i: 4,
-    title: "Hawaii, or The Fate of O...",
+    title: "The Fate of O...",
     date: 20251201,
   },
   {

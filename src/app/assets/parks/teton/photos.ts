@@ -21,14 +21,14 @@ import pool from "./pool.jpg";
 import yellow from "./yellow.jpg";
 
 const photos: Photo[] = [
-  { src: yellow, alt: "", preview: true },
+  { src: yellow, alt: "" },
   { src: fifty, alt: "" },
   { src: gorge, alt: "", preview: true },
   { src: colorado, alt: "" },
   // { src: utah, alt: "" },
   { src: missed, alt: "" },
   { src: j1, alt: "", preview: true },
-  { src: j2, alt: "" },
+  { src: j2, alt: "", preview: true },
   { src: pool, alt: "" },
   { src: j3, alt: "" },
   { src: bison, alt: "" },

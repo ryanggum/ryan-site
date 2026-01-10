@@ -21,11 +21,11 @@ import j17 from "./bentom.jpg";
 import type { Photo } from "@/lib/types";
 
 const photos: Photo[] = [
-  { src: j4, alt: "" },
+  { src: j4, alt: "", preview: true },
   { src: j13, alt: "" },
-  { src: j2, alt: "", preview: true },
+  { src: j2, alt: "" },
   { src: j10, alt: "" },
-  { src: j1, alt: "" },
+  { src: j1, alt: "", preview: true },
   { src: j3, alt: "" },
   { src: j6, alt: "" },
   { src: j14, alt: "", preview: true },
@@ -33,7 +33,7 @@ const photos: Photo[] = [
   // { src: j7, alt: ""  },
   // { src: j9, alt: ""  },
   { src: j15, alt: "" },
-  { src: j11, alt: "", preview: true },
+  { src: j11, alt: "" },
   { src: j12, alt: "" },
   { src: j8, alt: "" },
   { src: j17, alt: "" },

@@ -13,7 +13,7 @@ export function Prose<T extends ElementType = "p">({
   const Component = as ?? "p";
 
   return (
-    <Component className="prose dark:prose-invert max-w-[75ch] mx-auto my-3, cursor-default">
+    <Component className="prose dark:prose-invert max-w-[75ch] mx-auto my-3 cursor-default">
       {children}
     </Component>
   );
