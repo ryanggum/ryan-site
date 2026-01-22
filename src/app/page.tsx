@@ -44,7 +44,7 @@ export default function Home() {
         </h1>
         <p className="text-sm sm:text-base mb-2 break-words">
           I'm a senior Humanities major at Yale heading into L&C at D. E. Shaw &
-          Co., broadly interested in law, linguistics, and tech. Also:
+          Co., broadly interested in law, linguistics, and tech. Also...
         </p>
         <div className="pl-4 md:pl-6">
           <nav className="flex flex-col items-start w-fit pointer-events-auto">

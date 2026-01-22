@@ -32,12 +32,12 @@ import j28 from "./28 copy.jpg";
 import type { Photo } from "@/lib/types";
 
 const photos: Photo[] = [
-  { src: j1, alt: "", preview: true },
+  { src: j1, alt: "" },
   // { src: j14, alt: "" },
   // { src: j15, alt: "" },
   { src: j16, alt: "" },
   { src: j17, alt: "", preview: true },
-  { src: j21, alt: "" },
+  { src: j21, alt: "", preview: true },
   { src: j20, alt: "" },
   { src: j18, alt: "" },
   // { src: j19, alt: "" },
