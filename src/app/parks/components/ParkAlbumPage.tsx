@@ -21,28 +21,28 @@ function Header({ title }: { title: string }) {
 export default async function ParkAlbumPage({ album }: { album: string }) {
   const meta = getAlbumMeta(album);
 
+  let content;
+
   if (!meta) {
-    return (
-      <main className={shell}>
-        <Header title={album} />
-        <div className="text-center text-neutral-500">No Album</div>
-      </main>
+    content = <div className="text-center text-neutral-500">No Album</div>;
+  } else {
+    const { default: images } = (await import(
+      /* webpackInclude: /\.\/[^/]+\/photos$/ */
+      `@/app/assets/parks/${meta.slug}/photos`
+    )) as AlbumModule;
+
+    content = images.length ? (
+      <DisplayGrid title={meta.title} images={images} />
+    ) : (
+      <div className="text-center text-neutral-500">No Images</div>
     );
   }
 
-  const { default: images } = (await import(
-    /* webpackInclude: /\.\/[^/]+\/photos$/ */
-    `@/app/assets/parks/${meta.slug}/photos`
-  )) as AlbumModule;
-
   return (
     <main className={shell}>
-      <Header title={meta.title} />
-      {images.length ? (
-        <DisplayGrid title={meta.title} images={images} />
-      ) : (
-        <div className="text-center text-neutral-500">No Images</div>
-      )}
+      <Header title={meta?.title ?? album} />
+      <div className="mb-4 border-t border-black dark:border-white" />
+      {content}
     </main>
   );
 }
