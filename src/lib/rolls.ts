@@ -120,6 +120,14 @@ export const albums: AlbumMeta[] = [
     title: "Death Valley",
     page: true,
   },
+  {
+    i: 16,
+    date: 202603,
+    film: { iso: 160, stock: "Portra" },
+    slug: "pinnacles",
+    title: "Pinnacles",
+    page: true,
+  },
 ];
 
 export const albumSlugs = albums.map((a) => ({ slug: a.slug }));
