@@ -41,11 +41,11 @@ import j38 from "./38.jpg";
 import type { Photo } from "@/lib/types";
 
 const photos: Photo[] = [
-  { src: j1, alt: "", preview: true },
-  { src: j3, alt: "", preview: true },
-  { src: j2, alt: "", preview: true },
+  { src: j1, alt: "" },
+  { src: j3, alt: "" },
+  { src: j2, alt: "" },
 
-  { src: j4, alt: "" },
+  { src: j4, alt: "", preview: true },
   { src: j5, alt: "" },
   { src: j7, alt: "wild" },
 
@@ -66,7 +66,7 @@ const photos: Photo[] = [
   { src: j13, alt: "" },
 
   { src: j19, alt: "big sur 1" },
-  { src: j21, alt: "" },
+  { src: j21, alt: "", preview: true },
   { src: j20, alt: "" },
 
   { src: j23, alt: "mound" },
@@ -80,11 +80,12 @@ const photos: Photo[] = [
   { src: j27, alt: "bridge close" },
   { src: j25, alt: "bridge far" },
   { src: j30, alt: "roses" },
+
   { src: j31, alt: "" },
-  { src: j32, alt: "ryan" },
+  { src: j32, alt: "ryan", preview: true },
   { src: j34, alt: "aum" },
+
   { src: j35, alt: "" },
-  // { src: j36, alt: "" },
   { src: j37, alt: "" },
   { src: j38, alt: "" },
 ];
