@@ -26,11 +26,17 @@ export const posts: Post[] = [
     title: "The Fate of O...",
     date: 20251201,
   },
+  // {
+  //   slug: "death",
+  //   i: 5,
+  //   title: "Death Valley",
+  //   date: 20260101,
+  // },
   {
-    slug: "death",
+    slug: "madness",
     i: 5,
-    title: "Death Valley",
-    date: 20260101,
+    title: "Madness",
+    date: 20260301,
   },
 ];
 
