@@ -73,9 +73,9 @@ const photos: Photo[] = [
   { src: j22, alt: "" },
   { src: j29, alt: "" },
 
-  { src: j26, alt: "not bridge 1" },
-  { src: j24, alt: "not bridge 2" },
-  { src: j28, alt: "not bridge 3" },
+  { src: j26, alt: "not bridge" },
+  { src: j24, alt: "not bridge" },
+  { src: j28, alt: "not bridge" },
 
   { src: j27, alt: "bridge close" },
   { src: j25, alt: "bridge far" },
