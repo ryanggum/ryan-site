@@ -1,7 +1,7 @@
 // src/app/parks/components/Album.tsx (client)
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 import DisplayGrid from "../../components/DisplayGrid";
 import type { Photo } from "@/lib/types";
 
@@ -63,7 +63,7 @@ export default function Album({
   images: Photo[];
   missing?: "album";
 }) {
-  const [columns, setColumns] = useState<1 | 3>(3);
+  // const [columns, setColumns] = useState<1 | 3>(3);
 
   return (
     <main className={shell}>
@@ -79,7 +79,7 @@ export default function Album({
       {missing ? (
         <div className="text-center text-neutral-500">No Album</div>
       ) : images.length ? (
-        <DisplayGrid title={title} images={images} columns={columns} />
+        <DisplayGrid title={title} images={images} columns={3} />
       ) : (
         <div className="text-center text-neutral-500">No Images</div>
       )}
