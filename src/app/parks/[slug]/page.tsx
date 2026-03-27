@@ -1,7 +1,23 @@
-// src/app/parks/[slug]/page.tsx
-import ParkAlbumPage from "../components/ParkAlbumPage";
+// src/app/parks/[slug]/page.tsx (server)
+import Album from "../components/Album";
+import { getAlbumMeta } from "@/lib/rolls";
+import type { AlbumModule } from "@/lib/types";
 
-export default async function ParkSlugPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
-  return <ParkAlbumPage album={slug} />;
+  const meta = getAlbumMeta(slug);
+
+  if (!meta) {
+    return <Album title={slug} images={[]} missing="album" />;
+  }
+
+  const { default: images } = (await import(
+    `@/app/assets/parks/${meta.slug}/photos`
+  )) as AlbumModule;
+
+  return <Album title={meta.title} images={images} />;
 }
