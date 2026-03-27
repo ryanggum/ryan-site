@@ -41,15 +41,15 @@ import j36 from "./36.jpg";
 import j37 from "./37.jpg";
 
 const photos: Photo[] = [
-  { src: j9, alt: "" },
+  { src: j9, alt: "", preview: true },
   { src: j7, alt: "rushmore" },
-  { src: j2, alt: "", preview: true },
+  { src: j2, alt: "" },
 
   { src: j4, alt: "" },
-  { src: j3, alt: "", preview: true },
+  { src: j3, alt: "" },
   { src: j8, alt: "head" },
 
-  { src: j1, alt: "", preview: true },
+  { src: j1, alt: "" },
   { src: j5, alt: "" },
   // { src: j6, alt: "" },
   // { src: j10, alt: "" },
@@ -64,13 +64,13 @@ const photos: Photo[] = [
   { src: j16, alt: "" },
   // { src: j18, alt: "" },
 
-  { src: j19, alt: "" },
-  { src: j20, alt: "" },
-  { src: j21, alt: "" },
+  { src: j19, alt: "pineapple" },
+  { src: j20, alt: "pineapple" },
+  { src: j21, alt: "pineapple", preview: true },
 
-  { src: j22, alt: "" },
-  { src: j35, alt: "" },
-  { src: j32, alt: "" },
+  { src: j22, alt: "valley" },
+  { src: j35, alt: "valley" },
+  { src: j32, alt: "valley" },
 
   { src: j23, alt: "" },
   { src: j24, alt: "" },
@@ -81,7 +81,7 @@ const photos: Photo[] = [
   { src: j27, alt: "" },
   { src: j31, alt: "" },
 
-  { src: j30, alt: "" },
+  { src: j30, alt: "", preview: true },
   { src: j28, alt: "" },
   { src: j29, alt: "" },
 
