@@ -1,29 +1,17 @@
 // src/app/page.tsx
-"use client";
-
-import { useEffect, useState } from "react";
 import Link from "next/link";
 
+const linkClass =
+  "inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5";
+
 export default function Home() {
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const media = window.matchMedia("(max-width: 767px)");
-    setIsMobile(media.matches);
-    const listener = () => setIsMobile(media.matches);
-
-    media.addEventListener("change", listener);
-    return () => media.removeEventListener("change", listener);
-  }, []);
-
-  if (isMobile === null) return <main className="min-h-dvh" />;
-
   return (
     <main
-      className="relative min-h-dvh flex items-center justify-center px-4 sm:px-6 py-16 bg-cover bg-center"
-      style={{
-        backgroundImage: `url('${isMobile ? "/bg-m.jpg" : "/bg-d.jpg"}')`,
-      }}
+      className="
+				relative min-h-dvh flex items-center justify-center px-4 sm:px-6 py-16
+				bg-cover bg-center
+				bg-[url('/bg-m.jpg')] md:bg-[url('/bg-d.jpg')]
+			"
     >
       <div
         className={`
@@ -34,9 +22,7 @@ export default function Home() {
           pointer-events-none select-none
         `}
       >
-        <h1 className="text-4xl sm:text-5xl md:text-5xl font-medium mb-4">
-          ryan gumlia
-        </h1>
+        <h1 className="text-4xl sm:text-5xl font-medium mb-4">ryan gumlia</h1>
         <p className="text-sm sm:text-base mb-2 break-words">
           I'm a senior Humanities major at Yale heading into L&C at D. E. Shaw &
           Co., broadly interested in law, linguistics, and tech. Also..
@@ -45,11 +31,7 @@ export default function Home() {
           <nav className="flex flex-col items-start w-fit pointer-events-auto">
             <span className="text-sm sm:text-base">
               {"film "}
-              <Link
-                href="/parks"
-                prefetch={false}
-                className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5"
-              >
+              <Link href="/parks" prefetch={false} className={linkClass}>
                 <span>(rolls→)</span>
               </Link>
             </span>
@@ -59,18 +41,14 @@ export default function Home() {
                 href="https://letterboxd.com/ryanggum/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base"
+                className={linkClass}
               >
                 <span>(letterboxd→)</span>
               </a>
             </span>
             <span className="text-sm sm:text-base">
               {"and writing "}
-              <Link
-                href="/posts"
-                prefetch={false}
-                className="inline-flex w-fit items-center gap-1 rounded transition-colors hover:text-neutral-400 text-sm sm:text-base mb-0.5"
-              >
+              <Link href="/posts" prefetch={false} className={linkClass}>
                 <span>(posts→)</span>
               </Link>
             </span>
