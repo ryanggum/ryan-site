@@ -21,15 +21,10 @@ export default function Home() {
   return (
     <main
       className="relative min-h-dvh flex items-center justify-center px-4 sm:px-6 py-16 bg-cover bg-center"
-      style={isMobile ? { backgroundImage: `url('/bg-m.jpg')` } : undefined}
+      style={{
+        backgroundImage: `url('${isMobile ? "/bg-m.jpg" : "/bg-d.jpg"}')`,
+      }}
     >
-      {!isMobile && (
-        <img
-          src="/bg-d.jpg"
-          alt=""
-          className="hidden md:block absolute top-0 left-0 w-screen h-auto pointer-events-none select-none"
-        />
-      )}
       <div
         className={`
           text-left max-w-[65ch]
@@ -44,7 +39,7 @@ export default function Home() {
         </h1>
         <p className="text-sm sm:text-base mb-2 break-words">
           I'm a senior Humanities major at Yale heading into L&C at D. E. Shaw &
-          Co., broadly interested in law, linguistics, and tech. Also...
+          Co., broadly interested in law, linguistics, and tech. Also..
         </p>
         <div className="pl-4 md:pl-6">
           <nav className="flex flex-col items-start w-fit pointer-events-auto">
