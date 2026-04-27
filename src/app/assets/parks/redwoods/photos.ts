@@ -17,27 +17,46 @@ import j14 from "./14.jpg";
 import j15 from "./15.jpg";
 import j16 from "./16.jpg";
 import j17 from "./bentom.jpg";
+import ja from "./a.jpg";
+import jb from "./b.jpg";
+import jc from "./c.jpg";
+import jd from "./d.jpg";
+import je from "./e.jpg";
+import jf from "./f.jpg";
 
 import type { Photo } from "@/lib/types";
 
 const photos: Photo[] = [
   { src: j4, alt: "" },
-  { src: j13, alt: "" },
   { src: j2, alt: "", preview: true },
-  { src: j10, alt: "" },
+  { src: j13, alt: "" },
+
   { src: j1, alt: "" },
+  { src: j5, alt: "" },
+  { src: j10, alt: "" },
+
   { src: j3, alt: "" },
+  { src: j7, alt: "" },
+  { src: j9, alt: "" },
+
   { src: j6, alt: "" },
   { src: j14, alt: "", preview: true },
-  { src: j5, alt: "" },
-  // { src: j7, alt: ""  },
-  // { src: j9, alt: ""  },
   { src: j15, alt: "" },
-  { src: j11, alt: "" },
+
+  { src: jf, alt: "" },
   { src: j12, alt: "" },
+  { src: jb, alt: "" },
+
+  { src: jd, alt: "" },
+  { src: j11, alt: "" },
   { src: j8, alt: "" },
+
+  { src: ja, alt: "" },
   { src: j17, alt: "", preview: true },
   { src: j16, alt: "" },
+
+  // { src: jc, alt: "" },
+  // { src: je, alt: "" },
 ];
 
 export default photos;
