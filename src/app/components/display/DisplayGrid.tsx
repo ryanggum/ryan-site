@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { memo, useState, useMemo, useCallback } from "react";
 import type { Photo } from "@/lib/types";
-import Lightbox from "./LightBox";
+import Lightbox from "./light/LightBox";
 
 function DisplayGridBase({
   title,
@@ -32,7 +32,7 @@ function DisplayGridBase({
 
   const aspectClass = useMemo(
     () => (square ? "aspect-square" : "aspect-[3/2]"),
-    [square]
+    [square],
   );
 
   const openAtIndex = useCallback((idx: number) => {

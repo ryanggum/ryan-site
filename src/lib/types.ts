@@ -1,14 +1,6 @@
 // src/lib/types.ts
 import type { StaticImageData } from "next/image";
 
-export type Post = {
-  i: number;
-  slug: string;
-  title: string;
-  subtitle?: string;
-  date: number;
-};
-
 export type Photo = {
   src: StaticImageData;
   alt: string;
@@ -18,12 +10,31 @@ export type Photo = {
 
 export type AlbumMeta = Readonly<{
   i: number;
+  date: number;
+  film: { stock: string; iso: number } | null;
   slug: string;
   title: string;
-  date: number;
-  film: { stock: string; iso: number };
+  location: string[];
   page: boolean;
 }>;
+
+export const NullAlbum: AlbumMeta = {
+  i: 0,
+  date: 0,
+  film: { stock: "", iso: 0 },
+  slug: "",
+  title: "",
+  location: [],
+  page: false,
+};
+
+export type Post = {
+  i: number;
+  slug: string;
+  title: string;
+  subtitle?: string;
+  date: number;
+};
 
 // Reusable “default export” module helper.
 export type ModuleDefault<T> = { default: T };

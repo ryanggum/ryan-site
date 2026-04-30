@@ -1,5 +1,5 @@
 // src/app/posts/components/GridStack.tsx
-import DisplayGrid from "@/app/components/DisplayGrid";
+import DisplayGrid from "@/app/components/display/DisplayGrid";
 
 type ImageArray = any[];
 
@@ -34,8 +34,8 @@ export function ImageGridStack({
             grids.length === 1
               ? "mt-4 mb-4"
               : i === 0
-              ? "mt-4 mb-2"
-              : "mt-1 mb-4"
+                ? "mt-4 mb-2"
+                : "mt-1 mb-4"
           }`}
         >
           <div className="not-prose w-full flex justify-center">

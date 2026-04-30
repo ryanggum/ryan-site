@@ -8,6 +8,7 @@ export const albums: AlbumMeta[] = [
     film: { iso: 100, stock: "Ektar" },
     slug: "tustin",
     title: "Tustin",
+    location: [],
     page: true,
   },
   {
@@ -16,6 +17,7 @@ export const albums: AlbumMeta[] = [
     film: { iso: 100, stock: "Ektar" },
     slug: "joshua_1",
     title: "Joshua Tree no. 1",
+    location: [],
     page: true,
   },
   {
@@ -24,14 +26,16 @@ export const albums: AlbumMeta[] = [
     film: { iso: 200, stock: "Gold" },
     slug: "bemidji",
     title: "Bemidji",
+    location: [],
     page: true,
   },
   {
     i: 4,
     date: 202307,
-    film: { iso: 401, stock: "Pan" },
+    film: null,
     slug: "carlsbad",
     title: "Carlsbad",
+    location: [],
     page: true,
   },
   {
@@ -40,6 +44,7 @@ export const albums: AlbumMeta[] = [
     film: { iso: 800, stock: "Cinestill" },
     slug: "arrowhead",
     title: "Arrowhead",
+    location: [],
     page: true,
   },
   {
@@ -48,14 +53,16 @@ export const albums: AlbumMeta[] = [
     film: { iso: 160, stock: "Portra" },
     slug: "yosemite",
     title: "Yosemite",
+    location: [],
     page: true,
   },
   {
     i: 8,
     date: 202401,
-    film: { iso: 401, stock: "???" },
+    film: null,
     slug: "joshua_2",
     title: "Joshua Tree no. 2",
+    location: [],
     page: false,
   },
   {
@@ -64,6 +71,7 @@ export const albums: AlbumMeta[] = [
     film: { iso: 400, stock: "Fujifilm" },
     slug: "sequoia",
     title: "Sequoia",
+    location: [],
     page: true,
   },
   {
@@ -72,6 +80,7 @@ export const albums: AlbumMeta[] = [
     film: { iso: 100, stock: "Ektachrome" },
     slug: "zion",
     title: "Zion",
+    location: [],
     page: true,
   },
   {
@@ -80,6 +89,7 @@ export const albums: AlbumMeta[] = [
     film: { iso: 100, stock: "Ektar" },
     slug: "yellowstone",
     title: "Yellowstone",
+    location: [],
     page: true,
   },
   {
@@ -88,22 +98,25 @@ export const albums: AlbumMeta[] = [
     film: { iso: 100, stock: "Ektachrome" },
     slug: "redwoods",
     title: "Redwoods",
+    location: [],
     page: true,
   },
   {
     i: 14,
     date: 202512,
-    film: { iso: 400, stock: "???" },
+    film: null,
     slug: "hawaii",
     title: "Hawaii",
+    location: [],
     page: true,
   },
   {
     i: 15,
     date: 202601,
-    film: { iso: 200, stock: "Kodak" },
+    film: { iso: 200, stock: "Kodacolor" },
     slug: "death",
     title: "Death Valley",
+    location: ["Death Valley National Park"],
     page: true,
   },
   {
@@ -112,6 +125,7 @@ export const albums: AlbumMeta[] = [
     film: { iso: 160, stock: "Portra" },
     slug: "pinnacles",
     title: "Pinnacles",
+    location: ["Pinnacles National Park", "Big Sur", "San Clemente"],
     page: true,
   },
 ];

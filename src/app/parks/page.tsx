@@ -1,7 +1,7 @@
 // src/app/parks/page.tsx
 import Link from "next/link";
 
-import DisplayGrid from "../components/DisplayGrid";
+import DisplayGrid from "../components/display/DisplayGrid";
 import Header from "@/app/components/Header";
 
 import { albums } from "@/lib/rolls";
