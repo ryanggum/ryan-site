@@ -128,6 +128,24 @@ export const albums: AlbumMeta[] = [
     location: ["Pinnacles National Park", "Big Sur", "San Clemente"],
     page: true,
   },
+  {
+    i: 17,
+    date: 202605,
+    film: { iso: 200, stock: "Kodacolor" },
+    slug: "utah",
+    title: "Utah",
+    location: [],
+    page: true,
+  },
+  {
+    i: 18,
+    date: 202606,
+    film: { iso: 400, stock: "Portra" },
+    slug: "jmt",
+    title: "John Muir Trail",
+    location: [],
+    page: true,
+  },
 ];
 
 export const albumSlugs = albums.map((a) => ({ slug: a.slug }));
