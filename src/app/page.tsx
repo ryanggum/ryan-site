@@ -24,8 +24,9 @@ export default function Home() {
       >
         <h1 className="text-4xl sm:text-5xl font-medium mb-4">ryan gumlia</h1>
         <p className="text-sm sm:text-base mb-2 break-words">
-          I'm a senior Humanities major at Yale heading into L&C at D. E. Shaw &
-          Co., broadly interested in law, linguistics, and tech. Also..
+          I'm a Compliance Analyst at D. E. Shaw & Co. in New York City after
+          studying Humanities and Computer Science at Yale. I'm broadly
+          interested in law, linguistics, and tech. Also:
         </p>
         <div className="pl-4 md:pl-6">
           <nav className="flex flex-col items-start w-fit pointer-events-auto">
