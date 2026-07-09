@@ -15,7 +15,7 @@ export default function Home() {
     >
       <div
         className={`
-          text-left max-w-[65ch]
+          text-left max-w-[60ch]
           -translate-y-32 sm:translate-y-0
           md:fixed md:top-[36%] md:left-[24%] md:-translate-y-1/2
           text-black md:text-white md:mix-blend-difference
@@ -24,9 +24,8 @@ export default function Home() {
       >
         <h1 className="text-4xl sm:text-5xl font-medium mb-4">ryan gumlia</h1>
         <p className="text-sm sm:text-base mb-2 break-words">
-          I'm a Compliance Analyst at D. E. Shaw & Co. in New York City after
-          studying Humanities and Computer Science at Yale. I'm broadly
-          interested in law, linguistics, and tech. Also:
+          I'm a Compliance Analyst at D. E. Shaw & Co. in New York City.
+          Previously, I studied humanities and computer science at Yale.
         </p>
         <div className="pl-4 md:pl-6">
           <nav className="flex flex-col items-start w-fit pointer-events-auto">
