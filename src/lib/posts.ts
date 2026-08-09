@@ -27,9 +27,9 @@ export const posts: Post[] = [
     date: 20251201,
   },
   {
-    slug: "pinnacles",
+    slug: "jmt",
     i: 5,
-    title: "Pinnacles",
+    title: "I hiked the John Muir Trail",
     date: 20260301,
   },
 ];
