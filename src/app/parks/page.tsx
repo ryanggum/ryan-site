@@ -16,11 +16,11 @@ export default async function ParksPage() {
       <Header title="rolls" />
       <div className="mx-auto max-w-4xl">
         <div className="mb-4 border-t border-black dark:border-white" />
-        {albumsWithImagesByYear.map(({ year, albums }) => (
+        {albumsWithImagesByYear.map(({ year, albums }, yearIdx) => (
           <section key={year} className="mb-12">
             <h2 className="text-xl sm:text-2xl font-medium mb-2">{year}</h2>
             <div className="pl-2 sm:pl-6 space-y-6">
-              {albums.map((album) => (
+              {albums.map((album, albumIdx) => (
                 <section key={album.slug}>
                   <div className="mb-2">
                     #{album.i}:{" "}
@@ -44,6 +44,7 @@ export default async function ParksPage() {
                     <DisplayGrid
                       title={album.title}
                       images={[...album.images]}
+                      priority={yearIdx === 0 && albumIdx === 0}
                     />
                   </div>
                 </section>

@@ -1,6 +1,5 @@
 // src/app/posts/hawaii/page.tsx
 
-"use client";
 import PostShell from "../components/PostShell";
 import { Prose } from "../components/Prose";
 import { DayBreak } from "../components/DayBreak";
@@ -56,7 +55,7 @@ export default function Page() {
         black but bright dotting light, flowers—Rigel, Sirius, them all—topping
         the hazy undergrowth like drips on brush sweeps: North South East and
         West spinning did not discriminate, the patterns stretched to every
-        horizon even though we had to because in the sea you don't soften your
+        horizon even though we had to because in the sea you don&apos;t soften your
         gaze and float on a blur, you pick on the darting fish and chase the
         schools and dive deep into the crevices where the anemones bloom—I
         jumped at Orion at the shooting stars flitting beneath his belt teeming
@@ -192,7 +191,7 @@ export default function Page() {
       <ImageGridStack images={h} width={600} />
       <Prose>
         A short time later we descended 1,400 feet into Kealakekua Bay. A
-        succession of grass, rock, rubble, and dirt brought us to Captain Cook's
+        succession of grass, rock, rubble, and dirt brought us to Captain Cook&apos;s
         Monument, erected a year after his death in 1874, and some stone to one
         of the healthiest reefs in the state. Kealakekua is protected on land by
         its approach and in sea by spinner dolphins. Its clarity is ensured

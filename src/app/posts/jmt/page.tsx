@@ -1,6 +1,5 @@
-// src/app/posts/hawaii/page.tsx
+// src/app/posts/jmt/page.tsx
 
-"use client";
 import PostShell from "../components/PostShell";
 import { Prose } from "../components/Prose";
 import { DayBreak } from "../components/DayBreak";

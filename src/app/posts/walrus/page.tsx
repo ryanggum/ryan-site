@@ -50,7 +50,7 @@ export default function WalrusPage() {
         </Footnote>
         two reasons why,
         <Footnote index={5} vis={vis}>
-          From: "Writing about Oneself."
+          From: &quot;Writing about Oneself.&quot;
         </Footnote>
         or to become one?
         <Footnote index={6} vis={vis}>
@@ -58,15 +58,15 @@ export default function WalrusPage() {
         </Footnote>
         No, scaring from the dead rat’s five more,
         <Footnote index={7} vis={vis}>
-          AM, <i>Quotes</i>: "When you see one dead rat, there’s five more."
+          AM, <i>Quotes</i>: &quot;When you see one dead rat, there’s five more.&quot;
         </Footnote>
         the V4,
         <Footnote index={8} vis={vis}>
-          Ascent, "The Impaler."
+          Ascent, &quot;The Impaler.&quot;
         </Footnote>
         the face you keep in a jar by the door, who is this for?
         <Footnote index={9} vis={vis}>
-          The Beatles, "Eleanor Rigby."
+          The Beatles, &quot;Eleanor Rigby.&quot;
         </Footnote>
         All the hermetic logic,
         <Footnote index={10} vis={vis}>
@@ -74,15 +74,15 @@ export default function WalrusPage() {
         </Footnote>
         where does it all belong? Probably not Here, There and Every—wait.
         <Footnote index={11} vis={vis}>
-          The Beatles, "—where."
+          The Beatles, &quot;—where.&quot;
         </Footnote>
         Let’s try that. Okay… I really want to stop the show, because I think
         you might like to know, yes! That the writer’s gonna right a wrong, and
         I want you all to read along, wow. So let me introduce to you the one
         and only—who the fuck is Billy Shears?
         <Footnote index={12} vis={vis}>
-          I beg you listen to: The Beatles, "Sgt. Pepper's Lonely Hearts Club
-          Band."
+          I beg you listen to: The Beatles, &quot;Sgt. Pepper&apos;s Lonely Hearts Club
+          Band.&quot;
         </Footnote>
       </Prose>
       <Prose>
@@ -136,11 +136,11 @@ export default function WalrusPage() {
         spirals into muddled on muddled on nothing. I shrug. I ask for a word
         that hasn’t been used. I point to Apollo.
         <Footnote index={15} vis={vis}>
-          <i>Star Trek</i>, "Who Mourns for Adonais?"
+          <i>Star Trek</i>, &quot;Who Mourns for Adonais?&quot;
         </Footnote>
         I point to Alexander.
         <Footnote index={16} vis={vis}>
-          <i>Star Trek</i>, "Plato's Stepchildren."
+          <i>Star Trek</i>, &quot;Plato&apos;s Stepchildren.&quot;
         </Footnote>
         I extend my hand into a sharp metal spear
         <Footnote index={17} vis={vis}>
@@ -156,7 +156,7 @@ export default function WalrusPage() {
         </Footnote>
         and ask whether you’ll fight back.
         <Footnote index={20} vis={vis}>
-          <i>Cheers</i>, "I Iove it! A Desdemona that fights back!"
+          <i>Cheers</i>, &quot;I Iove it! A Desdemona that fights back!&quot;
         </Footnote>
         I sob as I bury my head in your neck as our hearts convulse in rhythm
         as.
@@ -178,7 +178,7 @@ export default function WalrusPage() {
         </Footnote>
         She was not doused in vodka for holding the 40-second E.
         <Footnote index={23} vis={vis}>
-          Bit around: The Beatles, "A Day in the Life."
+          Bit around: The Beatles, &quot;A Day in the Life.&quot;
         </Footnote>
         When I think of Sophie, I am as though annihilated, as though paralyzed.
         <Footnote index={24} vis={vis}>
@@ -241,7 +241,7 @@ export default function WalrusPage() {
         please. A car door slams. The sands don’t feel his steps. He produces a
         bass guitar. Weber has arrived to make me dance until I die.
         <Footnote index={31} vis={vis}>
-          DZ: "Weber would make you dance and study you."
+          DZ: &quot;Weber would make you dance and study you.&quot;
         </Footnote>
         I will speak anyway. I promise that my flesh will draw apart an abstract
         standing. A new splatter of fortitude, this, a praying face to the sea.
@@ -261,7 +261,7 @@ export default function WalrusPage() {
         attention. A pothole? Likely. But could I rule out a cyclist? My share
         in a felony hit and run? Always choosing—between the options of keeping
         driving and risking four years in state prison or, for the cost of a
-        mile, merging into the left lane—the latter, I'd drive through the scene
+        mile, merging into the left lane—the latter, I&apos;d drive through the scene
         again completely alert, music turned off and windows rolled down,
         sensitive to any texture of the road, rumble of the car, or corpse
         strewn across the curb. Every time I was completely satisfied that I

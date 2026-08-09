@@ -13,6 +13,7 @@ function DisplayGridBase({
   height,
   columns,
   square = false,
+  priority = false,
 }: {
   title: string;
   images: Photo[];
@@ -20,6 +21,7 @@ function DisplayGridBase({
   height?: number;
   columns?: number;
   square?: boolean;
+  priority?: boolean;
 }) {
   const [active, setActive] = useState<number | null>(null);
 
@@ -80,7 +82,7 @@ function DisplayGridBase({
                       src={photo.src}
                       alt={photo.alt?.trim() || `${title} photo ${idx + 1}`}
                       fill
-                      priority={idx === 0}
+                      priority={priority && idx === 0}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-200 ease-out group-hover:-translate-y-0.5"
                       placeholder={blurDataURL ? "blur" : "empty"}

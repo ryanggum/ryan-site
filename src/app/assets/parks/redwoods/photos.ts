@@ -19,9 +19,7 @@ import j16 from "./16.jpg";
 import j17 from "./bentom.jpg";
 import ja from "./a.jpg";
 import jb from "./b.jpg";
-import jc from "./c.jpg";
 import jd from "./d.jpg";
-import je from "./e.jpg";
 import jf from "./f.jpg";
 
 import type { Photo } from "@/lib/types";
@@ -54,9 +52,6 @@ const photos: Photo[] = [
   { src: ja, alt: "" },
   { src: j17, alt: "", preview: true },
   { src: j16, alt: "" },
-
-  // { src: jc, alt: "" },
-  // { src: je, alt: "" },
 ];
 
 export default photos;

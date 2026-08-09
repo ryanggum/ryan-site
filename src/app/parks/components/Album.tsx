@@ -28,7 +28,7 @@ export default function Album({
         </div>
       </section>
       <section className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-74">
-        <DisplayGrid title={meta.title} images={images} columns={3} />
+        <DisplayGrid title={meta.title} images={images} columns={3} priority />
       </section>
     </main>
   );

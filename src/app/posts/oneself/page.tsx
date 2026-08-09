@@ -1,4 +1,3 @@
-"use client";
 import PostShell from "../components/PostShell";
 import { Prose } from "./../components/Prose";
 

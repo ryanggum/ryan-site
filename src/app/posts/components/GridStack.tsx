@@ -1,7 +1,8 @@
 // src/app/posts/components/GridStack.tsx
 import DisplayGrid from "@/app/components/display/DisplayGrid";
+import type { Photo } from "@/lib/types";
 
-type ImageArray = any[];
+type ImageArray = Photo[];
 
 type ScalarOrPair<T> = T | [T, T];
 
@@ -18,7 +19,9 @@ export function ImageGridStack({
   columns,
   square,
 }: ImageGridStackProps) {
-  const grids = Array.isArray(images[0]) ? images : [images];
+  const grids: ImageArray[] = Array.isArray(images[0])
+    ? (images as [ImageArray, ImageArray])
+    : [images as ImageArray];
   const widths = Array.isArray(width) ? width : [width];
   const columnsArr =
     columns !== undefined ? (Array.isArray(columns) ? columns : [columns]) : [];

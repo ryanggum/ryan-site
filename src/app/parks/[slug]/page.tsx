@@ -1,8 +1,12 @@
 // src/app/parks/[slug]/page.tsx (server)
 import Album from "../components/Album";
-import { getAlbumMeta } from "@/lib/rolls";
+import { albumSlugs, getAlbumMeta } from "@/lib/rolls";
 import { NullAlbum } from "@/lib/types";
 import type { AlbumModule } from "@/lib/types";
+
+export function generateStaticParams() {
+  return albumSlugs;
+}
 
 export default async function Page({
   params,

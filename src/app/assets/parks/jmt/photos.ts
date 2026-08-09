@@ -10,7 +10,6 @@ import j7 from "./7.jpg";
 import j8 from "./8.jpg";
 import j9 from "./9.jpg";
 import j10 from "./10.jpg";
-import j11 from "./11.jpg";
 import j12 from "./12.jpg";
 import j13 from "./13.jpg";
 import j14 from "./14.jpg";
@@ -45,7 +44,6 @@ const photos: Photo[] = [
   { src: j9, alt: "" },
 
   { src: j10, alt: "" },
-  // { src: j11, alt: "" },
   { src: j12, alt: "" },
   { src: j15, alt: "" },
 
