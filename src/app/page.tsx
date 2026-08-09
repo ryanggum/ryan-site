@@ -24,7 +24,7 @@ export default function Home() {
       >
         <h1 className="text-4xl sm:text-5xl font-medium mb-4">ryan gumlia</h1>
         <p className="text-sm sm:text-base mb-2 break-words">
-          I'm a Compliance Analyst at D. E. Shaw & Co. in New York City.
+          I'm a compliance analyst at D. E. Shaw & Co. in New York City.
           Previously, I studied humanities and computer science at Yale.
         </p>
         <div className="pl-4 md:pl-6">
