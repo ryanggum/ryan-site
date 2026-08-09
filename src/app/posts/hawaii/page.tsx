@@ -1,10 +1,23 @@
 // src/app/posts/hawaii/page.tsx
 
+import type { Metadata } from "next";
 import PostShell from "../components/PostShell";
 import { Prose } from "../components/Prose";
 import { DayBreak } from "../components/DayBreak";
 import { ImageGridStack } from "../components/GridStack";
 import { a, b, c, e, f, g, h, i, j, k } from "./photos";
+import { getPostMeta, stripHtml } from "@/lib/posts";
+
+const post = getPostMeta("hawaii")!;
+
+const title = stripHtml(post.title);
+const description = post.description;
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: { title, description },
+};
 
 export default function Page() {
   return (

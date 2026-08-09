@@ -34,6 +34,7 @@ export type Post = {
   title: string;
   subtitle?: string;
   date: number;
+  description?: string;
 };
 
 // Reusable “default export” module helper.

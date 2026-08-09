@@ -1,9 +1,16 @@
 // src/app/posts/page.tsx
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/app/components/Header";
 import { Post } from "@/lib/types";
 import { posts } from "@/lib/posts";
+
+export const metadata: Metadata = {
+  title: "Posts",
+  description: undefined,
+  openGraph: { title: "Posts", description: undefined },
+};
 
 function groupPostsByYear(posts: Post[]) {
   const postsByYear: Record<string, Post[]> = {};

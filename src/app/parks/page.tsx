@@ -1,4 +1,5 @@
 // src/app/parks/page.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import DisplayGrid from "../components/display/DisplayGrid";
@@ -6,6 +7,11 @@ import Header from "@/app/components/Header";
 
 import { albums } from "@/lib/rolls";
 import { groupAlbumsByYear, hydrateAlbumsWithImages } from "./util/util";
+
+export const metadata: Metadata = {
+  title: "Rolls",
+  openGraph: { title: "Rolls" },
+};
 
 export default async function ParksPage() {
   const albumsByYear = groupAlbumsByYear(albums);

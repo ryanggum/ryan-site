@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -8,19 +8,14 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryangumlia.com"),
-  title: "Ryan Gumlia",
+  title: { default: "Ryan Gumlia", template: "%s — Ryan Gumlia" },
   description:
-    "I'm a Compliance Analyst at D. E. Shaw & Co. in New York City. Previously, I studied humanities and computer science at Yale.",
+    "I'm a compliance analyst at D. E. Shaw & Co. in New York City. Previously, I studied humanities and computer science at Yale.",
   alternates: { canonical: "https://ryangumlia.com" },
   openGraph: {
-    title: "Ryan Gumlia",
+    title: { default: "Ryan Gumlia", template: "%s — Ryan Gumlia" },
     description: "Ryan Gumlia",
     url: "https://ryangumlia.com",
     siteName: "Ryan Gumlia",
@@ -48,7 +43,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh overscroll-none`}
+        className={`${geistSans.variable} antialiased min-h-dvh overscroll-none`}
       >
         {children}
       </body>

@@ -13,6 +13,7 @@ export const posts: Post[] = [
     i: 2,
     title: "When I Am the Walrus",
     date: 20251101,
+    description: "November 2025",
   },
   {
     slug: "revolver",
@@ -25,6 +26,7 @@ export const posts: Post[] = [
     i: 4,
     title: "The Fate of O...",
     date: 20251201,
+    description: "Trip Report: Hawaii.",
   },
   {
     slug: "jmt",
@@ -37,3 +39,7 @@ export const posts: Post[] = [
 export const getPostMeta = (slug: string) => posts.find((p) => p.slug === slug);
 
 export const postSlugs = posts.map((p) => ({ slug: p.slug }));
+
+// Post titles may contain inline markup (e.g. "Ranking <i>Revolver</i>") for
+// display; metadata fields like <title> need the plain-text version.
+export const stripHtml = (input: string) => input.replace(/<[^>]+>/g, "");

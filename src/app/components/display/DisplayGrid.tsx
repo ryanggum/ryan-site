@@ -25,12 +25,21 @@ function DisplayGridBase({
 }) {
   const [active, setActive] = useState<number | null>(null);
 
-  // Default column logic (used only if `columns` is not provided)
-  const fallbackColumnClass = useMemo(() => {
-    if (images.length === 1) return "grid-cols-1";
-    if (images.length === 2) return "grid-cols-2";
-    return "grid-cols-3";
-  }, [images.length]);
+  // Default column count (used only if `columns` is not provided)
+  const effectiveColumns = useMemo(
+    () => columns ?? (images.length === 1 ? 1 : images.length === 2 ? 2 : 3),
+    [columns, images.length],
+  );
+
+  // Grid is a fixed number of columns at every breakpoint, so the browser
+  // should never fetch an image wider than one column's share of the
+  // container (or of the viewport, once the container shrinks below `width`).
+  const imageSizes = useMemo(() => {
+    const columnVw = `${Math.round(100 / effectiveColumns)}vw`;
+    return width
+      ? `(max-width: ${width}px) ${columnVw}, ${Math.round(width / effectiveColumns)}px`
+      : columnVw;
+  }, [width, effectiveColumns]);
 
   const aspectClass = useMemo(
     () => (square ? "aspect-square" : "aspect-[3/2]"),
@@ -52,14 +61,10 @@ function DisplayGridBase({
         }}
       >
         <div
-          className={`grid gap-2 sm:gap-4 w-full h-full ${
-            columns ? "" : fallbackColumnClass
-          }`}
-          style={
-            columns
-              ? { gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }
-              : undefined
-          }
+          className="grid gap-2 sm:gap-4 w-full h-full"
+          style={{
+            gridTemplateColumns: `repeat(${effectiveColumns}, minmax(0, 1fr))`,
+          }}
         >
           {images.map((photo, idx) => {
             const blurDataURL =
@@ -83,7 +88,7 @@ function DisplayGridBase({
                       alt={photo.alt?.trim() || `${title} photo ${idx + 1}`}
                       fill
                       priority={priority && idx === 0}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes={imageSizes}
                       className="object-cover transition-transform duration-200 ease-out group-hover:-translate-y-0.5"
                       placeholder={blurDataURL ? "blur" : "empty"}
                       blurDataURL={blurDataURL}
