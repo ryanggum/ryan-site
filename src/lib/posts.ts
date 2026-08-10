@@ -38,8 +38,6 @@ export const posts: Post[] = [
 
 export const getPostMeta = (slug: string) => posts.find((p) => p.slug === slug);
 
-export const postSlugs = posts.map((p) => ({ slug: p.slug }));
-
 // Post titles may contain inline markup (e.g. "Ranking <i>Revolver</i>") for
 // display; metadata fields like <title> need the plain-text version.
 export const stripHtml = (input: string) => input.replace(/<[^>]+>/g, "");

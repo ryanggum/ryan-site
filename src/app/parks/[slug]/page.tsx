@@ -1,8 +1,8 @@
 // src/app/parks/[slug]/page.tsx (server)
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Album from "../components/Album";
 import { albumSlugs, getAlbumMeta } from "@/lib/rolls";
-import { NullAlbum } from "@/lib/types";
 import type { AlbumModule } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -34,7 +34,7 @@ export default async function Page({
   const meta = getAlbumMeta(slug);
 
   if (!meta) {
-    return <Album meta={NullAlbum} images={[]} />;
+    notFound();
   }
 
   const { default: images } = (await import(

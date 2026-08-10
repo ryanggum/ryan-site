@@ -18,16 +18,6 @@ export type AlbumMeta = Readonly<{
   page: boolean;
 }>;
 
-export const NullAlbum: AlbumMeta = {
-  i: 0,
-  date: 0,
-  film: { stock: "", iso: 0 },
-  slug: "",
-  title: "",
-  location: [],
-  page: false,
-};
-
 export type Post = {
   i: number;
   slug: string;

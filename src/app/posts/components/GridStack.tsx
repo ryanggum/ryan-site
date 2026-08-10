@@ -7,6 +7,7 @@ type ImageArray = Photo[];
 type ScalarOrPair<T> = T | [T, T];
 
 type ImageGridStackProps = {
+  title: string;
   images: ImageArray | [ImageArray, ImageArray];
   width: ScalarOrPair<number>;
   columns?: ScalarOrPair<number>;
@@ -14,6 +15,7 @@ type ImageGridStackProps = {
 };
 
 export function ImageGridStack({
+  title,
   images,
   width,
   columns,
@@ -43,7 +45,7 @@ export function ImageGridStack({
         >
           <div className="not-prose w-full flex justify-center">
             <DisplayGrid
-              title="idk"
+              title={title}
               images={imgSet}
               width={widths[i] ?? widths[0]}
               columns={columnsArr[i]}

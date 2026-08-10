@@ -23,10 +23,10 @@ There is no test suite configured. Type-check with `npx tsc --noEmit`.
 
 The site has two independent, similarly-structured content systems that are easy to confuse:
 
-- **Rolls / Parks** (`/parks`, `/parks/[slug]`): film photo albums. Metadata lives in `src/lib/rolls.ts` (exports `albums`, `albumSlugs`, `getAlbumMeta`; the file's header comment still says `albums.ts`, a naming holdover — the module path is `@/lib/rolls`). Each album's photos live in `src/app/assets/parks/<slug>/photos.ts`, which imports local `.jpg` files and exports a default `Photo[]`.
+- **Rolls / Parks** (`/parks`, `/parks/[slug]`): film photo albums. Metadata lives in `src/lib/rolls.ts` (exports `albums`, `albumSlugs`, `getAlbumMeta`). Each album's photos live in `src/app/assets/parks/<slug>/photos.ts`, which imports local `.jpg` files and exports a default `Photo[]`.
 - **Posts** (`/posts`, `/posts/[slug]`): written pieces. Metadata lives in `src/lib/posts.ts` (exports `posts`, `getPostMeta`, `stripHtml`). Each post is its own route directory under `src/app/posts/<slug>/page.tsx`; some posts have client content components (e.g. `posts/walrus/WalrusContent.tsx`) or their own `photos.ts`.
 
-Both metadata arrays carry an `i` (display index), and both list/detail pages group entries by year client-side (`groupAlbumsByYear` in `src/app/parks/util/util.tsx`, `groupPostsByYear` inline in `src/app/posts/page.tsx`) and sort descending. When adding a new roll or post, add an entry to the corresponding array in `src/lib/rolls.ts` / `src/lib/posts.ts` — the list/detail pages and static params derive entirely from these arrays.
+Both metadata arrays carry an `i` (display index), and both list/detail pages group entries by year via the shared `groupByYear` helper (`src/lib/groupByYear.ts`) — `groupAlbumsByYear` in `src/app/parks/util/util.tsx` wraps it for albums, `posts/page.tsx` calls it directly — sorted descending by year and, within a year, by roll number / date. When adding a new roll or post, add an entry to the corresponding array in `src/lib/rolls.ts` / `src/lib/posts.ts` — the list/detail pages and static params derive entirely from these arrays.
 
 ### Album photo loading
 
@@ -34,7 +34,9 @@ Both metadata arrays carry an `i` (display index), and both list/detail pages gr
 
 ### Shared display components
 
-`src/app/components/display/DisplayGrid.tsx` (client) renders any `Photo[]` as a responsive image grid using `next/image`, and opens `src/app/components/display/light/LightBox.tsx` (client) as a fullscreen viewer on click. Both `/parks` (album previews + full album pages) and any post that shows photos reuse `DisplayGrid`. `Photo` and `AlbumMeta` types are defined once in `src/lib/types.ts`.
+`src/app/components/display/DisplayGrid.tsx` (client) renders any `Photo[]` as a responsive image grid using `next/image` (thumbnails use `quality={100}` but are still resized/optimized), and opens `src/app/components/display/light/LightBox.tsx` (client) as a fullscreen viewer on click. Both `/parks` (album previews + full album pages) and any post that shows photos reuse `DisplayGrid`. `Photo` and `AlbumMeta` types are defined once in `src/lib/types.ts`.
+
+`Lightbox` receives the whole `images` array plus an `activeIndex` and `onNavigate` callback from `DisplayGrid` (not a single resolved photo) — this is what lets `ArrowLeft`/`ArrowRight` step through the same photo set the grid was built from (3 previews on `/parks`, the full album on an album page) without wraparound at the ends. It also locks background scroll while open, closes on `Escape`, moves DOM focus onto itself on mount (so the triggering thumbnail button doesn't retain a stray focus ring), and renders its `<Image>` with `unoptimized` so the full-resolution original file is what's displayed and what a "Save Image As" downloads (as opposed to Next's re-encoded webp/avif, which `DisplayGrid`'s thumbnails still use).
 
 ### Posts composition
 
