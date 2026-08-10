@@ -50,6 +50,10 @@ function DisplayGridBase({
     setActive(idx);
   }, []);
 
+  const closeLightbox = useCallback(() => {
+    setActive(null);
+  }, []);
+
   return (
     <>
       <div
@@ -89,6 +93,7 @@ function DisplayGridBase({
                       fill
                       priority={priority && idx === 0}
                       sizes={imageSizes}
+                      quality={100}
                       className="object-cover transition-transform duration-200 ease-out group-hover:-translate-y-0.5"
                       placeholder={blurDataURL ? "blur" : "empty"}
                       blurDataURL={blurDataURL}
@@ -109,9 +114,11 @@ function DisplayGridBase({
 
       {active !== null && (
         <Lightbox
-          item={images[active]}
+          images={images}
+          activeIndex={active}
           title={title}
-          onClose={() => setActive(null)}
+          onClose={closeLightbox}
+          onNavigate={setActive}
         />
       )}
     </>

@@ -8,7 +8,7 @@ export default function PostShell({
   subtitle,
   children,
 }: {
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   children: ReactNode;
 }) {

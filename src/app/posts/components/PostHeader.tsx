@@ -1,10 +1,12 @@
 // src/app/posts/components/PostHeader.tsx
 
+import type { ReactNode } from "react";
+
 export default function PostHeader({
   title,
   subtitle,
 }: {
-  title: string;
+  title: ReactNode;
   subtitle?: string;
 }) {
   return (

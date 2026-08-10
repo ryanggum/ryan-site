@@ -2,18 +2,58 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Photo } from "@/lib/types";
 
 export default function Lightbox({
-  item,
+  images,
+  activeIndex,
   title = "Image viewer",
   onClose,
+  onNavigate,
 }: {
-  item: Photo;
+  images: Photo[];
+  activeIndex: number;
   title?: string;
   onClose: () => void;
+  onNavigate: (index: number) => void;
 }) {
+  const item = images[activeIndex];
+  const hasPrev = activeIndex > 0;
+  const hasNext = activeIndex < images.length - 1;
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Move focus onto the lightbox so the thumbnail button that opened it
+  // (still focused from the click) doesn't pick up a stray keyboard-focus
+  // ring the moment a key like Escape is pressed.
+  useEffect(() => {
+    containerRef.current?.focus({ preventScroll: true });
+  }, []);
+
+  // Lock background scroll while the lightbox is open.
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, []);
+
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        onClose();
+      } else if (e.key === "ArrowLeft" && hasPrev) {
+        onNavigate(activeIndex - 1);
+      } else if (e.key === "ArrowRight" && hasNext) {
+        onNavigate(activeIndex + 1);
+      }
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [activeIndex, hasPrev, hasNext, onClose, onNavigate]);
+
   const [vw, setVw] = useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
@@ -76,7 +116,9 @@ export default function Lightbox({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
+      ref={containerRef}
+      tabIndex={-1}
+      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 outline-none"
       role="dialog"
       aria-modal="true"
       aria-label={title}
@@ -94,6 +136,7 @@ export default function Lightbox({
             height={Math.round(finalBox.h)}
             className="pointer-events-auto object-contain"
             priority
+            unoptimized
             onClick={(e) => e.stopPropagation()}
             onLoadingComplete={(img) => {
               if (!knownAspect) {

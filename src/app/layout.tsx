@@ -10,12 +10,12 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryangumlia.com"),
-  title: { default: "Ryan Gumlia", template: "%s — Ryan Gumlia" },
+  title: { default: "Ryan Gumlia", template: "%s" },
   description:
     "I'm a compliance analyst at D. E. Shaw & Co. in New York City. Previously, I studied humanities and computer science at Yale.",
   alternates: { canonical: "https://ryangumlia.com" },
   openGraph: {
-    title: { default: "Ryan Gumlia", template: "%s — Ryan Gumlia" },
+    title: { default: "Ryan Gumlia", template: "%s" },
     description: "Ryan Gumlia",
     url: "https://ryangumlia.com",
     siteName: "Ryan Gumlia",

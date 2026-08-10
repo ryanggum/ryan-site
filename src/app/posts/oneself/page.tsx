@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <PostShell title="Writing Oneself">
-      <Prose>Dear Reader,</Prose>
       <Prose>
         My name is Ryan Gumlia, I am from Southern California, and I do not know
         how to balance the aesthetic and the ethical in my writing. Everything
@@ -71,7 +70,7 @@ export default function Page() {
         second sentence of this letter. Initially placed as a reminder that I
         did not want a verb form, it’s a morphological head notation I learned
         recently: immediately parsable, and thus enriching, for me, but I
-        imagine less for, if not at all, and thus potentially offensive to, you.
+        imagine less so, if not at all, and thus potentially offensive for, you.
         I leave it as example of the hyperreferential and (yes) alienating mode
         I list toward of late, a modernish juxtaposition of everything,
         everywhere, all at once, a—I’ve defended—meticulous and excited
@@ -135,8 +134,6 @@ export default function Page() {
         questions in longform responses, and in extraletter association. In
         friends and better ones. And I hope for the chance to make yours soon.
       </Prose>
-      <Prose>Sincerely,</Prose>
-      <Prose>Ryan</Prose>
     </PostShell>
   );
 }
