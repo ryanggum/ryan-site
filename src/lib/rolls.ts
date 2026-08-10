@@ -1,4 +1,4 @@
-// src/lib/albums.ts
+// src/lib/rolls.ts
 import type { AlbumMeta } from "./types";
 
 export const albums: AlbumMeta[] = [

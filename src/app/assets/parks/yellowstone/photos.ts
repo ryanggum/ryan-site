@@ -1,4 +1,4 @@
-// src/app/assets/parks/yosemite/photos.ts
+// src/app/assets/parks/yellowstone/photos.ts
 
 import type { Photo } from "@/lib/types";
 

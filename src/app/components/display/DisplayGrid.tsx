@@ -1,4 +1,4 @@
-// app/components/DisplayGrid.tsx
+// src/app/components/display/DisplayGrid.tsx
 "use client";
 
 import Image from "next/image";

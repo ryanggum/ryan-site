@@ -1,39 +1,39 @@
 "use client";
 
 export default function Footnote({
-	index,
-	children,
-	vis = true,
+  index,
+  children,
+  vis = true,
 }: {
-	index: number;
-	children: React.ReactNode;
-	vis?: boolean;
+  index: number;
+  children: React.ReactNode;
+  vis?: boolean;
 }) {
-	if (!vis) {
-		// Placeholder that matches the visible element’s line-height + vertical alignment
-		return (
-<span
-  className="
+  if (!vis) {
+    // Placeholder that matches the visible element’s line-height + vertical alignment
+    return (
+      <span
+        className="
     relative inline-block align-baseline
     w-[0.55ch]    /* perfect minimal space */
   "
-/>
-		);
-	}
+      />
+    );
+  }
 
-	return (
-<span className="relative inline-block group mr-1 align-baseline">
-  <sup
-    className="
+  return (
+    <span className="relative inline-block group mr-1 align-baseline">
+      <sup
+        className="
       cursor-pointer text-blue-600 dark:text-blue-400
       relative top-[-0.35em]
     "
-  >
-    {index}
-  </sup>
+      >
+        {index}
+      </sup>
 
-<span
-  className="
+      <span
+        className="
     absolute left-full -top-8 ml-2
     p-2
     border border-neutral-200 dark:border-neutral-700
@@ -46,11 +46,9 @@ export default function Footnote({
     transition-opacity duration-150
     whitespace-nowrap
   "
->
-  {index}. {children}
-</span>
-
-</span>
-
-	);
+      >
+        {index}. {children}
+      </span>
+    </span>
+  );
 }

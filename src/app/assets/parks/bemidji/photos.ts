@@ -1,4 +1,4 @@
-// src/app/assets/parks/yosemite/photos.ts
+// src/app/assets/parks/bemidji/photos.ts
 
 import j1 from "./cur.jpg";
 import j2 from "./dou.jpg";

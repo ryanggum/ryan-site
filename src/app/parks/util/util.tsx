@@ -1,4 +1,5 @@
 import type { AlbumMeta, AlbumModule, Photo } from "@/lib/types";
+import { groupByYear } from "@/lib/groupByYear";
 
 /* --------------------------------
    Constants
@@ -35,25 +36,11 @@ export function getMonthNameFromDate(date: number) {
 --------------------------------- */
 
 export function groupAlbumsByYear(albums: readonly AlbumMeta[]) {
-  const map = new Map<number, AlbumMeta[]>();
-
-  for (const album of albums) {
-    const year = Math.floor(album.date / 100);
-
-    if (!map.has(year)) {
-      map.set(year, []);
-    }
-
-    map.get(year)!.push(album);
-  }
-
-  // Sort albums within each year by roll number desc
-  for (const [, yearAlbums] of map) {
-    yearAlbums.sort((a, b) => b.i - a.i);
-  }
-
-  // Sort years desc
-  return Array.from(map.entries()).sort(([a], [b]) => b - a);
+  return groupByYear(
+    albums,
+    (album) => Math.floor(album.date / 100),
+    (a, b) => b.i - a.i,
+  );
 }
 
 /* --------------------------------

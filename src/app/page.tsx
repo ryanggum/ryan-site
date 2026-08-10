@@ -12,10 +12,10 @@ export default function Home() {
   return (
     <main
       className="
-				relative min-h-dvh flex items-center justify-center px-4 sm:px-6 py-16
-				bg-cover bg-center
-				bg-[url('/bg-m.jpg')] md:bg-[url('/bg-d.jpg')]
-			"
+        relative min-h-dvh flex items-center justify-center px-4 sm:px-6 py-16
+        bg-cover bg-center
+        bg-[url('/bg-m.jpg')] md:bg-[url('/bg-d.jpg')]
+      "
     >
       <div
         className={`
@@ -26,9 +26,7 @@ export default function Home() {
           pointer-events-none select-none
         `}
       >
-        <h1 className="text-4xl sm:text-5xl font-medium mb-4">
-          ryan gumlia
-        </h1>
+        <h1 className="text-4xl sm:text-5xl font-medium mb-4">ryan gumlia</h1>
         <p className="text-sm sm:text-base mb-2 break-words">
           I&apos;m a compliance analyst at D. E. Shaw & Co. in New York City.
           Previously, I studied humanities and computer science at Yale.

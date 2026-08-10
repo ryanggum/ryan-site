@@ -1,4 +1,4 @@
-// src/app/parks/components/LightBox.tsx
+// src/app/components/display/light/LightBox.tsx
 "use client";
 
 import Image from "next/image";

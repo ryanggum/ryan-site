@@ -1,4 +1,4 @@
-// src/app/assets/parks/yosemite/photos.ts
+// src/app/assets/parks/sequoia/photos.ts
 
 import drive_1 from "./drive_1.jpg";
 import drive_2 from "./drive_2.jpg";

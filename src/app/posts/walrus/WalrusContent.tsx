@@ -2,7 +2,7 @@
 "use client";
 import { useState } from "react";
 import ModeSwitcher, { type Mode } from "../components/ModeSwitcher";
-import { Prose } from "./../components/Prose";
+import { Prose } from "../components/Prose";
 import PostShell from "../components/PostShell";
 import Footnote from "../components/Footnote";
 
