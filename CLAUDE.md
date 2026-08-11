@@ -13,6 +13,7 @@ npm run dev      # start dev server (Next.js, Turbopack by default)
 npm run build     # production build (also runs next-sitemap via postbuild)
 npm run start     # serve the production build
 npm run lint      # eslint via eslint.config.mjs (next/core-web-vitals + next/typescript)
+npm run format    # prettier --write . (printWidth 80, see .prettierrc)
 ```
 
 There is no test suite configured. Type-check with `npx tsc --noEmit`.

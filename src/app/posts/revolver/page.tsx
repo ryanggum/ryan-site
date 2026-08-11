@@ -18,7 +18,13 @@ export const metadata: Metadata = {
 
 export default function RevolverPage() {
   return (
-    <PostShell title={<>Ranking <i>Revolver</i></>}>
+    <PostShell
+      title={
+        <>
+          Ranking <i>Revolver</i>
+        </>
+      }
+    >
       <Prose>Hey, what are you looking at?</Prose>
     </PostShell>
   );

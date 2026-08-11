@@ -7,30 +7,6 @@ import { groupByYear } from "@/lib/groupByYear";
 
 const PREVIEW_COUNT = 3 as const;
 
-const MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-] as const;
-
-/* --------------------------------
-   Date helpers
---------------------------------- */
-
-export function getMonthNameFromDate(date: number) {
-  const monthIndex = (date % 100) - 1; // YYYYMM → MM → 0-based
-  return MONTHS[monthIndex];
-}
-
 /* --------------------------------
    Album grouping
 --------------------------------- */
@@ -67,7 +43,7 @@ function getPreviewPhotos(photos: Photo[]): [Photo, Photo, Photo] {
 
   if (previews.length !== PREVIEW_COUNT) {
     throw new Error(
-      `Expected exactly ${PREVIEW_COUNT} preview photos, found ${previews.length}`
+      `Expected exactly ${PREVIEW_COUNT} preview photos, found ${previews.length}`,
     );
   }
 
@@ -75,7 +51,7 @@ function getPreviewPhotos(photos: Photo[]): [Photo, Photo, Photo] {
 }
 
 export async function hydrateAlbumsWithImages(
-  albumsByYear: readonly [number, AlbumMeta[]][]
+  albumsByYear: readonly [number, AlbumMeta[]][],
 ): Promise<AlbumsByYear[]> {
   const results = await Promise.all(
     albumsByYear.map(async ([year, yearAlbums]) => {
@@ -103,7 +79,7 @@ export async function hydrateAlbumsWithImages(
             images: getPreviewPhotos(allPhotos),
             imageCount: allPhotos.length,
           };
-        })
+        }),
       );
 
       // Reinforce deterministic ordering (idempotent safety)
@@ -113,7 +89,7 @@ export async function hydrateAlbumsWithImages(
         year,
         albums: hydratedAlbums,
       };
-    })
+    }),
   );
 
   return results;

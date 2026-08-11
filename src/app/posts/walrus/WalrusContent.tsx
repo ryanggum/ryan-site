@@ -57,7 +57,8 @@ export default function WalrusContent() {
         </Footnote>
         No, scaring from the dead rat’s five more,
         <Footnote index={7} vis={vis}>
-          AM, <i>Quotes</i>: &quot;When you see one dead rat, there’s five more.&quot;
+          AM, <i>Quotes</i>: &quot;When you see one dead rat, there’s five
+          more.&quot;
         </Footnote>
         the V4,
         <Footnote index={8} vis={vis}>
@@ -80,8 +81,8 @@ export default function WalrusContent() {
         I want you all to read along, wow. So let me introduce to you the one
         and only—who the fuck is Billy Shears?
         <Footnote index={12} vis={vis}>
-          I beg you listen to: The Beatles, &quot;Sgt. Pepper&apos;s Lonely Hearts Club
-          Band.&quot;
+          I beg you listen to: The Beatles, &quot;Sgt. Pepper&apos;s Lonely
+          Hearts Club Band.&quot;
         </Footnote>
       </Prose>
       <Prose>
@@ -260,8 +261,8 @@ export default function WalrusContent() {
         attention. A pothole? Likely. But could I rule out a cyclist? My share
         in a felony hit and run? Always choosing—between the options of keeping
         driving and risking four years in state prison or, for the cost of a
-        mile, merging into the left lane—the latter, I&apos;d drive through the scene
-        again completely alert, music turned off and windows rolled down,
+        mile, merging into the left lane—the latter, I&apos;d drive through the
+        scene again completely alert, music turned off and windows rolled down,
         sensitive to any texture of the road, rumble of the car, or corpse
         strewn across the curb. Every time I was completely satisfied that I
         hadn’t murdered a cyclist on my first pass. But what if I had on the

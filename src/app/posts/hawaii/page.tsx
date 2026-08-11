@@ -68,9 +68,9 @@ export default function Page() {
         black but bright dotting light, flowers—Rigel, Sirius, them all—topping
         the hazy undergrowth like drips on brush sweeps: North South East and
         West spinning did not discriminate, the patterns stretched to every
-        horizon even though we had to because in the sea you don&apos;t soften your
-        gaze and float on a blur, you pick on the darting fish and chase the
-        schools and dive deep into the crevices where the anemones bloom—I
+        horizon even though we had to because in the sea you don&apos;t soften
+        your gaze and float on a blur, you pick on the darting fish and chase
+        the schools and dive deep into the crevices where the anemones bloom—I
         jumped at Orion at the shooting stars flitting beneath his belt teeming
         across my hands while Josh clawed long by me up a boulder yelling down
         the hunter’s great dog, the canine’s teeth bared and snarling at our
@@ -204,22 +204,23 @@ export default function Page() {
       <ImageGridStack title="Hawaii" images={h} width={600} />
       <Prose>
         A short time later we descended 1,400 feet into Kealakekua Bay. A
-        succession of grass, rock, rubble, and dirt brought us to Captain Cook&apos;s
-        Monument, erected a year after his death in 1874, and some stone to one
-        of the healthiest reefs in the state. Kealakekua is protected on land by
-        its approach and in sea by spinner dolphins. Its clarity is ensured
-        through overcast skies by springs that feed it freshwater. We suited up,
-        dove in, and stared down for a long time: banking south where the reef
-        gradually slides into a large blue crater. I’d never really done
-        anything like this—snorkeled, yes, but not through a metropolis, or
-        while undulating like a fish myself, involved with so many numbers or
-        types: clear to long to rainbow. By the last I mean parrotfish. I
-        followed one around for a while watching him preen the reef and bite off
-        coral, turning its whole body always just to angle its mouth. Watching I
-        felt my presence and my height—it should have been a clue that we can
-        only hear a crackle underwater—air bubbles apparently—if we were really
-        attuned I know our ears would ring with the cries and squaws of the
-        trees. What else to be rising from this urban alien life.
+        succession of grass, rock, rubble, and dirt brought us to Captain
+        Cook&apos;s Monument, erected a year after his death in 1874, and some
+        stone to one of the healthiest reefs in the state. Kealakekua is
+        protected on land by its approach and in sea by spinner dolphins. Its
+        clarity is ensured through overcast skies by springs that feed it
+        freshwater. We suited up, dove in, and stared down for a long time:
+        banking south where the reef gradually slides into a large blue crater.
+        I’d never really done anything like this—snorkeled, yes, but not through
+        a metropolis, or while undulating like a fish myself, involved with so
+        many numbers or types: clear to long to rainbow. By the last I mean
+        parrotfish. I followed one around for a while watching him preen the
+        reef and bite off coral, turning its whole body always just to angle its
+        mouth. Watching I felt my presence and my height—it should have been a
+        clue that we can only hear a crackle underwater—air bubbles
+        apparently—if we were really attuned I know our ears would ring with the
+        cries and squaws of the trees. What else to be rising from this urban
+        alien life.
       </Prose>
       <Prose>
         Two photographers on the trip but it seems this one is for us. Even had

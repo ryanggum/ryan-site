@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://ryangumlia.com',
+  siteUrl: "https://ryangumlia.com",
   generateRobotsTxt: true, // creates robots.txt
-  changefreq: 'monthly',
+  changefreq: "monthly",
   priority: 1.0,
 };

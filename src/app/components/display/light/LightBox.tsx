@@ -55,10 +55,10 @@ export default function Lightbox({
   }, [activeIndex, hasPrev, hasNext, onClose, onNavigate]);
 
   const [vw, setVw] = useState<number>(
-    typeof window !== "undefined" ? window.innerWidth : 0
+    typeof window !== "undefined" ? window.innerWidth : 0,
   );
   const [vh, setVh] = useState<number>(
-    typeof window !== "undefined" ? window.innerHeight : 0
+    typeof window !== "undefined" ? window.innerHeight : 0,
   );
 
   useEffect(() => {
@@ -71,9 +71,7 @@ export default function Lightbox({
   }, []);
 
   const staticDims =
-    typeof item.src === "object" &&
-    "width" in item.src &&
-    "height" in item.src
+    typeof item.src === "object" && "width" in item.src && "height" in item.src
       ? { w: item.src.width, h: item.src.height }
       : null;
 
@@ -109,10 +107,7 @@ export default function Lightbox({
   }, [box, vw, vh, loadedAspect, knownAspect]);
 
   // ✅ GUARANTEED non-empty alt text
-  const alt =
-    item.alt?.trim() ||
-    item.caption?.trim() ||
-    title;
+  const alt = item.alt?.trim() || item.caption?.trim() || title;
 
   return (
     <div
