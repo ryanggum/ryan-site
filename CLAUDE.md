@@ -25,7 +25,7 @@ There is no test suite configured. Type-check with `npx tsc --noEmit`.
 The site has two independent, similarly-structured content systems that are easy to confuse:
 
 - **Rolls / Parks** (`/parks`, `/parks/[slug]`): film photo albums. Metadata lives in `src/lib/rolls.ts` (exports `albums`, `albumSlugs`, `getAlbumMeta`). Each album's photos live in `src/app/assets/parks/<slug>/photos.ts`, which imports local `.jpg` files and exports a default `Photo[]`.
-- **Posts** (`/posts`, `/posts/[slug]`): written pieces. Metadata lives in `src/lib/posts.ts` (exports `posts`, `getPostMeta`, `stripHtml`). Each post is its own route directory under `src/app/posts/<slug>/page.tsx`; some posts have client content components (e.g. `posts/walrus/WalrusContent.tsx`) or their own `photos.ts`.
+- **Posts** (`/posts`, `/posts/<slug>`): written pieces. Metadata lives in `src/lib/posts.ts` (exports `posts`, `getPostMeta`, `stripHtml`). Unlike parks, there's no dynamic `[slug]` route or generated params — each post is its own hand-authored route directory under `src/app/posts/<slug>/page.tsx`, some with a co-located `photos.ts`.
 
 Both metadata arrays carry an `i` (display index), and both list/detail pages group entries by year via the shared `groupByYear` helper (`src/lib/groupByYear.ts`) — `groupAlbumsByYear` in `src/app/parks/util/util.tsx` wraps it for albums, `posts/page.tsx` calls it directly — sorted descending by year and, within a year, by roll number / date. When adding a new roll or post, add an entry to the corresponding array in `src/lib/rolls.ts` / `src/lib/posts.ts` — the list/detail pages and static params derive entirely from these arrays.
 
@@ -41,7 +41,7 @@ Both metadata arrays carry an `i` (display index), and both list/detail pages gr
 
 ### Posts composition
 
-Post pages compose from small building blocks in `src/app/posts/components/`: `PostShell` (page chrome + `PostHeader`), `Prose` (styled paragraph/heading wrapper using Tailwind `prose`), `DayHeader`/`DayBreak` (trip-report day dividers, used by the JMT trip report), `Footnote`, `GridStack` (image grids inline in prose), and `ModeSwitcher` (a client toggle between "Standard" and alternate "DZ" content modes, e.g. used in the `revolver` post). Most posts are static server components that read their own metadata via `getPostMeta(slug)` from `src/lib/posts.ts`; a post needing interactivity (state, toggling) delegates its body to a co-located client component (see `walrus/page.tsx` → `walrus/WalrusContent.tsx`).
+Post pages compose from small building blocks in `src/app/posts/components/`: `PostShell` (page chrome + `PostHeader`), `Prose` (styled paragraph/heading wrapper using Tailwind `prose`), `DayHeader`/`DayBreak` (trip-report day dividers, used by the JMT and Hawaii trip reports), and `GridStack` (`ImageGridStack`, for image grids inline in prose, e.g. in the Hawaii post). All current posts (`oneself`, `walrus`, `revolver`, `hawaii`, `jmt`) are static server components that read their own metadata via `getPostMeta(slug)` from `src/lib/posts.ts`.
 
 ### Styling conventions
 
@@ -49,7 +49,7 @@ Tailwind CSS v4 (`@import "tailwindcss"` in `src/app/globals.css`, no separate c
 
 ### Path alias
 
-`@/*` maps to `src/*` (see `tsconfig.json`). Static params for both `/parks/[slug]` and post routes are generated from the `lib` metadata arrays (`albumSlugs`, `postSlugs`), so the site is fully statically generated at build time — there's no runtime data fetching.
+`@/*` maps to `src/*` (see `tsconfig.json`). `/parks/[slug]` is a dynamic route whose `generateStaticParams` comes from `albumSlugs` (`src/lib/rolls.ts`); posts have no dynamic route or generated params — each is its own directory (see above). Either way the site is fully statically generated at build time — there's no runtime data fetching.
 
 ### Image optimization cache
 
