@@ -133,8 +133,9 @@ export default function Lightbox({
             priority
             unoptimized
             onClick={(e) => e.stopPropagation()}
-            onLoadingComplete={(img) => {
+            onLoad={(e) => {
               if (!knownAspect) {
+                const img = e.currentTarget;
                 const a = img.naturalWidth / img.naturalHeight || null;
                 if (a && Math.abs(a - (loadedAspect ?? a + 1)) > 0.001) {
                   setLoadedAspect(a);

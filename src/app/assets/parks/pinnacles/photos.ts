@@ -41,53 +41,53 @@ import j38 from "./38.jpg";
 import type { Photo } from "@/lib/types";
 
 const photos: Photo[] = [
-  { src: j1, alt: "" },
-  { src: j3, alt: "" },
-  { src: j2, alt: "" },
+  // { src: j1, alt: "" },
+  // { src: j10, alt: "" },
+  // { src: j3, alt: "" },
+  // { src: j2, alt: "" },
 
-  { src: j4, alt: "", preview: true },
-  { src: j5, alt: "" },
-  { src: j7, alt: "wild" },
-
-  { src: j6, alt: "" },
   { src: j9, alt: "" },
-  { src: j8, alt: "" },
-
-  { src: j10, alt: "" },
-  { src: j11, alt: "" },
-  { src: j12, alt: "" },
-
-  { src: j16, alt: "" },
-  { src: j14, alt: "" },
-  { src: j15, alt: "" },
+  { src: j5, alt: "" },
+  { src: j4, alt: "", preview: true },
 
   { src: j18, alt: "" },
-  { src: j17, alt: "" },
-  { src: j13, alt: "" },
+  { src: j8, alt: "" },
+  { src: j7, alt: "wild" },
+
+  // { src: j11, alt: "" },
+  // { src: j6, alt: "" },
+
+  { src: j12, alt: "" },
+  { src: j16, alt: "" },
+  { src: j14, alt: "" },
+
+  // { src: j15, alt: "" },
+  // { src: j17, alt: "" },
+  // { src: j13, alt: "" },
 
   { src: j19, alt: "big sur 1" },
   { src: j21, alt: "", preview: true },
   { src: j20, alt: "" },
 
-  { src: j23, alt: "mound" },
-  { src: j22, alt: "" },
+  // { src: j23, alt: "mound" },
+  // { src: j22, alt: "" },
   { src: j29, alt: "" },
 
   { src: j26, alt: "not bridge" },
+  // { src: j28, alt: "not bridge" },
   { src: j24, alt: "not bridge" },
-  { src: j28, alt: "not bridge" },
 
   { src: j27, alt: "bridge close" },
-  { src: j25, alt: "bridge far" },
+  // { src: j25, alt: "bridge far" },
   { src: j30, alt: "roses" },
-
   { src: j31, alt: "" },
-  { src: j32, alt: "ryan", preview: true },
-  { src: j34, alt: "aum" },
 
+  { src: j32, alt: "ryan", preview: true },
   { src: j35, alt: "" },
-  { src: j37, alt: "" },
   { src: j38, alt: "" },
+
+  // { src: j37, alt: "" },
+  // { src: j34, alt: "aum" },
 ];
 
 export default photos;

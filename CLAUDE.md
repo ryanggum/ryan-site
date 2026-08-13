@@ -53,7 +53,7 @@ Tailwind CSS v4 (`@import "tailwindcss"` in `src/app/globals.css`, no separate c
 
 ### Image optimization cache
 
-`next.config.ts` sets `images.minimumCacheTTL` to one year (vs. Next's 4h default) because photos are immutable once published; leave this as-is rather than "fixing" it back to the default.
+`next.config.ts` sets `images.minimumCacheTTL` to one year (vs. Next's 4h default) because photos are immutable once published; leave this as-is rather than "fixing" it back to the default. It also whitelists `images.qualities: [75, 100]` — any `quality` prop passed to `next/image` elsewhere in the codebase must be one of these two values or the build fails.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
