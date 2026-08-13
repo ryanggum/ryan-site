@@ -11,6 +11,7 @@ import { groupAlbumsByYear, hydrateAlbumsWithImages } from "./util/util";
 export const metadata: Metadata = {
   title: "Rolls",
   openGraph: { title: "Rolls" },
+  robots: { index: false, follow: false },
 };
 
 export default async function ParksPage() {

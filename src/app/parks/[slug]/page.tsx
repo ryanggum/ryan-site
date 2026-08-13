@@ -17,11 +17,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const meta = getAlbumMeta(slug);
 
-  if (!meta) return {};
+  if (!meta) return { robots: { index: false, follow: false } };
 
   return {
     title: meta.title,
     openGraph: { title: meta.title },
+    robots: { index: false, follow: false },
   };
 }
 

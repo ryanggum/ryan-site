@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Posts",
   description: undefined,
   openGraph: { title: "Posts", description: undefined },
+  robots: { index: false, follow: false },
 };
 
 export default function Page() {

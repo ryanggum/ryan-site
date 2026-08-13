@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title,
   description,
   openGraph: { title, description },
+  robots: { index: false, follow: false },
 };
 
 export default function RevolverPage() {
