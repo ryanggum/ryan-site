@@ -53,7 +53,7 @@ Tailwind CSS v4 (`@import "tailwindcss"` in `src/app/globals.css`, no separate c
 
 ### Image optimization cache
 
-`next.config.ts` sets `images.minimumCacheTTL` to one year (vs. Next's 4h default) because photos are immutable once published; leave this as-is rather than "fixing" it back to the default. It also whitelists `images.qualities: [75, 100]` — any `quality` prop passed to `next/image` elsewhere in the codebase must be one of these two values or the build fails.
+`next.config.ts` sets `images.minimumCacheTTL` to one year (vs. Next's 4h default) because photos are immutable once published; leave this as-is rather than "fixing" it back to the default. It also whitelists `images.qualities: [100]` (the only value `DisplayGrid` requests) — any `quality` prop passed to `next/image` elsewhere in the codebase must be in this allowlist or the build fails. Don't add other quality values to the allowlist without deliberately intending it: each additional value doubles the distinct width×format×quality variants Next has to generate and cache-write for every image, and this project's Vercel free-tier Image Optimization cache-write quota has been blown through by exactly that before.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
