@@ -8,10 +8,14 @@ import Header from "@/app/components/Header";
 import { albums } from "@/lib/rolls";
 import { groupAlbumsByYear, hydrateAlbumsWithImages } from "./util/util";
 
+const description = "Film";
+
 export const metadata: Metadata = {
   title: "Rolls",
-  openGraph: { title: "Rolls" },
-  robots: { index: false, follow: false },
+  description,
+  openGraph: { title: "Rolls", description },
+  alternates: { canonical: "https://www.ryangumlia.com/parks" },
+  robots: { index: true, follow: true },
 };
 
 export default async function ParksPage() {

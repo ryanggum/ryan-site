@@ -1,9 +1,10 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://ryangumlia.com",
+  siteUrl: "https://www.ryangumlia.com",
   generateRobotsTxt: true, // creates robots.txt
   changefreq: "monthly",
   priority: 1.0,
-  // Only the landing page should be indexed/discoverable via search.
-  exclude: ["/parks", "/parks/*", "/posts", "/posts/*"],
+  // Individual posts/rolls stay out of search; the /posts and /parks index
+  // pages themselves are indexable.
+  exclude: ["/parks/*", "/posts/*"],
 };

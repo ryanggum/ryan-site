@@ -41,7 +41,7 @@ Both metadata arrays carry an `i` (display index), and both list/detail pages gr
 
 ### Posts composition
 
-Post pages compose from small building blocks in `src/app/posts/components/`: `PostShell` (page chrome + `PostHeader`), `Prose` (styled paragraph/heading wrapper using Tailwind `prose`), `DayHeader`/`DayBreak` (trip-report day dividers, used by the JMT and Hawaii trip reports), and `GridStack` (`ImageGridStack`, for image grids inline in prose, e.g. in the Hawaii post). All current posts (`oneself`, `walrus`, `revolver`, `hawaii`, `jmt`) are static server components that read their own metadata via `getPostMeta(slug)` from `src/lib/posts.ts`.
+Post pages compose from small building blocks in `src/app/posts/components/`: `PostShell` (page chrome + `PostHeader`), `Prose` (styled paragraph/heading wrapper using Tailwind `prose`), `DayHeader`/`DayBreak` (trip-report day dividers, used by the JMT and Hawaii trip reports), and `GridStack` (`ImageGridStack`, for image grids inline in prose, e.g. in the Hawaii post). All current posts (`oneself`, `walrus`, `revolver`, `hawaii`, `lattes`, `jmt`) are static server components that read their own metadata via `getPostMeta(slug)` from `src/lib/posts.ts`.
 
 ### Styling conventions
 

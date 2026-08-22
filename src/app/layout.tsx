@@ -9,15 +9,15 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ryangumlia.com"),
+  metadataBase: new URL("https://www.ryangumlia.com"),
   title: { default: "Ryan Gumlia", template: "%s" },
   description:
     "I'm a compliance analyst at D. E. Shaw & Co. in New York City. Previously, I studied humanities and computer science at Yale.",
-  alternates: { canonical: "https://ryangumlia.com" },
+  alternates: { canonical: "https://www.ryangumlia.com" },
   openGraph: {
     title: { default: "Ryan Gumlia", template: "%s" },
     description: "Ryan Gumlia",
-    url: "https://ryangumlia.com",
+    url: "https://www.ryangumlia.com",
     siteName: "Ryan Gumlia",
     type: "website",
   },
@@ -36,7 +36,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Ryan Gumlia",
-              url: "https://ryangumlia.com",
+              url: "https://www.ryangumlia.com",
               sameAs: ["https://www.linkedin.com/in/ryangumlia"],
             }),
           }}

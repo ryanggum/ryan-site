@@ -6,11 +6,14 @@ import Header from "@/app/components/Header";
 import { posts } from "@/lib/posts";
 import { groupByYear } from "@/lib/groupByYear";
 
+const description = "Writing";
+
 export const metadata: Metadata = {
   title: "Posts",
-  description: undefined,
-  openGraph: { title: "Posts", description: undefined },
-  robots: { index: false, follow: false },
+  description,
+  openGraph: { title: "Posts", description },
+  alternates: { canonical: "https://www.ryangumlia.com/posts" },
+  robots: { index: true, follow: true },
 };
 
 export default function Page() {
