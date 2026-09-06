@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.ryangumlia.com"),
   title: { default: "Ryan Gumlia", template: "%s" },
   description:
-    "I'm a compliance analyst at D. E. Shaw & Co. in New York City. Previously, I studied humanities and computer science at Yale.",
+    "I'm a compliance analyst at the D. E. Shaw group in New York. Previously, I studied humanities and computer science at Yale.",
   alternates: { canonical: "https://www.ryangumlia.com" },
   openGraph: {
     title: { default: "Ryan Gumlia", template: "%s" },

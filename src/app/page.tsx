@@ -28,11 +28,13 @@ export default function Home() {
       >
         <h1 className="text-4xl sm:text-5xl font-medium mb-4">ryan gumlia</h1>
         <p className="text-sm sm:text-base mb-2 break-words">
-          I&apos;m a compliance analyst at D. E. Shaw & Co.
-          <br className="sm:hidden" /> in New York City.
+          I&apos;m a compliance analyst at the D. E. Shaw group
+          <br className="sm:hidden" /> in New York.
           <span className="hidden sm:inline">
             {" "}
-            Previously, I studied humanities and computer science at Yale.
+            Previously,
+            <br />
+            I studied humanities and computer science at Yale.
           </span>
         </p>
         <div className="pl-4 md:pl-6">
