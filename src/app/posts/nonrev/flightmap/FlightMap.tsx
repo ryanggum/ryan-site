@@ -42,13 +42,13 @@ export default function FlightMap() {
       <path
         d={stateBordersPath}
         fill="none"
-        className="stroke-black/30 dark:stroke-white/30"
+        className="stroke-[#041E42]/30 dark:stroke-white/30"
         strokeWidth={0.5}
       />
       <path
         d={nationOutlinePath}
         fill="none"
-        className="stroke-black/30 dark:stroke-white/30"
+        className="stroke-[#041E42]/30 dark:stroke-white/30"
         strokeWidth={0.5}
       />
       <defs>
@@ -62,24 +62,9 @@ export default function FlightMap() {
             x2={arc.to[0]}
             y2={arc.to[1]}
           >
-            <stop
-              offset="0%"
-              stopColor="currentColor"
-              stopOpacity={0.5}
-              className="text-black dark:text-white"
-            />
-            <stop
-              offset="50%"
-              stopColor="currentColor"
-              stopOpacity={0.2}
-              className="text-black dark:text-white"
-            />
-            <stop
-              offset="100%"
-              stopColor="currentColor"
-              stopOpacity={0.5}
-              className="text-black dark:text-white"
-            />
+            <stop offset="0%" stopColor="#C8102E" stopOpacity={0.5} />
+            <stop offset="50%" stopColor="#C8102E" stopOpacity={0.2} />
+            <stop offset="100%" stopColor="#C8102E" stopOpacity={0.5} />
           </linearGradient>
         ))}
       </defs>

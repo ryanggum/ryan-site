@@ -56,14 +56,17 @@ tight fan of nested arcs instead of one thick line.
 
 ## Current tuning
 
-- Borders (state + nation, matched): `stroke-black/30` (dark:
-  `white/30`), `strokeWidth 0.5`.
+- Borders (state + nation, matched): Delta navy (`#041E42`) at 30%
+  opacity in light mode, white at 30% in dark mode; `strokeWidth 0.5`.
 - Arcs: `strokeWidth 1`, stroked with a per-arc `linearGradient`
   (`userSpaceOnUse`, oriented along the arc's own endpoints) instead of a
   flat color — opaque (`0.5`) at both ends, fading to `0.2` at the
-  midpoint. Endpoint color is `currentColor` set via a `text-black
-  dark:text-white` class on each `<stop>` (gradients don't inherit
-  `currentColor` from the element they're painting).
+  midpoint. Stop color is a fixed Delta red (`#C8102E`, Delta's widget
+  mark red), same in light and dark mode rather than following the
+  black/white theme convention used elsewhere on the site.
+- Airport dots: Delta navy (`#041E42`) in light mode, white in dark
+  mode — matches the borders, unlike the arcs which stay Delta red in
+  both modes.
 - `arcs.ts`: `BOW_RATIO = 0.09`, `FAN_GAP = 6`.
 - Hover enlarge: arcs get a fixed stroke-width bump (`1` -> `2.5`) and
   airport dots grow (`r` `2.5` -> `4`) when active. Arcs deliberately use
@@ -114,6 +117,15 @@ tight fan of nested arcs instead of one thick line.
   per-flight records rather than pre-aggregated counts) was kept
   flexible enough to support this later. (Hover-to-enlarge is done —
   see "Hover enlarge" above.)
-- Border resolution is whatever `us-atlas`'s `states-10m.json` ships;
-  no simplification step has been added (considered, decided not worth
-  it for now).
+- Border resolution: `us-states-10m.json` is `us-atlas`'s `states-10m.json`
+  run through `topojson-simplify`'s `toposimplify` CLI (a devDependency),
+  since raw 10m detail was way finer than the 960x600 viewBox can resolve
+  and read as noisy jagged coastlines. One-off command, re-run if the
+  source file is ever refreshed from `us-atlas`:
+  `npx toposimplify -P 0.1 -f -o us-states-10m.json us-states-10m.json`
+  (`-P` is a planar-area quantile — higher keeps more detail; `0.1` was
+  chosen by eye against a few candidates; `-f` drops small islands left
+  detached by simplification). The CLI preserves the file's existing
+  TopoJSON quantization, so this is a pure drop-in replacement — same
+  `objects`/`transform`, ~3,300 arc points instead of ~11,800, ~65KB
+  instead of 114KB.

@@ -31,6 +31,7 @@
     "eslint-config-next": "16.0.0",
     "prettier": "^3.9.6",
     "tailwindcss": "^4",
+    "topojson-simplify": "^3.0.3",
     "typescript": "^5",
     "us-atlas": "^3.0.1"
   }

@@ -120,7 +120,7 @@ export default function FlightMapInteractive({
           cx={airport.x}
           cy={airport.y}
           r={activeAirport === airport.code ? 4 : 2.5}
-          className="pointer-events-none fill-black dark:fill-white transition-[r] duration-150"
+          className="pointer-events-none fill-[#041E42] dark:fill-white transition-[r] duration-150"
         />
       ))}
     </>
