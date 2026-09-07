@@ -4,14 +4,19 @@ const BOW_RATIO = 0.09; // bow as a fraction of chord length, so short and long 
 const FAN_GAP = 6; // px, fixed spacing between sibling flights on the same route (not proportional)
 
 /**
- * Path for one flight between two projected points, offset by its index (i)
- * among n total flights on the same directed route. Bows proportionally to
- * the chord's own length so short and long flights curve at the same visual
- * ratio, and always to the same side of travel so A->B and B->A separate
- * visually. Repeat flights on one route fan out symmetrically (fixed px
- * spacing) around that base bow.
+ * Control point + SVG path for one flight between two projected points,
+ * offset by its index (i) among n total flights on the same directed route.
+ * Bows proportionally to the chord's own length so short and long flights
+ * curve at the same visual ratio, and always to the same side of travel so
+ * A->B and B->A separate visually. Repeat flights on one route fan out
+ * symmetrically (fixed px spacing) around that base bow.
  */
-export function arcPath(from: Point, to: Point, i: number, n: number): string {
+export function arcGeometry(
+  from: Point,
+  to: Point,
+  i: number,
+  n: number,
+): { control: Point; d: string } {
   const [x1, y1] = from;
   const [x2, y2] = to;
 
@@ -30,5 +35,33 @@ export function arcPath(from: Point, to: Point, i: number, n: number): string {
   const midX = (x1 + x2) / 2 + nx * bow;
   const midY = (y1 + y2) / 2 + ny * bow;
 
-  return `M${x1},${y1} Q${midX},${midY} ${x2},${y2}`;
+  return {
+    control: [midX, midY],
+    d: `M${x1},${y1} Q${midX},${midY} ${x2},${y2}`,
+  };
+}
+
+/**
+ * Shortest distance from `point` to the quadratic Bézier curve defined by
+ * `from` -> `control` -> `to`, approximated by sampling the curve. Used for
+ * pointer hit-testing (native stroke hitboxes on thin/overlapping arcs are
+ * unreliable), not for rendering, so a coarse sample count is fine.
+ */
+export function distanceToQuadratic(
+  point: Point,
+  from: Point,
+  control: Point,
+  to: Point,
+  samples = 24,
+): number {
+  let min = Infinity;
+  for (let s = 0; s <= samples; s++) {
+    const t = s / samples;
+    const mt = 1 - t;
+    const x = mt * mt * from[0] + 2 * mt * t * control[0] + t * t * to[0];
+    const y = mt * mt * from[1] + 2 * mt * t * control[1] + t * t * to[1];
+    const dist = Math.hypot(x - point[0], y - point[1]);
+    if (dist < min) min = dist;
+  }
+  return min;
 }

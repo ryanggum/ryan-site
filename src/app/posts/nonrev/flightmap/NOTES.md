@@ -39,24 +39,56 @@ tight fan of nested arcs instead of one thick line.
     pixel value, not proportional — it's about visually separating lines,
     not route geometry).
 - `FlightMap.tsx` — the component. A **server** component: it renders
-  borders, then arcs, then dots (SVG has no z-index; paint order is
-  document order). Nothing here is interactive, so there is no `"use
-client"` — that matters, because the boundary used to pull
-  `us-states-10m.json`, `d3-geo` and `topojson-client` into the client
-  bundle (~132KB) to draw markup that never changes. As a server
-  component the whole map is computed at build time and ships as plain
-  SVG. Keep it that way; if a future hover/filter feature needs state,
-  put the interactive bit in its own small client child rather than
-  marking this file `"use client"`.
+  borders and the arc-fade `<linearGradient>` defs, computes every arc's
+  projected endpoints/control point and every airport's projected
+  position, and hands those (plain numbers/strings, no functions) to
+  `FlightMapInteractive` as props. Nothing in this file is interactive,
+  so there is no `"use client"` here — that matters, because that
+  boundary is what keeps `us-states-10m.json`, `d3-geo` and
+  `topojson-client` (~132KB) out of the client bundle. Only the small
+  hover-state child below crosses into the client.
   Mounted on `src/app/posts/nonrev/page.tsx`, inside the shared
   `PostShell` like every other post.
+- `FlightMapInteractive.tsx` — `"use client"`. Renders the arc paths and
+  airport dots and owns the hover state (`activeArc` / `activeAirport`).
+  See "Hover enlarge" below for why this exists instead of CSS
+  `:hover`.
 
 ## Current tuning
 
 - Borders (state + nation, matched): `stroke-black/30` (dark:
   `white/30`), `strokeWidth 0.5`.
-- Arcs: fully opaque, `strokeWidth 1`.
+- Arcs: `strokeWidth 1`, stroked with a per-arc `linearGradient`
+  (`userSpaceOnUse`, oriented along the arc's own endpoints) instead of a
+  flat color — opaque (`0.5`) at both ends, fading to `0.2` at the
+  midpoint. Endpoint color is `currentColor` set via a `text-black
+  dark:text-white` class on each `<stop>` (gradients don't inherit
+  `currentColor` from the element they're painting).
 - `arcs.ts`: `BOW_RATIO = 0.09`, `FAN_GAP = 6`.
+- Hover enlarge: arcs get a fixed stroke-width bump (`1` -> `2.5`) and
+  airport dots grow (`r` `2.5` -> `4`) when active. Arcs deliberately use
+  a fixed width bump rather than a `transform: scale()` — scaling grows
+  a path's whole bounding box, so the effect was barely visible on short
+  arcs and exaggerated on long ones (same % growth, very different pixel
+  growth); a flat stroke-width delta reads the same on every arc
+  regardless of length.
+  This started as pure CSS (`:hover` + an invisible wide sibling path
+  per arc to widen the too-thin 1px hit target) but broke down once
+  arcs overlap or cross: native stroke hit-testing just picks whichever
+  overlapping path is topmost in paint order, so nearby arcs would
+  "steal" hover from each other with no way to hit the one you actually
+  wanted. Replaced with real hit-testing in `FlightMapInteractive.tsx`:
+  a single full-viewBox `<rect>` (`fill="transparent"`, only element
+  with `pointer-events`) tracks the pointer via `onPointerMove`, converts
+  the client coordinate to SVG user space with
+  `getScreenCTM().inverse()`, and on every move finds the closest arc
+  (`distanceToQuadratic` in `arcs.ts`, sampling the actual Bézier curve
+  — not the straight chord) and closest airport dot, activating whichever
+  is geometrically nearer (ties favor the airport) if it's within its hit
+  radius (`ARC_HIT_RADIUS` / `AIRPORT_HIT_RADIUS`, both `6`), else
+  nothing. All arc paths and dots are `pointer-events-none` so only the
+  rect's math decides what's "hovered" — correct even where several arcs
+  cross the same pixel.
 
 ## Decisions made along the way
 
@@ -78,9 +110,10 @@ client"` — that matters, because the boundary used to pull
 
 - Dot sizing by visit count (currently uniform `r=2.5`).
 - Airport labels with a white text-halo for legibility over dense arcs.
-- Any interaction (hover, filter by year, chronological animate-in) —
-  data model (`seq`, per-flight records rather than pre-aggregated
-  counts) was kept flexible enough to support this later.
+- Filter by year, chronological animate-in — data model (`seq`,
+  per-flight records rather than pre-aggregated counts) was kept
+  flexible enough to support this later. (Hover-to-enlarge is done —
+  see "Hover enlarge" above.)
 - Border resolution is whatever `us-atlas`'s `states-10m.json` ships;
   no simplification step has been added (considered, decided not worth
   it for now).
