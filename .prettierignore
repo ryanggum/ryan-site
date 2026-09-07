@@ -1,0 +1,6 @@
+# Vendored data blob (a verbatim copy of us-atlas/states-10m.json).
+# `npm run format` would otherwise expand it from 114KB to 224KB on every run.
+src/app/posts/nonrev/flightmap/us-states-10m.json
+
+.next/
+node_modules/

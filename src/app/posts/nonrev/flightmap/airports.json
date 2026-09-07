@@ -1,0 +1,16 @@
+{
+  "BJI": { "name": "Bemidji", "lat": 47.5094, "lon": -94.9343 },
+  "BOI": { "name": "Boise", "lat": 43.5644, "lon": -116.2228 },
+  "CLE": { "name": "Cleveland", "lat": 41.4117, "lon": -81.8498 },
+  "HPN": { "name": "Westchester", "lat": 41.067, "lon": -73.7076 },
+  "JFK": { "name": "New York JFK", "lat": 40.6413, "lon": -73.7781 },
+  "LAX": { "name": "Los Angeles", "lat": 33.9416, "lon": -118.4085 },
+  "LGA": { "name": "New York LGA", "lat": 40.7769, "lon": -73.874 },
+  "MSP": { "name": "Minneapolis", "lat": 44.8848, "lon": -93.2223 },
+  "ORD": { "name": "Chicago O'Hare", "lat": 41.9742, "lon": -87.9073 },
+  "SAT": { "name": "San Antonio", "lat": 29.5337, "lon": -98.4698 },
+  "SEA": { "name": "Seattle", "lat": 47.4502, "lon": -122.3088 },
+  "SFO": { "name": "San Francisco", "lat": 37.6213, "lon": -122.379 },
+  "SLC": { "name": "Salt Lake City", "lat": 40.7899, "lon": -111.9791 },
+  "SNA": { "name": "Orange County", "lat": 33.6757, "lon": -117.8683 }
+}

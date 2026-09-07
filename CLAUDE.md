@@ -6,6 +6,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Ryan Gumlia's personal site (ryangumlia.com) — a Next.js 16 App Router site with three sections: a landing page, a film-photography gallery ("rolls"/"parks"), and a writing/posts section.
 
+## Prose is Ryan's, not Claude's
+
+Never invent user-facing written content for this site. That means post titles,
+subtitles, descriptions, `<title>`/OpenGraph/meta description text, captions,
+alt text, headings, or body prose — anything a reader sees as Ryan's writing.
+
+Wire up the structure and leave the words to Ryan: use the copy they provide
+verbatim, or leave the field out entirely and say it needs text. An
+omitted `description` is fine (it's optional on `Post`); a plausible-sounding
+placeholder is not, because it reads as their voice and can ship unnoticed.
+
+This does not restrict code-level writing: comments, commit messages, variable
+names, and notes files like `flightmap/NOTES.md` are fine to write.
+
 ## Commands
 
 ```bash

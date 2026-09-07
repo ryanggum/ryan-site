@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ryangumlia.com
+Host: https://www.ryangumlia.com
 
 # Sitemaps
-Sitemap: https://ryangumlia.com/sitemap.xml
+Sitemap: https://www.ryangumlia.com/sitemap.xml
