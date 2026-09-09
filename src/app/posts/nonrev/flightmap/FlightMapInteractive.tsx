@@ -109,7 +109,9 @@ export default function FlightMapInteractive({
           key={arc.seq}
           d={arc.d}
           fill="none"
-          stroke={`url(#arc-fade-${arc.seq})`}
+          stroke={
+            activeArc === arc.seq ? "#C8102E" : `url(#arc-fade-${arc.seq})`
+          }
           strokeWidth={activeArc === arc.seq ? 2.5 : 1}
           className="pointer-events-none transition-[stroke-width] duration-150"
         />
