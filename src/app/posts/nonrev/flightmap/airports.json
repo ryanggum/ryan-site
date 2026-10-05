@@ -2,6 +2,7 @@
   "BJI": { "name": "Bemidji", "lat": 47.5094, "lon": -94.9343 },
   "BOI": { "name": "Boise", "lat": 43.5644, "lon": -116.2228 },
   "CLE": { "name": "Cleveland", "lat": 41.4117, "lon": -81.8498 },
+  "DCA": { "name": "Washington National", "lat": 38.8512, "lon": -77.0402 },
   "HPN": { "name": "Westchester", "lat": 41.067, "lon": -73.7076 },
   "JFK": { "name": "New York JFK", "lat": 40.6413, "lon": -73.7781 },
   "LAX": { "name": "Los Angeles", "lat": 33.9416, "lon": -118.4085 },

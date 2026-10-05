@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { distanceToQuadratic, type Point } from "./arcs";
+import FlightPlane from "./FlightPlane";
 
 export type ArcDatum = {
   seq: number;
@@ -125,6 +126,7 @@ export default function FlightMapInteractive({
           className="pointer-events-none fill-[#041E42] dark:fill-white transition-[r] duration-150"
         />
       ))}
+      <FlightPlane arcs={arcs} />
     </>
   );
 }

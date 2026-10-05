@@ -28,4 +28,7 @@ export const flights: Flight[] = [
   { seq: 21, from: "ORD", to: "MSP" },
   { seq: 22, from: "BJI", to: "MSP" },
   { seq: 23, from: "MSP", to: "HPN" },
+  { seq: 24, from: "DCA", to: "LGA" },
+  { seq: 25, from: "LGA", to: "MSP" },
+  { seq: 26, from: "MSP", to: "LGA" },
 ];

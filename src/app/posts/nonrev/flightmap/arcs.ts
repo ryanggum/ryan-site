@@ -56,12 +56,37 @@ export function distanceToQuadratic(
 ): number {
   let min = Infinity;
   for (let s = 0; s <= samples; s++) {
-    const t = s / samples;
-    const mt = 1 - t;
-    const x = mt * mt * from[0] + 2 * mt * t * control[0] + t * t * to[0];
-    const y = mt * mt * from[1] + 2 * mt * t * control[1] + t * t * to[1];
+    const [x, y] = pointOnQuadratic(from, control, to, s / samples);
     const dist = Math.hypot(x - point[0], y - point[1]);
     if (dist < min) min = dist;
   }
   return min;
+}
+
+/** Point at parameter t (0..1) on the quadratic Bézier from -> control -> to. */
+export function pointOnQuadratic(
+  from: Point,
+  control: Point,
+  to: Point,
+  t: number,
+): Point {
+  const mt = 1 - t;
+  return [
+    mt * mt * from[0] + 2 * mt * t * control[0] + t * t * to[0],
+    mt * mt * from[1] + 2 * mt * t * control[1] + t * t * to[1],
+  ];
+}
+
+/** Direction of travel (unnormalized derivative) at parameter t. */
+export function tangentOnQuadratic(
+  from: Point,
+  control: Point,
+  to: Point,
+  t: number,
+): Point {
+  const mt = 1 - t;
+  return [
+    2 * mt * (control[0] - from[0]) + 2 * t * (to[0] - control[0]),
+    2 * mt * (control[1] - from[1]) + 2 * t * (to[1] - control[1]),
+  ];
 }

@@ -54,6 +54,20 @@ tight fan of nested arcs instead of one thick line.
   See "Hover enlarge" below for why this exists instead of CSS
   `:hover`.
 
+- `FlightPlane.tsx` — `"use client"`, mounted at the end of
+  `FlightMapInteractive` (so it paints above arcs and dots). Flies a small
+  plane glyph along every flight in `seq` order, looping forever,
+  taking off on a random leg each page load (not remembered). Constant
+  speed (`SPEED` viewBox units/sec, via a per-leg arc-length lookup table
+  inverted to Bézier `t`), nose rotated to the curve tangent. Legs run
+  back to back with no pause at arrivals or at the loop restart. When the
+  next leg departs from a different airport than the last one landed at,
+  it's an instant jump — deliberately no fake connecting hop. Position is
+  written to the DOM via a ref inside `requestAnimationFrame`, so the
+  animation never re-renders React (and doesn't fight the hover state).
+  Not rendered (stays `visibility: hidden`) under
+  `prefers-reduced-motion: reduce`. Doesn't highlight the arc it's on.
+
 ## Current tuning
 
 - Borders (state + nation, matched): Delta navy (`#041E42`) at 30%
