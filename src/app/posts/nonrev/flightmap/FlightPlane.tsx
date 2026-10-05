@@ -10,11 +10,11 @@ const REPOSITION_SPEED = 100; // viewBox units per second for non-flight hops, a
 const REPOSITION_MIN_MS = 1100; // floor so tiny hops (JFK<->LGA, SNA->LAX) are still visible
 const GHOST_STROKE = 0.75; // outline width while repositioning (plane is unfilled then)
 const WOBBLE_DEG = 15; // peak heading swing either side of the line while repositioning
+const WOBBLE_PERIOD_MS = 370; // one full back-and-forth swing; same rhythm on short and long hops
 const PLANE_HIT_RADIUS = 7; // cursor within this of the plane's center (times its current scale) catches it
 const CAUGHT_SCALE = 1.6; // plane grows to this while caught
 const SCALE_EASE_MS = 80; // time constant for easing toward / back from CAUGHT_SCALE
 const CAUGHT_COLOR = "#C8102E"; // Delta red, same as a highlighted arc
-const WOBBLE_PERIOD_MS = 370; // one full back-and-forth swing; same rhythm on short and long hops
 
 // Top-down airplane silhouette, nose pointing +x, centered on the origin.
 const PLANE_PATH =

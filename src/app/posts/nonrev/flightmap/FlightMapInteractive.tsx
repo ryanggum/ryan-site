@@ -19,6 +19,7 @@ export type AirportDatum = {
 };
 
 const ARC_HIT_RADIUS = 6;
+const AIRPORT_HIT_RADIUS = 4; // matches the enlarged dot, so "highlighted" means visibly on it
 const GROW_MS = 150;
 
 // Runs once per mounted highlight path (it's keyed by seq), animating the
@@ -29,7 +30,6 @@ function growIn(path: SVGPathElement | null) {
     easing: "ease",
   });
 }
-const AIRPORT_HIT_RADIUS = 4; // matches the enlarged dot, so "highlighted" means visibly on it
 
 export default function FlightMapInteractive({
   viewBoxWidth,
@@ -51,14 +51,12 @@ export default function FlightMapInteractive({
 
   const handlePointerMove = useCallback(
     (e: React.PointerEvent<SVGRectElement>) => {
-      const svg = e.currentTarget.ownerSVGElement;
       const ctm = e.currentTarget.getScreenCTM();
-      if (!svg || !ctm) return;
+      if (!ctm) return;
 
-      const screenPoint = svg.createSVGPoint();
-      screenPoint.x = e.clientX;
-      screenPoint.y = e.clientY;
-      const { x, y } = screenPoint.matrixTransform(ctm.inverse());
+      const { x, y } = new DOMPoint(e.clientX, e.clientY).matrixTransform(
+        ctm.inverse(),
+      );
       pointerRef.current = [x, y];
 
       let nearestAirport: string | null = null;
