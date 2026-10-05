@@ -61,8 +61,18 @@ tight fan of nested arcs instead of one thick line.
   speed (`SPEED` viewBox units/sec, via a per-leg arc-length lookup table
   inverted to Bézier `t`), nose rotated to the curve tangent. Legs run
   back to back with no pause at arrivals or at the loop restart. When the
-  next leg departs from a different airport than the last one landed at,
-  it's an instant jump — deliberately no fake connecting hop. Position is
+  next flight departs from a different airport than the last one landed
+  at (including the seq 26 -> seq 1 wrap), a `reposition` leg is
+  inserted: a straight line (not an arc — arcs mean real flights), constant
+  `REPOSITION_SPEED` (a bit slower than `SPEED`) with a
+  `REPOSITION_MIN_MS` floor — the floor matters, since most gaps are tiny
+  (JFK<->LGA is ~3 units, SNA->LAX ~11) and would otherwise flash by; only
+  LGA->BOI (~640 units) is long enough to exceed it by much. Eased
+  in/out, with the plane drawn as an unfilled outline (`GHOST_STROKE`) to
+  read as "off the record", and its heading ambling back and forth
+  (`WOBBLE_DEG` / `WOBBLE_PERIOD_MS` — time-based, so long hops get more
+  swings rather than slower ones; enveloped so it leaves and arrives
+  pointing straight). Nothing is drawn on the map for these hops. The random start only picks real flights. Position is
   written to the DOM via a ref inside `requestAnimationFrame`, so the
   animation never re-renders React (and doesn't fight the hover state).
   Not rendered (stays `visibility: hidden`) under
