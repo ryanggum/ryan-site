@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { distanceToQuadratic, type Point } from "./arcs";
 import FlightPlane from "./FlightPlane";
 
@@ -19,7 +19,17 @@ export type AirportDatum = {
 };
 
 const ARC_HIT_RADIUS = 6;
-const AIRPORT_HIT_RADIUS = 6;
+const GROW_MS = 150;
+
+// Runs once per mounted highlight path (it's keyed by seq), animating the
+// stroke from the base arc's width up to the highlight width.
+function growIn(path: SVGPathElement | null) {
+  path?.animate([{ strokeWidth: 1 }, { strokeWidth: 2.5 }], {
+    duration: GROW_MS,
+    easing: "ease",
+  });
+}
+const AIRPORT_HIT_RADIUS = 4; // matches the enlarged dot, so "highlighted" means visibly on it
 
 export default function FlightMapInteractive({
   viewBoxWidth,
@@ -34,6 +44,10 @@ export default function FlightMapInteractive({
 }) {
   const [activeArc, setActiveArc] = useState<number | null>(null);
   const [activeAirport, setActiveAirport] = useState<string | null>(null);
+  // last cursor position in viewBox units, read every frame by FlightPlane
+  const pointerRef = useRef<Point | null>(null);
+  // while the cursor is on the plane, it's the only thing highlighted
+  const [planeCaught, setPlaneCaught] = useState(false);
 
   const handlePointerMove = useCallback(
     (e: React.PointerEvent<SVGRectElement>) => {
@@ -45,6 +59,7 @@ export default function FlightMapInteractive({
       screenPoint.x = e.clientX;
       screenPoint.y = e.clientY;
       const { x, y } = screenPoint.matrixTransform(ctm.inverse());
+      pointerRef.current = [x, y];
 
       let nearestAirport: string | null = null;
       let nearestAirportDist = Infinity;
@@ -69,10 +84,12 @@ export default function FlightMapInteractive({
       const airportHit = nearestAirportDist <= AIRPORT_HIT_RADIUS;
       const arcHit = nearestArcDist <= ARC_HIT_RADIUS;
 
-      // Whichever is geometrically closer wins, so a cursor deep inside an
-      // arc-only region never gets stolen by a farther-off airport dot (and
-      // vice versa); ties favor the airport since it's the more precise target.
-      if (airportHit && (!arcHit || nearestAirportDist <= nearestArcDist)) {
+      // Inside an airport's hit radius the airport always wins. Comparing
+      // distances here instead (nearer target wins) never worked for dots:
+      // every arc ends at its airport's center, so sliding along an arc into
+      // a dot keeps the arc at ~0 distance and the arc stays highlighted
+      // until the cursor reaches the dead center.
+      if (airportHit) {
         setActiveAirport(nearestAirport);
         setActiveArc(null);
       } else if (arcHit) {
@@ -86,7 +103,12 @@ export default function FlightMapInteractive({
     [arcs, airports],
   );
 
+  const active = planeCaught
+    ? undefined
+    : arcs.find((arc) => arc.seq === activeArc);
+
   const handlePointerLeave = useCallback(() => {
+    pointerRef.current = null;
     setActiveArc(null);
     setActiveAirport(null);
   }, []);
@@ -110,23 +132,42 @@ export default function FlightMapInteractive({
           key={arc.seq}
           d={arc.d}
           fill="none"
-          stroke={
-            activeArc === arc.seq ? "#C8102E" : `url(#arc-fade-${arc.seq})`
-          }
-          strokeWidth={activeArc === arc.seq ? 2.5 : 1}
-          className="pointer-events-none transition-[stroke-width] duration-150"
+          stroke={`url(#arc-fade-${arc.seq})`}
+          strokeWidth={1}
+          className="pointer-events-none"
         />
       ))}
+      {/* The highlight is a separate copy of the active arc drawn after all
+          the others, so it always paints on top of its neighbors. Keyed by
+          seq, so each hand-off mounts a fresh element: the new arc grows in
+          (growIn) while the previous highlight disappears at once instead of
+          lingering thick for 150ms, which made hand-offs between close arcs
+          read as late. */}
+      {active && (
+        <path
+          key={active.seq}
+          ref={growIn}
+          d={active.d}
+          fill="none"
+          stroke="#C8102E"
+          strokeWidth={2.5}
+          className="pointer-events-none"
+        />
+      )}
       {airports.map((airport) => (
         <circle
           key={airport.code}
           cx={airport.x}
           cy={airport.y}
-          r={activeAirport === airport.code ? 4 : 2.5}
+          r={!planeCaught && activeAirport === airport.code ? 4 : 2.5}
           className="pointer-events-none fill-[#041E42] dark:fill-white transition-[r] duration-150"
         />
       ))}
-      <FlightPlane arcs={arcs} />
+      <FlightPlane
+        arcs={arcs}
+        pointerRef={pointerRef}
+        onCaughtChange={setPlaneCaught}
+      />
     </>
   );
 }

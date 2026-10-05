@@ -43,9 +43,15 @@ export function arcGeometry(
 
 /**
  * Shortest distance from `point` to the quadratic Bézier curve defined by
- * `from` -> `control` -> `to`, approximated by sampling the curve. Used for
- * pointer hit-testing (native stroke hitboxes on thin/overlapping arcs are
- * unreliable), not for rendering, so a coarse sample count is fine.
+ * `from` -> `control` -> `to`, approximated as a polyline through `samples`
+ * segments. Used for pointer hit-testing (native stroke hitboxes on
+ * thin/overlapping arcs are unreliable), not for rendering.
+ *
+ * Measures to each segment, not just its endpoints: distance to the sample
+ * points alone left gaps up to half the sample spacing (~15 units on
+ * LAX-JFK), wider than the hit radius, so a cursor sitting exactly on a long
+ * arc only registered near the sample points. The polyline itself hugs the
+ * curve to within a small fraction of a unit at this sample count.
  */
 export function distanceToQuadratic(
   point: Point,
@@ -55,12 +61,32 @@ export function distanceToQuadratic(
   samples = 24,
 ): number {
   let min = Infinity;
-  for (let s = 0; s <= samples; s++) {
-    const [x, y] = pointOnQuadratic(from, control, to, s / samples);
-    const dist = Math.hypot(x - point[0], y - point[1]);
+  let prev = from;
+  for (let s = 1; s <= samples; s++) {
+    const next = pointOnQuadratic(from, control, to, s / samples);
+    const dist = distanceToSegment(point, prev, next);
     if (dist < min) min = dist;
+    prev = next;
   }
   return min;
+}
+
+function distanceToSegment(point: Point, a: Point, b: Point): number {
+  const dx = b[0] - a[0];
+  const dy = b[1] - a[1];
+  const lengthSq = dx * dx + dy * dy;
+  // projection of point onto the segment, clamped to its endpoints
+  const t =
+    lengthSq === 0
+      ? 0
+      : Math.max(
+          0,
+          Math.min(
+            1,
+            ((point[0] - a[0]) * dx + (point[1] - a[1]) * dy) / lengthSq,
+          ),
+        );
+  return Math.hypot(point[0] - (a[0] + t * dx), point[1] - (a[1] + t * dy));
 }
 
 /** Point at parameter t (0..1) on the quadratic Bézier from -> control -> to. */

@@ -77,6 +77,16 @@ tight fan of nested arcs instead of one thick line.
   animation never re-renders React (and doesn't fight the hover state).
   Not rendered (stays `visibility: hidden`) under
   `prefers-reduced-motion: reduce`. Doesn't highlight the arc it's on.
+  **Catching the plane:** the parent's hit layer stores the last cursor
+  position (viewBox units) in a shared `pointerRef`; `FlightPlane` checks
+  it every animation frame — not on pointer move, since the plane can fly
+  into a still cursor. Within `PLANE_HIT_RADIUS` (scaled with the plane,
+  so the grown plane doesn't flicker off under a cursor on its wingtip) it
+  turns Delta red (solid, or a red outline mid-hop) and eases up to
+  `CAUGHT_SCALE`, easing back when released. Catch/release is reported
+  only on change via `onCaughtChange`; the parent then suppresses its
+  arc/airport highlight so the plane isn't lost against a red arc it's
+  flying along.
 
 ## Current tuning
 
@@ -109,13 +119,25 @@ tight fan of nested arcs instead of one thick line.
   with `pointer-events`) tracks the pointer via `onPointerMove`, converts
   the client coordinate to SVG user space with
   `getScreenCTM().inverse()`, and on every move finds the closest arc
-  (`distanceToQuadratic` in `arcs.ts`, sampling the actual Bézier curve
-  — not the straight chord) and closest airport dot, activating whichever
-  is geometrically nearer (ties favor the airport) if it's within its hit
-  radius (`ARC_HIT_RADIUS` / `AIRPORT_HIT_RADIUS`, both `6`), else
-  nothing. All arc paths and dots are `pointer-events-none` so only the
+  (`distanceToQuadratic` in `arcs.ts`, distance to a 24-segment
+  polyline of the actual Bézier curve — not the straight chord, and not
+  just the sample points, which left un-hittable gaps on long arcs) and closest airport dot, an airport within
+  `AIRPORT_HIT_RADIUS` (`4`, the enlarged dot's radius) always wins;
+  otherwise the nearest arc within `ARC_HIT_RADIUS` (`6`); else nothing.
+  (Airport priority replaced a "geometrically nearer wins" rule, which
+  failed because every arc ends at its airport's center — sliding along an
+  arc into a dot kept the arc at ~0 distance, so the arc stayed highlighted
+  until the cursor hit dead center.) All arc paths and dots are `pointer-events-none` so only the
   rect's math decides what's "hovered" — correct even where several arcs
   cross the same pixel.
+  The highlight itself is a separate solid-red copy of the active arc
+  rendered after all the base arcs (keyed by `seq`, grown in with a
+  Web Animations call), not a style change on the base arc. That keeps it
+  painted on top of close neighbors, and on a hand-off the old highlight
+  vanishes at once instead of shrinking back over 150ms — the lingering
+  thick arc made switches between nearby arcs feel late. (Re-sorting the
+  base arcs to put the active one last was rejected: React moves the node
+  by reinserting it, which drops CSS transitions.)
 
 ## Decisions made along the way
 

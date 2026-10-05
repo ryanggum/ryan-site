@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 import { pointOnQuadratic, tangentOnQuadratic, type Point } from "./arcs";
 import type { ArcDatum } from "./FlightMapInteractive";
 
@@ -10,6 +10,10 @@ const REPOSITION_SPEED = 100; // viewBox units per second for non-flight hops, a
 const REPOSITION_MIN_MS = 1100; // floor so tiny hops (JFK<->LGA, SNA->LAX) are still visible
 const GHOST_STROKE = 0.75; // outline width while repositioning (plane is unfilled then)
 const WOBBLE_DEG = 15; // peak heading swing either side of the line while repositioning
+const PLANE_HIT_RADIUS = 7; // cursor within this of the plane's center (times its current scale) catches it
+const CAUGHT_SCALE = 1.6; // plane grows to this while caught
+const SCALE_EASE_MS = 80; // time constant for easing toward / back from CAUGHT_SCALE
+const CAUGHT_COLOR = "#C8102E"; // Delta red, same as a highlighted arc
 const WOBBLE_PERIOD_MS = 370; // one full back-and-forth swing; same rhythm on short and long hops
 
 // Top-down airplane silhouette, nose pointing +x, centered on the origin.
@@ -116,11 +120,26 @@ function tAtFraction(lut: number[], fraction: number): number {
  * flight each page load, back to back with no pauses, looping forever. Gaps
  * (next flight departs somewhere other than where the last one landed) are a
  * quick straight hop with the plane drawn as an unfilled outline, so it
- * doesn't read as a real flight. Position is written straight to the DOM each frame via a
- * ref, so the animation never re-renders React. Hidden entirely when the
- * viewer prefers reduced motion.
+ * doesn't read as a real flight. Position is written straight to the DOM
+ * each frame via a ref, so the animation never re-renders React. Hidden
+ * entirely when the viewer prefers reduced motion.
+ *
+ * Catching it: every frame the plane checks its distance to the last known
+ * cursor position (`pointerRef`, in viewBox units, kept by the parent's hit
+ * layer) — per frame rather than on pointer move, since the plane can fly
+ * into a still cursor. While caught it turns Delta red and grows; it reports
+ * catch/release (only on change) via `onCaughtChange` so the parent can
+ * drop its arc/airport highlight and leave the plane as the one focus.
  */
-export default function FlightPlane({ arcs }: { arcs: ArcDatum[] }) {
+export default function FlightPlane({
+  arcs,
+  pointerRef,
+  onCaughtChange,
+}: {
+  arcs: ArcDatum[];
+  pointerRef: RefObject<Point | null>;
+  onCaughtChange: (caught: boolean) => void;
+}) {
   const ref = useRef<SVGGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
 
@@ -139,8 +158,13 @@ export default function FlightPlane({ arcs }: { arcs: ArcDatum[] }) {
       flightStarts[Math.floor(Math.random() * flightStarts.length)];
     let startTime: number | null = null;
     let ghost: boolean | null = null;
+    let caught = false;
+    let scale = 1;
+    let lastNow: number | null = null;
     let frame = requestAnimationFrame(function tick(now) {
       startTime ??= now - offset;
+      const dt = now - (lastNow ?? now);
+      lastNow = now;
       const elapsed = (now - startTime) % total;
 
       // last leg whose takeoff has passed
@@ -165,11 +189,27 @@ export default function FlightPlane({ arcs }: { arcs: ArcDatum[] }) {
         : 0;
       const angle = (Math.atan2(dy, dx) * 180) / Math.PI + wobble;
 
-      g.setAttribute("transform", `translate(${x},${y}) rotate(${angle})`);
-      if (isGhost !== ghost) {
+      const pointer = pointerRef.current;
+      const isCaught =
+        pointer !== null &&
+        Math.hypot(pointer[0] - x, pointer[1] - y) <= PLANE_HIT_RADIUS * scale;
+      // exponential ease toward the target scale, frame-rate independent
+      scale +=
+        ((isCaught ? CAUGHT_SCALE : 1) - scale) *
+        (1 - Math.exp(-dt / SCALE_EASE_MS));
+
+      g.setAttribute(
+        "transform",
+        `translate(${x},${y}) rotate(${angle}) scale(${scale})`,
+      );
+      if (isGhost !== ghost || isCaught !== caught) {
+        if (isCaught !== caught) onCaughtChange(isCaught);
         ghost = isGhost;
-        // inline style beats the fill classes in both light and dark mode
-        path.style.fill = ghost ? "none" : "";
+        caught = isCaught;
+        // inline style beats the fill/stroke classes in both light and dark
+        // mode; a caught ghost is a red outline, a caught flight solid red
+        path.style.fill = ghost ? "none" : caught ? CAUGHT_COLOR : "";
+        path.style.stroke = caught ? CAUGHT_COLOR : "";
         path.setAttribute("stroke-width", String(ghost ? GHOST_STROKE : 0));
       }
       g.style.visibility = "visible";
@@ -177,7 +217,7 @@ export default function FlightPlane({ arcs }: { arcs: ArcDatum[] }) {
     });
 
     return () => cancelAnimationFrame(frame);
-  }, [arcs]);
+  }, [arcs, pointerRef, onCaughtChange]);
 
   return (
     <g
