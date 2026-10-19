@@ -29,12 +29,6 @@ export const posts: Post[] = [
     description: "Trip Report: Hawaii.",
   },
   {
-    slug: "lattes",
-    i: 5,
-    title: "Ranking Coffee Shops",
-    date: 20260201,
-  },
-  {
     slug: "jmt",
     i: 6,
     title: "I hiked the John Muir Trail",
