@@ -39,7 +39,7 @@ tight fan of nested arcs instead of one thick line.
     pixel value, not proportional — it's about visually separating lines,
     not route geometry).
 - `FlightMap.tsx` — the component. A **server** component: it renders
-  borders and the arc-fade `<linearGradient>` defs, computes every arc's
+  borders, computes every arc's
   projected endpoints/control point and every airport's projected
   position, and hands those (plain numbers/strings, no functions) to
   `FlightMapInteractive` as props. Nothing in this file is interactive,
@@ -80,23 +80,69 @@ tight fan of nested arcs instead of one thick line.
   **Catching the plane:** the parent's hit layer stores the last cursor
   position (viewBox units) in a shared `pointerRef`; `FlightPlane` checks
   it every animation frame — not on pointer move, since the plane can fly
-  into a still cursor. Within `PLANE_HIT_RADIUS` (scaled with the plane,
-  so the grown plane doesn't flicker off under a cursor on its wingtip) it
-  turns Delta red (solid, or a red outline mid-hop) and eases up to
-  `CAUGHT_SCALE`, easing back when released. Catch/release is reported
+  into a still cursor. Within `PLANE_HIT_RADIUS` it
+  stops in place (no color or size change), then carries on from the same
+  spot once released. The loop
+  clock is advanced by per-frame deltas rather than derived from wall time,
+  which is what lets it stand still while caught.
+  It also stops while the cursor is hovering the arc it's currently flying
+  (the parent mirrors the hovered arc's `seq` into `hoveredArcRef`, and
+  flight legs carry their `seq`). That case isn't a catch: the arc stays
+  highlighted, and the plane sits on top of it. Hovering an arc while the
+  plane is on a reposition hop doesn't stop it. Catch/release is reported
   only on change via `onCaughtChange`; the parent then suppresses its
   arc/airport highlight so the plane isn't lost against a red arc it's
   flying along.
+
+- **Draw mode** (default) vs **static mode**, switched by a placeholder
+  button in the map's top-left corner (label is just the mode's code name
+  until real copy exists). The `<svg>` lives in `FlightMapInteractive` so
+  the button can sit beside it as HTML; `FlightMap` passes the borders in
+  as server-rendered `children`, so the client-bundle boundary is
+  unchanged. In draw mode every arc starts hidden (`visibility`, driven by
+  the parent's `drawn` set + `drawing` seq) and `FlightPlane` reveals the
+  current flight's arc behind it with `stroke-dasharray`/`dashoffset` on
+  that arc's own `<path>` (handed over via `arcPathsRef`). Plane and dash
+  both run on arc-length fraction, so the line ends at the plane. The plane
+  still takes off on a random flight; drawn arcs stay up until every
+  flight has been drawn, then the map blanks the moment the last one lands
+  and the plane carries on, drawing the next loop from empty. Each flight draws its own arc
+  (repeat routes get their own fan line, same as static). Airport dots are
+  visible from the start. Hover only hits what's on screen: undrawn arcs
+  are skipped, and the in-progress arc is hit-tested only up to the plane
+  (`distanceToQuadratic`'s `tMax`, from `drawProgressRef`, which
+  `FlightPlane` writes every frame with the Bézier `t` and arc-length
+  `fraction`). Its highlight copy is dashed to the plane too — by
+  `FlightPlane` each frame via `highlightPathRef` (matched on `data-seq`),
+  and immediately in the highlight's ref callback on mount so it never
+  paints whole for a frame. Hovering the in-progress arc stops the plane
+  (and so the drawing), same as any arc. If the map blanks under a hovered
+  arc, the hover is dropped (in `handleDrawChange`) so it can't come back
+  when that arc is redrawn under a cursor the line hasn't reached. Known
+  quirk: hover is only re-tested on pointer move, so a line growing under a
+  still cursor won't highlight until the mouse moves (the plane itself is
+  still caught per frame). Leg-level progress (`drawn`/`drawing`) goes to
+  React only on leg change (~once per leg).
+  Switching modes is continuous: the plane keeps flying, and the draw
+  bookkeeping keeps running in static mode too (static just shows every arc
+  whole, clearing the in-progress dash each frame), so switching back to
+  draw shows exactly what's been drawn so far. `FlightPlane` reads `mode`
+  through a ref, so a switch never re-runs its animation effect. On a
+  switch to draw, the toggle handler dashes the in-progress arc itself so
+  it doesn't paint whole for a frame, and drops any hover (the hovered arc
+  may not be drawn yet). Under reduced motion every arc is reported drawn.
+  The per-frame clock step is capped (`MAX_FRAME_MS`) so a backgrounded
+  tab resumes where it was instead of jumping legs (which would also skip
+  drawing them).
 
 ## Current tuning
 
 - Borders (state + nation, matched): Delta navy (`#041E42`) at 30%
   opacity in light mode, white at 30% in dark mode; `strokeWidth 0.5`.
-- Arcs: `strokeWidth 1`, stroked with a per-arc `linearGradient`
-  (`userSpaceOnUse`, oriented along the arc's own endpoints) instead of a
-  flat color — opaque (`0.5`) at both ends, fading to `0.2` at the
-  midpoint. Stop color is a fixed Delta red (`#C8102E`, Delta's widget
-  mark red), same in light and dark mode rather than following the
+- Arcs: `strokeWidth 1`, flat Delta red (`#C8102E`, Delta's widget mark
+  red) at `strokeOpacity 0.5` along the whole arc (an earlier per-arc
+  gradient that faded to `0.2` at the midpoint was dropped). Same color in
+  light and dark mode rather than following the
   black/white theme convention used elsewhere on the site.
 - Airport dots: Delta navy (`#041E42`) in light mode, white in dark
   mode — matches the borders, unlike the arcs which stay Delta red in
@@ -157,8 +203,6 @@ tight fan of nested arcs instead of one thick line.
 
 ## Not done yet
 
-- Dot sizing by visit count (currently uniform `r=2.5`).
-- Airport labels with a white text-halo for legibility over dense arcs.
 - Filter by year, chronological animate-in — data model (`seq`,
   per-flight records rather than pre-aggregated counts) was kept
   flexible enough to support this later. (Hover-to-enlarge is done —

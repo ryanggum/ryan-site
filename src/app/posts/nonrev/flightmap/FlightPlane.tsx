@@ -11,19 +11,39 @@ const REPOSITION_MIN_MS = 1100; // floor so tiny hops (JFK<->LGA, SNA->LAX) are 
 const GHOST_STROKE = 0.75; // outline width while repositioning (plane is unfilled then)
 const WOBBLE_DEG = 15; // peak heading swing either side of the line while repositioning
 const WOBBLE_PERIOD_MS = 370; // one full back-and-forth swing; same rhythm on short and long hops
-const PLANE_HIT_RADIUS = 7; // cursor within this of the plane's center (times its current scale) catches it
-const CAUGHT_SCALE = 1.6; // plane grows to this while caught
-const SCALE_EASE_MS = 80; // time constant for easing toward / back from CAUGHT_SCALE
-const CAUGHT_COLOR = "#C8102E"; // Delta red, same as a highlighted arc
+const MAX_FRAME_MS = 100; // cap per-frame clock advance, so a backgrounded tab resumes instead of skipping legs
+const PLANE_HIT_RADIUS = 7; // cursor within this of the plane's center catches it
 
 // Top-down airplane silhouette, nose pointing +x, centered on the origin.
 const PLANE_PATH =
   "M6,0 L2,-1 L-1,-6 L-2.5,-6 L-1,-1 L-4,-1 L-5.5,-3 L-6.5,-3 L-5.5,0 L-6.5,3 L-5.5,3 L-4,1 L-1,1 L-2.5,6 L-1,6 L2,1 Z";
 
+export type MapMode = "static" | "draw";
+
+/** Where the arc currently being drawn has got to, written every frame. */
+export type DrawProgress = {
+  seq: number;
+  t: number; // Bézier parameter at the plane, for hit-testing the drawn part
+  fraction: number; // arc-length fraction drawn, for the stroke dash
+};
+
+/** Show only the first `fraction` (by length) of a path's stroke. */
+export function dashTo(path: SVGPathElement, fraction: number) {
+  const length = path.getTotalLength();
+  path.style.strokeDasharray = `${length} ${length}`;
+  path.style.strokeDashoffset = String(length * (1 - fraction));
+}
+
+function clearDash(path: SVGPathElement) {
+  path.style.removeProperty("stroke-dasharray");
+  path.style.removeProperty("stroke-dashoffset");
+}
+
 type Leg = {
   // a real flight along its arc, or an off-the-record straight hop between
   // where one flight landed and where the next one departs
   kind: "flight" | "reposition";
+  seq: number | null; // the flight's seq; null for a reposition hop
   from: Point;
   control: Point;
   to: Point;
@@ -52,11 +72,12 @@ function buildLegs(arcs: ArcDatum[]): { legs: Leg[]; total: number } {
   const legs: Leg[] = [];
   let clock = 0;
 
-  ordered.forEach(({ from, control, to }, idx) => {
+  ordered.forEach(({ seq, from, control, to }, idx) => {
     const lut = lengthTable(from, control, to);
     const duration = (lut[LUT_SAMPLES] / SPEED) * 1000;
     legs.push({
       kind: "flight",
+      seq,
       from,
       control,
       to,
@@ -79,6 +100,7 @@ function buildLegs(arcs: ArcDatum[]): { legs: Leg[]; total: number } {
       );
       legs.push({
         kind: "reposition",
+        seq: null,
         from: to,
         control: mid,
         to: next,
@@ -127,27 +149,69 @@ function tAtFraction(lut: number[], fraction: number): number {
  * Catching it: every frame the plane checks its distance to the last known
  * cursor position (`pointerRef`, in viewBox units, kept by the parent's hit
  * layer) — per frame rather than on pointer move, since the plane can fly
- * into a still cursor. While caught it turns Delta red and grows; it reports
+ * into a still cursor. While caught it stops in place, and reports
  * catch/release (only on change) via `onCaughtChange` so the parent can
- * drop its arc/airport highlight and leave the plane as the one focus.
+ * drop its arc/airport highlight and leave the plane as the one focus. It
+ * also stops, without counting as caught, while flying along the arc the
+ * cursor is hovering (`hoveredArcRef`, also kept by the parent).
+ *
+ * Switching modes doesn't restart anything: the drawing is tracked in both
+ * modes (static just shows every arc whole on top of it), and `mode` is
+ * read through a ref so the effect never re-runs on a switch.
+ *
+ * Draw mode: the arcs start hidden (the parent hides any arc not in its
+ * drawn/drawing state) and the plane reveals each flight's arc behind it
+ * as it flies, via stroke-dasharray/dashoffset on the arc's own <path>
+ * (`arcPathsRef`). Both the plane and the dash are driven by arc-length
+ * fraction, so the drawn line ends right at the plane. Drawn arcs stay up
+ * until the last one lands, then the map blanks and the next loop redraws
+ * from empty. Progress is reported to the parent (`onDrawChange`) only when
+ * a leg changes; the in-progress arc's exact progress goes into
+ * `drawProgressRef` every frame, so the parent can hover just its drawn
+ * part, and a hover highlight on it is dashed to the plane as well
+ * (`highlightPathRef`). Under reduced motion there's no plane to draw with,
+ * so every arc is reported drawn.
  */
 export default function FlightPlane({
+  mode,
   arcs,
   pointerRef,
+  hoveredArcRef,
+  arcPathsRef,
+  highlightPathRef,
+  drawProgressRef,
   onCaughtChange,
+  onDrawChange,
 }: {
+  mode: MapMode;
   arcs: ArcDatum[];
   pointerRef: RefObject<Point | null>;
+  hoveredArcRef: RefObject<number | null>;
+  arcPathsRef: RefObject<Map<number, SVGPathElement>>;
+  // the parent's hover highlight copy (data-seq = its arc), dashed to match
+  // while it's the arc being drawn
+  highlightPathRef: RefObject<SVGPathElement | null>;
+  drawProgressRef: RefObject<DrawProgress | null>;
   onCaughtChange: (caught: boolean) => void;
+  onDrawChange: (drawn: ReadonlySet<number>, drawing: number | null) => void;
 }) {
   const ref = useRef<SVGGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
+  // mode is read through a ref so a switch doesn't re-run the animation
+  // effect, which would restart the plane
+  const modeRef = useRef(mode);
+  useEffect(() => {
+    modeRef.current = mode;
+  }, [mode]);
 
   useEffect(() => {
     const g = ref.current;
     const path = pathRef.current;
     if (!g || !path || arcs.length === 0) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      onDrawChange(new Set(arcs.map((a) => a.seq)), null);
+      return;
+    }
 
     const { legs, total } = buildLegs(arcs);
     // take off on a random flight each page load, then carry on in seq order
@@ -156,28 +220,86 @@ export default function FlightPlane({
       .map((l) => l.start);
     const offset =
       flightStarts[Math.floor(Math.random() * flightStarts.length)];
-    let startTime: number | null = null;
+    // loop clock, advanced by frame deltas (not derived from wall time) so it
+    // can stand still while the plane is held and resume where it left off
+    let elapsed = offset;
     let ghost: boolean | null = null;
     let caught = false;
-    let scale = 1;
+    // held = caught, or flying along the arc the cursor is hovering;
+    // decided from last frame's position, applied to this frame's clock
+    let held = false;
     let lastNow: number | null = null;
+    // draw bookkeeping (kept in both modes, see below)
+    const drawn = new Set<number>();
+    let drawingPath: SVGPathElement | null = null;
+    let drawingSeq: number | null = null;
+    let lastLegIdx = -1;
+    const stopDrawing = () => {
+      if (drawingPath) clearDash(drawingPath);
+      drawingPath = null;
+      drawingSeq = null;
+      drawProgressRef.current = null;
+    };
     let frame = requestAnimationFrame(function tick(now) {
-      startTime ??= now - offset;
-      const dt = now - (lastNow ?? now);
+      const dt = Math.min(MAX_FRAME_MS, now - (lastNow ?? now));
       lastNow = now;
-      const elapsed = (now - startTime) % total;
+      if (!held) elapsed = (elapsed + dt) % total;
 
       // last leg whose takeoff has passed
-      let leg = legs[0];
-      for (const l of legs) {
-        if (l.start > elapsed) break;
-        leg = l;
+      let legIdx = 0;
+      for (let i = 0; i < legs.length; i++) {
+        if (legs[i].start > elapsed) break;
+        legIdx = i;
       }
+      const leg = legs[legIdx];
       const legElapsed = elapsed - leg.start;
       const linear = Math.min(1, legElapsed / leg.duration);
       const isGhost = leg.kind === "reposition";
       const fraction = isGhost ? smoothstep(linear) : linear;
       const t = tAtFraction(leg.lut, fraction);
+
+      // Draw bookkeeping runs in both modes, so switching mid-loop never
+      // interrupts it: static just shows every arc whole, and switching back
+      // to draw shows exactly what the plane has drawn so far.
+      if (legIdx !== lastLegIdx) {
+        // leaving a leg: whatever was being drawn is now fully drawn
+        const prevSeq = lastLegIdx >= 0 ? legs[lastLegIdx].seq : null;
+        if (drawingPath && prevSeq !== null) drawn.add(prevSeq);
+        // the whole history is up: blank the map and draw it all again
+        if (drawn.size === arcs.length) drawn.clear();
+        stopDrawing();
+        lastLegIdx = legIdx;
+        const path =
+          leg.seq !== null && !drawn.has(leg.seq)
+            ? arcPathsRef.current.get(leg.seq)
+            : undefined;
+        if (path) {
+          drawingPath = path;
+          drawingSeq = leg.seq;
+        }
+        onDrawChange(new Set(drawn), drawingSeq);
+      }
+      const drawMode = modeRef.current === "draw";
+      if (drawingPath && drawingSeq !== null) {
+        // static mode shows the in-progress arc whole
+        if (drawMode) dashTo(drawingPath, fraction);
+        else clearDash(drawingPath);
+        drawProgressRef.current = { seq: drawingSeq, t, fraction };
+      }
+      // a hover highlight on the arc being drawn is cut off at the plane
+      // too; on any other arc (or once this one is done) it's whole
+      const highlight = highlightPathRef.current;
+      if (highlight) {
+        if (
+          drawMode &&
+          drawingSeq !== null &&
+          highlight.dataset.seq === String(drawingSeq)
+        ) {
+          dashTo(highlight, fraction);
+        } else {
+          clearDash(highlight);
+        }
+      }
       const [x, y] = pointOnQuadratic(leg.from, leg.control, leg.to, t);
       const [dx, dy] = tangentOnQuadratic(leg.from, leg.control, leg.to, t);
       // ambling heading on hops: a sine swing, faded in and out by a
@@ -192,32 +314,39 @@ export default function FlightPlane({
       const pointer = pointerRef.current;
       const isCaught =
         pointer !== null &&
-        Math.hypot(pointer[0] - x, pointer[1] - y) <= PLANE_HIT_RADIUS * scale;
-      // exponential ease toward the target scale, frame-rate independent
-      scale +=
-        ((isCaught ? CAUGHT_SCALE : 1) - scale) *
-        (1 - Math.exp(-dt / SCALE_EASE_MS));
+        Math.hypot(pointer[0] - x, pointer[1] - y) <= PLANE_HIT_RADIUS;
 
-      g.setAttribute(
-        "transform",
-        `translate(${x},${y}) rotate(${angle}) scale(${scale})`,
-      );
-      if (isGhost !== ghost || isCaught !== caught) {
-        if (isCaught !== caught) onCaughtChange(isCaught);
-        ghost = isGhost;
+      g.setAttribute("transform", `translate(${x},${y}) rotate(${angle})`);
+      if (isCaught !== caught) {
+        onCaughtChange(isCaught);
         caught = isCaught;
-        // inline style beats the fill/stroke classes in both light and dark
-        // mode; a caught ghost is a red outline, a caught flight solid red
-        path.style.fill = ghost ? "none" : caught ? CAUGHT_COLOR : "";
-        path.style.stroke = caught ? CAUGHT_COLOR : "";
+      }
+      held =
+        isCaught || (leg.seq !== null && leg.seq === hoveredArcRef.current);
+      if (isGhost !== ghost) {
+        ghost = isGhost;
+        // inline style beats the fill class in both light and dark mode
+        path.style.fill = ghost ? "none" : "";
         path.setAttribute("stroke-width", String(ghost ? GHOST_STROKE : 0));
       }
       g.style.visibility = "visible";
       frame = requestAnimationFrame(tick);
     });
 
-    return () => cancelAnimationFrame(frame);
-  }, [arcs, pointerRef, onCaughtChange]);
+    return () => {
+      cancelAnimationFrame(frame);
+      stopDrawing();
+    };
+  }, [
+    arcs,
+    pointerRef,
+    hoveredArcRef,
+    arcPathsRef,
+    highlightPathRef,
+    drawProgressRef,
+    onCaughtChange,
+    onDrawChange,
+  ]);
 
   return (
     <g

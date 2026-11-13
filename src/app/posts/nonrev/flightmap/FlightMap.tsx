@@ -29,15 +29,15 @@ export default function FlightMap() {
     arcs.push({ seq: segment.seq, d, from, to, control });
   }
 
+  // The <svg> itself lives in FlightMapInteractive (it sits beside an HTML
+  // button there); the borders are passed in as server-rendered children so
+  // the projection code and TopoJSON still never reach the client.
   return (
-    <svg
-      viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
-      // Fills its parent, which must have a definite height. The viewBox plus
-      // the default preserveAspectRatio ("xMidYMid meet") scales the drawing
-      // down to fit and centers it, so the map never overflows the viewport.
-      className="w-full h-full"
-      role="img"
-      aria-label="Map of the United States showing personal flight history"
+    <FlightMapInteractive
+      viewBoxWidth={VIEWBOX_WIDTH}
+      viewBoxHeight={VIEWBOX_HEIGHT}
+      arcs={arcs}
+      airports={airports}
     >
       <path
         d={stateBordersPath}
@@ -51,29 +51,6 @@ export default function FlightMap() {
         className="stroke-[#041E42]/30 dark:stroke-white/30"
         strokeWidth={0.5}
       />
-      <defs>
-        {arcs.map((arc) => (
-          <linearGradient
-            key={arc.seq}
-            id={`arc-fade-${arc.seq}`}
-            gradientUnits="userSpaceOnUse"
-            x1={arc.from[0]}
-            y1={arc.from[1]}
-            x2={arc.to[0]}
-            y2={arc.to[1]}
-          >
-            <stop offset="0%" stopColor="#C8102E" stopOpacity={0.5} />
-            <stop offset="50%" stopColor="#C8102E" stopOpacity={0.2} />
-            <stop offset="100%" stopColor="#C8102E" stopOpacity={0.5} />
-          </linearGradient>
-        ))}
-      </defs>
-      <FlightMapInteractive
-        viewBoxWidth={VIEWBOX_WIDTH}
-        viewBoxHeight={VIEWBOX_HEIGHT}
-        arcs={arcs}
-        airports={airports}
-      />
-    </svg>
+    </FlightMapInteractive>
   );
 }

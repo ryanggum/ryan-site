@@ -52,18 +52,22 @@ export function arcGeometry(
  * LAX-JFK), wider than the hit radius, so a cursor sitting exactly on a long
  * arc only registered near the sample points. The polyline itself hugs the
  * curve to within a small fraction of a unit at this sample count.
+ *
+ * `tMax` limits the test to the curve from `from` up to that parameter, for
+ * an arc that's only partly drawn (draw mode): the undrawn rest isn't hit.
  */
 export function distanceToQuadratic(
   point: Point,
   from: Point,
   control: Point,
   to: Point,
+  tMax = 1,
   samples = 24,
 ): number {
   let min = Infinity;
   let prev = from;
   for (let s = 1; s <= samples; s++) {
-    const next = pointOnQuadratic(from, control, to, s / samples);
+    const next = pointOnQuadratic(from, control, to, (s / samples) * tMax);
     const dist = distanceToSegment(point, prev, next);
     if (dist < min) min = dist;
     prev = next;
