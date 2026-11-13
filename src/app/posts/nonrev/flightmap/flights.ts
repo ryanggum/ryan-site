@@ -31,4 +31,5 @@ export const flights: Flight[] = [
   { seq: 24, from: "DCA", to: "LGA" },
   { seq: 25, from: "LGA", to: "MSP" },
   { seq: 26, from: "MSP", to: "LGA" },
+  { seq: 27, from: "DCA", to: "LGA" },
 ];
