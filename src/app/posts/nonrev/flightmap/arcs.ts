@@ -1,6 +1,7 @@
 export type Point = [number, number];
 
 const BOW_RATIO = 0.09; // bow as a fraction of chord length, so short and long flights curve proportionally
+const WIND_RATIO = 0.1; // downwind push on the control point per unit of wind, as a fraction of chord length
 const FAN_GAP = 6; // px, fixed spacing between flights on the same airport pair (not proportional)
 
 /**
@@ -11,12 +12,19 @@ const FAN_GAP = 6; // px, fixed spacing between flights on the same airport pair
  * straight, negative bows to the other side). `fan` (see RouteSegment) then
  * adds a fixed-spacing offset, unscaled, so flights between the same two
  * airports stay apart at any bow, including straight.
+ *
+ * `wind` (direction times strength, viewBox axes) pushes the control point
+ * downwind in proportion to chord length, so longer flights drift more.
+ * Crosswind routes bulge downwind; routes along the wind skew instead, their
+ * peak sliding downwind. Flights on one airport pair are the same length, so
+ * they all shift alike and the fan holds.
  */
 export function arcGeometry(
   from: Point,
   to: Point,
   fan: number,
   bowScale = 1,
+  wind: Point = [0, 0],
 ): { control: Point; d: string } {
   const [x1, y1] = from;
   const [x2, y2] = to;
@@ -32,8 +40,9 @@ export function arcGeometry(
 
   const bow = length * BOW_RATIO * bowScale + fan * FAN_GAP;
 
-  const midX = (x1 + x2) / 2 + nx * bow;
-  const midY = (y1 + y2) / 2 + ny * bow;
+  const drift = length * WIND_RATIO;
+  const midX = (x1 + x2) / 2 + nx * bow + wind[0] * drift;
+  const midY = (y1 + y2) / 2 + ny * bow + wind[1] * drift;
 
   return {
     control: [midX, midY],

@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
   type ReactNode,
+  type SVGProps,
 } from "react";
 import { arcGeometry, distanceToQuadratic, type Point } from "./arcs";
 import FlightPlane, {
@@ -48,6 +49,8 @@ const SETTING_STEP = 2; // 0.2x
 const SPEED_RANGE = { min: 2, max: 50 }; // 0.2x - 5x
 const BOW_RANGE = { min: -30, max: 30 }; // negative bows to the other side; 0 is straight
 const DEFAULT_BOW = 0;
+const WIND_RANGE = { min: 0, max: 30 }; // 0 (calm) - 3x
+const WIND_TURN_DEG = 45; // each click of the direction button, clockwise
 
 // shared border color for the control strip and settings panel
 const BOX = "border border-black/30 dark:border-white/30";
@@ -103,25 +106,36 @@ export default function FlightMapInteractive({
   // seq of the flight the plane is on (null until the first frame, and
   // under reduced motion, which hides the plane's controls)
   const [current, setCurrent] = useState<number | null>(null);
+  const canFly = current !== null;
   const [paused, setPaused] = useState(false);
-  // settings dropdown: plane speed and arc height, both in tenths
+  // settings dropdown: plane speed and arc height, both in tenths, and wind
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settingsRef = useRef<HTMLDivElement>(null);
   const [speed, setSpeed] = useState(10);
   const [bow, setBow] = useState(DEFAULT_BOW);
+  // steady wind: strength in tenths, and direction as a count of clockwise
+  // 45° turns from east (blowing toward). The count isn't wrapped, so the
+  // arrow always turns forward instead of spinning back from 315° to 0°.
+  const [windStrength, setWindStrength] = useState(0);
+  const [windTurns, setWindTurns] = useState(0);
 
-  // every consumer (paths, hover, highlight, plane) reads these, so a bow
-  // change reshapes drawn, in-progress and undrawn arcs alike
-  const arcs: ArcDatum[] = useMemo(
-    () =>
-      routes.map(({ seq, from, to, fan }) => ({
-        seq,
-        from,
-        to,
-        ...arcGeometry(from, to, fan, bow / 10),
-      })),
-    [routes, bow],
-  );
+  // every consumer (paths, hover, highlight, plane) reads these, so a bow or
+  // wind change reshapes drawn, in-progress and undrawn arcs alike
+  const arcs: ArcDatum[] = useMemo(() => {
+    // viewBox y points down, so a positive angle turns clockwise on screen
+    const angle = (windTurns * WIND_TURN_DEG * Math.PI) / 180;
+    const strength = windStrength / 10;
+    const wind: Point = [
+      Math.cos(angle) * strength,
+      Math.sin(angle) * strength,
+    ];
+    return routes.map(({ seq, from, to, fan }) => ({
+      seq,
+      from,
+      to,
+      ...arcGeometry(from, to, fan, bow / 10, wind),
+    }));
+  }, [routes, bow, windStrength, windTurns]);
 
   // close the dropdown on Escape or a press anywhere outside the controls
   useEffect(() => {
@@ -305,7 +319,7 @@ export default function FlightMapInteractive({
       >
         {/* fixed height, so the strip doesn't change height on a toggle */}
         <div className={`flex h-6 ${DIVIDE_X} ${BOX}`}>
-          {current !== null && (
+          {canFly && (
             <ControlButton
               label="Plane"
               pressed={mode === "plane"}
@@ -321,7 +335,7 @@ export default function FlightMapInteractive({
             </ControlButton>
           )}
           {mode === "plane" ? (
-            current !== null && (
+            canFly && (
               <>
                 <ControlButton label="Previous" onClick={() => step(-1)}>
                   <path d="M2 2 H3.5 V10 H2 Z M10 2 L4 6 L10 10 Z" />
@@ -346,10 +360,9 @@ export default function FlightMapInteractive({
               pressed={mode === "all"}
               onClick={() => changeMode(mode === "all" ? "none" : "all")}
             >
-              <path
+              <Line
                 d={ARC_ICON_D}
-                strokeWidth={1.5}
-                className={`fill-none stroke-current ${mode === "all" ? "" : "opacity-30"}`}
+                className={mode === "all" ? "" : "opacity-30"}
               />
             </ControlButton>
           )}
@@ -358,19 +371,15 @@ export default function FlightMapInteractive({
             pressed={settingsOpen}
             onClick={() => setSettingsOpen(!settingsOpen)}
           >
-            <path d="M1 3 H11 M1 6 H11 M1 9 H11" className="stroke-current" />
-            <path
-              d="M3 1.5 V4.5 M8 4.5 V7.5 M5 7.5 V10.5"
-              className="stroke-current"
-              strokeWidth={1.5}
-            />
+            <Line d="M1 3 H11 M1 6 H11 M1 9 H11" strokeWidth={1} />
+            <Line d="M3 1.5 V4.5 M8 4.5 V7.5 M5 7.5 V10.5" />
           </ControlButton>
         </div>
         {settingsOpen && (
           <div
             className={`flex flex-col divide-y divide-black/30 dark:divide-white/30 ${BOX} bg-background`}
           >
-            {current !== null && (
+            {canFly && (
               <Stepper
                 label="Speed"
                 icon={<path d="M1 2 L6 6 L1 10 Z M6 2 L11 6 L6 10 Z" />}
@@ -381,16 +390,32 @@ export default function FlightMapInteractive({
             )}
             <Stepper
               label="Arc height"
-              icon={
-                <path
-                  d={ARC_ICON_D}
-                  strokeWidth={1.5}
-                  className="fill-none stroke-current"
-                />
-              }
+              icon={<Line d={ARC_ICON_D} />}
               value={bow}
               range={BOW_RANGE}
               onChange={setBow}
+            />
+            <Stepper
+              label="Wind"
+              icon={
+                <Line
+                  d="M1.5 6 H10 M7 3 L10 6 L7 9"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform duration-150"
+                  // rotates about the glyph's center (SVG transform-origin is
+                  // in user units)
+                  style={{
+                    transform: `rotate(${windTurns * WIND_TURN_DEG}deg)`,
+                    transformOrigin: "6px 6px",
+                  }}
+                />
+              }
+              iconLabel="Wind direction"
+              onIconClick={() => setWindTurns(windTurns + 1)}
+              value={windStrength}
+              range={WIND_RANGE}
+              onChange={setWindStrength}
             />
           </div>
         )}
@@ -478,6 +503,17 @@ export default function FlightMapInteractive({
   );
 }
 
+/** An unfilled, stroked icon path in currentColor (1.5 wide by default). */
+function Line({ className = "", ...props }: SVGProps<SVGPathElement>) {
+  return (
+    <path
+      strokeWidth={1.5}
+      {...props}
+      className={`fill-none stroke-current ${className}`}
+    />
+  );
+}
+
 /** One icon button in the control strip (glyph in currentColor). */
 function ControlButton({
   label,
@@ -510,33 +546,46 @@ function ControlButton({
   );
 }
 
-/** An icon, then [−] value× [+], stepping a tenths value within range. */
+/**
+ * An icon, then [−] value× [+], stepping a tenths value within range. With
+ * `onIconClick`, the icon is a button too.
+ */
 function Stepper({
   label,
   icon,
+  iconLabel,
+  onIconClick,
   value,
   range,
   onChange,
 }: {
   label: string;
   icon: ReactNode;
+  iconLabel?: string;
+  onIconClick?: () => void;
   value: number;
   range: { min: number; max: number };
   onChange: (next: number) => void;
 }) {
   return (
     <div role="group" aria-label={label} className={`flex h-6 ${DIVIDE_X}`}>
-      <span className="flex items-center px-2">
-        <svg viewBox="0 0 12 12" className="size-3 fill-current" aria-hidden>
+      {onIconClick ? (
+        <ControlButton label={iconLabel ?? label} onClick={onIconClick}>
           {icon}
-        </svg>
-      </span>
+        </ControlButton>
+      ) : (
+        <span className="flex items-center px-2">
+          <svg viewBox="0 0 12 12" className="size-3 fill-current" aria-hidden>
+            {icon}
+          </svg>
+        </span>
+      )}
       <ControlButton
         label="Decrease"
         disabled={value <= range.min}
         onClick={() => onChange(Math.max(range.min, value - SETTING_STEP))}
       >
-        <path d="M2 6 H10" strokeWidth={1.5} className="stroke-current" />
+        <Line d="M2 6 H10" />
       </ControlButton>
       <span className="flex items-center justify-center min-w-[6ch] tabular-nums">
         {(value / 10).toFixed(1)}×
@@ -546,11 +595,7 @@ function Stepper({
         disabled={value >= range.max}
         onClick={() => onChange(Math.min(range.max, value + SETTING_STEP))}
       >
-        <path
-          d="M2 6 H10 M6 2 V10"
-          strokeWidth={1.5}
-          className="stroke-current"
-        />
+        <Line d="M2 6 H10 M6 2 V10" />
       </ControlButton>
     </div>
   );
