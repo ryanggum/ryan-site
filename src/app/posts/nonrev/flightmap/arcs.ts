@@ -2,7 +2,7 @@ export type Point = [number, number];
 
 const BOW_RATIO = 0.09; // bow as a fraction of chord length, so short and long flights curve proportionally
 const WIND_RATIO = 0.1; // downwind push on the control point per unit of wind, as a fraction of chord length
-const FAN_GAP = 6; // px, fixed spacing between flights on the same airport pair (not proportional)
+const FAN_GAP = 4; // px, fixed spacing between flights on the same airport pair (not proportional)
 
 /**
  * Control point + SVG path for one flight between two projected points.

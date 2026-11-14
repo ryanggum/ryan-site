@@ -32,7 +32,9 @@ const projection = geoAlbersUsa().fitExtent(
   nationOutline as GeoPermissibleObjects,
 );
 
-const pathGenerator: GeoPath = geoPath(projection);
+// 1 decimal (default 3): a tenth of a viewBox unit is far below a screen
+// pixel, and it trims ~8KB off a path the page ships twice (markup + RSC)
+const pathGenerator: GeoPath = geoPath(projection).digits(1);
 
 // state borders + national outline, drawn identically, so one path
 export const bordersPath =
