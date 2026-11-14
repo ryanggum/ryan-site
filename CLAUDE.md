@@ -17,8 +17,8 @@ verbatim, or leave the field out entirely and say it needs text. An
 omitted `description` is fine (it's optional on `Post`); a plausible-sounding
 placeholder is not, because it reads as their voice and can ship unnoticed.
 
-This does not restrict code-level writing: comments, commit messages, variable
-names, and notes files like `flightmap/NOTES.md` are fine to write.
+This does not restrict code-level writing: comments, commit messages, and
+variable names are fine to write.
 
 ## Commands
 

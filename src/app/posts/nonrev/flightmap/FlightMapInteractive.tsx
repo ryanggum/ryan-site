@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState, type ReactNode } from "react";
 import { distanceToQuadratic, type Point } from "./arcs";
 import FlightPlane, {
+  PLANE_PATH,
   dashTo,
   type DrawProgress,
   type MapMode,
@@ -25,7 +26,7 @@ export type AirportDatum = {
 const ARC_HIT_RADIUS = 6;
 const AIRPORT_HIT_RADIUS = 4; // matches the enlarged dot, so "highlighted" means visibly on it
 const GROW_MS = 150;
-const DEFAULT_MODE: MapMode = "draw";
+const DEFAULT_MODE: MapMode = "plane";
 
 // Runs once per mounted highlight path (it's keyed by seq), animating the
 // stroke from the base arc's width up to the highlight width.
@@ -49,11 +50,9 @@ export default function FlightMapInteractive({
   airports: AirportDatum[];
   children: ReactNode; // server-rendered borders, painted under everything
 }) {
-  // "static": every arc always shown. "draw": arcs start hidden and the
-  // plane draws each one as it flies it; drawn arcs stay up until the whole
-  // loop is drawn, then the map blanks and redraws.
+  // see MapMode: plane drawing the arcs, or no plane with all/no arcs
   const [mode, setMode] = useState<MapMode>(DEFAULT_MODE);
-  // mirror of mode for the stable callbacks below (written in toggleMode)
+  // mirror of mode for the stable callbacks below (written in changeMode)
   const modeRef = useRef<MapMode>(DEFAULT_MODE);
   // draw progress, reported by FlightPlane once per leg change (tracked in
   // both modes, so a switch is seamless): fully drawn arcs, plus the one
@@ -76,6 +75,20 @@ export default function FlightMapInteractive({
   const hoveredArcRef = useRef<number | null>(null);
   // while the cursor is on the plane, it's the only thing highlighted
   const [planeCaught, setPlaneCaught] = useState(false);
+  // transport controls: seq of the flight the plane is on (null until the
+  // first frame, and under reduced motion, which hides the controls),
+  // paused (mirrored into a ref for FlightPlane's frame loop), and a pending
+  // step of whole flights that FlightPlane consumes on its next frame
+  const [current, setCurrent] = useState<number | null>(null);
+  const [paused, setPaused] = useState(false);
+  const pausedRef = useRef(false);
+  const stepRef = useRef(0);
+
+  // stable: refs and state setters only
+  const setHover = useCallback((seq: number | null) => {
+    hoveredArcRef.current = seq;
+    setActiveArc(seq);
+  }, []);
 
   const handlePointerMove = useCallback(
     (e: React.PointerEvent<SVGRectElement>) => {
@@ -101,10 +114,11 @@ export default function FlightMapInteractive({
       let nearestArcDist = Infinity;
       const progress = drawProgressRef.current;
       for (const arc of arcs) {
-        // in draw mode only what's on screen can be hovered: drawn arcs
+        // only what's on screen can be hovered: with the plane, drawn arcs
         // whole, the in-progress one up to the plane, undrawn ones not at all
+        if (mode === "none") break;
         let tMax = 1;
-        if (mode === "draw" && !drawn.has(arc.seq)) {
+        if (mode === "plane" && !drawn.has(arc.seq)) {
           if (progress?.seq !== arc.seq) continue;
           tMax = progress.t;
         }
@@ -129,12 +143,10 @@ export default function FlightMapInteractive({
       // every arc ends at its airport's center, so sliding along an arc into
       // a dot keeps the arc at ~0 distance and the arc stays highlighted
       // until the cursor reaches the dead center.
-      const hoveredArc = !airportHit && arcHit ? nearestArc : null;
-      hoveredArcRef.current = hoveredArc;
-      setActiveArc(hoveredArc);
+      setHover(!airportHit && arcHit ? nearestArc : null);
       setActiveAirport(airportHit ? nearestAirport : null);
     },
-    [arcs, airports, mode, drawn],
+    [arcs, airports, mode, drawn, setHover],
   );
 
   const active = planeCaught
@@ -151,7 +163,7 @@ export default function FlightMapInteractive({
     growIn(el);
     const progress = drawProgressRef.current;
     if (
-      modeRef.current === "draw" &&
+      modeRef.current === "plane" &&
       progress &&
       el.dataset.seq === String(progress.seq)
     ) {
@@ -159,72 +171,130 @@ export default function FlightMapInteractive({
     }
   }, []);
 
-  const handleDrawChange = useCallback(
-    (nextDrawn: ReadonlySet<number>, nextDrawing: number | null) => {
+  const handleLegChange = useCallback(
+    (
+      nextDrawn: ReadonlySet<number>,
+      nextDrawing: number | null,
+      nextCurrent: number | null,
+    ) => {
       setDrawn(nextDrawn);
       setDrawing(nextDrawing);
-      // In draw mode, the map blanked under a hovered arc: drop the hover,
-      // rather than have it come back (and stop the plane) when that arc is
-      // redrawn under a cursor the line hasn't reached. Otherwise a hovered
-      // arc is always in nextDrawn here, since finishing it is what changed
-      // legs. (Static mode can hover undrawn arcs, so it's left alone.)
+      setCurrent(nextCurrent);
+      // reduced motion: no plane, so show the whole map instead
+      if (nextCurrent === null) {
+        modeRef.current = "all";
+        setMode("all");
+      }
+      // With the plane, the hovered arc is no longer drawn (the map blanked
+      // under it, or a step back went past it): drop the hover, rather than
+      // have it come back (and stop the plane) when that arc is redrawn under
+      // a cursor the line hasn't reached. ("all" can hover undrawn arcs, so
+      // it's left alone.)
       const hovered = hoveredArcRef.current;
       if (
-        modeRef.current === "draw" &&
+        modeRef.current === "plane" &&
         hovered !== null &&
         !nextDrawn.has(hovered)
       ) {
-        hoveredArcRef.current = null;
-        setActiveArc(null);
+        setHover(null);
       }
     },
-    [],
+    [setHover],
   );
 
-  // Switching is continuous: the plane keeps flying and FlightPlane keeps
-  // tracking the drawing in both modes, so static just shows every arc and
-  // draw shows what's been drawn so far.
-  const toggleMode = () => {
-    const next = mode === "draw" ? "static" : "draw";
-    if (next === "draw") {
+  // Switching is continuous: FlightPlane holds the plane (and its drawing)
+  // while it's off, so it comes back exactly where it was.
+  const changeMode = (next: MapMode) => {
+    if (next === "plane") {
       // Cut the in-progress arc off at the plane now, in the same commit
       // that reveals it, instead of on FlightPlane's next frame (which
       // could paint it whole for a frame first).
       const progress = drawProgressRef.current;
       const path = progress && arcPathsRef.current.get(progress.seq);
       if (path) dashTo(path, progress.fraction);
-      // the hovered arc may not be drawn yet; the next pointer move
-      // re-tests against draw mode's rules
-      hoveredArcRef.current = null;
-      setActiveArc(null);
     }
+    // the hovered arc may not be on screen any more; the next pointer move
+    // re-tests against the new mode's rules
+    if (next !== "all") setHover(null);
     modeRef.current = next;
     setMode(next);
   };
 
+  const togglePaused = () => {
+    pausedRef.current = !paused;
+    setPaused(!paused);
+  };
+
+  const step = (by: number) => {
+    stepRef.current += by;
+  };
+
   const handlePointerLeave = useCallback(() => {
     pointerRef.current = null;
-    hoveredArcRef.current = null;
-    setActiveArc(null);
+    setHover(null);
     setActiveAirport(null);
-  }, []);
+  }, [setHover]);
 
   return (
     <div className="relative w-full h-full">
-      {/* TODO: placeholder toggle (label is just the mode's code name) */}
-      <button
-        type="button"
-        onClick={toggleMode}
-        className="absolute top-0 left-0 z-10 border border-black/30 dark:border-white/30 px-2 py-1 text-xs text-black dark:text-white"
-      >
-        {mode}
-      </button>
+      {/* fixed height, so the strip doesn't change height on a toggle */}
+      <div className="absolute top-0 left-0 z-10 flex h-6 divide-x divide-black/30 dark:divide-white/30 border border-black/30 dark:border-white/30 text-xs text-black dark:text-white">
+        {current !== null && (
+          <ControlButton
+            label="Plane"
+            pressed={mode === "plane"}
+            viewBox="-7 -7 14 14"
+            onClick={() => changeMode(mode === "plane" ? "none" : "plane")}
+          >
+            <path
+              d={PLANE_PATH}
+              strokeWidth={1}
+              strokeLinejoin="round"
+              className={mode === "plane" ? "" : "fill-none stroke-current"}
+            />
+          </ControlButton>
+        )}
+        {mode === "plane" ? (
+          current !== null && (
+            <>
+              <ControlButton label="Previous" onClick={() => step(-1)}>
+                <path d="M2 2 H3.5 V10 H2 Z M10 2 L4 6 L10 10 Z" />
+              </ControlButton>
+              {/* the counter doubles as play/pause; dimmed while paused */}
+              <button
+                type="button"
+                onClick={togglePaused}
+                aria-label={paused ? "Play" : "Pause"}
+                className={`px-2 min-w-[3.5ch] tabular-nums ${paused ? "opacity-40" : ""}`}
+              >
+                {current}
+              </button>
+              <ControlButton label="Next" onClick={() => step(1)}>
+                <path d="M10 2 H8.5 V10 H10 Z M2 2 L8 6 L2 10 Z" />
+              </ControlButton>
+            </>
+          )
+        ) : (
+          <ControlButton
+            label="Flight paths"
+            pressed={mode === "all"}
+            onClick={() => changeMode(mode === "all" ? "none" : "all")}
+          >
+            <path
+              d="M1 10 Q6 0 11 10"
+              strokeWidth={1.5}
+              className={`fill-none stroke-current ${mode === "all" ? "" : "opacity-30"}`}
+            />
+          </ControlButton>
+        )}
+      </div>
       <svg
         viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
         // Fills its parent, which must have a definite height. The viewBox
         // plus the default preserveAspectRatio ("xMidYMid meet") scales the
         // drawing down to fit and centers it, so the map never overflows.
-        className="w-full h-full"
+        // only the hit-layer rect below takes pointer events
+        className="w-full h-full pointer-events-none"
         role="img"
         aria-label="Map of the United States showing personal flight history"
       >
@@ -238,6 +308,7 @@ export default function FlightMapInteractive({
           width={viewBoxWidth}
           height={viewBoxHeight}
           fill="transparent"
+          className="pointer-events-auto"
           onPointerMove={handlePointerMove}
           onPointerLeave={handlePointerLeave}
         />
@@ -249,16 +320,17 @@ export default function FlightMapInteractive({
               else arcPathsRef.current.delete(arc.seq);
             }}
             d={arc.d}
+            pathLength={1} // dash units are fractions, see dashTo
             fill="none"
             stroke="#C8102E"
             strokeOpacity={0.5}
             strokeWidth={1}
             visibility={
-              mode === "static" || drawn.has(arc.seq) || drawing === arc.seq
+              mode === "all" ||
+              (mode === "plane" && (drawn.has(arc.seq) || drawing === arc.seq))
                 ? "visible"
                 : "hidden"
             }
-            className="pointer-events-none"
           />
         ))}
         {/* The highlight is a separate copy of the active arc drawn after all
@@ -273,10 +345,10 @@ export default function FlightMapInteractive({
             ref={highlightRef}
             data-seq={active.seq}
             d={active.d}
+            pathLength={1}
             fill="none"
             stroke="#C8102E"
             strokeWidth={2.5}
-            className="pointer-events-none"
           />
         )}
         {airports.map((airport) => (
@@ -285,21 +357,52 @@ export default function FlightMapInteractive({
             cx={airport.x}
             cy={airport.y}
             r={!planeCaught && activeAirport === airport.code ? 4 : 2.5}
-            className="pointer-events-none fill-[#041E42] dark:fill-white transition-[r] duration-150"
+            className="fill-[#041E42] dark:fill-white transition-[r] duration-150"
           />
         ))}
         <FlightPlane
-          mode={mode}
+          modeRef={modeRef}
           arcs={arcs}
           pointerRef={pointerRef}
           hoveredArcRef={hoveredArcRef}
           arcPathsRef={arcPathsRef}
           highlightPathRef={highlightPathRef}
           drawProgressRef={drawProgressRef}
+          pausedRef={pausedRef}
+          stepRef={stepRef}
           onCaughtChange={setPlaneCaught}
-          onDrawChange={handleDrawChange}
+          onLegChange={handleLegChange}
         />
       </svg>
     </div>
+  );
+}
+
+/** One icon button in the control strip (glyph in currentColor). */
+function ControlButton({
+  label,
+  pressed,
+  viewBox = "0 0 12 12",
+  onClick,
+  children,
+}: {
+  label: string;
+  pressed?: boolean; // set for toggles
+  viewBox?: string;
+  onClick: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      aria-pressed={pressed}
+      className="flex items-center justify-center px-2"
+    >
+      <svg viewBox={viewBox} className="size-3 fill-current" aria-hidden>
+        {children}
+      </svg>
+    </button>
   );
 }

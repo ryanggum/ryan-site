@@ -1,10 +1,4 @@
-import {
-  VIEWBOX_WIDTH,
-  VIEWBOX_HEIGHT,
-  nationOutlinePath,
-  stateBordersPath,
-  project,
-} from "./geo";
+import { VIEWBOX_WIDTH, VIEWBOX_HEIGHT, bordersPath, project } from "./geo";
 import { getAirportsUsed, buildRouteSegments } from "./routes";
 import { arcGeometry } from "./arcs";
 import FlightMapInteractive, {
@@ -40,13 +34,7 @@ export default function FlightMap() {
       airports={airports}
     >
       <path
-        d={stateBordersPath}
-        fill="none"
-        className="stroke-[#041E42]/30 dark:stroke-white/30"
-        strokeWidth={0.5}
-      />
-      <path
-        d={nationOutlinePath}
+        d={bordersPath}
         fill="none"
         className="stroke-[#041E42]/30 dark:stroke-white/30"
         strokeWidth={0.5}
