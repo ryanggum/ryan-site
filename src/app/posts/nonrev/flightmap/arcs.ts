@@ -6,6 +6,8 @@ const FAN_GAP = 6; // px, fixed spacing between sibling flights on the same rout
 /**
  * Control point + SVG path for one flight between two projected points,
  * offset by its index (i) among n total flights on the same directed route.
+ * `bowScale` multiplies the bow (0 = straight, negative bows to the other
+ * side; the fan spacing is unscaled).
  * Bows proportionally to the chord's own length so short and long flights
  * curve at the same visual ratio, and always to the same side of travel so
  * A->B and B->A separate visually. Repeat flights on one route fan out
@@ -16,6 +18,7 @@ export function arcGeometry(
   to: Point,
   i: number,
   n: number,
+  bowScale = 1,
 ): { control: Point; d: string } {
   const [x1, y1] = from;
   const [x2, y2] = to;
@@ -30,7 +33,7 @@ export function arcGeometry(
   const ny = dx / length;
 
   const fanOffset = (i - (n - 1) / 2) * FAN_GAP;
-  const bow = length * BOW_RATIO + fanOffset;
+  const bow = length * BOW_RATIO * bowScale + fanOffset;
 
   const midX = (x1 + x2) / 2 + nx * bow;
   const midY = (y1 + y2) / 2 + ny * bow;
