@@ -16,11 +16,11 @@ export default function FlightMap() {
   // just projected endpoints + fan position: the curves themselves are
   // computed client-side, since the arc height control reshapes them
   const routes: RouteDatum[] = [];
-  for (const { seq, i, n, ...segment } of buildRouteSegments()) {
+  for (const { seq, fan, ...segment } of buildRouteSegments()) {
     const from = project(segment.from.lon, segment.from.lat);
     const to = project(segment.to.lon, segment.to.lat);
     if (!from || !to) continue;
-    routes.push({ seq, from, to, i, n });
+    routes.push({ seq, from, to, fan });
   }
 
   // The <svg> itself lives in FlightMapInteractive (beside its HTML

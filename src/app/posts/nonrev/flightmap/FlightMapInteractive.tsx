@@ -24,13 +24,12 @@ export type ArcDatum = {
   control: Point;
 };
 
-/** A flight's projected endpoints and its index i among n on its route. */
+/** A flight's projected endpoints and fan slot (see RouteSegment). */
 export type RouteDatum = {
   seq: number;
   from: Point;
   to: Point;
-  i: number;
-  n: number;
+  fan: number;
 };
 
 export type AirportDatum = {
@@ -115,11 +114,11 @@ export default function FlightMapInteractive({
   // change reshapes drawn, in-progress and undrawn arcs alike
   const arcs: ArcDatum[] = useMemo(
     () =>
-      routes.map(({ seq, from, to, i, n }) => ({
+      routes.map(({ seq, from, to, fan }) => ({
         seq,
         from,
         to,
-        ...arcGeometry(from, to, i, n, bow / 10),
+        ...arcGeometry(from, to, fan, bow / 10),
       })),
     [routes, bow],
   );
