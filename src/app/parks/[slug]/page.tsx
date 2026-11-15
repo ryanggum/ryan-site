@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Album from "../components/Album";
 import { albumSlugs, getAlbumMeta } from "@/lib/rolls";
-import type { AlbumModule } from "@/lib/types";
+import { loadAlbumPhotos } from "../util/util";
 
 export function generateStaticParams() {
   return albumSlugs;
@@ -38,9 +38,7 @@ export default async function Page({
     notFound();
   }
 
-  const { default: images } = (await import(
-    `@/app/assets/parks/${meta.slug}/photos`
-  )) as AlbumModule;
+  const images = await loadAlbumPhotos(meta.slug);
 
   return <Album meta={meta} images={images} />;
 }

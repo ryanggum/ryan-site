@@ -70,7 +70,7 @@ export default async function ParksPage() {
                   <div className="pl-2 sm:pl-6">
                     <DisplayGrid
                       title={album.title}
-                      images={[...album.images]}
+                      images={album.images}
                       priority={yearIdx === 0 && albumIdx === 0}
                       sizes={PREVIEW_SIZES}
                     />

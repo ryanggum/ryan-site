@@ -1,6 +1,4 @@
-// src/app/parks/components/Album.tsx (client)
-"use client";
-
+// src/app/parks/components/Album.tsx
 import DisplayGrid from "../../components/display/DisplayGrid";
 import type { AlbumMeta, Photo } from "@/lib/types";
 
