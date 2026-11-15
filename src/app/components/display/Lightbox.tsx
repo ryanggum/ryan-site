@@ -1,4 +1,4 @@
-// src/app/components/display/light/LightBox.tsx
+// src/app/components/display/Lightbox.tsx
 "use client";
 
 import Image from "next/image";
@@ -51,8 +51,23 @@ export default function Lightbox({
   // Move focus onto the lightbox so the thumbnail button that opened it
   // (still focused from the click) doesn't pick up a stray keyboard-focus
   // ring the moment a key like Escape is pressed.
+  //
+  // On close, hand focus back to that thumbnail — but only if it was opened
+  // from the keyboard (the button matched :focus-visible), so keyboard users
+  // resume where they were. After a mouse click, restoring focus would make
+  // the Escape keypress light up exactly the stray ring avoided above.
   useEffect(() => {
+    const opener =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+    const restoreFocus = opener?.matches(":focus-visible") ?? false;
+
     containerRef.current?.focus({ preventScroll: true });
+
+    return () => {
+      if (restoreFocus) opener?.focus({ preventScroll: true });
+    };
   }, []);
 
   // Lock background scroll while the lightbox is open.
@@ -66,7 +81,11 @@ export default function Lightbox({
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") {
+      if (e.key === "Tab") {
+        // Nothing inside the dialog is tabbable, so keep focus on it rather
+        // than letting Tab walk into the page behind the overlay.
+        e.preventDefault();
+      } else if (e.key === "Escape") {
         onClose();
       } else if (e.key === "ArrowLeft" && hasPrev) {
         onNavigate(activeIndex - 1);

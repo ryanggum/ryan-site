@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import type { Photo } from "@/lib/types";
-import Lightbox from "./light/LightBox";
+import Lightbox from "./Lightbox";
 
 export default function DisplayGrid({
   title,
