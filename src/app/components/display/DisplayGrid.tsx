@@ -2,26 +2,25 @@
 "use client";
 
 import Image from "next/image";
-import { memo, useState, useMemo, useCallback } from "react";
+import { useState } from "react";
 import type { Photo } from "@/lib/types";
 import Lightbox from "./light/LightBox";
 
-function DisplayGridBase({
+export default function DisplayGrid({
   title,
   images,
   width,
-  height,
   columns,
-  square = false,
   priority = false,
   sizes,
 }: {
   title: string;
   images: Photo[];
+  /** Max rendered width in px; the grid shrinks below it with its container. */
   width?: number;
-  height?: number;
+  /** Fixed column count at every breakpoint. Defaults to 1/2/3 by image count. */
   columns?: number;
-  square?: boolean;
+  /** Load the first thumbnail eagerly at high fetch priority (above the fold). */
   priority?: boolean;
   /**
    * Exact `sizes` for each thumbnail. Callers that know their page padding
@@ -33,97 +32,62 @@ function DisplayGridBase({
 }) {
   const [active, setActive] = useState<number | null>(null);
 
-  // Default column count (used only if `columns` is not provided)
-  const effectiveColumns = useMemo(
-    () => columns ?? (images.length === 1 ? 1 : images.length === 2 ? 2 : 3),
-    [columns, images.length],
-  );
+  const cols = columns ?? (Math.min(images.length, 3) || 1);
 
-  // Grid is a fixed number of columns at every breakpoint, so the browser
-  // should never fetch an image wider than one column's share of the
-  // container (or of the viewport, once the container shrinks below `width`).
-  const imageSizes = useMemo(() => {
-    if (sizes) return sizes;
-    const columnVw = `${Math.round(100 / effectiveColumns)}vw`;
-    return width
-      ? `(max-width: ${width}px) ${columnVw}, ${Math.round(width / effectiveColumns)}px`
-      : columnVw;
-  }, [sizes, width, effectiveColumns]);
-
-  const aspectClass = useMemo(
-    () => (square ? "aspect-square" : "aspect-[3/2]"),
-    [square],
-  );
-
-  const openAtIndex = useCallback((idx: number) => {
-    setActive(idx);
-  }, []);
-
-  const closeLightbox = useCallback(() => {
-    setActive(null);
-  }, []);
+  // Fallback: one column's share of the viewport, capped at one column's
+  // share of `width` once the viewport is wider than that.
+  const columnVw = `${Math.round(100 / cols)}vw`;
+  const imageSizes =
+    sizes ??
+    (width
+      ? `(max-width: ${width}px) ${columnVw}, ${Math.round(width / cols)}px`
+      : columnVw);
 
   return (
     <>
       <div
-        className="overflow-hidden"
+        className="grid w-full gap-2 sm:gap-4"
         style={{
-          width: width ? "100%" : undefined,
-          maxWidth: width ? `${width}px` : undefined,
-          height: height ? `${height}px` : undefined,
+          gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+          maxWidth: width,
         }}
       >
-        <div
-          className="grid gap-2 sm:gap-4 w-full h-full"
-          style={{
-            gridTemplateColumns: `repeat(${effectiveColumns}, minmax(0, 1fr))`,
-          }}
-        >
-          {images.map((photo, idx) => {
-            const blurDataURL =
-              typeof photo.src === "object" &&
-              "blurDataURL" in photo.src &&
-              photo.src.blurDataURL
-                ? photo.src.blurDataURL
-                : undefined;
+        {images.map((photo, idx) => {
+          const eager = priority && idx === 0;
+          return (
+            <div key={idx}>
+              <button
+                type="button"
+                onClick={() => setActive(idx)}
+                className="group relative block aspect-[3/2] w-full cursor-pointer overflow-hidden"
+                aria-label={`Open ${title} photo ${idx + 1}`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt?.trim() || `${title} photo ${idx + 1}`}
+                  fill
+                  // `priority` on next/image is deprecated in Next 16;
+                  // eager + high fetch priority is the recommended
+                  // replacement for an above-the-fold image that's already
+                  // in the server HTML.
+                  loading={eager ? "eager" : undefined}
+                  fetchPriority={eager ? "high" : undefined}
+                  sizes={imageSizes}
+                  quality={100}
+                  // Static JPEG imports always carry a blurDataURL.
+                  placeholder="blur"
+                  className="object-cover transition-transform duration-200 ease-out group-hover:-translate-y-0.5"
+                />
+              </button>
 
-            return (
-              <div key={idx} className="flex flex-col">
-                <button
-                  type="button"
-                  onClick={() => openAtIndex(idx)}
-                  className="group relative block overflow-hidden cursor-pointer p-0 m-0 border-0 bg-transparent"
-                  aria-label={`Open ${title} photo ${idx + 1}`}
-                >
-                  <div className={`relative w-full ${aspectClass}`}>
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt?.trim() || `${title} photo ${idx + 1}`}
-                      fill
-                      // `priority` on next/image is deprecated in Next 16;
-                      // eager + high fetch priority is the recommended
-                      // replacement for an above-the-fold image that's
-                      // already in the server HTML.
-                      loading={priority && idx === 0 ? "eager" : undefined}
-                      fetchPriority={priority && idx === 0 ? "high" : undefined}
-                      sizes={imageSizes}
-                      quality={100}
-                      className="object-cover transition-transform duration-200 ease-out group-hover:-translate-y-0.5"
-                      placeholder={blurDataURL ? "blur" : "empty"}
-                      blurDataURL={blurDataURL}
-                    />
-                  </div>
-                </button>
-
-                {photo.caption && (
-                  <div className="text-sm text-gray-500 leading-tight">
-                    {photo.caption}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+              {photo.caption && (
+                <div className="text-sm text-gray-500 leading-tight">
+                  {photo.caption}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {active !== null && (
@@ -131,12 +95,10 @@ function DisplayGridBase({
           images={images}
           activeIndex={active}
           title={title}
-          onClose={closeLightbox}
+          onClose={() => setActive(null)}
           onNavigate={setActive}
         />
       )}
     </>
   );
 }
-
-export default memo(DisplayGridBase);

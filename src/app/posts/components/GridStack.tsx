@@ -11,7 +11,6 @@ type ImageGridStackProps = {
   images: ImageArray | [ImageArray, ImageArray];
   width: ScalarOrPair<number>;
   columns?: ScalarOrPair<number>;
-  square?: ScalarOrPair<boolean>;
 };
 
 export function ImageGridStack({
@@ -19,7 +18,6 @@ export function ImageGridStack({
   images,
   width,
   columns,
-  square,
 }: ImageGridStackProps) {
   const grids: ImageArray[] = Array.isArray(images[0])
     ? (images as [ImageArray, ImageArray])
@@ -27,8 +25,6 @@ export function ImageGridStack({
   const widths = Array.isArray(width) ? width : [width];
   const columnsArr =
     columns !== undefined ? (Array.isArray(columns) ? columns : [columns]) : [];
-  const squareArr =
-    square !== undefined ? (Array.isArray(square) ? square : [square]) : [];
 
   return (
     <div className="flex flex-col items-center">
@@ -49,7 +45,6 @@ export function ImageGridStack({
               images={imgSet}
               width={widths[i] ?? widths[0]}
               columns={columnsArr[i]}
-              square={squareArr[i]}
             />
           </div>
         </div>
