@@ -14,6 +14,7 @@ function DisplayGridBase({
   columns,
   square = false,
   priority = false,
+  sizes,
 }: {
   title: string;
   images: Photo[];
@@ -22,6 +23,13 @@ function DisplayGridBase({
   columns?: number;
   square?: boolean;
   priority?: boolean;
+  /**
+   * Exact `sizes` for each thumbnail. Callers that know their page padding
+   * should pass this: the fallback below assumes the grid spans the full
+   * viewport, which over-fetches (and spreads requests across more cached
+   * width variants) whenever the grid is padded or capped.
+   */
+  sizes?: string;
 }) {
   const [active, setActive] = useState<number | null>(null);
 
@@ -35,11 +43,12 @@ function DisplayGridBase({
   // should never fetch an image wider than one column's share of the
   // container (or of the viewport, once the container shrinks below `width`).
   const imageSizes = useMemo(() => {
+    if (sizes) return sizes;
     const columnVw = `${Math.round(100 / effectiveColumns)}vw`;
     return width
       ? `(max-width: ${width}px) ${columnVw}, ${Math.round(width / effectiveColumns)}px`
       : columnVw;
-  }, [width, effectiveColumns]);
+  }, [sizes, width, effectiveColumns]);
 
   const aspectClass = useMemo(
     () => (square ? "aspect-square" : "aspect-[3/2]"),
@@ -91,7 +100,12 @@ function DisplayGridBase({
                       src={photo.src}
                       alt={photo.alt?.trim() || `${title} photo ${idx + 1}`}
                       fill
-                      priority={priority && idx === 0}
+                      // `priority` on next/image is deprecated in Next 16;
+                      // eager + high fetch priority is the recommended
+                      // replacement for an above-the-fold image that's
+                      // already in the server HTML.
+                      loading={priority && idx === 0 ? "eager" : undefined}
+                      fetchPriority={priority && idx === 0 ? "high" : undefined}
                       sizes={imageSizes}
                       quality={100}
                       className="object-cover transition-transform duration-200 ease-out group-hover:-translate-y-0.5"

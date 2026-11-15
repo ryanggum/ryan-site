@@ -10,6 +10,22 @@ import { groupAlbumsByYear, hydrateAlbumsWithImages } from "./util/util";
 
 const description = "Film";
 
+// `auto` lets supporting browsers use the grid's real rendered width for
+// lazy thumbnails, so it can't drift from the layout. The rest is the
+// fallback (non-supporting browsers, and the eager `priority` image):
+// one column of the 3-up preview grid, derived from the layout below —
+// main padding (px-4/6/12/24/48) → max-w-4xl (896px) cap → two nested
+// pl-2/sm:pl-6 indents → two grid gaps (gap-2/sm:gap-4), divided by 3.
+// The 896px cap is reached from lg up, fixing a column at (896-48-32)/3.
+// Keep in sync if any of those classes change.
+const PREVIEW_SIZES = [
+  "auto",
+  "(min-width: 1024px) 272px",
+  "(min-width: 768px) calc((100vw - 176px) / 3)",
+  "(min-width: 640px) calc((100vw - 128px) / 3)",
+  "calc((100vw - 64px) / 3)",
+].join(", ");
+
 export const metadata: Metadata = {
   title: "Rolls",
   description,
@@ -56,6 +72,7 @@ export default async function ParksPage() {
                       title={album.title}
                       images={[...album.images]}
                       priority={yearIdx === 0 && albumIdx === 0}
+                      sizes={PREVIEW_SIZES}
                     />
                   </div>
                 </section>
