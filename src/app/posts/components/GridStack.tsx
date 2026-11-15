@@ -2,57 +2,41 @@
 import DisplayGrid from "@/app/components/display/DisplayGrid";
 import type { AspectRatio, Photo } from "@/lib/types";
 
-type ImageArray = Photo[];
-
-type ScalarOrPair<T> = T | [T, T];
-
-type ImageGridStackProps = {
-  title: string;
-  images: ImageArray | [ImageArray, ImageArray];
-  width: ScalarOrPair<number>;
-  columns?: ScalarOrPair<number>;
-  // A single value applies to every grid in the stack; a pair sets each.
-  ratio?: ScalarOrPair<AspectRatio>;
+export type GridRow = {
+  images: Photo[];
+  /** Max width of this row in px; it shrinks below that with the page. */
+  width: number;
+  /** Fixed column count; defaults to 1/2/3 by image count. */
+  columns?: number;
+  /** Overrides the stack-level `ratio` for this row. */
+  ratio?: AspectRatio;
 };
 
+/**
+ * One or more centered photo grids stacked inline in a post. Each row is its
+ * own DisplayGrid, so each opens its own lightbox (intentional).
+ */
 export function ImageGridStack({
   title,
-  images,
-  width,
-  columns,
+  rows,
   ratio,
-}: ImageGridStackProps) {
-  const grids: ImageArray[] = Array.isArray(images[0])
-    ? (images as [ImageArray, ImageArray])
-    : [images as ImageArray];
-  const widths = Array.isArray(width) ? width : [width];
-  const columnsArr =
-    columns !== undefined ? (Array.isArray(columns) ? columns : [columns]) : [];
-  const ratios = Array.isArray(ratio) ? ratio : [ratio];
-
+}: {
+  title: string;
+  rows: GridRow[];
+  /** Thumbnail shape for every row that doesn't set its own. */
+  ratio?: AspectRatio;
+}) {
   return (
-    <div className="flex flex-col items-center">
-      {grids.map((imgSet, i) => (
-        <div
+    <div className="not-prose my-4 flex flex-col items-center gap-3">
+      {rows.map((row, i) => (
+        <DisplayGrid
           key={i}
-          className={`flex justify-center w-full ${
-            grids.length === 1
-              ? "mt-4 mb-4"
-              : i === 0
-                ? "mt-4 mb-2"
-                : "mt-1 mb-4"
-          }`}
-        >
-          <div className="not-prose w-full flex justify-center">
-            <DisplayGrid
-              title={title}
-              images={imgSet}
-              width={widths[i] ?? widths[0]}
-              columns={columnsArr[i]}
-              ratio={ratios[i] ?? ratios[0]}
-            />
-          </div>
-        </div>
+          title={title}
+          images={row.images}
+          width={row.width}
+          columns={row.columns}
+          ratio={row.ratio ?? ratio}
+        />
       ))}
     </div>
   );

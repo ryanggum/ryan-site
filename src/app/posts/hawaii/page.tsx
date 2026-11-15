@@ -63,7 +63,10 @@ export default function Page() {
         am lucky Josh kicked them on. We made the peak and burrowed behind some
         rocks before looking up.
       </Prose>
-      <ImageGridStack title="Hawaii" images={[photos.stars]} width={600} />
+      <ImageGridStack
+        title="Hawaii"
+        rows={[{ images: [photos.stars], width: 600 }]}
+      />
       <Prose>
         What to do with a night sky? This was not a matter of white dotting
         black but bright dotting light, flowers—Rigel, Sirius, them all—topping
@@ -82,8 +85,10 @@ export default function Page() {
       </Prose>
       <ImageGridStack
         title="Hawaii"
-        images={[[photos.thinking, photos.claw], [photos.food]]}
-        width={[600, 330]}
+        rows={[
+          { images: [photos.thinking, photos.claw], width: 600 },
+          { images: [photos.food], width: 330 },
+        ]}
         ratio="4/3"
       />
       <Prose>
@@ -140,8 +145,10 @@ export default function Page() {
       </Prose>
       <ImageGridStack
         title="Hawaii"
-        images={[[photos.launch, photos.lean], [photos.crest]]}
-        width={[600, 330]}
+        rows={[
+          { images: [photos.launch, photos.lean], width: 600 },
+          { images: [photos.crest], width: 330 },
+        ]}
       />
       <Prose>
         At the crest of the bay, olivine joined the mix for a sharper lashing.
@@ -170,7 +177,10 @@ export default function Page() {
         earth really, really, really not choosing place but who. Lifting my hair
         run rigid black eying that frame of fire squinting on I saw.
       </Prose>
-      <ImageGridStack title="Hawaii" images={[photos.coast]} width={600} />
+      <ImageGridStack
+        title="Hawaii"
+        rows={[{ images: [photos.coast], width: 600 }]}
+      />
       <Prose>
         Back, land stretched surreal. Windless and in the northern fence, we
         pushed the boat launch until even in her there were no words, none as
@@ -183,8 +193,7 @@ export default function Page() {
       <DayBreak />
       <ImageGridStack
         title="Hawaii"
-        images={[photos.school, photos.drive]}
-        width={600}
+        rows={[{ images: [photos.school, photos.drive], width: 600 }]}
       />
       <Prose>
         Exhausted? I pray less than this prose but more than we who rewound by
@@ -217,8 +226,7 @@ export default function Page() {
       </Prose>
       <ImageGridStack
         title="Hawaii"
-        images={[photos.cook, photos.bay]}
-        width={600}
+        rows={[{ images: [photos.cook, photos.bay], width: 600 }]}
         ratio="4/3"
       />
       <Prose>
@@ -258,8 +266,10 @@ export default function Page() {
       </Prose>
       <ImageGridStack
         title="Hawaii"
-        images={[[photos.towel, photos.goat], [photos.white]]}
-        width={[600, 330]}
+        rows={[
+          { images: [photos.towel, photos.goat], width: 600 },
+          { images: [photos.white], width: 330 },
+        ]}
       />
       <Prose>
         We made it to the CTS dripping wet, carried the last portion by Tahitian
