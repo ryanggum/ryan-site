@@ -84,6 +84,7 @@ export default function Page() {
         title="Hawaii"
         images={[[photos.thinking, photos.claw], [photos.food]]}
         width={[600, 330]}
+        ratio="4/3"
       />
       <Prose>
         I couldn’t sleep that night. As we walked down the hill not more than
@@ -218,6 +219,7 @@ export default function Page() {
         title="Hawaii"
         images={[photos.cook, photos.bay]}
         width={600}
+        ratio="4/3"
       />
       <Prose>
         A short time later we descended 1,400 feet into Kealakekua Bay. A

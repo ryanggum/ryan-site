@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import type { Photo } from "@/lib/types";
+import type { AspectRatio, Photo } from "@/lib/types";
 import Lightbox from "./Lightbox";
 
 export default function DisplayGrid({
@@ -11,6 +11,7 @@ export default function DisplayGrid({
   images,
   width,
   columns,
+  ratio = "3/2",
   priority = false,
   sizes,
 }: {
@@ -20,6 +21,12 @@ export default function DisplayGrid({
   width?: number;
   /** Fixed column count at every breakpoint. Defaults to 1/2/3 by image count. */
   columns?: number;
+  /**
+   * Thumbnail shape; photos are cropped to it (object-cover). Defaults to
+   * 3:2 for the film scans. Pass "4/3" for a grid of phone shots so they
+   * aren't trimmed. The lightbox always shows the full photo.
+   */
+  ratio?: AspectRatio;
   /** Load the first thumbnail eagerly at high fetch priority (above the fold). */
   priority?: boolean;
   /**
@@ -34,14 +41,18 @@ export default function DisplayGrid({
 
   const cols = columns ?? (Math.min(images.length, 3) || 1);
 
-  // Fallback: one column's share of the viewport, capped at one column's
-  // share of `width` once the viewport is wider than that.
+  // Fallback: `auto` (rendered width, for lazy images in supporting
+  // browsers), then one column's share of the viewport, capped at one
+  // column's share of `width` once the viewport is wider than that. The
+  // estimate ignores padding and gaps, so it only ever errs larger.
   const columnVw = `${Math.round(100 / cols)}vw`;
   const imageSizes =
     sizes ??
-    (width
-      ? `(max-width: ${width}px) ${columnVw}, ${Math.round(width / cols)}px`
-      : columnVw);
+    `auto, ${
+      width
+        ? `(max-width: ${width}px) ${columnVw}, ${Math.round(width / cols)}px`
+        : columnVw
+    }`;
 
   return (
     <>
@@ -59,7 +70,8 @@ export default function DisplayGrid({
               <button
                 type="button"
                 onClick={() => setActive(idx)}
-                className="group relative block aspect-[3/2] w-full cursor-pointer overflow-hidden"
+                className="group relative block w-full cursor-pointer overflow-hidden"
+                style={{ aspectRatio: ratio }}
                 aria-label={`Open ${title} photo ${idx + 1}`}
               >
                 <Image

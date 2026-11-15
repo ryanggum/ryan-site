@@ -1,6 +1,6 @@
 // src/app/posts/components/GridStack.tsx
 import DisplayGrid from "@/app/components/display/DisplayGrid";
-import type { Photo } from "@/lib/types";
+import type { AspectRatio, Photo } from "@/lib/types";
 
 type ImageArray = Photo[];
 
@@ -11,6 +11,8 @@ type ImageGridStackProps = {
   images: ImageArray | [ImageArray, ImageArray];
   width: ScalarOrPair<number>;
   columns?: ScalarOrPair<number>;
+  // A single value applies to every grid in the stack; a pair sets each.
+  ratio?: ScalarOrPair<AspectRatio>;
 };
 
 export function ImageGridStack({
@@ -18,6 +20,7 @@ export function ImageGridStack({
   images,
   width,
   columns,
+  ratio,
 }: ImageGridStackProps) {
   const grids: ImageArray[] = Array.isArray(images[0])
     ? (images as [ImageArray, ImageArray])
@@ -25,6 +28,7 @@ export function ImageGridStack({
   const widths = Array.isArray(width) ? width : [width];
   const columnsArr =
     columns !== undefined ? (Array.isArray(columns) ? columns : [columns]) : [];
+  const ratios = Array.isArray(ratio) ? ratio : [ratio];
 
   return (
     <div className="flex flex-col items-center">
@@ -45,6 +49,7 @@ export function ImageGridStack({
               images={imgSet}
               width={widths[i] ?? widths[0]}
               columns={columnsArr[i]}
+              ratio={ratios[i] ?? ratios[0]}
             />
           </div>
         </div>

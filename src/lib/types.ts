@@ -27,6 +27,9 @@ export type Post = {
   description?: string;
 };
 
+// A CSS aspect ratio as width/height, e.g. "3/2" or "4/3".
+export type AspectRatio = `${number}/${number}`;
+
 // Reusable “default export” module helper.
 export type ModuleDefault<T> = { default: T };
 
