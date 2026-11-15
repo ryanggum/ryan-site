@@ -1,12 +1,6 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ryangumlia.com"),
@@ -42,11 +36,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} antialiased min-h-dvh overscroll-none`}
-      >
-        {children}
-      </body>
+      <body className="antialiased min-h-dvh">{children}</body>
     </html>
   );
 }
