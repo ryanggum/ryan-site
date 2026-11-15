@@ -1,9 +1,26 @@
 // src/app/posts/components/GridStack.tsx
+import type { StaticImageData } from "next/image";
 import DisplayGrid from "@/app/components/display/DisplayGrid";
 import type { AspectRatio, Photo } from "@/lib/types";
 
+// The alt every post photo has used so far; applied to bare image imports.
+const DEFAULT_ALT = "[photo]";
+
+/**
+ * A row entry is either a bare static import (`import stars from "…jpg"`),
+ * which gets DEFAULT_ALT, or a full Photo when it needs its own alt or a
+ * caption. StaticImageData's `src` is a URL string; Photo's is an object.
+ */
+export type PhotoInput = Photo | StaticImageData;
+
+function toPhoto(input: PhotoInput): Photo {
+  return typeof input.src === "string"
+    ? { src: input as StaticImageData, alt: DEFAULT_ALT }
+    : (input as Photo);
+}
+
 export type GridRow = {
-  images: Photo[];
+  images: PhotoInput[];
   /** Max width of this row in px; it shrinks below that with the page. */
   width: number;
   /** Fixed column count; defaults to 1/2/3 by image count. */
@@ -32,7 +49,7 @@ export function ImageGridStack({
         <DisplayGrid
           key={i}
           title={title}
-          images={row.images}
+          images={row.images.map(toPhoto)}
           width={row.width}
           columns={row.columns}
           ratio={row.ratio ?? ratio}

@@ -39,7 +39,7 @@ There is no test suite configured. Type-check with `npx tsc --noEmit`.
 The site has two independent, similarly-structured content systems that are easy to confuse:
 
 - **Rolls / Parks** (`/parks`, `/parks/[slug]`): film photo albums. Metadata lives in `src/lib/rolls.ts` (exports `albums`, `albumSlugs`, `getAlbumMeta`). Each album's photos live in `src/app/assets/parks/<slug>/photos.ts`, which imports local `.jpg` files and exports a default `Photo[]`.
-- **Posts** (`/posts`, `/posts/<slug>`): written pieces. Metadata lives in `src/lib/posts.ts` (exports `posts`, `getPostMeta`, `stripHtml`). Unlike parks, there's no dynamic `[slug]` route or generated params — each post is its own hand-authored route directory under `src/app/posts/<slug>/page.tsx`, some with a co-located `photos.ts`.
+- **Posts** (`/posts`, `/posts/<slug>`): written pieces. Metadata lives in `src/lib/posts.ts` (exports `posts`, `getPostMeta`, `stripHtml`). Unlike parks, there's no dynamic `[slug]` route or generated params — each post is its own hand-authored route directory under `src/app/posts/<slug>/page.tsx`. Post photos are imported straight into `page.tsx` from `src/app/assets/posts/<slug>/` (no `photos.ts`; JMT's leftover one is unused).
 
 Both metadata arrays carry an `i` (display index), and both list/detail pages group entries by year via the shared `groupByYear` helper (`src/lib/groupByYear.ts`) — `groupAlbumsByYear` in `src/app/parks/util/util.ts` wraps it for albums, `posts/page.tsx` calls it directly — sorted descending by year and, within a year, by roll number / date. When adding a new roll or post, add an entry to the corresponding array in `src/lib/rolls.ts` / `src/lib/posts.ts` — the list/detail pages and static params derive entirely from these arrays.
 
@@ -57,7 +57,7 @@ Both parks pages load an album's photos through `loadAlbumPhotos(slug)` in `src/
 
 ### Posts composition
 
-Post pages compose from small building blocks in `src/app/posts/components/`: `PostShell` (page chrome + `PostHeader`), `Prose` (styled paragraph/heading wrapper using Tailwind `prose`), `DayHeader`/`DayBreak` (trip-report day dividers, used by the JMT and Hawaii trip reports), and `GridStack` (`ImageGridStack`, for image grids inline in prose, e.g. in the Hawaii post). All current posts (`oneself`, `walrus`, `revolver`, `hawaii`, `jmt`) are static server components that read their own metadata via `getPostMeta(slug)` from `src/lib/posts.ts`.
+Post pages compose from small building blocks in `src/app/posts/components/`: `PostShell` (page chrome + `PostHeader`), `Prose` (styled paragraph/heading wrapper using Tailwind `prose`), `DayHeader`/`DayBreak` (trip-report day dividers, used by the JMT and Hawaii trip reports), and `GridStack` (`ImageGridStack`, for image grids inline in prose, e.g. in the Hawaii post). `ImageGridStack` takes `rows: { images, width, columns?, ratio? }[]` (plus a stack-level `ratio`); `images` accepts bare static imports, which get the `"[photo]"` alt, or full `Photo` objects when one needs its own alt or caption. Each row is its own `DisplayGrid` with its own lightbox — intentional. Use `ratio="4/3"` for rows of phone shots so they aren't cropped to the default 3:2. All current posts (`oneself`, `walrus`, `revolver`, `hawaii`, `jmt`) are static server components that read their own metadata via `getPostMeta(slug)` from `src/lib/posts.ts`.
 
 ### Styling conventions
 
