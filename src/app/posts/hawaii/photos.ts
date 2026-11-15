@@ -17,107 +17,82 @@ import drive from "@/app/assets/posts/hawaii/drive.jpg";
 import stars from "@/app/assets/posts/hawaii/stars.jpg";
 import thinking from "@/app/assets/posts/hawaii/thinking.jpg";
 
-export const a: Photo[] = [
-  {
+// One entry per photo, keyed by filename. Grouping into rows happens at the
+// call site in page.tsx, not here.
+export const photos = {
+  food: {
     src: food,
     alt: "[photo]",
     // caption: "Josh's Digital: Above"
   },
-];
-
-export const b: Photo[] = [
-  {
+  stars: {
     src: stars,
     alt: "[photo]",
     // caption: "Josh's Digital: Above"
   },
-];
-
-export const c: Photo[] = [
-  {
+  thinking: {
     src: thinking,
     alt: "[photo]",
     // caption: "My Digital: (Thinking...)"
   },
-  {
+  claw: {
     src: claw,
     alt: "[photo]",
     // caption: "Josh's Digital: Claw"
   },
-];
-
-export const e: Photo[] = [
-  {
+  launch: {
     src: launch,
     alt: "[photo]",
     // caption: "Josh's Digital: Launch"
   },
-  {
+  lean: {
     src: lean,
     alt: "[photo]",
     // caption: "Josh's Digital: Launch"
   },
-];
-
-export const f: Photo[] = [
-  {
+  crest: {
     src: crest,
     alt: "[photo]",
     // caption: "Josh's Digital: Crest"
   },
-];
-
-export const g: Photo[] = [
-  {
+  coast: {
     src: coast,
     alt: "[photo]",
     // caption: "Josh's Digital: Coast"
   },
-];
-
-export const h: Photo[] = [
-  {
+  cook: {
     src: cook,
     alt: "[photo]",
     // caption: "Josh's Digital: Coast"
   },
-  {
+  bay: {
     src: bay,
     alt: "[photo]",
     // caption: "Josh's Digital: Coast"
   },
-];
-
-export const i: Photo[] = [
-  {
+  white: {
     src: white,
     alt: "[photo]",
     // caption: "Josh's Digital: Coast"
   },
-];
-
-export const j: Photo[] = [
-  {
+  towel: {
     src: towel,
     alt: "[photo]",
     // caption: "Josh's Digital: Above"
   },
-  {
+  goat: {
     src: goat,
     alt: "[photo]",
     // caption: "Josh's Digital: Claw"
   },
-];
-
-export const k: Photo[] = [
-  {
+  school: {
     src: school,
     alt: "[photo]",
     // caption: "Josh's Digital: Above"
   },
-  {
+  drive: {
     src: drive,
     alt: "[photo]",
     // caption: "Josh's Digital: Claw"
   },
-];
+} satisfies Record<string, Photo>;

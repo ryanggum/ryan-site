@@ -5,7 +5,7 @@ import PostShell from "../components/PostShell";
 import { Prose } from "../components/Prose";
 import { DayBreak } from "../components/DayBreak";
 import { ImageGridStack } from "../components/GridStack";
-import { a, b, c, e, f, g, h, i, j, k } from "./photos";
+import { photos } from "./photos";
 import { getPostMeta, stripHtml } from "@/lib/posts";
 
 const post = getPostMeta("hawaii")!;
@@ -63,7 +63,7 @@ export default function Page() {
         am lucky Josh kicked them on. We made the peak and burrowed behind some
         rocks before looking up.
       </Prose>
-      <ImageGridStack title="Hawaii" images={b} width={600} />
+      <ImageGridStack title="Hawaii" images={[photos.stars]} width={600} />
       <Prose>
         What to do with a night sky? This was not a matter of white dotting
         black but bright dotting light, flowers—Rigel, Sirius, them all—topping
@@ -80,7 +80,11 @@ export default function Page() {
         the galaxy toward the trail of Vega falling over the edge of the world
         for Lyra all left in our minds the choice.
       </Prose>
-      <ImageGridStack title="Hawaii" images={[c, a]} width={[600, 330]} />
+      <ImageGridStack
+        title="Hawaii"
+        images={[[photos.thinking, photos.claw], [photos.food]]}
+        width={[600, 330]}
+      />
       <Prose>
         I couldn’t sleep that night. As we walked down the hill not more than
         once did we shoot our heads back in ridiculous ambush, too weak to
@@ -133,7 +137,11 @@ export default function Page() {
         blast that was quite proficient at finding the right silts for our eyes,
         which otherwise made out barren gorgeous.
       </Prose>
-      <ImageGridStack title="Hawaii" images={[e, f]} width={[600, 330]} />
+      <ImageGridStack
+        title="Hawaii"
+        images={[[photos.launch, photos.lean], [photos.crest]]}
+        width={[600, 330]}
+      />
       <Prose>
         At the crest of the bay, olivine joined the mix for a sharper lashing.
         Josh dove under it and sprinted down the 60% grade of tinted sand for a
@@ -161,7 +169,7 @@ export default function Page() {
         earth really, really, really not choosing place but who. Lifting my hair
         run rigid black eying that frame of fire squinting on I saw.
       </Prose>
-      <ImageGridStack title="Hawaii" images={g} width={600} />
+      <ImageGridStack title="Hawaii" images={[photos.coast]} width={600} />
       <Prose>
         Back, land stretched surreal. Windless and in the northern fence, we
         pushed the boat launch until even in her there were no words, none as
@@ -172,7 +180,11 @@ export default function Page() {
         the <i>Last Crusade</i>, crushing weakened in the cycles of dreams.
       </Prose>
       <DayBreak />
-      <ImageGridStack title="Hawaii" images={k} width={600} />
+      <ImageGridStack
+        title="Hawaii"
+        images={[photos.school, photos.drive]}
+        width={600}
+      />
       <Prose>
         Exhausted? I pray less than this prose but more than we who rewound by
         hate for the three pounds of milk and almonds in our fridge drove to
@@ -202,7 +214,11 @@ export default function Page() {
         to see the tiger shark there because it meant it was not currently in
         Kealakekua Bay.
       </Prose>
-      <ImageGridStack title="Hawaii" images={h} width={600} />
+      <ImageGridStack
+        title="Hawaii"
+        images={[photos.cook, photos.bay]}
+        width={600}
+      />
       <Prose>
         A short time later we descended 1,400 feet into Kealakekua Bay. A
         succession of grass, rock, rubble, and dirt brought us to Captain
@@ -238,7 +254,11 @@ export default function Page() {
         turns, save at the final heights, where I finally recognized it better
         to give all the last to Josh.
       </Prose>
-      <ImageGridStack title="Hawaii" images={[j, i]} width={[600, 330]} />
+      <ImageGridStack
+        title="Hawaii"
+        images={[[photos.towel, photos.goat], [photos.white]]}
+        width={[600, 330]}
+      />
       <Prose>
         We made it to the CTS dripping wet, carried the last portion by Tahitian
         limeade, and aggressive on the downhill tried to catch the last of the
