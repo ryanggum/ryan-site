@@ -1,7 +1,7 @@
 // src/app/posts/components/GridStack.tsx
 import type { StaticImageData } from "next/image";
 import DisplayGrid from "@/app/components/display/DisplayGrid";
-import type { AspectRatio, Photo } from "@/lib/types";
+import type { AspectRatio, Photo, Video } from "@/lib/types";
 
 // The alt every post photo has used so far; applied to bare image imports.
 const DEFAULT_ALT = "[photo]";
@@ -19,13 +19,18 @@ function toPhoto(input: PhotoInput): Photo {
     : (input as Photo);
 }
 
-export type GridRow = {
-  images: PhotoInput[];
+// A row is all photos or all clips, never mixed (same rule as DisplayGrid).
+export type GridRow = (
+  { images: PhotoInput[]; videos?: never } | { videos: Video[]; images?: never }
+) & {
   /** Max width of this row in px; it shrinks below that with the page. */
   width: number;
   /** Fixed column count; defaults to 1/2/3 by image count. */
   columns?: number;
-  /** Overrides the stack-level `ratio` for this row. */
+  /**
+   * Overrides the stack-level `ratio` for this row. Clip rows ignore the
+   * stack-level ratio and keep each clip's own shape unless set here.
+   */
   ratio?: AspectRatio;
 };
 
@@ -49,10 +54,11 @@ export function ImageGridStack({
         <DisplayGrid
           key={i}
           title={title}
-          images={row.images.map(toPhoto)}
+          {...(row.images
+            ? { images: row.images.map(toPhoto), ratio: row.ratio ?? ratio }
+            : { videos: row.videos, ratio: row.ratio })}
           width={row.width}
           columns={row.columns}
-          ratio={row.ratio ?? ratio}
         />
       ))}
     </div>

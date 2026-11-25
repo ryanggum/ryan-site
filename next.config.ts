@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
     // re-optimization/cache-write churn on every-page-view-after-expiry).
     minimumCacheTTL: 31536000,
   },
+  turbopack: {
+    rules: {
+      // Let post clips be static-imported next to their photos: Turbopack
+      // has no built-in mp4 handling, and `asset` emits the file and
+      // resolves the import to its hashed URL (typed in src/video.d.ts).
+      "*.mp4": { type: "asset" },
+    },
+  },
 };
 
 export default nextConfig;

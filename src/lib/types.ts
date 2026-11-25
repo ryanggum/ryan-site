@@ -8,6 +8,18 @@ export type Photo = {
   preview?: boolean;
 };
 
+/**
+ * A GIF-style clip: muted, looping, autoplaying. `src` is a static .mp4
+ * import (a URL). `poster` is a static import of its first frame; it shows
+ * while the clip loads and its intrinsic size gives the clip's aspect ratio
+ * without waiting on video metadata (so no layout shift).
+ */
+export type Video = {
+  src: string;
+  poster: StaticImageData;
+  caption?: string;
+};
+
 export type AlbumMeta = Readonly<{
   i: number;
   date: number;

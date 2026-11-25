@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import type { Photo } from "@/lib/types";
+import type { Photo, Video } from "@/lib/types";
 
 // Minimum horizontal travel (px) for a touch to count as a swipe, and how
 // much more horizontal than vertical it must be, so a sloppy tap or a
@@ -13,20 +13,24 @@ const SWIPE_AXIS_RATIO = 1.5;
 
 export default function Lightbox({
   images,
+  videos,
   activeIndex,
   title = "Image viewer",
   onClose,
   onNavigate,
-}: {
-  images: Photo[];
+}: (
+  { images: Photo[]; videos?: never } | { videos: Video[]; images?: never }
+) & {
   activeIndex: number;
   title?: string;
   onClose: () => void;
   onNavigate: (index: number) => void;
 }) {
-  const item = images[activeIndex];
+  const photo = images?.[activeIndex];
+  const video = videos?.[activeIndex];
+  const count = images?.length ?? videos?.length ?? 0;
   const hasPrev = activeIndex > 0;
-  const hasNext = activeIndex < images.length - 1;
+  const hasNext = activeIndex < count - 1;
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -40,7 +44,7 @@ export default function Lightbox({
   const preloadedRef = useRef(new Map<string, HTMLImageElement>());
   function preloadNeighbors() {
     for (const i of [activeIndex + 1, activeIndex - 1]) {
-      const url = images[i]?.src.src;
+      const url = images?.[i]?.src.src;
       if (!url || preloadedRef.current.has(url)) continue;
       const img = new window.Image();
       img.src = url;
@@ -134,7 +138,7 @@ export default function Lightbox({
     else if (dx > 0 && hasPrev) onNavigate(activeIndex - 1);
   }
 
-  const alt = item.alt?.trim() || item.caption?.trim() || title;
+  const alt = photo?.alt?.trim() || photo?.caption?.trim() || title;
 
   return (
     <div
@@ -157,16 +161,38 @@ export default function Lightbox({
       {/* Intrinsic width/height come from the static import; CSS caps the
           rendered box at 92vw × 88vh and object-contain keeps the aspect,
           so no JS viewport tracking is needed. */}
-      <Image
-        src={item.src}
-        alt={alt}
-        className="max-w-[92vw] max-h-[88vh] w-auto h-auto object-contain"
-        loading="eager"
-        fetchPriority="high"
-        unoptimized
-        onClick={(e) => e.stopPropagation()}
-        onLoad={preloadNeighbors}
-      />
+      {photo && (
+        <Image
+          src={photo.src}
+          alt={alt}
+          className="max-w-[92vw] max-h-[88vh] w-auto h-auto object-contain"
+          loading="eager"
+          fetchPriority="high"
+          unoptimized
+          onClick={(e) => e.stopPropagation()}
+          onLoad={preloadNeighbors}
+        />
+      )}
+      {/* Same sizing trick as the photo: the poster's intrinsic size sets
+          width/height, CSS caps the box. Keyed by src so stepping to the
+          next clip remounts and restarts playback instead of swapping src
+          under a playing element. */}
+      {video && (
+        <video
+          key={video.src}
+          src={video.src}
+          poster={video.poster.src}
+          width={video.poster.width}
+          height={video.poster.height}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-label={video.caption?.trim() || title}
+          className="max-w-[92vw] max-h-[88vh] w-auto h-auto object-contain"
+          onClick={(e) => e.stopPropagation()}
+        />
+      )}
     </div>
   );
 }
