@@ -146,6 +146,15 @@ export const albums: AlbumMeta[] = [
     location: [],
     page: true,
   },
+  {
+    i: 19,
+    date: 202606,
+    film: { iso: 200, stock: "" },
+    slug: "saguaro",
+    title: "Saguaro",
+    location: [],
+    page: true,
+  },
 ];
 
 export const albumSlugs = albums.map((a) => ({ slug: a.slug }));

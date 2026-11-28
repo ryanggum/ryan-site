@@ -47,3 +47,5 @@ next-env.d.ts
 # raw JMT photo/video dump; picks used by the post go in jmt/ (tracked)
 /src/app/assets/posts/jmt-raw/
 /src/app/posts/jmt-raw/
+# local-only graphic page
+/src/app/posts/gulf-airports/
